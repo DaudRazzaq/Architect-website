@@ -1,0 +1,40 @@
+.services {
+    background-color: var(--color-bg);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.services .container-fluid {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+@media (max-width: 968px) {
+    .services {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .services .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .services-grid {
+        gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+}

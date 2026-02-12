@@ -1,0 +1,222 @@
+/* Studio Hero Section */
+.studio-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.studio-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.4) 100%);
+}
+
+.studio-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.studio-hero-location {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.studio-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
+}
+
+.studio-hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.studio-hero-scroll svg {
+    animation: bounce 2s infinite;
+}
+
+/* Studio About Section */
+.studio-about {
+    background-color: var(--color-bg);
+    padding: var(--spacing-2xl) 0;
+}
+
+.studio-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.studio-about-title-col {
+    position: sticky;
+    top: 120px;
+}
+
+.studio-about-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.studio-about-content-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.studio-about-content-col p {
+    color: var(--color-text-light);
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Studio Team Section */
+.studio-team {
+    background-color: var(--color-bg);
+    padding: var(--spacing-2xl) 0;
+}
+
+.studio-team-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    color: var(--color-primary);
+    text-align: center;
+    margin: 0 0 var(--spacing-xl) 0;
+}
+
+.studio-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.team-card {
+    background: var(--color-bg);
+    transition: transform var(--transition-base);
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+}
+
+.team-card-image {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.team-card-content {
+    padding: 0;
+}
+
+.team-card-role {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-lighter);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team-card-social {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.team-card-social a {
+    color: var(--color-text-light);
+    transition: color var(--transition-base);
+}
+
+.team-card-social a:hover {
+    color: var(--color-primary);
+}
+
+.team-card-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin: var(--spacing-sm) 0;
+}
+
+.team-card-description {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+@media (max-width: 968px) {
+    .studio-about-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .studio-about-title-col {
+        position: static;
+    }
+
+    .studio-team-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .studio-hero {
+        min-height: 600px;
+    }
+
+    .studio-hero-title {
+        font-size: 3rem;
+    }
+
+    .team-card-image {
+        height: 350px;
+    }
+}

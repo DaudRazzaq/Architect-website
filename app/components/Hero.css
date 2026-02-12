@@ -1,0 +1,108 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-image: url('/A0.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-bottom: 5rem;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.05) 0%,
+            rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero-title {
+    color: white;
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 6.5vw, 5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero-discover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.hero-discover:hover {
+    transform: translateY(5px);
+    color: white;
+}
+
+.hero-arrow {
+    animation: bounce 2s infinite;
+    opacity: 0.9;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(8px);
+    }
+
+    60% {
+        transform: translateY(4px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        min-height: 600px;
+        padding-bottom: 4rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-discover {
+        font-size: 0.625rem;
+    }
+}
