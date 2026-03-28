@@ -1,67 +1,330 @@
+/* ========================
+   ABOUT US SECTION
+   ======================== */
+
 .about {
     background-color: var(--color-bg);
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) 0 var(--spacing-xl);
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.about-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    white-space: nowrap;
+}
+
+.about-header-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
     align-items: start;
 }
 
 .about-title-col {
-    position: static;
-}
-
-.about-subtitle {
-    display: block;
-    font-size: clamp(0.75rem, 1.2vw, 0.875rem);
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: 1rem;
+    position: sticky;
+    top: 120px;
 }
 
 .about-title {
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 3.25rem);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.15;
     color: var(--color-primary);
+    margin: 0 0 1.5rem 0;
+}
+
+.about-lead {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.7;
+    color: var(--color-text-light);
     margin: 0;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1.25rem;
 }
 
 .about-content-col {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: 1.25rem;
 }
 
 .about-content-col p {
     color: var(--color-text-light);
-    font-size: clamp(0.875rem, 1.5vw, 0.9375rem);
-    line-height: 1.8;
+    font-size: clamp(0.9rem, 1.5vw, 0.9375rem);
+    line-height: 1.85;
     margin: 0;
 }
 
 .about-link {
-    display: inline-block;
-    margin-top: var(--spacing-sm);
+    display: inline-flex;
+    align-items: center;
+    margin-top: var(--spacing-md);
     font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 1.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--color-primary);
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    text-decoration: none;
     transition: all var(--transition-base);
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--color-primary);
 }
 
 .about-link:hover {
     color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+    padding-left: 4px;
 }
+
+
+/* ========================
+   OUR APPROACH SECTION
+   ======================== */
+
+.approach-section {
+    background-color: var(--color-bg-dark);
+    padding: var(--spacing-2xl) 0;
+    color: #fff;
+}
+
+.approach-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.approach-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.approach-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 400;
+    color: #fff;
+    margin: 0 0 1.5rem;
+}
+
+.approach-header-line {
+    width: 60px;
+    height: 2px;
+    background: var(--color-accent);
+    margin: 0 auto;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.approach-card {
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.approach-card:hover {
+    border-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(-4px);
+}
+
+.approach-card-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 1.25rem;
+}
+
+.approach-card-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 400;
+    color: #fff;
+    margin: 0 0 1rem;
+    line-height: 1.3;
+}
+
+.approach-card p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* ========================
+   WHY WORK WITH US SECTION
+   ======================== */
+
+.why-section {
+    background-color: var(--color-bg);
+    padding: var(--spacing-2xl) 0;
+}
+
+.why-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.why-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.why-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 400;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.why-card {
+    padding: 2.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+}
+
+.why-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.why-card-icon {
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+}
+
+.why-card h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 2vw, 1.3rem);
+    font-weight: 500;
+    color: var(--color-primary);
+    margin: 0 0 0.875rem;
+    line-height: 1.3;
+}
+
+.why-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* Professional Statement */
+.professional-statement {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.professional-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.professional-statement p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin: 0 0 1rem;
+}
+
+.professional-tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-primary) !important;
+    font-size: 1.05rem !important;
+    margin-top: 1rem !important;
+}
+
+
+/* Quote */
+.about-quote {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) 0;
+    position: relative;
+}
+
+.about-quote-mark {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--color-accent);
+    opacity: 0.3;
+    margin-bottom: -1.5rem;
+}
+
+.about-quote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+
+/* ========================
+   RESPONSIVE
+   ======================== */
 
 @media (max-width: 968px) {
     .about-grid {
@@ -74,6 +337,33 @@
     }
 
     .about-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .about {
+        padding: var(--spacing-xl) 0 var(--spacing-lg);
+    }
+
+    .approach-section,
+    .why-section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .approach-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .why-card {
+        padding: 2rem 1.5rem;
     }
 }
