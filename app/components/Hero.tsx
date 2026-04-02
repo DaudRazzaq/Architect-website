@@ -1,7 +1,9 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import './Hero.css';
+
 import logo from '../assets/logo.png';
 import hero1 from '../assets/hero1.png';
 import hero2 from '../assets/hero2.png';
@@ -11,6 +13,32 @@ import hero5 from '../assets/hero5.png';
 import hero6 from '../assets/hero6.png';
 
 export default function Hero() {
+    const [headerHidden, setHeaderHidden] = useState(false);
+    const lastScrollY = useRef(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY <= 20) {
+                setHeaderHidden(false);
+                lastScrollY.current = currentScrollY;
+                return;
+            }
+
+            if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+                setHeaderHidden(true);
+            } else if (currentScrollY < lastScrollY.current) {
+                setHeaderHidden(false);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const navLeft = [
         { label: 'Home', href: '#home' },
         { label: 'Projects', href: '#projects' },
@@ -23,12 +51,6 @@ export default function Hero() {
         { label: 'Contact', href: '/contact' },
     ];
 
-    const sideLinks = [
-        { label: 'Discover', href: '#about' },
-        { label: 'Projects', href: '#projects' },
-        { label: 'Contact', href: '/contact' },
-    ];
-
     const slides = [hero1, hero2, hero3, hero4, hero5, hero6];
     const slidingTrack = [...slides, ...slides];
 
@@ -36,11 +58,16 @@ export default function Hero() {
         <section id="home" className="hero">
             <div className="hero-media-track" aria-hidden="true">
                 {slidingTrack.map((slide, index) => (
-                    <div
-                        key={`${slide.src}-${index}`}
-                        className="hero-media-slide"
-                        style={{ backgroundImage: `url(${slide.src})` }}
-                    />
+                    <div key={`${slide.src}-${index}`} className="hero-media-slide">
+                        <Image
+                            src={slide}
+                            alt=""
+                            fill
+                            priority={index < 2}
+                            sizes="100vw"
+                            className="hero-media-image"
+                        />
+                    </div>
                 ))}
             </div>
 
@@ -48,7 +75,7 @@ export default function Hero() {
             <div className="hero-overlay-gradient"></div>
 
             <div className="hero-shell">
-                <header className="hero-header">
+                <header className={`hero-header ${headerHidden ? 'hero-header-hidden' : ''}`}>
                     <div className="hero-nav-grid">
                         <nav className="hero-nav hero-nav-left" aria-label="Primary left">
                             {navLeft.map((item) => (
@@ -81,31 +108,6 @@ export default function Hero() {
                         ))}
                     </nav>
                 </header>
-
-                <div className="hero-main">
-                    <div className="hero-content">
-                        <div className="hero-title-wrap">
-                            <span className="hero-title-line" aria-hidden="true"></span>
-
-                            <h1 className="hero-title">
-                                Architecture
-                                <br />
-                                Studio in Oslo
-                            </h1>
-
-                            <span className="hero-title-line" aria-hidden="true"></span>
-                        </div>
-                    </div>
-
-                    <aside className="hero-side-links" aria-label="Primary actions">
-                        {sideLinks.map((link) => (
-                            <a key={link.label} href={link.href} className="hero-side-link">
-                                <span className="hero-side-label">{link.label}</span>
-                                <span className="hero-side-stroke" aria-hidden="true"></span>
-                            </a>
-                        ))}
-                    </aside>
-                </div>
             </div>
         </section>
     );
