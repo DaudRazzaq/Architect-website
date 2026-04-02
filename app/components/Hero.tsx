@@ -15,11 +15,15 @@ import hero6 from '../assets/hero6.png';
 export default function Hero() {
     const [headerHidden, setHeaderHidden] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isPastHero, setIsPastHero] = useState(false);
     const lastScrollY = useRef(0);
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
+            const heroTrigger = Math.max(window.innerHeight * 0.72, 420);
+
+            setIsPastHero(currentScrollY > heroTrigger);
 
             if (currentScrollY <= 20) {
                 setHeaderHidden(false);
@@ -27,17 +31,25 @@ export default function Hero() {
                 return;
             }
 
-            if (currentScrollY > lastScrollY.current && currentScrollY > 100 && !mobileMenuOpen) {
-                setHeaderHidden(true);
-            } else if (currentScrollY < lastScrollY.current) {
-                setHeaderHidden(false);
+            if (!mobileMenuOpen) {
+                if (currentScrollY > lastScrollY.current && currentScrollY > 140) {
+                    setHeaderHidden(true);
+                } else if (currentScrollY < lastScrollY.current) {
+                    setHeaderHidden(false);
+                }
             }
 
             lastScrollY.current = currentScrollY;
         };
 
+        handleScroll();
         window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
     }, [mobileMenuOpen]);
 
     useEffect(() => {
@@ -48,15 +60,15 @@ export default function Hero() {
     }, [mobileMenuOpen]);
 
     const navLeft = [
-        { label: 'Home', href: '#home' },
-        { label: 'Projects', href: '#projects' },
-        { label: 'Services', href: '/services' },
+        { label: 'ABOUT US', href: '#about' },
+        { label: 'OUR WORK', href: '#projects' },
+        { label: 'SERVICES', href: '/services' },
     ];
 
     const navRight = [
-        { label: 'Studio', href: '/studio' },
-        { label: 'News', href: '/blog' },
-        { label: 'Contact', href: '/contact' },
+        { label: 'FAQS', href: '/faqs' },
+        { label: 'JOURNAL', href: '/blog' },
+        { label: 'CONTACT', href: '/contact' },
     ];
 
     const mobileNav = [...navLeft, ...navRight];
@@ -87,7 +99,14 @@ export default function Hero() {
             <div className="hero-overlay-gradient"></div>
 
             <div className="hero-shell">
-                <header className={`hero-header ${headerHidden ? 'hero-header-hidden' : ''}`}>
+                <header
+                    className={[
+                        'hero-header',
+                        headerHidden ? 'hero-header-hidden' : '',
+                        isPastHero ? 'hero-header-scrolled' : 'hero-header-hero',
+                        mobileMenuOpen ? 'hero-header-menu-open' : '',
+                    ].join(' ')}
+                >
                     <div className="hero-nav-grid">
                         <nav className="hero-nav hero-nav-left" aria-label="Primary left">
                             {navLeft.map((item) => (
@@ -115,7 +134,12 @@ export default function Hero() {
                     <div className="hero-mobile-bar">
                         <a href="#home" className="hero-brand hero-brand-mobile" aria-label="Home">
                             <div className="hero-brand-inner hero-brand-inner-mobile">
-                                <Image src={logo} alt="Logo" className="hero-logo hero-logo-mobile" priority />
+                                <Image
+                                    src={logo}
+                                    alt="Logo"
+                                    className="hero-logo hero-logo-mobile"
+                                    priority
+                                />
                             </div>
                         </a>
 
