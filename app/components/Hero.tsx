@@ -14,6 +14,7 @@ import hero6 from '../assets/hero6.png';
 
 export default function Hero() {
     const [headerHidden, setHeaderHidden] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const lastScrollY = useRef(0);
 
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function Hero() {
                 return;
             }
 
-            if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+            if (currentScrollY > lastScrollY.current && currentScrollY > 100 && !mobileMenuOpen) {
                 setHeaderHidden(true);
             } else if (currentScrollY < lastScrollY.current) {
                 setHeaderHidden(false);
@@ -37,7 +38,14 @@ export default function Hero() {
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [mobileMenuOpen]);
+
+    useEffect(() => {
+        document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [mobileMenuOpen]);
 
     const navLeft = [
         { label: 'Home', href: '#home' },
@@ -51,8 +59,12 @@ export default function Hero() {
         { label: 'Contact', href: '/contact' },
     ];
 
+    const mobileNav = [...navLeft, ...navRight];
+
     const slides = [hero1, hero2, hero3, hero4, hero5, hero6];
     const slidingTrack = [...slides, ...slides];
+
+    const closeMenu = () => setMobileMenuOpen(false);
 
     return (
         <section id="home" className="hero">
@@ -85,7 +97,7 @@ export default function Hero() {
                             ))}
                         </nav>
 
-                        <a href="#home" className="hero-brand" aria-label="Home">
+                        <a href="#home" className="hero-brand hero-brand-desktop" aria-label="Home">
                             <div className="hero-brand-inner">
                                 <Image src={logo} alt="Logo" className="hero-logo" priority />
                             </div>
@@ -100,14 +112,55 @@ export default function Hero() {
                         </nav>
                     </div>
 
-                    <nav className="hero-nav-mobile" aria-label="Mobile navigation">
-                        {[...navLeft, ...navRight].map((item) => (
-                            <a key={item.label} href={item.href} className="hero-nav-link">
-                                {item.label}
-                            </a>
-                        ))}
-                    </nav>
+                    <div className="hero-mobile-bar">
+                        <a href="#home" className="hero-brand hero-brand-mobile" aria-label="Home">
+                            <div className="hero-brand-inner hero-brand-inner-mobile">
+                                <Image src={logo} alt="Logo" className="hero-logo hero-logo-mobile" priority />
+                            </div>
+                        </a>
+
+                        <button
+                            type="button"
+                            className={`hero-menu-toggle ${mobileMenuOpen ? 'is-open' : ''}`}
+                            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                            aria-expanded={mobileMenuOpen}
+                            onClick={() => setMobileMenuOpen((prev) => !prev)}
+                        >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
                 </header>
+
+                <div
+                    className={`hero-mobile-drawer ${mobileMenuOpen ? 'hero-mobile-drawer-open' : ''}`}
+                    aria-hidden={!mobileMenuOpen}
+                >
+                    <div className="hero-mobile-drawer-inner">
+                        <nav className="hero-mobile-drawer-nav" aria-label="Mobile navigation">
+                            {mobileNav.map((item) => (
+                                <a
+                                    key={item.label}
+                                    href={item.href}
+                                    className="hero-mobile-drawer-link"
+                                    onClick={closeMenu}
+                                >
+                                    {item.label}
+                                </a>
+                            ))}
+                        </nav>
+                    </div>
+                </div>
+
+                {mobileMenuOpen && (
+                    <button
+                        type="button"
+                        className="hero-mobile-backdrop"
+                        aria-label="Close menu overlay"
+                        onClick={closeMenu}
+                    />
+                )}
             </div>
         </section>
     );
