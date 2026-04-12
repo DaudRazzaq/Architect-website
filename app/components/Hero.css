@@ -13,8 +13,7 @@
     position: absolute;
     inset: 0;
     display: flex;
-    width: 1200vw;
-    animation: heroPan 100s linear infinite;
+    width: 100vw;
     will-change: transform;
 }
 
@@ -326,16 +325,6 @@
     border: 0;
     background: rgba(0, 0, 0, 0.28);
     cursor: pointer;
-}
-
-/* Animations */
-@keyframes heroPan {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-600vw);
-    }
 }
 
 /* Tablet and below */

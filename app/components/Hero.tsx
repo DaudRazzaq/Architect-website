@@ -12,10 +12,14 @@ import hero4 from '../assets/hero4.png';
 import hero5 from '../assets/hero5.png';
 import hero6 from '../assets/hero6.png';
 
+const HERO_SLIDES = [hero1, hero2, hero3, hero4, hero5, hero6];
+
 export default function Hero() {
     const [headerHidden, setHeaderHidden] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isPastHero, setIsPastHero] = useState(false);
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [isSlideTransitioning, setIsSlideTransitioning] = useState(true);
     const lastScrollY = useRef(0);
 
     useEffect(() => {
@@ -59,6 +63,37 @@ export default function Hero() {
         };
     }, [mobileMenuOpen]);
 
+    useEffect(() => {
+        const slideInterval = window.setInterval(() => {
+            setActiveSlide((prev) => prev + 1);
+        }, 5000);
+
+        return () => {
+            window.clearInterval(slideInterval);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (activeSlide !== HERO_SLIDES.length) {
+            return;
+        }
+
+        const resetTimer = window.setTimeout(() => {
+            setIsSlideTransitioning(false);
+            setActiveSlide(0);
+
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(() => {
+                    setIsSlideTransitioning(true);
+                });
+            });
+        }, 700);
+
+        return () => {
+            window.clearTimeout(resetTimer);
+        };
+    }, [activeSlide]);
+
     const navLeft = [
         { label: 'ABOUT US', href: '#about' },
         { label: 'OUR WORK', href: '#projects' },
@@ -73,14 +108,20 @@ export default function Hero() {
 
     const mobileNav = [...navLeft, ...navRight];
 
-    const slides = [hero1, hero2, hero3, hero4, hero5, hero6];
-    const slidingTrack = [...slides, ...slides];
+    const slidingTrack = [...HERO_SLIDES, HERO_SLIDES[0]];
+    const mediaTrackStyle = {
+        width: `${slidingTrack.length * 100}vw`,
+        transform: `translate3d(-${activeSlide * 100}vw, 0, 0)`,
+        transition: isSlideTransitioning
+            ? 'transform 700ms cubic-bezier(0.2, 0.65, 0.2, 1)'
+            : 'none',
+    };
 
     const closeMenu = () => setMobileMenuOpen(false);
 
     return (
         <section id="home" className="hero">
-            <div className="hero-media-track" aria-hidden="true">
+            <div className="hero-media-track" aria-hidden="true" style={mediaTrackStyle}>
                 {slidingTrack.map((slide, index) => (
                     <div key={`${slide.src}-${index}`} className="hero-media-slide">
                         <Image

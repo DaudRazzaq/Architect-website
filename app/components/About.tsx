@@ -1,29 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import './About.css';
-import ourApproachImage from '../assets/ourApprouch.png';
 
 export default function About() {
-    const approachItems = [
-        {
-            title: 'We notice the things',
-            text: 'From the small frustrations you have stopped noticing to the habits that shape how you live, we pay attention. We listen first, ask the right questions, and look closely at how your home works day to day so the design solves real problems, not just aesthetic ones.',
-        },
-        {
-            title: 'We make the seemingly impossible, possible',
-            text: 'London homes come with constraints: tight footprints, awkward layouts, limited light, and planning or structural limits. We thrive on finding smart ways through them by rethinking flow, unlocking hidden storage, reshaping sightlines, and using light and proportion to make spaces feel bigger, brighter, and calmer.',
-        },
-        {
-            title: 'We design for real life',
-            text: 'Beautiful interiors only matter if they work effortlessly. We balance atmosphere with function, creating spaces that support routines, gatherings, privacy, and rest. Every decision, from layout to materials, is made with longevity, comfort, and daily use in mind.',
-        },
-        {
-            title: 'We build for the future',
-            text: 'Sustainability is part of every conversation. We prioritize improving what already exists, choosing durable materials, and designing details that age well. The goal is a home that costs less to run, wastes less, and feels better to live in now and years from now.',
-        },
-    ];
-
     return (
         <>
             {/* About Us Section */}
@@ -53,37 +32,6 @@ export default function About() {
                             <a href="/studio" className="about-link">
                                 DISCOVER OUR STUDIO →
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Our Approach Section */}
-            <section className="approach-section">
-                <div className="container">
-                    <div className="approach-editorial-layout">
-                        <div className="approach-editorial-copy">
-                            <span className="approach-label">OUR APPROACH</span>
-                            <div className="approach-editorial-blocks">
-                                {approachItems.map((item) => (
-                                    <article className="approach-block" key={item.title}>
-                                        <h3 className="approach-block-title">{item.title}</h3>
-                                        <p className="approach-block-text">{item.text}</p>
-                                    </article>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="approach-editorial-media">
-                            <div className="approach-editorial-image-wrap">
-                                <Image
-                                    src={ourApproachImage}
-                                    alt="Our approach"
-                                    className="approach-editorial-image"
-                                    fill
-                                    sizes="(max-width: 1080px) 100vw, 42vw"
-                                />
-                            </div>
                         </div>
                     </div>
                 </div>

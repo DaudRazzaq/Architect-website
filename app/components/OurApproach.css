@@ -1,0 +1,239 @@
+/* ====================================
+   OUR APPROACH  —  Cinematic Scroll
+   ==================================== */
+
+.oa-section {
+    position: relative;
+    height: 300vh;
+    background: #f7f5f0;
+}
+
+.oa-stage {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #f7f5f0;
+}
+
+/* ---- Editorial Text (Left) ---- */
+
+.oa-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.oa-content-inner {
+    width: 100%;
+    max-width: var(--container-max, 1400px);
+    margin: 0 auto;
+    padding: 0 var(--container-padding, 2rem);
+    pointer-events: auto;
+}
+
+.oa-eyebrow {
+    display: block;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #8a857a;
+    margin-bottom: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.oa-blocks {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.oa-block {
+    padding: clamp(1.5rem, 2.2vw, 2.2rem) 0;
+    border-top: 1px solid rgba(60, 55, 45, 0.1);
+}
+
+.oa-block:last-child {
+    border-bottom: 1px solid rgba(60, 55, 45, 0.1);
+}
+
+.oa-block-title {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.12rem, 1.5vw, 1.44rem);
+    font-weight: 400;
+    line-height: 1.32;
+    letter-spacing: 0.01em;
+    color: #2a2520;
+    margin: 0 0 0.7rem;
+}
+
+.oa-block-body {
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: clamp(0.84rem, 0.95vw, 0.91rem);
+    line-height: 1.82;
+    color: #716b60;
+    margin: 0;
+    max-width: 48ch;
+}
+
+/* ---- Cinematic Image (Right) ---- */
+
+.oa-visual {
+    position: absolute;
+    top: 4vh;
+    right: 0;
+    width: 48%;
+    height: 92vh;
+    z-index: 1;
+    overflow: hidden;
+    background: #d4cfc5;
+    transform-origin: 100% 50%;
+    will-change: transform;
+}
+
+.oa-img {
+    object-fit: cover;
+    object-position: center 40%;
+}
+
+.oa-darken {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(18, 16, 12, 0.06) 0%,
+        rgba(18, 16, 12, 0.18) 100%
+    );
+    pointer-events: none;
+}
+
+.oa-fade-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(255, 255, 255, 0.45) 80%,
+        rgba(255, 255, 255, 0.92) 100%
+    );
+    pointer-events: none;
+}
+
+/* ====================================
+   TABLET
+   ==================================== */
+
+@media (max-width: 1024px) {
+    .oa-visual {
+        width: 50%;
+        height: 88vh;
+    }
+
+    .oa-blocks {
+        max-width: 400px;
+    }
+}
+
+/* ====================================
+   MOBILE
+   ==================================== */
+
+@media (max-width: 768px) {
+    .oa-section {
+        height: auto;
+    }
+
+    .oa-stage {
+        position: relative;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        padding: clamp(3.5rem, 8vw, 5rem) 0;
+    }
+
+    .oa-content {
+        position: relative;
+        inset: auto;
+        display: block;
+        pointer-events: auto;
+        will-change: auto;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .oa-content-inner {
+        padding: 0 var(--container-padding, 1.5rem);
+    }
+
+    .oa-blocks {
+        max-width: 100%;
+    }
+
+    .oa-visual {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: calc(100% - var(--container-padding, 1.5rem) * 2);
+        height: clamp(300px, 65vw, 450px);
+        margin: 0 auto;
+        will-change: auto;
+        transform: none !important;
+        clip-path: polygon(6% 0%, 100% 0%, 100% 96%, 0% 100%) !important;
+    }
+
+    .oa-fade-bottom {
+        display: none;
+    }
+}
+
+/* ====================================
+   REDUCED MOTION
+   ==================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .oa-section {
+        height: auto;
+    }
+
+    .oa-stage {
+        position: relative;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        padding: clamp(3.5rem, 8vw, 5rem) 0;
+    }
+
+    .oa-content {
+        position: relative;
+        inset: auto;
+        will-change: auto;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .oa-visual {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: calc(100% - var(--container-padding, 2rem) * 2);
+        height: 450px;
+        margin: 0 auto;
+        will-change: auto;
+        transform: none !important;
+        clip-path: polygon(6% 0%, 100% 0%, 100% 96%, 0% 100%) !important;
+    }
+
+    .oa-fade-bottom {
+        display: none;
+    }
+}

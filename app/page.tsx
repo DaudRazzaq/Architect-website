@@ -1,5 +1,6 @@
 import Hero from './components/Hero';
 import About from './components/About';
+import OurApproach from './components/OurApproach';
 import Services from './components/Services';
 import Team from './components/Team';
 import Projects from './components/Projects';
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <Hero />
       <About />
+      <OurApproach />
       <Services />
       <Team />
       <Projects />
