@@ -68,7 +68,7 @@ export default function ContactPage() {
                         <div className="contact-form-wrapper">
                             <h1 className="contact-title">Let's Talk</h1>
                             <p className="contact-description">
-                                Get in touch with our Oslo-based architecture studio to discuss your next project.
+                                Get in touch with our London-based architecture studio to discuss your next project.
                                 We look forward to collaborating with you.
                             </p>
 

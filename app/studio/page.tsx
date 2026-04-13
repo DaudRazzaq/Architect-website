@@ -35,7 +35,7 @@ export default function StudioPage() {
             <section className="studio-hero">
                 <div className="studio-hero-overlay"></div>
                 <div className="studio-hero-content">
-                    <span className="studio-hero-location">OSLO</span>
+                    <span className="studio-hero-location">LONDON</span>
                     <h1 className="studio-hero-title">Studio</h1>
                     <div className="studio-hero-scroll">
                         <span>SCROLL</span>
@@ -55,7 +55,7 @@ export default function StudioPage() {
                         </div>
                         <div className="studio-about-content-col">
                             <p>
-                                Welcome to our Oslo-based architecture studio, where creativity meets functionality in every design.
+                                Welcome to our London-based architecture studio, where creativity meets functionality in every design.
                                 We specialize in commercial, multipurpose, and residential architecture, crafting spaces that not
                                 only meet your needs but also inspire and delight. Our approach is rooted in a deep understanding
                                 of each client's vision, allowing us to tailor our designs to reflect your unique style and requirements.

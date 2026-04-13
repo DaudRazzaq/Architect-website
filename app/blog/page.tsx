@@ -11,37 +11,37 @@ export default function BlogPage() {
             title: 'Sustainable Design: Building a Greener Future in Architecture',
             description: 'Explore eco-friendly materials and innovative practices that are shaping the future of sustainable architecture, reducing environmental impact significantly.',
             date: 'Dec 15, 2024',
-            gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+            image: '/b1.webp'
         },
         {
             title: 'Maximizing Space: Tips for Multipurpose Architecture',
             description: 'Learn how to create versatile, adaptable spaces that meet various needs, optimizing functionality and flexibility in architectural design.',
             date: 'Nov 28, 2024',
-            gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+            image: '/b2.webp'
         },
         {
             title: 'Enhancing Business through Thoughtful Design',
             description: 'Architectural design can improve customer experiences, boost productivity, and drive success in commercial environments.',
             date: 'Nov 10, 2024',
-            gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+            image: '/b3.webp'
         },
         {
             title: 'Modern Minimalism in Residential Architecture',
             description: 'Discover how minimalist design principles create serene, functional living spaces that emphasize quality over quantity.',
             date: 'Oct 22, 2024',
-            gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+            image: '/image1b.webp'
         },
         {
             title: 'The Future of Smart Buildings',
             description: 'Exploring how technology integration is revolutionizing building management, energy efficiency, and occupant comfort.',
             date: 'Oct 5, 2024',
-            gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+            image: '/A0.webp'
         },
         {
             title: 'Preserving Heritage Through Modern Design',
             description: 'How contemporary architecture can honor historical context while meeting modern functional requirements.',
             date: 'Sep 18, 2024',
-            gradient: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+            image: '/hero6.png'
         }
     ];
 
@@ -60,7 +60,7 @@ export default function BlogPage() {
                                 title={article.title}
                                 description={article.description}
                                 date={article.date}
-                                gradient={article.gradient}
+                                image={article.image}
                             />
                         ))}
                     </div>

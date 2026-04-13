@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import './Preloader.css';
+import './components/Preloader.css';
 
 interface EdgeSegment {
     x1: number;

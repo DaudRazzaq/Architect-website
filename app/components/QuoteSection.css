@@ -1,0 +1,153 @@
+/* ====================================
+   QUOTE SECTION — Editorial Testimonial
+   ==================================== */
+
+.qs-section {
+    position: relative;
+    width: 100%;
+    min-height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.qs-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 8, 0.52);
+    pointer-events: none;
+}
+
+.qs-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1440px;
+    padding: clamp(3rem, 7vh, 5rem) clamp(2rem, 6vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.qs-mark {
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(4.5rem, 8vw, 7rem);
+    font-weight: 700;
+    line-height: 0.8;
+    color: rgba(255, 255, 255, 0.96);
+    margin-bottom: 1.25rem;
+}
+
+.qs-label {
+    display: block;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+.qs-quote {
+    margin: 0;
+    padding: 0;
+    border: none;
+    max-width: 52ch;
+    font-family: var(--font-display, 'Cormorant Garamond', 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.05rem, 1.7vw, 1.7rem);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.96);
+    text-align: center;
+}
+
+.qs-attribution {
+    display: block;
+    margin-top: 1.5rem;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.78rem;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ====================================
+   TABLET
+   ==================================== */
+
+@media (max-width: 1024px) {
+    .qs-section {
+        min-height: 56vh;
+    }
+
+    .qs-content {
+        max-width: 100%;
+        padding: 2.75rem 2rem;
+    }
+
+    .qs-quote {
+        max-width: 46ch;
+        font-size: clamp(1rem, 2.2vw, 1.35rem);
+        line-height: 1.5;
+    }
+
+    .qs-mark {
+        margin-bottom: 1rem;
+    }
+}
+
+/* ====================================
+   MOBILE
+   ==================================== */
+
+@media (max-width: 768px) {
+    .qs-section {
+        min-height: 50vh;
+        background-attachment: scroll;
+        background-position: center center;
+    }
+
+    .qs-content {
+        padding: 2.25rem 1.25rem;
+    }
+
+    .qs-mark {
+        font-size: clamp(3.5rem, 12vw, 5rem);
+        margin-bottom: 0.85rem;
+    }
+
+    .qs-quote {
+        max-width: 100%;
+        font-size: clamp(0.98rem, 4.6vw, 1.2rem);
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .qs-section {
+        min-height: 46vh;
+    }
+}
+
+/* ====================================
+   REDUCED MOTION
+   ==================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .qs-section {
+        background-attachment: scroll;
+    }
+}

@@ -1,239 +1,321 @@
 /* ====================================
-   OUR APPROACH  —  Cinematic Scroll
+   OUR APPROACH — 3D Visible Final
    ==================================== */
 
 .oa-section {
-    position: relative;
-    height: 300vh;
-    background: #f7f5f0;
+  position: relative;
+  background: #ffffff;
+  overflow: visible;
+  margin-top: var(--spacing-2xl, 8rem);
 }
 
 .oa-stage {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: #f7f5f0;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #ffffff;
+  overflow: hidden;
 }
 
-/* ---- Editorial Text (Left) ---- */
+/* =========================
+   LEFT TEXT
+   ========================= */
 
 .oa-content {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-    will-change: transform, opacity;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 56%;
+  width: 56%;
+  max-width: 56%;
+  box-sizing: border-box;
+  padding-top: clamp(1.8rem, 3vw, 2.6rem);
+  padding-right: clamp(2rem, 3.2vw, 3.2rem);
+  padding-bottom: clamp(2.8rem, 4vw, 4rem);
+  padding-left: clamp(2.5rem, 5vw, 5.4rem);
+  will-change: transform, opacity;
 }
 
-.oa-content-inner {
-    width: 100%;
-    max-width: var(--container-max, 1400px);
-    margin: 0 auto;
-    padding: 0 var(--container-padding, 2rem);
-    pointer-events: auto;
+.oa-text-panel {
+  width: 100%;
+  max-width: 720px;
+}
+
+.oa-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: var(--spacing-xl, 4rem);
+}
+
+.oa-header-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border, #e5e5e5);
 }
 
 .oa-eyebrow {
-    display: block;
-    font-family: var(--font-primary, 'Inter', sans-serif);
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    color: #8a857a;
-    margin-bottom: clamp(2rem, 3.5vw, 3.5rem);
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent, #d4a574);
+  white-space: nowrap;
+  margin: 0;
 }
 
 .oa-blocks {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.8rem, 2.3vw, 2.5rem);
 }
 
 .oa-block {
-    padding: clamp(1.5rem, 2.2vw, 2.2rem) 0;
-    border-top: 1px solid rgba(60, 55, 45, 0.1);
-}
-
-.oa-block:last-child {
-    border-bottom: 1px solid rgba(60, 55, 45, 0.1);
+  margin: 0;
+  padding: 0;
 }
 
 .oa-block-title {
-    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-    font-size: clamp(1.12rem, 1.5vw, 1.44rem);
-    font-weight: 400;
-    line-height: 1.32;
-    letter-spacing: 0.01em;
-    color: #2a2520;
-    margin: 0 0 0.7rem;
+  margin: 0 0 0.7rem;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: clamp(1.45rem, 1.55vw, 1.95rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #12110f;
 }
 
 .oa-block-body {
-    font-family: var(--font-primary, 'Inter', sans-serif);
-    font-size: clamp(0.84rem, 0.95vw, 0.91rem);
-    line-height: 1.82;
-    color: #716b60;
-    margin: 0;
-    max-width: 48ch;
+  margin: 0;
+  max-width: 35ch;
+  font-family: var(--font-display, 'Cormorant Garamond', 'Playfair Display', Georgia, serif);
+  font-size: clamp(1rem, 1.02vw, 1.14rem);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  color: #38332e;
 }
 
-/* ---- Cinematic Image (Right) ---- */
+/* =========================
+   RIGHT IMAGE 3D
+   ========================= */
 
-.oa-visual {
-    position: absolute;
-    top: 4vh;
-    right: 0;
-    width: 48%;
-    height: 92vh;
-    z-index: 1;
-    overflow: hidden;
-    background: #d4cfc5;
-    transform-origin: 100% 50%;
-    will-change: transform;
+.oa-visual-shell {
+  position: sticky;
+  top: 0;
+  flex: 0 0 44%;
+  width: 44%;
+  max-width: 44%;
+  height: 100vh;
+  z-index: 1;
+  overflow: visible;
+  perspective: 1800px;
+  perspective-origin: 100% 50%;
+}
+
+.oa-visual-card {
+  position: relative;
+  width: 112%;
+  height: 100%;
+  margin-left: -12%;
+  transform-origin: 100% 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.oa-visual-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: clip-path;
+}
+
+.oa-media-layer {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .oa-img {
-    object-fit: cover;
-    object-position: center 40%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  transform: scale(1.03);
+  backface-visibility: hidden;
 }
 
 .oa-darken {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(18, 16, 12, 0.06) 0%,
-        rgba(18, 16, 12, 0.18) 100%
-    );
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 16, 12, 0.04) 0%,
+    rgba(18, 16, 12, 0.16) 100%
+  );
+  pointer-events: none;
 }
 
 .oa-fade-bottom {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        transparent 55%,
-        rgba(255, 255, 255, 0.45) 80%,
-        rgba(255, 255, 255, 0.92) 100%
-    );
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 58%,
+    rgba(255, 255, 255, 0.32) 82%,
+    rgba(255, 255, 255, 0.88) 100%
+  );
+  pointer-events: none;
 }
 
-/* ====================================
+/* =========================
+   LARGE DESKTOP
+   ========================= */
+
+@media (min-width: 1440px) {
+  .oa-text-panel {
+    max-width: 760px;
+  }
+
+  .oa-block-body {
+    max-width: 37ch;
+  }
+}
+
+/* =========================
    TABLET
-   ==================================== */
+   ========================= */
 
-@media (max-width: 1024px) {
-    .oa-visual {
-        width: 50%;
-        height: 88vh;
-    }
+@media (max-width: 1180px) {
+  .oa-content {
+    flex: 0 0 58%;
+    width: 58%;
+    max-width: 58%;
+    padding-left: clamp(1.5rem, 3.2vw, 2.4rem);
+    padding-right: clamp(1.3rem, 2.4vw, 2rem);
+  }
 
-    .oa-blocks {
-        max-width: 400px;
-    }
+  .oa-visual-shell {
+    flex: 0 0 42%;
+    width: 42%;
+    max-width: 42%;
+  }
+
+  .oa-text-panel {
+    max-width: 100%;
+  }
+
+  .oa-block-title {
+    font-size: clamp(1.35rem, 1.6vw, 1.7rem);
+  }
+
+  .oa-block-body {
+    max-width: 34ch;
+    font-size: clamp(0.98rem, 1vw, 1.08rem);
+  }
 }
 
-/* ====================================
+/* =========================
    MOBILE
-   ==================================== */
+   ========================= */
 
 @media (max-width: 768px) {
-    .oa-section {
-        height: auto;
-    }
+  .oa-stage {
+    flex-direction: column;
+    min-height: auto;
+    overflow: visible;
+  }
 
-    .oa-stage {
-        position: relative;
-        height: auto;
-        overflow: visible;
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        padding: clamp(3.5rem, 8vw, 5rem) 0;
-    }
+  .oa-content {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+    padding:
+      clamp(2.6rem, 8vw, 3.6rem)
+      var(--container-padding, 1.5rem)
+      clamp(2rem, 6vw, 2.8rem);
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
-    .oa-content {
-        position: relative;
-        inset: auto;
-        display: block;
-        pointer-events: auto;
-        will-change: auto;
-        opacity: 1 !important;
-        transform: none !important;
-    }
+  .oa-text-panel {
+    max-width: 100%;
+  }
 
-    .oa-content-inner {
-        padding: 0 var(--container-padding, 1.5rem);
-    }
+  .oa-eyebrow {
+    font-size: 0.92rem;
+    margin-bottom: 1.4rem;
+  }
 
-    .oa-blocks {
-        max-width: 100%;
-    }
+  .oa-blocks {
+    gap: 1.8rem;
+  }
 
-    .oa-visual {
-        position: relative;
-        top: auto;
-        right: auto;
-        width: calc(100% - var(--container-padding, 1.5rem) * 2);
-        height: clamp(300px, 65vw, 450px);
-        margin: 0 auto;
-        will-change: auto;
-        transform: none !important;
-        clip-path: polygon(6% 0%, 100% 0%, 100% 96%, 0% 100%) !important;
-    }
+  .oa-block-title {
+    font-size: clamp(1.35rem, 5.6vw, 1.8rem);
+    margin-bottom: 0.65rem;
+  }
 
-    .oa-fade-bottom {
-        display: none;
-    }
+  .oa-block-body {
+    max-width: 100%;
+    font-size: clamp(0.98rem, 4.1vw, 1.08rem);
+    line-height: 1.66;
+  }
+
+  .oa-visual-shell {
+    position: relative;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+    height: clamp(300px, 70vw, 430px);
+    perspective: none;
+  }
+
+  .oa-visual-card {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    transform: none !important;
+  }
+
+  .oa-visual-media {
+    clip-path: polygon(2% 0%, 100% 0%, 100% 98%, 0% 100%) !important;
+  }
+
+  .oa-img {
+    transform: none;
+  }
+
+  .oa-fade-bottom {
+    display: none;
+  }
 }
 
-/* ====================================
+/* =========================
    REDUCED MOTION
-   ==================================== */
+   ========================= */
 
 @media (prefers-reduced-motion: reduce) {
-    .oa-section {
-        height: auto;
-    }
+  .oa-content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
-    .oa-stage {
-        position: relative;
-        height: auto;
-        overflow: visible;
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        padding: clamp(3.5rem, 8vw, 5rem) 0;
-    }
+  .oa-visual-card {
+    transform: none !important;
+  }
 
-    .oa-content {
-        position: relative;
-        inset: auto;
-        will-change: auto;
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    .oa-visual {
-        position: relative;
-        top: auto;
-        right: auto;
-        width: calc(100% - var(--container-padding, 2rem) * 2);
-        height: 450px;
-        margin: 0 auto;
-        will-change: auto;
-        transform: none !important;
-        clip-path: polygon(6% 0%, 100% 0%, 100% 96%, 0% 100%) !important;
-    }
-
-    .oa-fade-bottom {
-        display: none;
-    }
+  .oa-visual-media {
+    clip-path: polygon(2% 0%, 100% 0%, 100% 98%, 0% 100%) !important;
+  }
 }

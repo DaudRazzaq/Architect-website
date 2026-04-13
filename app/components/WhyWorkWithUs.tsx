@@ -11,34 +11,33 @@ import {
   animate,
 } from 'framer-motion';
 import './OurApproach.css';
-import ourApproachImage from '../assets/ourApprouch.webp';
+import whyImage from '../assets/hero2.png';
 
 const blocks = [
   {
-    title: 'We notice the things',
-    body: 'From seemingly understated questions about how you live now or envisage living, to understanding the little niggles that add friction to daily life, we listen first and adapt second.',
+    title: 'Clear guidance from start to finish',
+    body: 'Every home — and every client — is different. We begin by understanding your goals, your property, and what "better living" looks like for you. From there, we give clear recommendations, define a sensible scope, and guide you through each decision so the process feels calm, structured, and manageable.',
   },
   {
-    title: 'We make the seemingly impossible, possible',
-    body: "We're creative thinkers and practical doers who thrive on a challenge. From clever project phasing to overcome planning constraints, to strategic tricks to add space or increase natural light and air flow, we craft solutions as unique as the clients we work with.",
+    title: 'Practical, buildable design',
+    body: 'We design with delivery in mind. That means layouts that work, details that make sense, and information that helps contractors price accurately and build with confidence. Our focus is on creating interiors that look beautiful on paper — and perform beautifully in real life.',
   },
   {
-    title: 'We build for life',
-    body: 'Sustainability is woven into every conversation. We guide clients to make informed choices, delivering homes that last, feel more comfortable, cost less to run, and leave a smaller carbon footprint. From feasibility to delivery, we are looking to the future.',
+    title: 'A calmer, more considered home',
+    body: 'We design spaces that support modern living: better flow, improved storage, stronger natural light, and a cohesive material palette that brings everything together. The result is a home that feels lighter, more comfortable, and more connected to the way you live day to day.',
   },
   {
-    title: 'We deliver',
-    body: "We don't cut corners. We don't overpromise. We deliver exceptional homes that are thoughtfully designed, buildable, and achievable within sensible timeframes, because you deserve to live better now.",
+    title: 'Sustainable thinking, naturally',
+    body: "Sustainability is woven into every conversation. We prioritise improving what already exists, choosing durable materials, and making responsible design decisions that reduce waste and help your home last longer. It's a quieter approach to sustainability — focused on comfort, longevity, and thoughtful choices.",
   },
 ];
 
 const EXPAND_THRESHOLD = 0.75;
-
 const IMG_SPRING = { type: 'spring', stiffness: 60, damping: 18, mass: 1 } as const;
 const TEXT_OUT = { duration: 0.35, ease: [0.4, 0, 0.2, 1] } as const;
 const TEXT_IN = { duration: 0.45, ease: [0.0, 0, 0.2, 1] } as const;
 
-export default function OurApproach() {
+export default function WhyWorkWithUs() {
   const sectionRef = useRef<HTMLElement>(null);
   const isExpanded = useRef(false);
 
@@ -50,15 +49,12 @@ export default function OurApproach() {
   const imageScale = useMotionValue(1);
   const cpAVal = useMotionValue(3);
   const cpBVal = useMotionValue(98.5);
-
   const imageX = useMotionValue(24);
   const imageRotateY = useMotionValue(-10);
   const imageRotateZ = useMotionValue(-1.2);
   const imageY = useMotionValue(0);
-
   const textOpacityVal = useMotionValue(1);
   const textYVal = useMotionValue(0);
-
   const overlayOpacity = useMotionValue(0.02);
   const gradientOpacity = useMotionValue(0);
 
@@ -70,66 +66,34 @@ export default function OurApproach() {
   const expand = useCallback(() => {
     if (isExpanded.current) return;
     isExpanded.current = true;
-
     animate(imageScale, 2.34, IMG_SPRING);
     animate(cpAVal, 0, IMG_SPRING);
     animate(cpBVal, 100, IMG_SPRING);
-
     animate(imageX, 0, IMG_SPRING);
     animate(imageRotateY, 0, IMG_SPRING);
     animate(imageRotateZ, 0, IMG_SPRING);
     animate(imageY, 0, IMG_SPRING);
-
     animate(textOpacityVal, 0, TEXT_OUT);
     animate(textYVal, -30, TEXT_OUT);
-
     animate(overlayOpacity, 0.22, IMG_SPRING);
     animate(gradientOpacity, 0.85, IMG_SPRING);
-  }, [
-    imageScale,
-    cpAVal,
-    cpBVal,
-    imageX,
-    imageRotateY,
-    imageRotateZ,
-    imageY,
-    textOpacityVal,
-    textYVal,
-    overlayOpacity,
-    gradientOpacity,
-  ]);
+  }, [imageScale, cpAVal, cpBVal, imageX, imageRotateY, imageRotateZ, imageY, textOpacityVal, textYVal, overlayOpacity, gradientOpacity]);
 
   const collapse = useCallback(() => {
     if (!isExpanded.current) return;
     isExpanded.current = false;
-
     animate(imageScale, 1, IMG_SPRING);
     animate(cpAVal, 3, IMG_SPRING);
     animate(cpBVal, 98.5, IMG_SPRING);
-
     animate(imageX, 24, IMG_SPRING);
     animate(imageRotateY, -10, IMG_SPRING);
     animate(imageRotateZ, -1.2, IMG_SPRING);
     animate(imageY, 0, IMG_SPRING);
-
     animate(textOpacityVal, 1, TEXT_IN);
     animate(textYVal, 0, TEXT_IN);
-
     animate(overlayOpacity, 0.02, IMG_SPRING);
     animate(gradientOpacity, 0, IMG_SPRING);
-  }, [
-    imageScale,
-    cpAVal,
-    cpBVal,
-    imageX,
-    imageRotateY,
-    imageRotateZ,
-    imageY,
-    textOpacityVal,
-    textYVal,
-    overlayOpacity,
-    gradientOpacity,
-  ]);
+  }, [imageScale, cpAVal, cpBVal, imageX, imageRotateY, imageRotateZ, imageY, textOpacityVal, textYVal, overlayOpacity, gradientOpacity]);
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (latest >= EXPAND_THRESHOLD) expand();
@@ -145,10 +109,9 @@ export default function OurApproach() {
         >
           <div className="oa-text-panel">
             <div className="oa-header">
-              <span className="oa-eyebrow">OUR APPROACH</span>
+              <span className="oa-eyebrow">WHY WORK WITH US</span>
               <div className="oa-header-line"></div>
             </div>
-
             <div className="oa-blocks">
               {blocks.map((item) => (
                 <article key={item.title} className="oa-block">
@@ -171,30 +134,19 @@ export default function OurApproach() {
               rotateZ: imageRotateZ,
             }}
           >
-            <motion.div
-              className="oa-visual-media"
-              style={{ clipPath }}
-            >
+            <motion.div className="oa-visual-media" style={{ clipPath }}>
               <div className="oa-media-layer">
                 <Image
-                  src={ourApproachImage}
-                  alt="Refined architectural interior showcasing our design philosophy"
+                  src={whyImage}
+                  alt="Our studio at work — collaborative, structured, and delivery-focused"
                   fill
                   className="oa-img"
                   sizes="(max-width: 768px) 100vw, 44vw"
                   priority={false}
                 />
               </div>
-
-              <motion.div
-                className="oa-darken"
-                style={{ opacity: overlayOpacity }}
-              />
-
-              <motion.div
-                className="oa-fade-bottom"
-                style={{ opacity: gradientOpacity }}
-              />
+              <motion.div className="oa-darken" style={{ opacity: overlayOpacity }} />
+              <motion.div className="oa-fade-bottom" style={{ opacity: gradientOpacity }} />
             </motion.div>
           </motion.div>
         </div>

@@ -9,25 +9,25 @@ export default function Projects() {
             title: 'Harborview Office',
             category: 'Residential',
             year: '2025',
-            gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+            image: '/b1.webp'
         },
         {
             title: 'Nordic Serenity',
             category: 'Multipurpose',
             year: '2025',
-            gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+            image: '/b2.webp'
         },
         {
             title: 'Green City',
             category: 'Commercial',
             year: '2023',
-            gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+            image: '/b3.webp'
         },
         {
             title: 'New Culture',
             category: 'Commercial',
             year: '2024',
-            gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+            image: '/image1b.webp'
         }
     ];
 
@@ -47,7 +47,7 @@ export default function Projects() {
                             title={project.title}
                             category={project.category}
                             year={project.year}
-                            gradient={project.gradient}
+                            image={project.image}
                         />
                     ))}
                 </div>

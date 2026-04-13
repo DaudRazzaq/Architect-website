@@ -10,9 +10,9 @@ export default function Footer() {
                 <div className="footer-grid">
                     <div className="footer-brand">
                         <Link href="/" className="footer-logo">
-                            AYANO
+                            AUREON STUDIO
                         </Link>
-                        <p className="footer-copyright">© by Gola Templates</p>
+                        <p className="footer-copyright">© {new Date().getFullYear()} Aureon Studio. All rights reserved.</p>
                         <div className="footer-social">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -40,28 +40,28 @@ export default function Footer() {
                     <div className="footer-column">
                         <h4 className="footer-column-title">Pages</h4>
                         <ul className="footer-links">
-                            <li><a href="#home">HOME</a></li>
-                            <li><a href="#services">SERVICES</a></li>
-                            <li><a href="#about">STUDIO</a></li>
-                            <li><a href="#contact">CONTACT</a></li>
+                            <li><a href="/">HOME</a></li>
+                            <li><a href="/services">SERVICES</a></li>
+                            <li><a href="/studio">STUDIO</a></li>
+                            <li><a href="/contact">CONTACT</a></li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
-                        <h4 className="footer-column-title">CMS</h4>
+                        <h4 className="footer-column-title">Explore</h4>
                         <ul className="footer-links">
-                            <li><a href="#projects">WORK</a></li>
-                            <li><a href="#projects">WORK SINGLE</a></li>
-                            <li><a href="#news">BLOG</a></li>
-                            <li><a href="#news">BLOG SINGLE</a></li>
+                            <li><a href="/#projects">PROJECTS</a></li>
+                            <li><a href="/#about">ABOUT US</a></li>
+                            <li><a href="/blog">JOURNAL</a></li>
+                            <li><a href="/#team">OUR TEAM</a></li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
-                        <h4 className="footer-column-title">Utility Pages</h4>
+                        <h4 className="footer-column-title">Connect</h4>
                         <ul className="footer-links">
-                            <li><a href="#home">404 ERROR PAGE</a></li>
-                            <li><a href="#home">LICENSING</a></li>
+                            <li><a href="/contact">GET IN TOUCH</a></li>
+                            <li><a href="/#services">OUR PROCESS</a></li>
                         </ul>
                     </div>
                 </div>

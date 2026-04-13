@@ -13,7 +13,7 @@
 /* Left Side - Image and Social */
 .contact-left {
     position: relative;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: url('/hero6.png') center/cover no-repeat;
 }
 
 .contact-image {
@@ -102,7 +102,7 @@
     border: 1px solid var(--color-border);
     background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: var(--font-body);
+    font-family: var(--font-primary);
     font-size: 0.9375rem;
     transition: border-color var(--transition-base);
     outline: none;

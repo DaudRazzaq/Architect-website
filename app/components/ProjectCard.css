@@ -14,10 +14,20 @@
     overflow: hidden;
     margin-bottom: var(--spacing-md);
     transition: transform var(--transition-slow);
+    background: #e8e4dc;
 }
 
-.project-card:hover .project-card-image {
-    transform: scale(1.02);
+.project-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.55s ease;
+}
+
+.project-card:hover .project-card-img {
+    transform: scale(1.04);
 }
 
 .project-card-content {

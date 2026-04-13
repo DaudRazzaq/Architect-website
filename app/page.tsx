@@ -1,5 +1,7 @@
 import Hero from './components/Hero';
 import About from './components/About';
+import QuoteSection from './components/QuoteSection';
+import WhyWorkWithUs from './components/WhyWorkWithUs';
 import OurApproach from './components/OurApproach';
 import Services from './components/Services';
 import Team from './components/Team';
@@ -13,7 +15,19 @@ export default function Home() {
     <main>
       <Hero />
       <About />
+      <QuoteSection
+        image="/hero6.png"
+        label="A Quiet Belief"
+        quote="Great architecture is not born from ambition alone — it is drawn from patience, from listening, from the quiet understanding of how people truly want to live."
+        attribution="Aureon Studio"
+      />
       <OurApproach />
+      <QuoteSection
+        image="/hero4.png"
+        quote="It was a transition from listening to what our needs and problems were, and what kind of aspirations we had, and then converting those into solutions."
+        attribution="— Client"
+      />
+      <WhyWorkWithUs />
       <Services />
       <Team />
       <Projects />
