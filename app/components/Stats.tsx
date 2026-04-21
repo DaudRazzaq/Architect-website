@@ -23,29 +23,12 @@ const bottomCompanies = [
   { name: "BDP", slug: "bdp" },
 ];
 
-const LogoItem = ({ company }: { company: { name: string; slug: string } }) => {
-    const [hasError, setHasError] = useState(false);
-
-    if (hasError) {
-        return <span className="brand-fallback-text">{company.name}</span>;
-    }
-
-    return (
-        <img 
-            src={`/logos/${company.slug}.svg`} 
-            alt={company.name} 
-            className="brand-logo-img" 
-            onError={() => setHasError(true)}
-        />
-    );
-};
-
 const renderTrackItems = (companies: { name: string; slug: string }[]) => {
     // Duplicate multiple times for a seamless infinite scroll
     const items = [...companies, ...companies, ...companies, ...companies, ...companies];
     return items.map((company, i) => (
         <span key={`${company.slug}-${i}`} className="ribbon-brand">
-            <LogoItem company={company} />
+            {company.name}
         </span>
     ));
 };
