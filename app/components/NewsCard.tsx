@@ -1,14 +1,13 @@
 import './NewsCard.css';
 
 interface NewsCardProps {
+    index?: number;
     title: string;
     description: string;
     date: string;
     source?: string;
     image?: string | null;
     url?: string;
-    // legacy gradient still accepted for any static usage
-    gradient?: string;
 }
 
 export default function NewsCard({
@@ -18,7 +17,6 @@ export default function NewsCard({
     source,
     image,
     url = '#',
-    gradient,
 }: NewsCardProps) {
     const isExternal = url.startsWith('http');
     const linkProps = isExternal
@@ -28,41 +26,28 @@ export default function NewsCard({
     return (
         <a
             href={url}
-            className="news-card"
+            className="news-mini-card"
             aria-label={`Read article: ${title}`}
             {...linkProps}
         >
-            <div className="news-card-image-wrap">
+            <div className="news-mini-image-wrap">
                 {image ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                        src={image}
-                        alt={title}
-                        className="news-card-img"
-                        loading="lazy"
-                    />
+                    <img src={image} className="news-mini-image" alt="" loading="lazy" />
                 ) : (
-                    <div
-                        className="news-card-placeholder"
-                        style={{
-                            background:
-                                gradient ??
-                                'linear-gradient(135deg, #e8e4dc 0%, #d0ccc4 100%)',
-                        }}
-                    />
+                    <div className="news-mini-image placeholder" />
                 )}
+                
+                <div className="news-mini-meta-overlay">
+                    <span className="news-mini-tag">{source || 'Architecture'}</span>
+                </div>
             </div>
-            <div className="news-card-content">
-                {(source || date) && (
-                    <p className="news-card-meta">
-                        {source && <span className="news-card-source">{source}</span>}
-                        {source && date && <span className="news-card-sep">·</span>}
-                        {date && <span>{date}</span>}
-                    </p>
-                )}
-                <h3 className="news-card-title">{title}</h3>
-                <p className="news-card-description">{description}</p>
-                <span className="news-card-link">READ ARTICLE</span>
+
+            <div className="news-mini-content">
+                <div className="news-mini-date">{date}</div>
+                <h3 className="news-mini-title">{title}</h3>
+                <p className="news-mini-desc">{description}</p>
+                <span className="news-mini-read-more">Read More +</span>
             </div>
         </a>
     );

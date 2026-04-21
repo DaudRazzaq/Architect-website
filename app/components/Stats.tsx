@@ -3,6 +3,53 @@
 import { useState, useEffect, useRef } from 'react';
 import './Stats.css';
 
+const topCompanies = [
+  { name: "FOSTER + PARTNERS", slug: "foster-and-partners" },
+  { name: "ZAHA HADID ARCHITECTS", slug: "zaha-hadid-architects" },
+  { name: "BIG", slug: "big" },
+  { name: "OMA", slug: "oma" },
+  { name: "SNØHETTA", slug: "snohetta" },
+  { name: "STUDIO GANG", slug: "studio-gang" },
+  { name: "GENSLER", slug: "gensler" },
+];
+
+const bottomCompanies = [
+  { name: "HOK", slug: "hok" },
+  { name: "PERKINS&WILL", slug: "perkins-will" },
+  { name: "SOM", slug: "som" },
+  { name: "NBBJ", slug: "nbbj" },
+  { name: "WOODS BAGOT", slug: "woods-bagot" },
+  { name: "HDR", slug: "hdr" },
+  { name: "BDP", slug: "bdp" },
+];
+
+const LogoItem = ({ company }: { company: { name: string; slug: string } }) => {
+    const [hasError, setHasError] = useState(false);
+
+    if (hasError) {
+        return <span className="brand-fallback-text">{company.name}</span>;
+    }
+
+    return (
+        <img 
+            src={`/logos/${company.slug}.svg`} 
+            alt={company.name} 
+            className="brand-logo-img" 
+            onError={() => setHasError(true)}
+        />
+    );
+};
+
+const renderTrackItems = (companies: { name: string; slug: string }[]) => {
+    // Duplicate multiple times for a seamless infinite scroll
+    const items = [...companies, ...companies, ...companies, ...companies, ...companies];
+    return items.map((company, i) => (
+        <span key={`${company.slug}-${i}`} className="ribbon-brand">
+            <LogoItem company={company} />
+        </span>
+    ));
+};
+
 export default function Stats() {
     const [counts, setCounts] = useState({ projects: 0, clients: 0, satisfaction: 0, growth: 0 });
     const [hasAnimated, setHasAnimated] = useState(false);
@@ -60,6 +107,12 @@ export default function Stats() {
 
     return (
         <section ref={statsRef} className="section stats">
+            <div className="ribbon-slider ribbon-top">
+                <div className="ribbon-track">
+                    {renderTrackItems(topCompanies)}
+                </div>
+            </div>
+
             <div className="container">
                 <div className="stats-grid">
                     <div className="stat-item">
@@ -82,6 +135,12 @@ export default function Stats() {
                         <div className="stat-number">{counts.growth}%</div>
                         <div className="stat-description">Going above and beyond to exceed expectations in every project.</div>
                     </div>
+                </div>
+            </div>
+
+            <div className="ribbon-slider ribbon-bottom">
+                <div className="ribbon-track reverse">
+                    {renderTrackItems(bottomCompanies)}
                 </div>
             </div>
         </section>

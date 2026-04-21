@@ -11,11 +11,47 @@ export interface NewsArticle {
 
 // ─── Fallback data (shown when API key is missing or API fails) ──────────────
 
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+// Fallback images cycled when an article has no image
+const FALLBACK_IMAGES = ['/b1.webp', '/b2.webp', '/b3.webp'];
+
 const FALLBACK_ARTICLES: NewsArticle[] = [
     {
+        title: 'Adaptive Reuse: Breathing New Life into Historic Structures',
+        description: 'Transforming abandoned industrial buildings into vibrant cultural hubs and modern lofts while preserving their historical essence and character.',
+        url: '#',
+        image: '/b3.webp',
+        publishedAt: 'Sep 18, 2024',
+        source: 'Arch Daily',
+    },
+    {
+        title: 'Minimalist Interventions: The Power of Understated Design',
+        description: 'Exploring how stripping back to the essentials can create spaces that are intensely beautiful, highly functional, and deeply calming for residents.',
+        url: '#',
+        image: '/b1.webp',
+        publishedAt: 'Sep 02, 2024',
+        source: 'Aureon Journal',
+    },
+    {
+        title: 'Light as a Medium: Sculpting Spaces with Natural Illumination',
+        description: 'Mastering the interplay of sunlight and shadow to define architectural volumes, create dramatic focal points, and warm interior palettes.',
+        url: '#',
+        image: '/b2.webp',
+        publishedAt: 'Aug 14, 2024',
+        source: 'Design Digest',
+    },
+    {
+        title: 'Tomorrow’s Materials: The Rise of Bio-Fabricated Architecture',
+        description: 'From mycelium blocks to structural timber alternatives, these emerging materials promise a radical shift in how we sustainably construct the buildings of tomorrow.',
+        url: '#',
+        image: '/b3.webp',
+        publishedAt: 'Jul 29, 2024',
+        source: 'Arch Daily',
+    },
+    {
         title: 'Sustainable Design: Building a Greener Future in Architecture',
-        description:
-            'Explore eco-friendly materials and innovative practices that are shaping the future of sustainable architecture, reducing environmental impact while enhancing quality of life.',
+        description: 'Explore eco-friendly materials and innovative practices that are shaping the future of sustainable architecture, reducing environmental impact while enhancing quality of life.',
         url: '#',
         image: '/b1.webp',
         publishedAt: 'Dec 15, 2024',
@@ -23,28 +59,13 @@ const FALLBACK_ARTICLES: NewsArticle[] = [
     },
     {
         title: 'Maximising Space: The New Principles of Multipurpose Architecture',
-        description:
-            'Learn how leading studios create versatile, adaptable spaces that meet varied needs — optimising functionality and flexibility without sacrificing elegance.',
+        description: 'Learn how leading studios create versatile, adaptable spaces that meet varied needs — optimising functionality and flexibility without sacrificing elegance.',
         url: '#',
         image: '/b2.webp',
         publishedAt: 'Nov 28, 2024',
         source: 'Aureon Studio',
     },
-    {
-        title: 'Interior Architecture and the Art of Considered Refurbishment',
-        description:
-            'How a thoughtful refurbishment approach can transform existing homes, preserving character while introducing calm, contemporary design that truly supports modern living.',
-        url: '#',
-        image: '/b3.webp',
-        publishedAt: 'Nov 10, 2024',
-        source: 'Aureon Studio',
-    },
 ];
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
-// Fallback images cycled when an article has no image
-const FALLBACK_IMAGES = ['/b1.webp', '/b2.webp', '/b3.webp'];
 
 function isValidArticle(item: Record<string, unknown>): boolean {
     return (
@@ -55,10 +76,22 @@ function isValidArticle(item: Record<string, unknown>): boolean {
     );
 }
 
-/** Upgrade http:// image URLs to https:// to avoid mixed-content blocking */
+function hasUsableImage(item: Record<string, unknown>): boolean {
+    return typeof item.image === 'string' && item.image.trim().startsWith('http');
+}
+
+function upgradeBunnyThumbnail(url: string): string {
+    const match = url.match(/^https:\/\/scx\d+\.b-cdn\.net\/csz\/news\/tmb\/([^?#]+)(?:[?#].*)?$/i);
+    if (!match) return url;
+
+    return `https://scx2.b-cdn.net/gfx/news/${match[1]}`;
+}
+
+/** Upgrade image URLs so cards use crisp, secure sources */
 function upgradeImageUrl(url: string | null | undefined, index: number): string {
     if (typeof url === 'string' && url.startsWith('http')) {
-        return url.replace(/^http:\/\//, 'https://');
+        const secureUrl = url.replace(/^http:\/\//, 'https://');
+        return upgradeBunnyThumbnail(secureUrl);
     }
     return FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
 }
@@ -88,10 +121,10 @@ export async function getLatestArchitectureNews(): Promise<NewsArticle[]> {
     try {
         const params = new URLSearchParams({
             access_key: apiKey,
-            keywords: 'architecture,architectural,interior design,urban design,sustainable design',
+            keywords: 'architecture',
             languages: 'en',
             sort: 'published_desc',
-            limit: '10',
+            limit: '20',
         });
 
         const res = await fetch(`https://api.mediastack.com/v1/news?${params}`, {
@@ -99,16 +132,22 @@ export async function getLatestArchitectureNews(): Promise<NewsArticle[]> {
         });
 
         if (!res.ok) {
-            console.error(`[news] API error ${res.status}`);
+            const errorBody = await res.text();
+            console.error(`[news] API error ${res.status}: ${errorBody}`);
             return FALLBACK_ARTICLES;
         }
 
         const data = await res.json();
         const raw: Record<string, unknown>[] = data?.data ?? [];
 
-        const valid = raw
-            .filter(isValidArticle)
-            .slice(0, 3)
+        const validArticles = raw.filter(isValidArticle);
+        const imageFirstArticles = [
+            ...validArticles.filter(hasUsableImage),
+            ...validArticles.filter((item) => !hasUsableImage(item)),
+        ];
+
+        const valid = imageFirstArticles
+            .slice(0, 9)
             .map((item, i) => ({
                 title: item.title as string,
                 description:
