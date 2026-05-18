@@ -69,11 +69,9 @@
 
 .brand-fallback-text {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
     letter-spacing: 0.1em;
-    color: var(--color-primary); /* Ensure it always matches the ribbon color scheme */
-    text-transform: uppercase;
 }
 
 .ribbon-track.reverse {

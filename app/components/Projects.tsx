@@ -1,56 +1,90 @@
 'use client';
 
+import { useState } from 'react';
+import Link from 'next/link';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 
+const projects = [
+    {
+        title: 'Oakridge House',
+        location: 'Cobham, Surrey',
+        category: 'Residential',
+        image: '/projects/oakridge-house/3.jpeg',
+        href: '/projects/oakridge-house',
+    },
+    {
+        title: 'Harborview Office',
+        location: 'London, UK',
+        category: 'Commercial',
+        image: '/b1.webp',
+    },
+    {
+        title: 'Nordic Serenity',
+        location: 'Edinburgh, Scotland',
+        category: 'Multipurpose',
+        image: '/b2.webp',
+    },
+    {
+        title: 'Green City',
+        location: 'Manchester, UK',
+        category: 'Commercial',
+        image: '/b3.webp',
+    },
+];
+
+const FILTERS = ['Residential', 'Commercial', 'Multipurpose'];
+
 export default function Projects() {
-    const projects = [
-        {
-            title: 'Harborview Office',
-            category: 'Residential',
-            year: '2025',
-            image: '/b1.webp'
-        },
-        {
-            title: 'Nordic Serenity',
-            category: 'Multipurpose',
-            year: '2025',
-            image: '/b2.webp'
-        },
-        {
-            title: 'Green City',
-            category: 'Commercial',
-            year: '2023',
-            image: '/b3.webp'
-        },
-        {
-            title: 'New Culture',
-            category: 'Commercial',
-            year: '2024',
-            image: '/image1b.webp'
-        }
-    ];
+    const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
+    const filtered = activeFilter
+        ? projects.filter((p) => p.category === activeFilter)
+        : projects;
 
     return (
-        <section id="projects" className="section projects">
-            <div className="container">
-                <div className="projects-header">
-                    <h2 className="projects-title">Latest Projects</h2>
-                    <a href="#contact" className="projects-all-link">
-                        ALL PROJECTS
-                    </a>
+        <section id="projects" className="projects">
+            {/* Section heading */}
+            <div className="projects-heading-wrap">
+                <div className="projects-heading">
+                    <span className="projects-heading-line" />
+                    <h2 className="projects-title">Our Work</h2>
+                    <span className="projects-heading-line" />
                 </div>
-                <div className="projects-grid">
-                    {projects.map((project) => (
-                        <ProjectCard
-                            key={project.title}
-                            title={project.title}
-                            category={project.category}
-                            year={project.year}
-                            image={project.image}
-                        />
-                    ))}
-                </div>
+            </div>
+
+            {/* Category filters */}
+            <div className="projects-filters">
+                {FILTERS.map((f) => (
+                    <button
+                        key={f}
+                        className={`projects-filter-btn${activeFilter === f ? ' active' : ''}`}
+                        onClick={() => setActiveFilter(activeFilter === f ? null : f)}
+                    >
+                        {f}
+                    </button>
+                ))}
+            </div>
+
+            {/* Full-width cards grid */}
+            <div className="projects-track">
+                {filtered.map((project) => (
+                    <ProjectCard
+                        key={project.title}
+                        title={project.title}
+                        category={project.category}
+                        location={project.location}
+                        image={project.image}
+                        href={project.href}
+                    />
+                ))}
+            </div>
+
+            {/* Footer link */}
+            <div className="projects-footer">
+                <Link href="/projects" className="projects-view-all">
+                    View All Projects
+                </Link>
             </div>
         </section>
     );
