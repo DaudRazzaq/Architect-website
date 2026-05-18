@@ -14,6 +14,20 @@ const projects = [
         href: '/projects/oakridge-house',
     },
     {
+        title: 'SereniFlow Wellness Centre',
+        location: 'Richmond, London',
+        category: 'Commercial',
+        image: '/projects/sereniflow-wellness-centre/1.jpeg',
+        href: '/projects/sereniflow-wellness-centre',
+    },
+    {
+        title: 'Arboré Sanctuary Café',
+        location: 'Bali, Indonesia',
+        category: 'Multipurpose',
+        image: '/projects/arbore-sanctuary-cafe/1.jpeg',
+        href: '/projects/arbore-sanctuary-cafe',
+    },
+    {
         title: 'Harborview Office',
         location: 'London, UK',
         category: 'Commercial',

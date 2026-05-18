@@ -5,25 +5,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
-import img1 from '../../assets/Project1/1.jpeg';
-import img2 from '../../assets/Project1/2.jpeg';
-import img3 from '../../assets/Project1/3.jpeg';
-import img4 from '../../assets/Project1/4.jpeg';
-import img5 from '../../assets/Project1/5.jpeg';
-import img6 from '../../assets/Project1/6.jpeg';
-import img7 from '../../assets/Project1/7.jpeg';
-import img8 from '../../assets/Project1/8.jpeg';
-import './project.css';
+import img1 from '../../assets/Project2/1.jpeg';
+import img2 from '../../assets/Project2/2.jpeg';
+import img3 from '../../assets/Project2/3.jpeg';
+import img4 from '../../assets/Project2/4.jpeg';
+import img5 from '../../assets/Project2/5.jpeg';
+import img6 from '../../assets/Project2/6.jpeg';
+import img7 from '../../assets/Project2/7.jpeg';
+import img8 from '../../assets/Project2/8.jpeg';
+import img9 from '../../assets/Project2/9.jpeg';
+import img10 from '../../assets/Project2/10.jpeg';
+import img11 from '../../assets/Project2/1.1.jpeg';
+import '../oakridge-house/project.css';
 
 const MORE_PROJECTS = [
+    { title: 'Oakridge House', category: 'Residential', image: '/projects/oakridge-house/1.jpeg' },
     { title: 'Harborview Office', category: 'Commercial', image: '/b1.webp' },
     { title: 'Nordic Serenity', category: 'Multipurpose', image: '/b2.webp' },
-    { title: 'Green City', category: 'Commercial', image: '/b3.webp' },
 ];
 
-const HERO_SLIDES = [img1, img2, img3, img4, img5, img6, img7, img8];
+const HERO_SLIDES = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11];
 
-export default function OakridgeHousePage() {
+export default function SereniflowWellnessPage() {
     const [activeSlide, setActiveSlide] = useState(0);
     const [prevSlide, setPrevSlide] = useState<number | null>(null);
     const [moreActive, setMoreActive] = useState(0);
@@ -72,12 +75,11 @@ export default function OakridgeHousePage() {
 
                 {/* ── HERO ── */}
                 <section className="pd-hero">
-                    {/* Crossfade slide stack */}
                     {HERO_SLIDES.map((src, i) => (
                         <Image
                             key={i}
                             src={src}
-                            alt={`Oakridge House — view ${i + 1}`}
+                            alt={`SereniFlow Wellness Centre — view ${i + 1}`}
                             fill
                             priority={i === 0}
                             className={`pd-hero-img pd-hero-slide${
@@ -100,11 +102,11 @@ export default function OakridgeHousePage() {
                     <div className="pd-hero-center">
                         <div className="pd-hero-title-row">
                             <span className="pd-hero-deco-line" />
-                            <h1 className="pd-hero-title">Oakridge House</h1>
+                            <h1 className="pd-hero-title">SereniFlow Wellness Centre</h1>
                             <span className="pd-hero-deco-line" />
                         </div>
-                        <p className="pd-hero-category">Residential</p>
-                        <p className="pd-hero-subtitle">A contemporary reinterpretation of the traditional Surrey family home, defined by material clarity and refined proportion.</p>
+                        <p className="pd-hero-category">Commercial</p>
+                        <p className="pd-hero-subtitle">A contemporary wellness environment designed to support movement, relaxation, and a seamless spatial experience.</p>
                     </div>
 
                     {/* Bottom bar — location + 3 feature stats */}
@@ -114,7 +116,7 @@ export default function OakridgeHousePage() {
                                 <path d="M12 21s-8-7.75-8-13A8 8 0 0 1 20 8c0 5.25-8 13-8 13Z" />
                                 <circle cx="12" cy="8" r="2.5" />
                             </svg>
-                            <span>Cobham, Surrey</span>
+                            <span>Richmond, London</span>
                         </div>
                         <div className="pd-hero-stats">
                             <div className="pd-hero-stat">
@@ -126,7 +128,7 @@ export default function OakridgeHousePage() {
                                     <line x1="30" y1="8" x2="30" y2="40"/>
                                     <rect x="20" y="30" width="8" height="10" rx="0.5"/>
                                 </svg>
-                                <p>A new-build family home combining a traditional pitched form with a refined contemporary material palette.</p>
+                                <p>A contemporary wellness environment designed around clarity, movement and a seamless spatial experience.</p>
                             </div>
                             <div className="pd-hero-stat-divider" />
                             <div className="pd-hero-stat">
@@ -138,7 +140,7 @@ export default function OakridgeHousePage() {
                                     <line x1="8" y1="18" x2="8" y2="34"/>
                                     <line x1="40" y1="18" x2="40" y2="34"/>
                                 </svg>
-                                <p>Coursed natural stone façade, dark slate roof, steel-framed glazing and a south-facing garden terrace with pool.</p>
+                                <p>Timber cladding, limestone floors, microcement walls and a double-height atrium with glass balustrade.</p>
                             </div>
                             <div className="pd-hero-stat-divider" />
                             <div className="pd-hero-stat">
@@ -148,52 +150,67 @@ export default function OakridgeHousePage() {
                                     <circle cx="24" cy="24" r="7"/>
                                     <circle cx="24" cy="24" r="2"/>
                                 </svg>
-                                <p>Open-plan ground floor living designed to connect seamlessly with outdoor terraced space and mature landscape.</p>
+                                <p>Raised movement studio, living green wall, integrated linear lighting and a circular glass lift.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* ── PLANNING & FORM ── */}
+                {/* ── CONCEPT ── */}
                 <section className="pd-text-section pd-text-section--alt pd-reveal">
-                    <h2 className="pd-section-heading">Planning &amp; Form</h2>
+                    <h2 className="pd-section-heading">Concept</h2>
                     <div className="pd-text-body">
                         <p>
-                            The design explores a contemporary response to the established residential character
-                            of Surrey. A pitched roof form is retained to align with the surrounding context,
-                            while the façade is refined through clean geometry and carefully proportioned
-                            openings. Large, vertically aligned windows enhance connections to the garden while
-                            maintaining a sense of privacy. A recessed entrance introduces depth to the
-                            elevation, creating a subtle yet defined threshold.
+                            SereniFlow Wellness Centre is conceived as a spatial environment that promotes
+                            calm through clarity and continuity. The design builds on the client&#39;s
+                            preference for a minimal, naturally lit setting, where visual noise is reduced
+                            and the focus remains on movement, balance, and wellbeing. The central platform
+                            forms the core of the space, acting as a grounding element that organises activity
+                            while allowing the surrounding environment to remain open and fluid. Vertical
+                            openness enhances this sense of lightness and connection.
                         </p>
                     </div>
                 </section>
 
-                {/* ── MATERIALS & LIGHT ── */}
+                {/* ── PLANNING & FORM ── */}
                 <section className="pd-text-section pd-reveal">
-                    <h2 className="pd-section-heading">Materials &amp; Light</h2>
+                    <h2 className="pd-section-heading">Planning &amp; Form</h2>
                     <div className="pd-text-body">
                         <p>
-                            A restrained palette of light London stock brick and dark aluminium detailing
-                            defines the external character of the house. The façade is treated as a continuous
-                            surface, avoiding fragmentation and reinforcing a calm architectural language.
-                            Generous glazing allows natural light to penetrate deep into the interior, while
-                            warm internal illumination enhances the building&#39;s presence during evening
-                            conditions.
+                            The layout is structured around a clear and efficient circulation strategy,
+                            allowing uninterrupted use of the central wellness area. A continuous walkway
+                            frames the raised platform, maintaining movement around the space without
+                            interfering with its primary function. Spatial layering reinforces openness
+                            while maintaining a controlled and balanced composition.
+                        </p>
+                    </div>
+                </section>
+
+                {/* ── MATERIAL & LIGHT ── */}
+                <section className="pd-text-section pd-text-section--alt pd-reveal">
+                    <h2 className="pd-section-heading">Material &amp; Light</h2>
+                    <div className="pd-text-body">
+                        <p>
+                            A restrained palette of timber, stone, and neutral finishes establishes a warm
+                            and cohesive interior language. Natural textures are used to soften the space,
+                            while darker elements provide contrast and definition. Daylight is maximised
+                            through large glazed openings, creating a calm and naturally evolving atmosphere.
+                            Integrated linear lighting provides soft, even illumination that supports both
+                            function and ambience.
                         </p>
                     </div>
                 </section>
 
                 {/* ── REALISATION ── */}
-                <section className="pd-text-section pd-text-section--alt pd-reveal">
+                <section className="pd-text-section pd-reveal">
                     <h2 className="pd-section-heading">Realisation</h2>
                     <div className="pd-text-body">
                         <p>
-                            The project is conceived as a buildable and contextually grounded residential
-                            scheme, reflecting construction approaches typical of the UK. Emphasis is placed
-                            on durability, material authenticity, and proportion. The result is a contemporary
-                            home that feels both modern and familiar — delivering a refined yet understated
-                            architectural presence within its suburban setting.
+                            The project translates a clear design intent into a practical and durable
+                            commercial space. Material selections and construction methods are chosen for
+                            longevity and ease of maintenance, ensuring the Centre remains functional over
+                            time. The final outcome is a balanced environment that combines simplicity,
+                            flexibility, and a refined architectural identity.
                         </p>
                     </div>
                 </section>
@@ -206,11 +223,11 @@ export default function OakridgeHousePage() {
                         <span className="pd-gallery-deco-line" />
                     </div>
                     <div className="pd-gallery-grid">
-                        {([img1, img2, img3, img4, img5, img6, img7, img8] as const).map((src, i) => (
+                        {([img1, img11, img2, img3, img4, img5, img6, img7, img8, img9, img10] as const).map((src, i) => (
                             <div key={i} className="pd-gallery-item">
                                 <Image
                                     src={src}
-                                    alt={`Oakridge House — view ${i + 1}`}
+                                    alt={`SereniFlow Wellness Centre — view ${i + 1}`}
                                     className="pd-gallery-img"
                                     style={{ width: '100%', height: 'auto', display: 'block' }}
                                 />
@@ -222,8 +239,8 @@ export default function OakridgeHousePage() {
                 {/* ── QUOTE / TESTIMONIAL ── */}
                 <section className="pd-quote-section">
                     <Image
-                        src={img5}
-                        alt="Oakridge House — interior"
+                        src={img7}
+                        alt="SereniFlow Wellness Centre — lobby"
                         fill
                         className="pd-quote-bg"
                         sizes="100vw"
@@ -232,11 +249,11 @@ export default function OakridgeHousePage() {
                     <div className="pd-quote-content pd-reveal">
                         <span className="pd-quote-marks">&ldquo;&ldquo;</span>
                         <blockquote className="pd-quote-text">
-                            The stone, the slate, the light through those full-height doors — it feels
-                            like it has always been here. It is exactly the home we imagined,
-                            and more than we hoped for.
+                            Walking in for the first time, the space just settles you. The light,
+                            the stone, the warmth of the timber — it is exactly what a wellness
+                            centre should feel like. Our clients never want to leave.
                         </blockquote>
-                        <cite className="pd-quote-cite">Client, Oakridge House — Cobham, Surrey</cite>
+                        <cite className="pd-quote-cite">Client, SereniFlow Wellness Centre — Richmond, London</cite>
                     </div>
                 </section>
 

@@ -5,25 +5,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
-import img1 from '../../assets/Project1/1.jpeg';
-import img2 from '../../assets/Project1/2.jpeg';
-import img3 from '../../assets/Project1/3.jpeg';
-import img4 from '../../assets/Project1/4.jpeg';
-import img5 from '../../assets/Project1/5.jpeg';
-import img6 from '../../assets/Project1/6.jpeg';
-import img7 from '../../assets/Project1/7.jpeg';
-import img8 from '../../assets/Project1/8.jpeg';
-import './project.css';
+import img1 from '../../assets/Project3/1.jpeg';
+import img2 from '../../assets/Project3/2.jpeg';
+import img3 from '../../assets/Project3/3.jpeg';
+import img4 from '../../assets/Project3/4.jpeg';
+import img5 from '../../assets/Project3/5.jpeg';
+import img6 from '../../assets/Project3/6.jpeg';
+import img7 from '../../assets/Project3/7.jpeg';
+import img8 from '../../assets/Project3/8.jpeg';
+import '../oakridge-house/project.css';
 
 const MORE_PROJECTS = [
+    { title: 'Oakridge House', category: 'Residential', image: '/projects/oakridge-house/3.jpeg' },
+    { title: 'SereniFlow Wellness Centre', category: 'Commercial', image: '/projects/sereniflow-wellness-centre/1.jpeg' },
     { title: 'Harborview Office', category: 'Commercial', image: '/b1.webp' },
-    { title: 'Nordic Serenity', category: 'Multipurpose', image: '/b2.webp' },
-    { title: 'Green City', category: 'Commercial', image: '/b3.webp' },
 ];
 
 const HERO_SLIDES = [img1, img2, img3, img4, img5, img6, img7, img8];
 
-export default function OakridgeHousePage() {
+export default function ArboreSanctuaryCafePage() {
     const [activeSlide, setActiveSlide] = useState(0);
     const [prevSlide, setPrevSlide] = useState<number | null>(null);
     const [moreActive, setMoreActive] = useState(0);
@@ -72,12 +72,11 @@ export default function OakridgeHousePage() {
 
                 {/* ── HERO ── */}
                 <section className="pd-hero">
-                    {/* Crossfade slide stack */}
                     {HERO_SLIDES.map((src, i) => (
                         <Image
                             key={i}
                             src={src}
-                            alt={`Oakridge House — view ${i + 1}`}
+                            alt={`Arboré Sanctuary Café — view ${i + 1}`}
                             fill
                             priority={i === 0}
                             className={`pd-hero-img pd-hero-slide${
@@ -100,11 +99,11 @@ export default function OakridgeHousePage() {
                     <div className="pd-hero-center">
                         <div className="pd-hero-title-row">
                             <span className="pd-hero-deco-line" />
-                            <h1 className="pd-hero-title">Oakridge House</h1>
+                            <h1 className="pd-hero-title">Arboré Sanctuary Café</h1>
                             <span className="pd-hero-deco-line" />
                         </div>
-                        <p className="pd-hero-category">Residential</p>
-                        <p className="pd-hero-subtitle">A contemporary reinterpretation of the traditional Surrey family home, defined by material clarity and refined proportion.</p>
+                        <p className="pd-hero-category">Multipurpose</p>
+                        <p className="pd-hero-subtitle">A contemporary hospitality space designed to blend relaxation, social interaction, and nature within a refined interior setting.</p>
                     </div>
 
                     {/* Bottom bar — location + 3 feature stats */}
@@ -114,7 +113,7 @@ export default function OakridgeHousePage() {
                                 <path d="M12 21s-8-7.75-8-13A8 8 0 0 1 20 8c0 5.25-8 13-8 13Z" />
                                 <circle cx="12" cy="8" r="2.5" />
                             </svg>
-                            <span>Cobham, Surrey</span>
+                            <span>Bali, Indonesia</span>
                         </div>
                         <div className="pd-hero-stats">
                             <div className="pd-hero-stat">
@@ -126,7 +125,7 @@ export default function OakridgeHousePage() {
                                     <line x1="30" y1="8" x2="30" y2="40"/>
                                     <rect x="20" y="30" width="8" height="10" rx="0.5"/>
                                 </svg>
-                                <p>A new-build family home combining a traditional pitched form with a refined contemporary material palette.</p>
+                                <p>A biophilic hospitality environment designed to blend café culture, relaxation and social gathering within a single cohesive space.</p>
                             </div>
                             <div className="pd-hero-stat-divider" />
                             <div className="pd-hero-stat">
@@ -138,7 +137,7 @@ export default function OakridgeHousePage() {
                                     <line x1="8" y1="18" x2="8" y2="34"/>
                                     <line x1="40" y1="18" x2="40" y2="34"/>
                                 </svg>
-                                <p>Coursed natural stone façade, dark slate roof, steel-framed glazing and a south-facing garden terrace with pool.</p>
+                                <p>Textured concrete ceiling, dark metal framework, warm timber planters and tiered planting units used as spatial dividers.</p>
                             </div>
                             <div className="pd-hero-stat-divider" />
                             <div className="pd-hero-stat">
@@ -148,52 +147,68 @@ export default function OakridgeHousePage() {
                                     <circle cx="24" cy="24" r="7"/>
                                     <circle cx="24" cy="24" r="2"/>
                                 </svg>
-                                <p>Open-plan ground floor living designed to connect seamlessly with outdoor terraced space and mature landscape.</p>
+                                <p>Arched wall recesses, exposed services overhead, warm pendant clusters and a full-height glazed street frontage.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* ── PLANNING & FORM ── */}
+                {/* ── CONCEPT ── */}
                 <section className="pd-text-section pd-text-section--alt pd-reveal">
-                    <h2 className="pd-section-heading">Planning &amp; Form</h2>
+                    <h2 className="pd-section-heading">Concept</h2>
                     <div className="pd-text-body">
                         <p>
-                            The design explores a contemporary response to the established residential character
-                            of Surrey. A pitched roof form is retained to align with the surrounding context,
-                            while the façade is refined through clean geometry and carefully proportioned
-                            openings. Large, vertically aligned windows enhance connections to the garden while
-                            maintaining a sense of privacy. A recessed entrance introduces depth to the
-                            elevation, creating a subtle yet defined threshold.
+                            Arboré Sanctuary Café is conceived as a calm, immersive environment where
+                            hospitality meets biophilic design. The space is designed to offer a layered
+                            experience — transitioning from intimate seating areas to more social dining
+                            zones — while maintaining a consistent sense of warmth and enclosure. The
+                            client&#39;s preference for a natural yet contemporary atmosphere is reflected
+                            through the integration of greenery, soft lighting, and a restrained material
+                            palette.
                         </p>
                     </div>
                 </section>
 
-                {/* ── MATERIALS & LIGHT ── */}
+                {/* ── PLANNING & FORM ── */}
                 <section className="pd-text-section pd-reveal">
-                    <h2 className="pd-section-heading">Materials &amp; Light</h2>
+                    <h2 className="pd-section-heading">Planning &amp; Form</h2>
                     <div className="pd-text-body">
                         <p>
-                            A restrained palette of light London stock brick and dark aluminium detailing
-                            defines the external character of the house. The façade is treated as a continuous
-                            surface, avoiding fragmentation and reinforcing a calm architectural language.
-                            Generous glazing allows natural light to penetrate deep into the interior, while
-                            warm internal illumination enhances the building&#39;s presence during evening
-                            conditions.
+                            The layout is organised to create clear zoning between lounge, café, and
+                            circulation areas while maintaining visual continuity across the space. Linear
+                            seating arrangements are paired with clustered social zones, allowing flexibility
+                            in how the space is used throughout the day. Repetitive architectural elements
+                            introduce rhythm and structure, while suspended planting units define spaces
+                            without creating visual barriers.
+                        </p>
+                    </div>
+                </section>
+
+                {/* ── MATERIAL & LIGHT ── */}
+                <section className="pd-text-section pd-text-section--alt pd-reveal">
+                    <h2 className="pd-section-heading">Material &amp; Light</h2>
+                    <div className="pd-text-body">
+                        <p>
+                            A combination of textured concrete finishes, warm timber, and dark metal accents
+                            establishes a balanced and grounded material palette. Integrated planting
+                            introduces a strong biophilic layer, softening the architectural edges and
+                            enhancing the overall atmosphere. Lighting is layered and intentional — warm
+                            pendant lights, concealed linear strips, and focused task lighting work together
+                            to create depth, highlight textures, and maintain a comfortable ambience.
                         </p>
                     </div>
                 </section>
 
                 {/* ── REALISATION ── */}
-                <section className="pd-text-section pd-text-section--alt pd-reveal">
+                <section className="pd-text-section pd-reveal">
                     <h2 className="pd-section-heading">Realisation</h2>
                     <div className="pd-text-body">
                         <p>
-                            The project is conceived as a buildable and contextually grounded residential
-                            scheme, reflecting construction approaches typical of the UK. Emphasis is placed
-                            on durability, material authenticity, and proportion. The result is a contemporary
-                            home that feels both modern and familiar — delivering a refined yet understated
-                            architectural presence within its suburban setting.
+                            The project is developed with a focus on durability, efficiency, and long-term
+                            usability within a commercial setting. Materials and finishes are selected for
+                            both performance and aesthetic consistency, ensuring the space remains functional
+                            under high usage. The final outcome is a cohesive hospitality environment that
+                            balances comfort, identity, and operational practicality.
                         </p>
                     </div>
                 </section>
@@ -210,7 +225,7 @@ export default function OakridgeHousePage() {
                             <div key={i} className="pd-gallery-item">
                                 <Image
                                     src={src}
-                                    alt={`Oakridge House — view ${i + 1}`}
+                                    alt={`Arboré Sanctuary Café — view ${i + 1}`}
                                     className="pd-gallery-img"
                                     style={{ width: '100%', height: 'auto', display: 'block' }}
                                 />
@@ -222,8 +237,8 @@ export default function OakridgeHousePage() {
                 {/* ── QUOTE / TESTIMONIAL ── */}
                 <section className="pd-quote-section">
                     <Image
-                        src={img5}
-                        alt="Oakridge House — interior"
+                        src={img4}
+                        alt="Arboré Sanctuary Café — dining room"
                         fill
                         className="pd-quote-bg"
                         sizes="100vw"
@@ -232,11 +247,11 @@ export default function OakridgeHousePage() {
                     <div className="pd-quote-content pd-reveal">
                         <span className="pd-quote-marks">&ldquo;&ldquo;</span>
                         <blockquote className="pd-quote-text">
-                            The stone, the slate, the light through those full-height doors — it feels
-                            like it has always been here. It is exactly the home we imagined,
-                            and more than we hoped for.
+                            The planting, the light, the textures — it all works together in a way
+                            that makes people slow down. Guests come in for a coffee and stay for hours.
+                            That is exactly what we wanted.
                         </blockquote>
-                        <cite className="pd-quote-cite">Client, Oakridge House — Cobham, Surrey</cite>
+                        <cite className="pd-quote-cite">Client, Arboré Sanctuary Café — Bali, Indonesia</cite>
                     </div>
                 </section>
 
