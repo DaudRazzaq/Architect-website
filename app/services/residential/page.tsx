@@ -1,7 +1,11 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import heroImg from '../../assets/Services/Residential.jpeg';
+import breakImg from '../../assets/Services/Residential2.jpeg';
 import '../services.css';
 
 export default function ResidentialPage() {
@@ -9,59 +13,84 @@ export default function ResidentialPage() {
         <>
             <Navigation />
 
-            <section className="service-detail-page">
-                {/* Hero Section */}
-                <div className="service-hero">
-                    <div className="service-hero-image">
-                        <div className="service-hero-overlay"></div>
-                        <div className="service-hero-label">Residential</div>
+            {/* ── HERO ── */}
+            <section className="srv-hero">
+                <Image
+                    src={heroImg}
+                    alt="Residential architecture — Aureon Studio"
+                    fill
+                    priority
+                    className="srv-hero-img"
+                    sizes="100vw"
+                />
+                <div className="srv-hero-overlay" />
+                <div className="srv-hero-content">
+                    <span className="srv-hero-eyebrow">Residential</span>
+                    <h1 className="srv-hero-title">Designing Homes That Reflect<br />the Way You Live</h1>
+                    <p className="srv-hero-desc">Our residential architecture focuses on creating thoughtful living environments shaped around everyday life.</p>
+                </div>
+                <div className="srv-hero-scroll">
+                    <span>Scroll</span>
+                    <div className="srv-hero-scroll-line" />
+                </div>
+            </section>
+
+            {/* ── INTRO ── */}
+            <section className="srv-intro">
+                <div className="srv-intro-inner">
+                    <div className="srv-intro-left">
+                        <span className="srv-intro-label">Our Approach</span>
+                        <h2 className="srv-intro-statement">We approach each home as a personal sanctuary — carefully designed to reflect individual lifestyles while maintaining clarity, comfort, and balance.</h2>
                     </div>
-                    <div className="service-hero-content">
-                        <h1 className="service-hero-title">Crafting Homes That Reflect Your Lifestyle</h1>
-                        <p className="service-hero-description">
-                            Our residential architecture services focus on creating personalized living spaces that enhance your quality of life.
-                        </p>
-                        <p className="service-hero-text">
-                            We believe that every home should be a sanctuary that reflects the unique personality and lifestyle of its
-                            inhabitants. Our approach combines functionality with beauty, creating spaces that are not only visually
-                            stunning but also perfectly tailored to your daily needs. From custom homes to renovations, we work closely
-                            with you to bring your vision to life while incorporating sustainable practices and innovative design solutions.
-                        </p>
+                    <div className="srv-intro-right">
+                        <p>Through a considered use of space, light, and material, we create interiors that feel calm, functional, and enduring. Whether designing new homes or reworking existing spaces, our process is guided by close collaboration, ensuring each project responds naturally to its context and the people who inhabit it.</p>
                     </div>
                 </div>
+            </section>
 
-                {/* Services List */}
-                <div className="service-detail-content">
-                    <div className="container">
-                        <h2 className="service-detail-label">RESIDENTIAL SERVICES</h2>
+            {/* ── IMAGE BREAK ── */}
+            <div className="srv-img-break">
+                <Image
+                    src={breakImg}
+                    alt="Residential interior — Aureon Studio"
+                    fill
+                    className="srv-img-break-photo"
+                    sizes="100vw"
+                />
+                <div className="srv-img-break-overlay" />
+            </div>
 
-                        <div className="service-detail-list">
-                            <div className="service-detail-item">
-                                <h3 className="service-detail-item-title">Custom Homes</h3>
-                                <p className="service-detail-item-description">
-                                    We design bespoke homes tailored to your specific needs and preferences. Every detail is carefully
-                                    considered to create a living space that perfectly reflects your lifestyle and personality.
-                                </p>
-                            </div>
-
-                            <div className="service-detail-item">
-                                <h3 className="service-detail-item-title">Home Renovations</h3>
-                                <p className="service-detail-item-description">
-                                    Our renovation services breathe new life into existing homes. We modernize spaces while respecting
-                                    their original character, improving functionality and aesthetic appeal.
-                                </p>
-                            </div>
-
-                            <div className="service-detail-item">
-                                <h3 className="service-detail-item-title">Sustainable Living</h3>
-                                <p className="service-detail-item-description">
-                                    We integrate eco-friendly materials and energy-efficient systems into residential designs. Our
-                                    sustainable approach reduces environmental impact while creating comfortable, healthy living environments.
-                                </p>
-                            </div>
+            {/* ── SERVICES LIST ── */}
+            <section className="srv-list">
+                <div className="srv-list-inner">
+                    <div className="srv-list-header">
+                        <span className="srv-list-tag">Residential Services</span>
+                    </div>
+                    <div className="srv-items">
+                        <div className="srv-item">
+                            <span className="srv-item-num">01</span>
+                            <h3 className="srv-item-title">Custom Homes</h3>
+                            <p className="srv-item-desc">We design bespoke homes shaped around individual lifestyles and aspirations. Every element is carefully considered, resulting in spaces that feel personal, balanced, and thoughtfully resolved.</p>
+                        </div>
+                        <div className="srv-item">
+                            <span className="srv-item-num">02</span>
+                            <h3 className="srv-item-title">Home Renovations</h3>
+                            <p className="srv-item-desc">Our renovation approach redefines existing spaces while respecting their original character. Through careful planning and material refinement, we enhance functionality and bring a renewed sense of clarity and cohesion.</p>
+                        </div>
+                        <div className="srv-item">
+                            <span className="srv-item-num">03</span>
+                            <h3 className="srv-item-title">Sustainable Living</h3>
+                            <p className="srv-item-desc">We integrate sustainable principles into every stage of the design process. By combining responsible material choices with energy-efficient strategies, we create homes that are both environmentally conscious and comfortable to live in.</p>
                         </div>
                     </div>
                 </div>
+            </section>
+
+            {/* ── CTA ── */}
+            <section className="srv-cta">
+                <p className="srv-cta-label">Ready to Begin</p>
+                <h2 className="srv-cta-title">Let&apos;s Design Your Home</h2>
+                <Link href="/contact" className="srv-cta-link">Start a Conversation &rarr;</Link>
             </section>
 
             <Footer />
