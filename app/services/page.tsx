@@ -5,11 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import imgHero from '../assets/Project1/1.jpeg';
-import imgArch from '../assets/Services/Commercial.jpeg';
-import imgInt  from '../assets/Services/Residential.jpeg';
-import imgLand from '../assets/Services/Multipurpuse Image.jpeg';
-import imgPM   from '../assets/Services/Residential2.jpeg';
+import imgHero       from '../assets/Project1/1.jpeg';
+import imgCommercial from '../assets/Services/Commercial.jpeg';
+import imgMulti      from '../assets/Services/Multipurpuse Image.jpeg';
+import imgResidential from '../assets/Services/Residential.jpeg';
 import './services-overview.css';
 
 export default function ServicesPage() {
@@ -57,65 +56,52 @@ export default function ServicesPage() {
                 </nav>
             </section>
 
-            {/* ── ARCHITECTURE  ·  text left / image right ── */}
+            {/* ── COMMERCIAL  ·  text left / image right ── */}
             <div className="sov-row sov-reveal">
                 <div className="sov-row-text">
-                    <span className="sov-row-label">Architecture</span>
-                    <h2 className="sov-row-tagline">Designing homes that transform<br />the way you live.</h2>
-                    <p className="sov-row-body">We don&apos;t just design buildings — we design the way you live within them. Every project begins with understanding your lifestyle, your priorities, and the potential of your property. From reimagining layouts and shaping forms to guiding you through planning, technical detail, and delivery, we make the complex feel simple.</p>
-                    <p className="sov-row-body">Each project is shaped around you — your life, your home, your future. The result is architecture that feels effortless, enduring, and entirely yours.</p>
-                    <Link href="/services/commercial" className="sov-row-link">Learn More</Link>
+                    <span className="sov-row-label">Commercial</span>
+                    <h2 className="sov-row-tagline">Innovative Spaces for<br />Business Success</h2>
+                    <p className="sov-row-body">Our commercial design approach is centred on creating environments that are both functional and experience-driven. Each space is carefully considered to support the way businesses operate while offering a clear and memorable identity.</p>
+                    <p className="sov-row-body">We respond to the specific needs of commercial settings by shaping layouts that enhance productivity, encourage interaction, and improve overall user experience. From retail and workplace environments to hospitality and mixed-use spaces, our designs balance clarity, efficiency, and atmosphere.</p>
+                    <p className="sov-row-body">By combining thoughtful planning with a refined material and lighting strategy, we deliver spaces that not only perform effectively but also strengthen brand presence and long-term value.</p>
+                    <Link href="/services/commercial" className="sov-row-link">Explore Commercial Services</Link>
                 </div>
                 <div className="sov-row-img-wrap">
-                    <Image src={imgArch} alt="Architecture — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgCommercial} alt="Commercial — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
             </div>
 
             <div className="sov-sep" />
 
-            {/* ── INTERIOR DESIGN  ·  image left / text right ── */}
+            {/* ── MULTIPURPOSE  ·  image left / text right ── */}
             <div className="sov-row sov-row--rev sov-reveal">
                 <div className="sov-row-img-wrap">
-                    <Image src={imgInt} alt="Interior Design — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgMulti} alt="Multipurpose — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
                 <div className="sov-row-text">
-                    <span className="sov-row-label">Interior Design</span>
-                    <h2 className="sov-row-tagline">Calm, comfortable spaces that feel<br />as good as they look.</h2>
-                    <p className="sov-row-body">Interior design is where everyday life happens. We create interiors that support the way you live — balancing function with atmosphere, and refining details that quietly elevate the entire home. From light and flow to materials, colour, and joinery, we design spaces that feel cohesive, practical, and timeless.</p>
-                    <p className="sov-row-body">Selecting products and materials can feel overwhelming, so we offer as much or as little input as you need — from a single room to a whole house — ensuring every detail is considered.</p>
-                    <Link href="/services/residential" className="sov-row-link">Learn More</Link>
+                    <span className="sov-row-label">Multipurpose</span>
+                    <h2 className="sov-row-tagline">Versatile Spaces for<br />Diverse Needs</h2>
+                    <p className="sov-row-body">Our approach to multipurpose design focuses on creating adaptable environments that respond to changing uses over time. Each space is carefully planned to support flexibility while maintaining clarity and coherence in its overall form.</p>
+                    <p className="sov-row-body">We design community, educational, and shared environments with a strong emphasis on usability and flow. Through considered planning and simple, robust material strategies, these spaces can accommodate a range of activities and user groups without compromise.</p>
+                    <p className="sov-row-body">By balancing flexibility with long-term durability, we deliver spaces that remain efficient, relevant, and responsive to evolving needs.</p>
+                    <Link href="/services/multipurpose" className="sov-row-link">Explore Multipurpose Services</Link>
                 </div>
             </div>
 
             <div className="sov-sep" />
 
-            {/* ── LANDSCAPE  ·  text left / image right ── */}
+            {/* ── RESIDENTIAL  ·  text left / image right ── */}
             <div className="sov-row sov-reveal">
                 <div className="sov-row-text">
-                    <span className="sov-row-label">Landscape</span>
-                    <h2 className="sov-row-tagline">Outdoor spaces designed for<br />connection, comfort, and calm.</h2>
-                    <p className="sov-row-body">Great homes extend beyond the walls. We design outdoor spaces that feel natural, usable, and thoughtfully composed. We consider sunlight, planting, materials, boundaries, and flow between inside and out — creating an environment that complements the architecture and enhances daily living.</p>
-                    <p className="sov-row-body">Whether a compact courtyard or a multi-acre plot, every outdoor space is designed with the same care and precision as the interior — ensuring the full property feels resolved.</p>
-                    <Link href="/services/multipurpose" className="sov-row-link">Learn More</Link>
+                    <span className="sov-row-label">Residential</span>
+                    <h2 className="sov-row-tagline">Designing Homes That Reflect<br />the Way You Live</h2>
+                    <p className="sov-row-body">Our residential architecture focuses on creating thoughtful living environments shaped around everyday life.</p>
+                    <p className="sov-row-body">We approach each home as a personal sanctuary — carefully designed to reflect individual lifestyles while maintaining clarity, comfort, and balance. Through a considered use of space, light, and material, we create interiors that feel calm, functional, and enduring.</p>
+                    <p className="sov-row-body">Whether designing new homes or reworking existing spaces, our process is guided by close collaboration, ensuring each project responds naturally to its context and the people who inhabit it.</p>
+                    <Link href="/services/residential" className="sov-row-link">Explore Residential Services</Link>
                 </div>
                 <div className="sov-row-img-wrap">
-                    <Image src={imgLand} alt="Landscape — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
-                </div>
-            </div>
-
-            <div className="sov-sep" />
-
-            {/* ── PROJECT MANAGEMENT  ·  image left / text right ── */}
-            <div className="sov-row sov-row--rev sov-reveal">
-                <div className="sov-row-img-wrap">
-                    <Image src={imgPM} alt="Project Management — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
-                </div>
-                <div className="sov-row-text">
-                    <span className="sov-row-label">Project Management</span>
-                    <h2 className="sov-row-tagline">Clear coordination. Calm delivery.<br />Quality you can trust.</h2>
-                    <p className="sov-row-body">A successful project needs more than great design — it needs structure, clarity, and consistent oversight. We coordinate timelines, help manage decisions, support contractor communication, and keep the project aligned with the agreed design, scope, and budget.</p>
-                    <p className="sov-row-body">While we take care of the process, you can save time, avoid stress, and enjoy watching your home come to life — confident that every stage is managed with care and professionalism.</p>
-                    <Link href="/contact" className="sov-row-link">Enquire About This Service</Link>
+                    <Image src={imgResidential} alt="Residential — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
             </div>
 

@@ -49,13 +49,13 @@ export default function WhyWorkWithUs() {
   const imageScale = useMotionValue(1);
   const cpAVal = useMotionValue(3);
   const cpBVal = useMotionValue(98.5);
-  const imageX = useMotionValue(24);
-  const imageRotateY = useMotionValue(-10);
-  const imageRotateZ = useMotionValue(-1.2);
+  const imageX = useMotionValue(0);
+  const imageRotateY = useMotionValue(-28);
+  const imageRotateZ = useMotionValue(0);
   const imageY = useMotionValue(0);
   const textOpacityVal = useMotionValue(1);
   const textYVal = useMotionValue(0);
-  const overlayOpacity = useMotionValue(0.02);
+  const overlayOpacity = useMotionValue(0);
   const gradientOpacity = useMotionValue(0);
 
   const clipPath = useTransform(
@@ -75,8 +75,8 @@ export default function WhyWorkWithUs() {
     animate(imageY, 0, IMG_SPRING);
     animate(textOpacityVal, 0, TEXT_OUT);
     animate(textYVal, -30, TEXT_OUT);
-    animate(overlayOpacity, 0.22, IMG_SPRING);
-    animate(gradientOpacity, 0.85, IMG_SPRING);
+    animate(overlayOpacity, 0, IMG_SPRING);
+    animate(gradientOpacity, 0, IMG_SPRING);
   }, [imageScale, cpAVal, cpBVal, imageX, imageRotateY, imageRotateZ, imageY, textOpacityVal, textYVal, overlayOpacity, gradientOpacity]);
 
   const collapse = useCallback(() => {
@@ -85,13 +85,13 @@ export default function WhyWorkWithUs() {
     animate(imageScale, 1, IMG_SPRING);
     animate(cpAVal, 3, IMG_SPRING);
     animate(cpBVal, 98.5, IMG_SPRING);
-    animate(imageX, 24, IMG_SPRING);
-    animate(imageRotateY, -10, IMG_SPRING);
-    animate(imageRotateZ, -1.2, IMG_SPRING);
+    animate(imageX, 0, IMG_SPRING);
+    animate(imageRotateY, -28, IMG_SPRING);
+    animate(imageRotateZ, 0, IMG_SPRING);
     animate(imageY, 0, IMG_SPRING);
     animate(textOpacityVal, 1, TEXT_IN);
     animate(textYVal, 0, TEXT_IN);
-    animate(overlayOpacity, 0.02, IMG_SPRING);
+    animate(overlayOpacity, 0, IMG_SPRING);
     animate(gradientOpacity, 0, IMG_SPRING);
   }, [imageScale, cpAVal, cpBVal, imageX, imageRotateY, imageRotateZ, imageY, textOpacityVal, textYVal, overlayOpacity, gradientOpacity]);
 

@@ -1,0 +1,481 @@
+/* ============================================
+   OUR WORK — PROJECTS PAGE
+   ============================================ */
+
+/* ── Hero ── */
+.pw-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pw-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.pw-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+    transform: scale(1.04);
+    transition: transform 8s ease;
+}
+
+.pw-hero:hover .pw-hero-bg img {
+    transform: scale(1.0);
+}
+
+.pw-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 9, 8, 0.35) 0%,
+        rgba(10, 9, 8, 0.42) 55%,
+        rgba(10, 9, 8, 0.72) 100%
+    );
+    z-index: 1;
+}
+
+.pw-hero-center {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.pw-hero-rule {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    width: 100%;
+}
+
+.pw-hero-rule-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.pw-hero-title {
+    font-family: var(--font-primary);
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.pw-hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.pw-hero-sub {
+    font-family: var(--font-primary);
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.72);
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0;
+}
+
+/* Filter tabs anchored to bottom of hero */
+.pw-hero-filters {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    align-items: stretch;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.pw-hero-filter-btn {
+    flex: 1;
+    background: rgba(10, 9, 8, 0.52);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: clamp(0.65rem, 0.9vw, 0.75rem);
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.pw-hero-filter-btn:last-child {
+    border-right: none;
+}
+
+.pw-hero-filter-btn:hover,
+.pw-hero-filter-btn.active {
+    background: rgba(212, 165, 116, 0.22);
+    color: #ffffff;
+}
+
+.pw-hero-filter-btn.active {
+    border-bottom: 2px solid var(--color-accent);
+}
+
+/* ── Intro Band ── */
+.pw-intro {
+    background: var(--color-bg);
+    padding: clamp(5rem, 8vw, 8rem) var(--container-padding);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pw-intro-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    margin-bottom: 2.8rem;
+}
+
+.pw-intro-rule-line {
+    width: 56px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.7;
+}
+
+.pw-intro-headline {
+    font-family: var(--font-primary);
+    font-size: clamp(0.72rem, 1vw, 0.82rem);
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0;
+}
+
+.pw-intro-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin: 0 0 2rem;
+}
+
+.pw-intro-body {
+    font-family: var(--font-primary);
+    font-size: clamp(0.9rem, 1.1vw, 1.0625rem);
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--color-text-light);
+    margin: 0 0 1.2rem;
+}
+
+.pw-intro-body:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Projects Grid ── */
+.pw-grid-section {
+    background: var(--color-bg);
+}
+
+.pw-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 0;
+}
+
+/* ── Project Card ── */
+.pw-card {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.pw-card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #1a1916;
+}
+
+.pw-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pw-card:hover .pw-card-img-wrap img {
+    transform: scale(1.06);
+}
+
+.pw-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(8, 7, 6, 0.78) 0%,
+        rgba(8, 7, 6, 0.18) 42%,
+        transparent 70%
+    );
+    transition: background 0.4s ease;
+}
+
+.pw-card:hover .pw-card-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(8, 7, 6, 0.86) 0%,
+        rgba(8, 7, 6, 0.28) 48%,
+        transparent 72%
+    );
+}
+
+.pw-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.4rem 2.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.pw-card-category {
+    font-family: var(--font-primary);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0;
+}
+
+.pw-card-title {
+    font-family: var(--font-primary);
+    font-size: clamp(0.85rem, 1.4vw, 1.125rem);
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.pw-card-location {
+    font-family: var(--font-primary);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+}
+
+.pw-card:hover .pw-card-location {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pw-card-arrow {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translate(4px, -4px);
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pw-card:hover .pw-card-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.pw-card-arrow svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.5;
+}
+
+/* Placeholder card (no href) */
+.pw-card--placeholder {
+    cursor: default;
+}
+
+.pw-card--placeholder .pw-card-img-wrap img {
+    filter: grayscale(30%);
+}
+
+/* ── No Results ── */
+.pw-no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 6rem 2rem;
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    color: var(--color-text-lighter);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ── Reveal animation ── */
+.pw-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.pw-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* stagger delays */
+.pw-card:nth-child(2n) .pw-card-img-wrap,
+.pw-card:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+/* ── CTA Band ── */
+.pw-cta {
+    background: #0f0e0c;
+    padding: clamp(5rem, 8vw, 8rem) var(--container-padding);
+    text-align: center;
+}
+
+.pw-cta-eyebrow {
+    font-family: var(--font-primary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 1.8rem;
+}
+
+.pw-cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 auto 1.8rem;
+    max-width: 720px;
+}
+
+.pw-cta-body {
+    font-family: var(--font-primary);
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 520px;
+    margin: 0 auto 3rem;
+}
+
+.pw-cta-btn {
+    display: inline-block;
+    padding: 1.1rem 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    font-family: var(--font-primary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.pw-cta-btn:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #0f0e0c;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .pw-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pw-hero-filters {
+        flex-wrap: wrap;
+    }
+
+    .pw-hero-filter-btn {
+        flex: 0 0 50%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .pw-hero-filter-btn:nth-child(2n) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .pw-hero-filter-btn {
+        flex: 0 0 100%;
+        border-right: none;
+    }
+
+    .pw-card-content {
+        padding: 1.6rem;
+    }
+
+    .pw-intro {
+        padding: 4rem var(--container-padding);
+    }
+}
