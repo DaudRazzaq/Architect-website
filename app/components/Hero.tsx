@@ -226,6 +226,18 @@ export default function Hero() {
                         onClick={closeMenu}
                     />
                 )}
+
+                <div className="hero-centerpiece">
+                    <div className="hero-tagline-row">
+                        <span className="hero-tagline-line" />
+                        <span className="hero-tagline-text">Spaces Crafted for Life</span>
+                        <span className="hero-tagline-line" />
+                    </div>
+                    <div className="hero-btn-row">
+                        <a href="/contact" className="hero-btn hero-btn--primary">Enquire Now</a>
+                        <a href="/services" className="hero-btn hero-btn--ghost">View Services</a>
+                    </div>
+                </div>
             </div>
         </section>
     );

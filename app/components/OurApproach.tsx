@@ -181,7 +181,7 @@ export default function OurApproach() {
                   alt="Refined architectural interior showcasing our design philosophy"
                   fill
                   className="oa-img"
-                  sizes="(max-width: 768px) 100vw, 44vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority={false}
                 />
               </div>

@@ -5,7 +5,7 @@
 .oa-section {
   position: relative;
   background: #ffffff;
-  overflow: visible;
+  overflow: clip;
   margin-top: var(--spacing-2xl, 8rem);
   z-index: 10;
 }
@@ -29,11 +29,11 @@
 .oa-content {
   position: relative;
   z-index: 2;
-  flex: 0 0 56%;
-  width: 56%;
-  max-width: 56%;
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
   box-sizing: border-box;
-  padding-top: clamp(1.8rem, 3vw, 2.6rem);
+  padding-top: clamp(0.4rem, 1vw, 0.8rem);
   padding-right: clamp(2rem, 3.2vw, 3.2rem);
   padding-bottom: clamp(2.8rem, 4vw, 4rem);
   padding-left: clamp(2.5rem, 5vw, 5.4rem);
@@ -49,7 +49,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: var(--spacing-xl, 4rem);
+  margin-bottom: 1.5rem;
 }
 
 .oa-header-line {
@@ -108,11 +108,11 @@
 .oa-visual-shell {
   position: sticky;
   top: 0;
-  flex: 0 0 44%;
-  width: 44%;
-  max-width: 44%;
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
   height: 100vh;
-  padding-top: 16vh;
+  padding-top: 14vh;
   box-sizing: border-box;
   z-index: 1;
   overflow: visible;
@@ -122,9 +122,9 @@
 
 .oa-visual-card {
   position: relative;
-  width: 112%;
+  width: 122%;
   height: 100%;
-  margin-left: -12%;
+  margin-left: -22%;
   transform-origin: 100% 50%;
   transform-style: preserve-3d;
   will-change: transform;
@@ -154,31 +154,15 @@
   object-position: center center;
   pointer-events: none;
   user-select: none;
-  transform: scale(1.03);
   backface-visibility: hidden;
 }
 
 .oa-darken {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 16, 12, 0.04) 0%,
-    rgba(18, 16, 12, 0.16) 100%
-  );
-  pointer-events: none;
+  display: none;
 }
 
 .oa-fade-bottom {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 58%,
-    rgba(255, 255, 255, 0.32) 82%,
-    rgba(255, 255, 255, 0.88) 100%
-  );
-  pointer-events: none;
+  display: none;
 }
 
 /* =========================
