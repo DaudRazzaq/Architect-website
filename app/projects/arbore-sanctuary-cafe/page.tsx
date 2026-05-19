@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import CTAStrip from '../../components/CTAStrip';
 import img1 from '../../assets/Project3/1.jpeg';
 import img2 from '../../assets/Project3/2.jpeg';
 import img3 from '../../assets/Project3/3.jpeg';
@@ -16,9 +17,9 @@ import img8 from '../../assets/Project3/8.jpeg';
 import '../oakridge-house/project.css';
 
 const MORE_PROJECTS = [
-    { title: 'Oakridge House', category: 'Residential', image: '/projects/oakridge-house/3.jpeg' },
-    { title: 'SereniFlow Wellness Centre', category: 'Commercial', image: '/projects/sereniflow-wellness-centre/1.jpeg' },
-    { title: 'Harborview Office', category: 'Commercial', image: '/b1.webp' },
+    { title: 'Oakridge House', category: 'Residential', image: '/projects/oakridge-house/3.jpeg', href: '/projects/oakridge-house' },
+    { title: 'SereniFlow Wellness Centre', category: 'Commercial', image: '/projects/sereniflow-wellness-centre/1.jpeg', href: '/projects/sereniflow-wellness-centre' },
+    { title: 'Oakridge House', category: 'Residential', image: '/projects/oakridge-house/1.jpeg', href: '/projects/oakridge-house' },
 ];
 
 const HERO_SLIDES = [img1, img2, img3, img4, img5, img6, img7, img8];
@@ -59,7 +60,7 @@ export default function ArboreSanctuaryCafePage() {
                     }
                 });
             },
-            { threshold: 0.12 }
+        { rootMargin: '0px 0px -40px 0px', threshold: 0 }
         );
         els.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
@@ -68,6 +69,7 @@ export default function ArboreSanctuaryCafePage() {
     return (
         <>
             <Navigation />
+            <CTAStrip />
             <article className="project-detail">
 
                 {/* ── HERO ── */}
@@ -221,16 +223,20 @@ export default function ArboreSanctuaryCafePage() {
                         <span className="pd-gallery-deco-line" />
                     </div>
                     <div className="pd-gallery-grid">
-                        {([img1, img2, img3, img4, img5, img6, img7, img8] as const).map((src, i) => (
-                            <div key={i} className="pd-gallery-item">
-                                <Image
-                                    src={src}
-                                    alt={`Arboré Sanctuary Café — view ${i + 1}`}
-                                    className="pd-gallery-img"
-                                    style={{ width: '100%', height: 'auto', display: 'block' }}
-                                />
-                            </div>
-                        ))}
+                        {([img1, img2, img3, img4, img5, img6, img7, img8] as const).map((src, i, arr) => {
+                            const isFull = i % 3 === 0 || (i === arr.length - 1 && i % 3 !== 2);
+                            return (
+                                <div key={i} className={`pd-gallery-item${isFull ? ' pd-gallery-item--full' : ''}`}>
+                                    <Image
+                                        src={src}
+                                        alt={`Arboré Sanctuary Café — view ${i + 1}`}
+                                        fill
+                                        className="pd-gallery-img"
+                                        sizes={isFull ? '100vw' : '50vw'}
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                 </section>
 
@@ -268,7 +274,7 @@ export default function ArboreSanctuaryCafePage() {
                             style={{ transform: `translateX(calc(-${moreActive} * var(--more-card-advance)))` }}
                         >
                             {[...MORE_PROJECTS, MORE_PROJECTS[0]].map((p, i) => (
-                                <div key={i} className="pd-more-card">
+                                <Link key={i} href={p.href} className="pd-more-card">
                                     <div className="pd-more-card-img-wrap">
                                         {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img src={p.image} alt={p.title} className="pd-more-card-img" loading="lazy" />
@@ -277,7 +283,7 @@ export default function ArboreSanctuaryCafePage() {
                                         <h3 className="pd-more-card-title">{p.title}</h3>
                                         <span className="pd-more-card-cat">{p.category}</span>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

@@ -303,7 +303,7 @@
    PROJECT GALLERY
    ============================================================= */
 .pd-gallery-section {
-    background: var(--color-bg);
+    background: #ffffff;
 }
 
 .pd-gallery-heading {
@@ -337,23 +337,31 @@
 .pd-gallery-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: #ffffff;
     width: 100%;
 }
 
 .pd-gallery-item {
+    position: relative;
     overflow: hidden;
     line-height: 0;
+    aspect-ratio: 4 / 3;
+    background: #f0ede8;
+}
+
+.pd-gallery-item--full {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 10;
 }
 
 .pd-gallery-img {
-    width: 100% !important;
-    height: auto !important;
-    display: block;
-    transition: transform 0.7s ease;
+    object-fit: cover;
+    object-position: center center;
 }
 
 .pd-gallery-item:hover .pd-gallery-img {
-    transform: scale(1.04);
+    transform: none;
 }
 
 /* =============================================================
@@ -483,6 +491,9 @@
     overflow: hidden;
     cursor: pointer;
     height: 100%;
+    text-decoration: none;
+    display: block;
+    color: inherit;
 }
 
 .pd-more-card-img-wrap {

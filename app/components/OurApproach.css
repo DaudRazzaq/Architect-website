@@ -7,7 +7,7 @@
   background: #ffffff;
   overflow: clip;
   margin-top: var(--spacing-2xl, 8rem);
-  z-index: 10;
+  z-index: 1;
 }
 
 .oa-stage {

@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
+import CTAStrip from '../components/CTAStrip';
 import Footer from '../components/Footer';
 import imgHero       from '../assets/Project1/1.jpeg';
 import imgCommercial from '../assets/Services/Commercial.jpeg';
@@ -32,6 +33,7 @@ export default function ServicesPage() {
     return (
         <div ref={wrapRef}>
             <Navigation />
+            <CTAStrip />
 
             {/* ── HERO ── */}
             <section className="sov-hero">

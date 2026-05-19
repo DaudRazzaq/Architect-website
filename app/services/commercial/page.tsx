@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import CTAStrip from '../../components/CTAStrip';
 import heroImg from '../../assets/Services/Commercial.jpeg';
 import '../services.css';
 
@@ -11,6 +12,7 @@ export default function CommercialPage() {
     return (
         <>
             <Navigation />
+            <CTAStrip />
 
             {/* ── HERO ── */}
             <section className="srv-hero">

@@ -1,0 +1,300 @@
+/* ====================================
+   GET IN TOUCH — About Page Section
+   Two-column: info left, form right
+   ==================================== */
+
+.git-section {
+    background: #f5f2ec;
+    padding: clamp(5rem, 8vw, 9rem) 0 clamp(5rem, 8vw, 9rem);
+}
+
+.git-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: clamp(3rem, 6vw, 8rem);
+    align-items: start;
+}
+
+/* =========================
+   LEFT — INFO
+   ========================= */
+
+.git-left {
+    position: sticky;
+    top: clamp(6rem, 8vw, 8rem);
+}
+
+.git-heading {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #12110f;
+    margin: 0 0 clamp(1.2rem, 2vw, 1.8rem) 0;
+}
+
+.git-intro {
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    font-weight: 400;
+    line-height: 1.85;
+    color: #555;
+    margin: 0 0 clamp(2.5rem, 4vw, 4rem) 0;
+    max-width: 38ch;
+}
+
+.git-details {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.8rem, 2.5vw, 2.4rem);
+}
+
+.git-detail-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.git-detail-label {
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent, #d4a574);
+}
+
+.git-detail-value {
+    margin: 0;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: clamp(0.88rem, 0.95vw, 0.95rem);
+    font-weight: 400;
+    line-height: 1.7;
+    color: #1a1a1a;
+}
+
+/* social icons row */
+.git-socials {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-top: 0.1rem;
+}
+
+.git-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    transition: color 0.2s ease;
+}
+
+.git-social-link:hover {
+    color: var(--color-accent, #d4a574);
+}
+
+/* =========================
+   RIGHT — FORM
+   ========================= */
+
+.git-right {
+    padding-top: 0.2rem;
+}
+
+.git-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.git-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 clamp(1.5rem, 3vw, 3rem);
+}
+
+.git-form-row--full {
+    grid-template-columns: 1fr;
+}
+
+/* individual field wrapper */
+.git-field {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: clamp(1.8rem, 2.5vw, 2.4rem);
+}
+
+/* label */
+.git-label {
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.55rem;
+    cursor: pointer;
+}
+
+/* text / tel / email inputs */
+.git-input {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #c8c2b6;
+    border-radius: 0;
+    outline: none;
+    padding: 0.4rem 0 0.5rem;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: clamp(0.88rem, 0.95vw, 0.95rem);
+    font-weight: 400;
+    color: #1a1a1a;
+    width: 100%;
+    transition: border-color 0.2s ease;
+}
+
+.git-input:focus {
+    border-bottom-color: var(--color-accent, #d4a574);
+}
+
+/* select dropdowns */
+.git-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 0.1rem center;
+    border: none;
+    border-bottom: 1px solid #c8c2b6;
+    border-radius: 0;
+    outline: none;
+    padding: 0.4rem 1.6rem 0.5rem 0;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: clamp(0.88rem, 0.95vw, 0.95rem);
+    font-weight: 400;
+    color: #1a1a1a;
+    width: 100%;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.git-select:focus {
+    border-bottom-color: var(--color-accent, #d4a574);
+}
+
+/* helper hint text above textarea */
+.git-field-hint {
+    margin: 0 0 0.8rem 0;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* textarea */
+.git-textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #c8c2b6;
+    border-radius: 0;
+    outline: none;
+    resize: none;
+    padding: 0.4rem 0 0.5rem;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: clamp(0.88rem, 0.95vw, 0.95rem);
+    font-weight: 400;
+    line-height: 1.7;
+    color: #1a1a1a;
+    width: 100%;
+    transition: border-color 0.2s ease;
+}
+
+.git-textarea:focus {
+    border-bottom-color: var(--color-accent, #d4a574);
+}
+
+/* submit button */
+.git-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.8rem;
+    border: 1px solid #1a1a1a;
+    background: transparent;
+    color: #1a1a1a;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+    margin-top: 0.4rem;
+    width: fit-content;
+}
+
+.git-submit:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+/* success state */
+.git-success {
+    padding: 3rem 0;
+}
+
+.git-success-msg {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 1024px) {
+    .git-container {
+        grid-template-columns: 1fr 1.6fr;
+        gap: clamp(2.5rem, 4vw, 4rem);
+    }
+
+    .git-left {
+        position: static;
+    }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+    .git-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .git-left {
+        position: static;
+    }
+
+    .git-intro {
+        max-width: none;
+    }
+
+    .git-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

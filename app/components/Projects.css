@@ -84,7 +84,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    gap: 0;
+    gap: 1.5px;
+    background: #ffffff;
 }
 
 /* ── Footer link ── */

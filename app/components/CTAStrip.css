@@ -1,0 +1,132 @@
+/* ============================================
+   CTA STRIP — Fixed right-side navigation
+   Used on all pages except /contact
+   ============================================ */
+
+.cta-strip {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+}
+
+.cta-strip-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: 210px;
+    height: 3.6rem;
+    background: rgba(15, 15, 15, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: rgba(245, 239, 227, 0.88);
+    text-decoration: none;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-left: 3px solid transparent;
+    transition:
+        min-width 0.52s cubic-bezier(0.76, 0, 0.24, 1),
+        height 0.52s cubic-bezier(0.76, 0, 0.24, 1),
+        background 0.4s ease,
+        border-left-color 0.4s ease,
+        box-shadow 0.4s ease;
+    white-space: nowrap;
+}
+
+.cta-strip-item:last-child {
+    border-bottom: none;
+}
+
+.cta-strip-item:hover {
+    background: rgba(38, 35, 30, 0.96);
+    color: #ffffff;
+}
+
+/* ── Label (rolls upward on exit) ── */
+.cta-strip-label {
+    position: absolute;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transform: translateY(0);
+    opacity: 1;
+    will-change: transform, opacity;
+    transition:
+        transform 0.48s cubic-bezier(0.76, 0, 0.24, 1),
+        opacity 0.28s ease;
+}
+
+/* ── Icon (rolls in from below) ── */
+.cta-strip-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent, #d4a574);
+    transform: translateY(130%);
+    opacity: 0;
+    will-change: transform, opacity;
+    transition:
+        transform 0.48s cubic-bezier(0.76, 0, 0.24, 1),
+        opacity 0.28s ease 0.06s,
+        color 0.2s ease;
+}
+
+/* ── Icon mode (past hero) ── */
+.cta-strip--icons .cta-strip-item {
+    min-width: 58px;
+    height: 58px;
+    background: rgba(14, 12, 10, 0.93);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-left: 3px solid var(--color-accent, #d4a574);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.12);
+    box-shadow: -4px 0 24px rgba(212, 165, 116, 0.1), inset 0 0 0 1px rgba(212, 165, 116, 0.06);
+}
+
+.cta-strip--icons .cta-strip-item:last-child {
+    border-bottom: none;
+}
+
+.cta-strip--icons .cta-strip-item:hover {
+    background: rgba(24, 20, 14, 0.98);
+    box-shadow: -4px 0 32px rgba(212, 165, 116, 0.22), inset 0 0 0 1px rgba(212, 165, 116, 0.12);
+}
+
+.cta-strip--icons .cta-strip-item:hover .cta-strip-icon {
+    color: #ffffff;
+}
+
+.cta-strip--icons .cta-strip-label {
+    transform: translateY(-130%);
+    opacity: 0;
+}
+
+.cta-strip--icons .cta-strip-icon {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* staggered roll for each item */
+.cta-strip--icons .cta-strip-item:nth-child(2) .cta-strip-label,
+.cta-strip--icons .cta-strip-item:nth-child(2) .cta-strip-icon {
+    transition-delay: 0.04s;
+}
+
+.cta-strip--icons .cta-strip-item:nth-child(3) .cta-strip-label,
+.cta-strip--icons .cta-strip-item:nth-child(3) .cta-strip-icon {
+    transition-delay: 0.08s;
+}
+
+/* ── Hide on mobile ── */
+@media (max-width: 900px) {
+    .cta-strip {
+        display: none;
+    }
+}

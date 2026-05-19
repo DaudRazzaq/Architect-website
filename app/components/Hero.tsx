@@ -14,13 +14,29 @@ import hero6 from '../assets/hero6.png';
 
 const HERO_SLIDES = [hero1, hero2, hero3, hero4, hero5, hero6];
 
+const TAGLINES = [
+    'Spaces Crafted for Life',
+    'Architecture with Purpose',
+    'Design Beyond Boundaries',
+    'Where Form Meets Function',
+    'Building Timeless Spaces',
+];
+
 export default function Hero() {
     const [headerHidden, setHeaderHidden] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isPastHero, setIsPastHero] = useState(false);
     const [activeSlide, setActiveSlide] = useState(0);
     const [isSlideTransitioning, setIsSlideTransitioning] = useState(true);
+    const [taglineIdx, setTaglineIdx] = useState(0);
     const lastScrollY = useRef(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTaglineIdx(prev => (prev + 1) % TAGLINES.length);
+        }, 10000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -95,7 +111,7 @@ export default function Hero() {
     }, [activeSlide]);
 
     const navLeft = [
-        { label: 'ABOUT US', href: '#about' },
+        { label: 'ABOUT US', href: '/about' },
         { label: 'OUR WORK', href: '#projects' },
         { label: 'SERVICES', href: '/services' },
     ];
@@ -230,7 +246,7 @@ export default function Hero() {
                 <div className="hero-centerpiece">
                     <div className="hero-tagline-row">
                         <span className="hero-tagline-line" />
-                        <span className="hero-tagline-text">Spaces Crafted for Life</span>
+                        <span key={taglineIdx} className="hero-tagline-text">{TAGLINES[taglineIdx]}</span>
                         <span className="hero-tagline-line" />
                     </div>
                     <div className="hero-btn-row">

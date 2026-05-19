@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import CTAStrip from '../../components/CTAStrip';
 import heroImg from '../../assets/Services/Residential.jpeg';
 import breakImg from '../../assets/Services/Residential2.jpeg';
 import '../services.css';
@@ -12,6 +13,7 @@ export default function ResidentialPage() {
     return (
         <>
             <Navigation />
+            <CTAStrip />
 
             {/* ── HERO ── */}
             <section className="srv-hero">

@@ -2,6 +2,7 @@
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import CTAStrip from '../components/CTAStrip';
 import NewsCard from '../components/NewsCard';
 import './blog.css';
 
@@ -48,6 +49,7 @@ export default function BlogPage() {
     return (
         <>
             <Navigation />
+            <CTAStrip />
 
             <section className="blog-page">
                 <div className="container">

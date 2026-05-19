@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Navigation from '../components/Navigation';
+import CTAStrip from '../components/CTAStrip';
 import './projects-page.css';
 
 const ALL_PROJECTS = [
@@ -83,6 +85,8 @@ export default function ProjectsPage() {
 
     return (
         <>
+            <Navigation />
+            <CTAStrip />
             {/* ── HERO ── */}
             <section className="pw-hero">
                 <div className="pw-hero-bg">

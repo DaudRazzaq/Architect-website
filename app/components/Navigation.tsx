@@ -42,13 +42,13 @@ export default function Navigation() {
     }, [mobileMenuOpen]);
 
     const navLeft = [
-        { label: 'ABOUT US', href: '/#about' },
+        { label: 'ABOUT US', href: '/about' },
         { label: 'OUR WORK', href: '/#projects' },
         { label: 'SERVICES', href: '/services' },
     ];
 
     const navRight = [
-        { label: 'STUDIO', href: '/studio' },
+        { label: 'FAQS', href: '/faqs' },
         { label: 'JOURNAL', href: '/blog' },
         { label: 'CONTACT', href: '/contact' },
     ];

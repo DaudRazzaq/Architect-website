@@ -1,5 +1,6 @@
 import Hero from './components/Hero';
 import About from './components/About';
+import CTAStrip from './components/CTAStrip';
 import QuoteSection from './components/QuoteSection';
 import WhyWorkWithUs from './components/WhyWorkWithUs';
 import OurApproach from './components/OurApproach';
@@ -13,6 +14,7 @@ import Footer from './components/Footer';
 export default function Home() {
   return (
     <main>
+      <CTAStrip />
       <Hero />
       <About />
       <QuoteSection

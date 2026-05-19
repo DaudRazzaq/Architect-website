@@ -2,6 +2,7 @@
 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import CTAStrip from '../components/CTAStrip';
 import Stats from '../components/Stats';
 import './studio.css';
 
@@ -30,6 +31,7 @@ export default function StudioPage() {
     return (
         <>
             <Navigation />
+            <CTAStrip />
 
             {/* Studio Hero Section */}
             <section className="studio-hero">

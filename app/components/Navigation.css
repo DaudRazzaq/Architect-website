@@ -8,14 +8,21 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 60;
-    padding: 0.08rem clamp(1rem, 2.8vw, 3.5rem);
-    background: rgba(10, 10, 10, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.42s ease, opacity 0.42s ease;
+    z-index: 1000;
+    padding: 1.25rem clamp(1rem, 2.8vw, 3.5rem) 1rem;
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 8, 8, 0.42),
+        rgba(8, 8, 8, 0.12),
+        rgba(8, 8, 8, 0)
+    );
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    border-bottom: none;
+    transition:
+        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .nav-header--hidden {
@@ -45,28 +52,30 @@
     display: flex;
     align-items: center;
     gap: clamp(1.25rem, 1.7vw, 2.6rem);
-    min-height: 34px;
+    min-height: 92px;
 }
 
 .nav-header__nav--left {
-    justify-content: flex-start;
-    padding-right: clamp(0.4rem, 1vw, 1.2rem);
+    justify-content: flex-end;
+    padding-right: clamp(1.5rem, 2.5vw, 3rem);
+    transform: translateY(14px);
 }
 
 .nav-header__nav--right {
-    justify-content: flex-end;
-    padding-left: clamp(0.4rem, 1vw, 1.2rem);
+    justify-content: flex-start;
+    padding-left: clamp(1.5rem, 2.5vw, 3rem);
+    transform: translateY(14px);
 }
 
 .nav-header__link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 1.25rem;
+    min-height: 2.2rem;
     white-space: nowrap;
     text-decoration: none;
     font-family: var(--font-primary);
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     font-weight: 300;
     line-height: 1;
     text-transform: uppercase;
@@ -98,10 +107,11 @@
 }
 
 .nav-header__logo {
-    width: clamp(6.2rem, 7.8vw, 8.8rem);
+    width: clamp(11.5rem, 15vw, 17rem);
     height: auto;
     object-fit: contain;
     filter: brightness(1.12) contrast(1.06);
+    transform: translateY(-40px);
 }
 
 /* ---- Mobile Bar ---- */
@@ -170,7 +180,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 70;
+    z-index: 1010;
     width: min(82vw, 360px);
     height: 100svh;
     background: rgba(11, 11, 10, 0.96);
@@ -221,7 +231,7 @@
 .nav-drawer__backdrop {
     position: fixed;
     inset: 0;
-    z-index: 65;
+    z-index: 1005;
     border: 0;
     background: rgba(0, 0, 0, 0.28);
     cursor: pointer;
