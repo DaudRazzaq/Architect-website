@@ -1,11 +1,10 @@
-'use client';
-
 import ServiceCard from './ServiceCard';
 import './Services.css';
 
 export default function Services() {
     const services = [
         {
+            num: '01',
             title: 'Architecture',
             tagline: 'Designing homes that transform the way you live.',
             description: 'We don\'t just design buildings — we design the way you live within them. Every project begins with understanding your lifestyle, your priorities, and the potential of your property. From reimagining layouts and shaping forms to guiding you through planning, technical detail, and delivery, we make the complex feel simple.',
@@ -13,6 +12,7 @@ export default function Services() {
             href: '/services/commercial'
         },
         {
+            num: '02',
             title: 'Interior Design',
             tagline: 'Calm, comfortable spaces that feel as good as they look.',
             description: 'Interior design is where everyday life happens. We create interiors that support the way you live — balancing function with atmosphere, and refining details that quietly elevate the entire home. From light and flow to materials, colour, and joinery, we design spaces that feel cohesive, practical, and timeless.',
@@ -20,6 +20,7 @@ export default function Services() {
             href: '/services/residential'
         },
         {
+            num: '03',
             title: 'Landscape',
             tagline: 'Outdoor spaces designed for connection, comfort, and calm.',
             description: 'Great homes extend beyond the walls. We design outdoor spaces that feel natural, usable, and thoughtfully composed. We consider sunlight, planting, materials, boundaries, and flow between inside and out, creating an outdoor environment that complements the architecture and enhances daily living.',
@@ -27,6 +28,7 @@ export default function Services() {
             href: '/services/multipurpose'
         },
         {
+            num: '04',
             title: 'Project Management',
             tagline: 'Clear coordination. Calm delivery. Quality you can trust.',
             description: 'A successful project needs more than great design — it needs structure, clarity, and consistent oversight. We coordinate timelines, help manage decisions, support contractor communication, and keep the project aligned with the agreed design, scope, and budget expectations.',
@@ -39,9 +41,11 @@ export default function Services() {
         <section id="services" className="services">
             <div className="container">
                 <div className="services-header">
-                    <span className="services-label">OUR SERVICES</span>
+                    <div className="services-eyebrow-row">
+                        <span className="services-label">OUR SERVICES</span>
+                        <div className="services-header-line"></div>
+                    </div>
                     <h2 className="services-title">What We Do</h2>
-                    <div className="services-header-line"></div>
                 </div>
             </div>
             <div className="container-fluid">
@@ -49,8 +53,9 @@ export default function Services() {
                     {services.map((service) => (
                         <ServiceCard
                             key={service.title}
+                            num={service.num}
                             title={service.title}
-                            description={service.description}
+                            tagline={service.tagline}
                             image={service.image}
                             href={service.href}
                         />
@@ -74,7 +79,7 @@ export default function Services() {
                             The process begins with a simple enquiry. If we&apos;re a good fit for your project, we&apos;ll arrange an initial visit and consultation to understand your property, discuss your goals, and gather the information needed to recommend the next steps.
                         </p>
                         <a href="/contact" className="process-link">
-                            START A CONVERSATION →
+                            START A CONVERSATION
                         </a>
                     </div>
                     <div className="process-steps">

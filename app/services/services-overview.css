@@ -63,14 +63,13 @@
 }
 
 .sov-hero-title {
-    font-family: var(--font-primary);
-    font-size: clamp(3rem, 8vw, 6.5rem);
-    font-weight: 300;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
     color: #fff;
     margin: 0 0 1.5rem;
-    line-height: 1;
+    line-height: 1.08;
 }
 
 .sov-hero-sub {
@@ -168,7 +167,7 @@
 .sov-row-tagline {
     font-family: var(--font-display);
     font-size: clamp(1.45rem, 2vw, 1.95rem);
-    font-weight: 700;
+    font-weight: 400;
     color: #1a1a1a;
     line-height: 1.28;
     margin: 0 0 1.85rem;
@@ -185,22 +184,39 @@
 }
 
 .sov-row-link {
-    display: inline-block;
-    margin-top: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2rem;
+    position: relative;
+    padding: 0.9rem 2rem;
     font-family: var(--font-primary);
-    font-size: 0.57rem;
-    letter-spacing: 3px;
+    font-size: 0.58rem;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
     color: #1a1a1a;
     text-decoration: none;
-    padding-bottom: 0.28rem;
-    border-bottom: 1px solid #1a1a1a;
-    transition: color 0.3s, border-color 0.3s, letter-spacing 0.3s;
+    border: 1px solid #1a1a1a;
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+.sov-row-link::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .sov-row-link:hover {
-    color: #a07850;
+    background-size: 100% 100%;
+    color: #fff;
     border-color: #a07850;
-    letter-spacing: 4px;
+}
+.sov-row-link:hover::after {
+    transform: translateX(5px);
 }
 
 /* Thin separator */
@@ -333,22 +349,40 @@
     justify-content: center;
 }
 .sov-contact-btn {
-    display: inline-block;
-    padding: 1.1rem 3.2rem;
-    border: 1px solid #555;
-    color: #333;
-    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
     font-family: var(--font-primary);
-    font-size: 0.6rem;
-    letter-spacing: 4px;
+    font-size: 0.58rem;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
     text-decoration: none;
-    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
 }
+
+.sov-contact-btn::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .sov-contact-btn:hover {
-    background: #333;
+    background-size: 100% 100%;
     color: #fff;
-    border-color: #333;
+    border-color: #a07850;
+}
+
+.sov-contact-btn:hover::after {
+    transform: translateX(5px);
 }
 
 
@@ -384,7 +418,7 @@
 }
 
 @media (max-width: 640px) {
-    .sov-hero-title { letter-spacing: 0.15em; }
+    .sov-hero-title { letter-spacing: 0.02em; }
     .sov-row-text { padding: 3.5rem 1.5rem; }
     .sov-row-img-wrap { min-height: 300px; }
     .sov-process, .sov-band { padding: 5rem 1.5rem; }

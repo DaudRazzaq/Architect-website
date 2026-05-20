@@ -1,5 +1,3 @@
-'use client';
-
 import TeamCard from './TeamCard';
 import './Team.css';
 
@@ -35,7 +33,10 @@ export default function Team() {
         <section id="team" className="team-section">
             <div className="container">
                 <div className="team-header">
-                    <span className="team-subtitle">OUR TEAM</span>
+                    <div className="team-eyebrow-row">
+                        <span className="team-subtitle">OUR TEAM</span>
+                        <div className="team-header-line"></div>
+                    </div>
                     <h2 className="team-title">Meet the Experts</h2>
                 </div>
                 <div className="team-grid">

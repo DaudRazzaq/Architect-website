@@ -22,7 +22,7 @@ export default function Footer() {
                     <div className="link-column">
                         <span>Explore</span>
                         <Link href="/projects">Projects</Link>
-                        <Link href="/studio">Studio</Link>
+                        <Link href="/about">Studio</Link>
                         <Link href="/services">Services</Link>
                     </div>
                     <div className="link-column">
@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="footer-message">
                 <h2>Ready to start your project?</h2>
                 <div className="footer-actions">
-                    <Link href="/contact" className="contact-btn">Get in Touch ↗</Link>
+                    <Link href="/contact" className="contact-btn">Get in Touch</Link>
                 </div>
             </div>
 

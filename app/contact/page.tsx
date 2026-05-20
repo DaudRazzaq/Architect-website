@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import CTAStrip from '../components/CTAStrip';
 import './contact.css';
 
 const SERVICES = [
@@ -59,6 +60,7 @@ export default function ContactPage() {
     return (
         <>
             <Navigation />
+            <CTAStrip />
 
             {/* ── HERO ── */}
             <section className="ct-hero">
@@ -97,9 +99,6 @@ export default function ContactPage() {
                         transition={{ duration: 0.6, delay: 0.45 }}
                     >
                         Start the Conversation
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <path d="M12 5v14M5 12l7 7 7-7" />
-                        </svg>
                     </motion.a>
                 </div>
                 <div className="ct-hero-scroll"><div className="ct-hero-scroll-line" /></div>

@@ -21,7 +21,7 @@ export default async function News() {
                             A curated selection of thoughts, updates, and innovations from our studio and the broader architectural world.
                         </p>
                         <Link href="/blog" className="news-explore-btn">
-                            Explore Journal <span className="arrow">→</span>
+                            Explore Journal
                         </Link>
                     </div>
                 </div>

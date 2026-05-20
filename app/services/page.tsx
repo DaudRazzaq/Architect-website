@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
@@ -47,15 +48,25 @@ export default function ServicesPage() {
                 />
                 <div className="sov-hero-overlay" />
                 <div className="sov-hero-center">
-                    <span className="sov-hero-eyebrow">Aureon Studio</span>
-                    <h1 className="sov-hero-title">Services</h1>
-                    <p className="sov-hero-sub">All your project needs, housed together</p>
+                    <motion.span
+                        className="sov-hero-eyebrow"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                    >Aureon Studio</motion.span>
+                    <motion.h1
+                        className="sov-hero-title"
+                        initial={{ opacity: 0, y: 28 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.85, delay: 0.15 }}
+                    >Services</motion.h1>
+                    <motion.p
+                        className="sov-hero-sub"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                    >All your project needs, housed together</motion.p>
                 </div>
-                <nav className="sov-hero-panel">
-                    <Link href="/contact" className="sov-hero-panel-item">Enquire Now</Link>
-                    <Link href="/services" className="sov-hero-panel-item">Services</Link>
-                    <Link href="/#projects" className="sov-hero-panel-item">View Latest Projects</Link>
-                </nav>
             </section>
 
             {/* ── COMMERCIAL  ·  text left / image right ── */}

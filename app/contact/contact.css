@@ -57,9 +57,9 @@
 
 .ct-hero-heading {
     font-family: var(--font-display);
-    font-size: clamp(1.875rem, 3.2vw, 2.875rem);
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
     font-weight: 400;
-    line-height: 1.06;
+    line-height: 1.08;
     color: #f5f2ec;
     margin: 0 0 1.75rem;
     letter-spacing: -0.01em;
@@ -82,23 +82,38 @@
 .ct-hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.625rem;
+    padding: 0.9rem 2rem;
     font-family: var(--font-primary);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.13em;
+    font-size: 0.58rem;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
-    color: #f5f2ec;
-    border: 1px solid rgba(245, 242, 236, 0.32);
-    padding: 0.9rem 2.25rem;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.65);
     text-decoration: none;
-    transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease;
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.ct-hero-cta::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ct-hero-cta:hover {
-    background: var(--color-accent, #d4a574);
-    border-color: var(--color-accent, #d4a574);
-    color: #0e0c0a;
+    background-size: 100% 100%;
+    color: #fff;
+    border-color: #a07850;
+}
+
+.ct-hero-cta:hover::after {
+    transform: translateX(5px);
 }
 
 .ct-hero-scroll {

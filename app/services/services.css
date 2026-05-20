@@ -58,11 +58,11 @@
 
 .srv-hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
     font-weight: 400;
     font-style: italic;
     color: #fff;
-    line-height: 1.1;
+    line-height: 1.08;
     max-width: 880px;
     margin: 0 0 1.75rem;
     letter-spacing: -0.01em;
@@ -313,21 +313,38 @@
 .srv-cta-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
+    padding: 0.9rem 2rem;
     font-family: var(--font-primary);
-    font-size: 0.7rem;
-    letter-spacing: 4px;
+    font-size: 0.58rem;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
     color: #fff;
     text-decoration: none;
-    padding-bottom: 0.3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
-    transition: border-color 0.3s, letter-spacing 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.srv-cta-link::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .srv-cta-link:hover {
-    border-color: #fff;
-    letter-spacing: 5px;
+    background-size: 100% 100%;
+    color: #fff;
+    border-color: #a07850;
+}
+
+.srv-cta-link:hover::after {
+    transform: translateX(5px);
 }
 
 

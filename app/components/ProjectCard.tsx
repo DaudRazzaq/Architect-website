@@ -1,6 +1,5 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import './ProjectCard.css';
 
 interface ProjectCardProps {
@@ -17,8 +16,7 @@ export default function ProjectCard({ title, category, location, image, href, gr
     const inner = (
         <div className="project-card-image" style={image ? undefined : { background: gradient || '#c8c0b4' }}>
             {image && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={image} alt={title} className="project-card-img" loading="lazy" />
+                <Image src={image} alt={title} fill className="project-card-img" sizes="(max-width: 768px) 100vw, 33vw" />
             )}
             <div className="project-card-overlay">
                 <div className="project-card-overlay-content">

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import './NewsCard.css';
 
 interface NewsCardProps {
@@ -23,6 +24,10 @@ export default function NewsCard({
         ? { target: '_blank', rel: 'noopener noreferrer' }
         : {};
 
+    // External images (from news API) are passed through unoptimized to avoid
+    // needing an exhaustive remotePatterns list while still using next/image.
+    const isExternalImage = image ? image.startsWith('http') : false;
+
     return (
         <a
             href={url}
@@ -32,12 +37,19 @@ export default function NewsCard({
         >
             <div className="news-mini-image-wrap">
                 {image ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={image} className="news-mini-image" alt="" loading="lazy" />
+                    <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                        className="news-mini-image"
+                        loading="lazy"
+                        unoptimized={isExternalImage}
+                    />
                 ) : (
                     <div className="news-mini-image placeholder" />
                 )}
-                
+
                 <div className="news-mini-meta-overlay">
                     <span className="news-mini-tag">{source || 'Architecture'}</span>
                 </div>

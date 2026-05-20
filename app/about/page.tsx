@@ -1,10 +1,12 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import OurApproach from '../components/OurApproach';
 import WhyWorkWithUs from '../components/WhyWorkWithUs';
 import StudioCredentials from '../components/StudioCredentials';
+import Team from '../components/Team';
 import GetInTouch from '../components/GetInTouch';
 import CTAStrip from '../components/CTAStrip';
 import './about-page.css';
@@ -21,13 +23,18 @@ export default function AboutPage() {
             <section className="ab-hero">
                 <div className="ab-hero-overlay" />
                 <div className="ab-hero-content">
-                    <div className="ab-hero-headline-row">
+                    <motion.div
+                        className="ab-hero-headline-row"
+                        initial={{ opacity: 0, y: 28 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.85, delay: 0.15 }}
+                    >
                         <span className="ab-hero-flank-line" />
                         <h1 className="ab-hero-title">
                             We Craft Spaces That<br />Transform The Way You Live
                         </h1>
                         <span className="ab-hero-flank-line" />
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -79,6 +86,8 @@ export default function AboutPage() {
             </section>
 
             <WhyWorkWithUs />
+
+            <Team />
 
             <StudioCredentials />
 

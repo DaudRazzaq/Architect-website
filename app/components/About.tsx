@@ -1,41 +1,32 @@
-'use client';
-
+import Link from 'next/link';
 import './About.css';
 
 export default function About() {
     return (
-        <>
-            {/* About Us Section */}
-            <section id="about" className="section about">
-                <div className="container">
-                    <div className="about-header">
-                        <span className="about-label">ABOUT US</span>
-                        <div className="about-header-line"></div>
-                    </div>
-                    <div className="about-grid">
-                        <div className="about-title-col">
-                            <h2 className="about-title">Interior Architecture & Refurbishment Design</h2>
-                            <p className="about-lead">
-                                We&apos;re a London studio delivering interior architecture and refurbishment design with a calm, considered approach.
-                            </p>
-                        </div>
-                        <div className="about-content-col">
-                            <p>
-                                Our work is defined by strong layouts, refined material palettes, and details that translate beautifully from concept to build.
-                            </p>
-                            <p>
-                                We take time to understand how you live, what you value, and what your home needs to become. With careful attention to proportion, light, and flow, we create spaces that feel effortless — elevated in character, practical in use, and designed to last.
-                            </p>
-                            <p>
-                                Sustainability is integrated into our thinking from day one, through re-use, responsible specification, and long-term performance. The outcome is a home that supports your life today and remains relevant for years to come.
-                            </p>
-                            <a href="/studio" className="about-link">
-                                DISCOVER OUR STUDIO →
-                            </a>
-                        </div>
-                    </div>
+        <section id="about" className="about" aria-label="About Aureon Studio">
+            <div className="about-inner">
+                <div className="about-headline-row">
+                    <h2 className="about-headline">
+                        Is Your Home Living Up to Its Full Potential?
+                    </h2>
                 </div>
-            </section>
-        </>
+
+                <p className="about-body">
+                    Your home should be more than a backdrop to daily life — it should reflect who you are, support how you live, and grow in value over time. Yet for many London homeowners, the gap between a property&apos;s potential and its reality remains frustratingly out of reach.
+                </p>
+
+                <p className="about-body">
+                    Aureon Studio is a London-based interior architecture and refurbishment design practice. We partner with homeowners across London and the South East to plan, design, and deliver beautiful, functional spaces — managing every stage from initial concept and planning through to final handover with clarity, care, and complete creative oversight.
+                </p>
+
+                <p className="about-coda">
+                    Because well-designed spaces don&apos;t just look better — they live better.
+                </p>
+
+                <Link href="/projects" className="about-link">
+                    VIEW OUR PROJECTS
+                </Link>
+            </div>
+        </section>
     );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
@@ -93,22 +94,30 @@ export default function SereniflowWellnessPage() {
                     ))}
                     <div className="pd-hero-overlay" />
 
-                    {/* Right quick-nav panel */}
-                    <nav className="pd-hero-panel">
-                        <a href="#contact" className="pd-hero-panel-item">Enquire Now</a>
-                        <Link href="/services" className="pd-hero-panel-item">Services</Link>
-                        <Link href="/#projects" className="pd-hero-panel-item">View Latest Projects</Link>
-                    </nav>
-
                     {/* Centred title */}
                     <div className="pd-hero-center">
-                        <div className="pd-hero-title-row">
+                        <motion.p
+                            className="pd-hero-category"
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7 }}
+                        >Commercial</motion.p>
+                        <motion.div
+                            className="pd-hero-title-row"
+                            initial={{ opacity: 0, y: 28 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.85, delay: 0.15 }}
+                        >
                             <span className="pd-hero-deco-line" />
                             <h1 className="pd-hero-title">SereniFlow Wellness Centre</h1>
                             <span className="pd-hero-deco-line" />
-                        </div>
-                        <p className="pd-hero-category">Commercial</p>
-                        <p className="pd-hero-subtitle">A contemporary wellness environment designed to support movement, relaxation, and a seamless spatial experience.</p>
+                        </motion.div>
+                        <motion.p
+                            className="pd-hero-subtitle"
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.3 }}
+                        >A contemporary wellness environment designed to support movement, relaxation, and a seamless spatial experience.</motion.p>
                     </div>
 
                     {/* Bottom bar — location + 3 feature stats */}
@@ -278,8 +287,7 @@ export default function SereniflowWellnessPage() {
                             {[...MORE_PROJECTS, MORE_PROJECTS[0]].map((p, i) => (
                                 <Link key={i} href={p.href} className="pd-more-card">
                                     <div className="pd-more-card-img-wrap">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img src={p.image} alt={p.title} className="pd-more-card-img" loading="lazy" />
+                                        <Image src={p.image} alt={p.title} fill className="pd-more-card-img" sizes="33vw" />
                                     </div>
                                     <div className="pd-more-card-overlay">
                                         <h3 className="pd-more-card-title">{p.title}</h3>

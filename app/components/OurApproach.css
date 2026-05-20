@@ -53,12 +53,14 @@
 }
 
 .oa-header-line {
-  flex: 1;
-  height: 1px;
-  background: var(--color-border, #e5e5e5);
+  display: none;
 }
 
 .oa-eyebrow {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
   font-family: var(--font-primary, 'Inter', sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
@@ -67,6 +69,14 @@
   color: var(--color-accent, #d4a574);
   white-space: nowrap;
   margin: 0;
+}
+
+.oa-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--color-accent, #d4a574);
 }
 
 .oa-blocks {

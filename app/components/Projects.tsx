@@ -61,7 +61,6 @@ export default function Projects() {
             {/* Section heading */}
             <div className="projects-heading-wrap">
                 <div className="projects-heading">
-                    <span className="projects-heading-line" />
                     <h2 className="projects-title">Our Work</h2>
                     <span className="projects-heading-line" />
                 </div>

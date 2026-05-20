@@ -1,5 +1,4 @@
-'use client';
-
+import Image from 'next/image';
 import './TeamCard.css';
 
 interface TeamCardProps {
@@ -13,7 +12,7 @@ export default function TeamCard({ name, image, experience, qualifications }: Te
     return (
         <div className="team-card">
             <div className="team-card-image-wrapper">
-                <img src={image} alt={name} className="team-card-image" />
+                <Image src={image} alt={name} fill className="team-card-image" sizes="(max-width: 768px) 50vw, 25vw" />
                 <div className="team-card-overlay">
                     <div className="team-card-details">
                         <div className="team-detail-item">

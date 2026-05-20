@@ -1,0 +1,106 @@
+/* ── 404 Not Found Page ── */
+.notfound {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) var(--container-padding);
+  background-color: var(--color-bg-gray, #f8f6f2);
+  text-align: center;
+}
+
+.notfound__inner {
+  max-width: 560px;
+}
+
+.notfound__rule-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.notfound__rule {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-accent, #d4a574);
+}
+
+.notfound__eyebrow {
+  font-family: var(--font-accent, var(--font-primary));
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent, #d4a574);
+}
+
+.notfound__title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  color: var(--color-primary, #1a1a1a);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.1;
+}
+
+.notfound__text {
+  font-size: 1.0625rem;
+  color: var(--color-text-light, #666);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+.notfound__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.notfound__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-primary);
+  font-size: 0.58rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+  transition:
+    background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.notfound__btn::after {
+  content: '→';
+  margin-left: 0.7rem;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.notfound__btn--primary {
+  background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+}
+
+.notfound__btn--outline {
+  background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+}
+
+.notfound__btn:hover {
+  background-size: 100% 100%;
+  color: #fff;
+  border-color: #a07850;
+}
+
+.notfound__btn:hover::after {
+  transform: translateX(5px);
+}

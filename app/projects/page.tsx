@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import CTAStrip from '../components/CTAStrip';
@@ -98,16 +99,31 @@ export default function ProjectsPage() {
                 <div className="pw-hero-overlay" />
 
                 <div className="pw-hero-center">
-                    <div className="pw-hero-rule">
+                    <motion.div
+                        className="pw-hero-rule"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                    >
                         <span className="pw-hero-rule-line" />
                         <h1 className="pw-hero-title">Our Work</h1>
                         <span className="pw-hero-rule-line" />
-                    </div>
-                    <p className="pw-hero-headline">Selected Projects</p>
-                    <p className="pw-hero-sub">
+                    </motion.div>
+                    <motion.p
+                        className="pw-hero-headline"
+                        initial={{ opacity: 0, y: 28 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.85, delay: 0.15 }}
+                    >Selected Projects</motion.p>
+                    <motion.p
+                        className="pw-hero-sub"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                    >
                         A curated portfolio of homes, workspaces, and environments
                         designed with clarity, purpose, and material honesty.
-                    </p>
+                    </motion.p>
                 </div>
 
                 {/* Filter tabs */}

@@ -97,23 +97,40 @@
 }
 
 .contact-btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: var(--color-bg);
-    color: var(--color-primary);
-    font-size: 1rem;
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    color: #fff;
+    font-family: var(--font-primary);
+    font-size: 0.58rem;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 50px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.contact-btn::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .contact-btn:hover {
-    background-color: var(--color-accent);
-    color: var(--color-bg);
-    transform: translateY(-2px);
+    background-size: 100% 100%;
+    color: #fff;
+    border-color: #a07850;
+}
+
+.contact-btn:hover::after {
+    transform: translateX(5px);
 }
 
 .footer-bottom {

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
@@ -26,9 +27,24 @@ export default function CommercialPage() {
                 />
                 <div className="srv-hero-overlay" />
                 <div className="srv-hero-content">
-                    <span className="srv-hero-eyebrow">Commercial</span>
-                    <h1 className="srv-hero-title">Innovative Spaces<br />for Business Success</h1>
-                    <p className="srv-hero-desc">Our commercial design approach is centred on creating environments that are both functional and experience-driven.</p>
+                    <motion.span
+                        className="srv-hero-eyebrow"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                    >Commercial</motion.span>
+                    <motion.h1
+                        className="srv-hero-title"
+                        initial={{ opacity: 0, y: 28 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.85, delay: 0.15 }}
+                    >Innovative Spaces<br />for Business Success</motion.h1>
+                    <motion.p
+                        className="srv-hero-desc"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                    >Our commercial design approach is centred on creating environments that are both functional and experience-driven.</motion.p>
                 </div>
                 <div className="srv-hero-scroll">
                     <span>Scroll</span>
@@ -80,7 +96,7 @@ export default function CommercialPage() {
             <section className="srv-cta">
                 <p className="srv-cta-label">Ready to Begin</p>
                 <h2 className="srv-cta-title">Let&apos;s Design Your Space</h2>
-                <Link href="/contact" className="srv-cta-link">Start a Conversation &rarr;</Link>
+                <Link href="/contact" className="srv-cta-link">Start a Conversation</Link>
             </section>
 
             <Footer />

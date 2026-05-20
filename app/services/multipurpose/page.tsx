@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
@@ -26,9 +27,24 @@ export default function MultipurposePage() {
                 />
                 <div className="srv-hero-overlay" />
                 <div className="srv-hero-content">
-                    <span className="srv-hero-eyebrow">Multipurpose</span>
-                    <h1 className="srv-hero-title">Versatile Spaces<br />for Diverse Needs</h1>
-                    <p className="srv-hero-desc">Our approach to multipurpose design focuses on creating adaptable environments that respond to changing uses over time.</p>
+                    <motion.span
+                        className="srv-hero-eyebrow"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                    >Multipurpose</motion.span>
+                    <motion.h1
+                        className="srv-hero-title"
+                        initial={{ opacity: 0, y: 28 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.85, delay: 0.15 }}
+                    >Versatile Spaces<br />for Diverse Needs</motion.h1>
+                    <motion.p
+                        className="srv-hero-desc"
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                    >Our approach to multipurpose design focuses on creating adaptable environments that respond to changing uses over time.</motion.p>
                 </div>
                 <div className="srv-hero-scroll">
                     <span>Scroll</span>
@@ -80,7 +96,7 @@ export default function MultipurposePage() {
             <section className="srv-cta">
                 <p className="srv-cta-label">Ready to Begin</p>
                 <h2 className="srv-cta-title">Let&apos;s Design Your Space</h2>
-                <Link href="/contact" className="srv-cta-link">Start a Conversation &rarr;</Link>
+                <Link href="/contact" className="srv-cta-link">Start a Conversation</Link>
             </section>
 
             <Footer />

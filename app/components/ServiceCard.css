@@ -1,267 +1,161 @@
-.service-card {
+/* ═══════════════════════════════════════════
+   SERVICE TILE  —  2×2 editorial grid card
+   ═══════════════════════════════════════════ */
+
+.sc-tile {
     position: relative;
-    width: 100%;
-    height: 70vh;
-    min-height: 500px;
-    max-height: 800px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    display: block;
+    height: clamp(440px, 60vh, 680px);
     overflow: hidden;
-    cursor: pointer;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    margin: 0;
-    padding: 0;
-}
-
-/* Desktop only - fixed background */
-@media (min-width: 1024px) {
-    .service-card {
-        background-attachment: fixed;
-    }
-}
-
-.service-card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.3) 0%,
-        rgba(0, 0, 0, 0.6) 100%
-    );
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.service-card:hover .service-card-overlay {
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.9) 100%
-    );
-}
-
-.service-card-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: white;
-    max-width: 900px;
-    padding: 0 clamp(1.5rem, 4vw, 3rem);
-    width: 100%;
-}
-
-.service-card-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 4.5rem);
-    font-weight: 400;
-    line-height: 1.2;
-    color: white;
-    margin: 0 0 1rem 0;
-    text-transform: uppercase;
-    letter-spacing: clamp(1px, 0.3vw, 2px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.service-card:hover .service-card-title {
-    transform: translateY(-10px);
-    letter-spacing: clamp(2px, 0.5vw, 4px);
-}
-
-.service-card-details {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.service-card:hover .service-card-details {
-    max-height: 600px;
-    opacity: 1;
-    margin-top: clamp(1rem, 2.5vw, 2rem);
-}
-
-.service-card-description {
-    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.95);
-    margin: 0 0 clamp(1.5rem, 2.5vw, 2rem) 0;
-    text-align: center;
-}
-
-.service-card-link {
-    display: inline-block;
-    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
-    font-size: clamp(0.75rem, 1.2vw, 0.875rem);
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: white;
-    background: transparent;
-    border: 2px solid white;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
 
-.service-card-link:hover {
-    background: white;
-    color: var(--color-primary);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+/* Background image */
+.sc-tile-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
 }
 
-/* Large Desktop */
-@media (min-width: 1440px) {
-    .service-card {
-        height: 75vh;
-        max-height: 900px;
-    }
+.sc-tile:hover .sc-tile-bg {
+    transform: scale(1.06);
 }
 
-/* Desktop */
-@media (min-width: 1024px) and (max-width: 1439px) {
-    .service-card {
-        height: 70vh;
-        max-height: 800px;
-    }
+/* Gradient overlay */
+.sc-tile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        155deg,
+        rgba(8, 6, 4, 0.12) 0%,
+        rgba(8, 6, 4, 0.52) 50%,
+        rgba(8, 6, 4, 0.87) 100%
+    );
+    transition: opacity 0.55s ease;
 }
 
-/* Tablet Landscape */
-@media (min-width: 769px) and (max-width: 1023px) {
-    .service-card {
-        height: 65vh;
-        min-height: 500px;
-        max-height: 700px;
-        background-attachment: scroll;
-    }
-
-    .service-card-title {
-        font-size: clamp(2.25rem, 4vw, 3rem);
-    }
+.sc-tile:hover .sc-tile-overlay {
+    opacity: 1.15;
 }
 
-/* Tablet Portrait */
-@media (min-width: 641px) and (max-width: 768px) {
-    .service-card {
-        height: 60vh;
-        min-height: 450px;
-        max-height: 650px;
-        background-attachment: scroll;
-    }
-
-    .service-card-content {
-        max-width: 700px;
-    }
+/* Inner layout */
+.sc-tile-inner {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(1.75rem, 3vw, 2.75rem);
 }
 
-/* Mobile Landscape */
-@media (max-width: 640px) and (orientation: landscape) {
-    .service-card {
-        height: 100vh;
-        min-height: 400px;
-        max-height: none;
-        background-size: cover;
-        background-position: center center;
+/* Faint ordinal number */
+.sc-tile-num {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 7vw, 6rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+    transition: color 0.45s ease;
+    user-select: none;
+}
+
+.sc-tile:hover .sc-tile-num {
+    color: rgba(255, 255, 255, 0.06);
+}
+
+/* Bottom content block */
+.sc-tile-foot {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Gold accent overline — expands on hover */
+.sc-tile-accent-line {
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--color-accent);
+    margin-bottom: 1.1rem;
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sc-tile:hover .sc-tile-accent-line {
+    width: 52px;
+}
+
+/* Service title */
+.sc-tile-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 2.8vw, 2.625rem);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 0.625rem;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+}
+
+/* One-line tagline */
+.sc-tile-tagline {
+    font-family: var(--font-primary);
+    font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 34ch;
+    transition: color 0.35s ease;
+}
+
+.sc-tile:hover .sc-tile-tagline {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* CTA label — slides up on hover */
+.sc-tile-explore {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-primary);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+        opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sc-tile:hover .sc-tile-explore {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .sc-tile {
+        height: clamp(360px, 60vw, 500px);
     }
 
-    .service-card-details {
-        max-height: 400px;
+    .sc-tile-num {
+        font-size: 3.5rem;
+    }
+
+    .sc-tile-explore {
         opacity: 1;
-        margin-top: 1rem;
-    }
-
-    .service-card-overlay {
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.6) 0%,
-            rgba(0, 0, 0, 0.85) 100%
-        );
+        transform: translateY(0);
     }
 }
 
-/* Mobile Portrait */
-@media (max-width: 640px) and (orientation: portrait) {
-    .service-card {
-        height: 85vh;
-        min-height: 550px;
-        max-height: none;
-        background-attachment: scroll;
-        background-size: cover;
-        background-position: center center;
-    }
-
-    .service-card-content {
-        padding: 0 1.5rem;
-        max-width: 100%;
-    }
-
-    .service-card-title {
-        font-size: clamp(1.75rem, 8vw, 2.5rem);
-        letter-spacing: 1px;
-        margin-bottom: 0.75rem;
-    }
-
-    .service-card:hover .service-card-title {
-        letter-spacing: 2px;
-        transform: translateY(-5px);
-    }
-
-    /* Always show details on mobile */
-    .service-card-details {
-        max-height: none;
-        opacity: 1;
-        margin-top: 1.25rem;
-    }
-
-    .service-card-overlay {
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.8) 100%
-        );
-    }
-
-    .service-card-description {
-        font-size: clamp(0.85rem, 3.5vw, 0.95rem);
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-    }
-
-    .service-card-link {
-        padding: 0.875rem 1.75rem;
-        font-size: 0.75rem;
-        letter-spacing: 1.5px;
-    }
-}
-
-/* Extra Small Mobile */
-@media (max-width: 375px) {
-    .service-card {
-        min-height: 500px;
-        background-size: cover;
-        background-position: center center;
-    }
-
-    .service-card-content {
-        padding: 0 1.25rem;
-    }
-
-    .service-card-title {
-        font-size: 1.5rem;
-    }
-
-    .service-card-description {
-        font-size: 0.8125rem;
-    }
-
-    .service-card-link {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.7rem;
+@media (max-width: 480px) {
+    .sc-tile {
+        height: 72vw;
+        min-height: 300px;
     }
 }

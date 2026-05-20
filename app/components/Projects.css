@@ -12,28 +12,35 @@
 .projects-heading {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
 }
 
 .projects-heading-line {
-    display: block;
-    width: 72px;
-    height: 1px;
-    background-color: var(--color-primary);
-    opacity: 0.3;
-    flex-shrink: 0;
+    display: none;
 }
 
 .projects-title {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
     font-family: var(--font-primary);
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--color-primary);
+    color: var(--color-accent);
     margin: 0;
     white-space: nowrap;
+}
+
+.projects-title::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--color-accent);
 }
 
 /* ── Filters ── */
@@ -96,21 +103,41 @@
 }
 
 .projects-view-all {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    padding: 0.9rem 2rem;
     font-family: var(--font-primary);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 3px;
+    font-size: 0.58rem;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
-    color: var(--color-primary);
+    color: #1a1a1a;
     text-decoration: none;
-    border-bottom: 1px solid var(--color-primary);
-    padding-bottom: 3px;
-    transition: color var(--transition-fast), border-color var(--transition-fast);
+    border: 1px solid #1a1a1a;
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.projects-view-all::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .projects-view-all:hover {
-    color: var(--color-text-light);
-    border-color: var(--color-text-light);
+    background-size: 100% 100%;
+    color: #fff;
+    border-color: #a07850;
+}
+
+.projects-view-all:hover::after {
+    transform: translateX(5px);
 }
 
 /* ── Responsive ── */
