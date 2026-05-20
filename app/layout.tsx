@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter, Poppins } from 'next/font/google'
 import { buildOrganisationSchema } from '@/lib/schema'
+import WhatsAppButton from '@/app/components/whatsapp-button/WhatsAppButton'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -67,6 +68,7 @@ export default function RootLayout({
           }}
         />
         <div id="main-content">{children}</div>
+        <WhatsAppButton />
       </body>
     </html>
   )
