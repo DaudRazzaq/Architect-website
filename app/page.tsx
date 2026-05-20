@@ -10,6 +10,7 @@ import Services from './components/Services';
 import Projects from './components/Projects';
 import Stats from './components/Stats';
 import News from './components/News';
+import GetInTouch from './components/GetInTouch';
 import Footer from './components/Footer';
 
 export const revalidate = 3600
@@ -44,6 +45,7 @@ export default function Home() {
       <Projects />
       <Stats />
       <News />
+      <GetInTouch />
       <Footer />
     </main>
   );
