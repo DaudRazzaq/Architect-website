@@ -182,6 +182,67 @@ function buildEmailHtml(source: string, fields: Record<string, string>): string 
 }
 
 // ---------------------------------------------------------------------------
+// Plain-text bodies — critical for spam score (HTML-only = spam signal)
+// ---------------------------------------------------------------------------
+function buildAdminText(source: string, fields: Record<string, string>): string {
+  const sourceLabel = SOURCE_LABELS[source] ?? source
+  const timestamp = new Date().toLocaleString('en-GB', {
+    timeZone: 'Europe/London',
+    day: '2-digit', month: 'long', year: 'numeric',
+    hour: '2-digit', minute: '2-digit',
+  })
+  const lines = Object.entries(fields)
+    .filter(([, v]) => v?.trim())
+    .map(([k, v]) => {
+      const label = FIELD_LABELS[k] ?? k.charAt(0).toUpperCase() + k.slice(1).replace(/([A-Z])/g, ' $1')
+      return `${label}: ${v.trim()}`
+    })
+  return [
+    'NEW ENQUIRY -- AUREON STUDIO',
+    '='.repeat(40),
+    ...lines,
+    '',
+    `Form: ${sourceLabel}`,
+    `Time: ${timestamp}`,
+  ].join('\n')
+}
+
+function buildAutoReplyText(name: string, fields: Record<string, string>): string {
+  const firstName = name.trim().split(' ')[0]
+  const year = new Date().getFullYear()
+  const receiptKeys = ['service', 'location', 'budget', 'timeline']
+  const receiptLabels: Record<string, string> = {
+    service: 'Service', location: 'Location', budget: 'Budget', timeline: 'Timeline',
+  }
+  const receipt = receiptKeys
+    .filter((k) => fields[k]?.trim())
+    .map((k) => `  ${receiptLabels[k]}: ${fields[k]}`)
+    .join('\n')
+
+  return [
+    `Dear ${firstName},`,
+    '',
+    'Thank you for reaching out to Aureon Studio. We have received your project enquiry',
+    'and can confirm it is now being reviewed by our design team.',
+    '',
+    'Our architects will carefully consider the details of your brief and get back to',
+    'you within 24-48 hours.',
+    '',
+    'If you have any additional information to share in the meantime, please reply',
+    'directly to this email.',
+    '',
+    ...(receipt ? ['YOUR ENQUIRY', '-'.repeat(30), receipt, ''] : []),
+    'Warmly,',
+    'The Aureon Studio Team',
+    '',
+    '--',
+    'Aureon Studio | 14 Fitzroy Square, Fitzrovia, London W1T 6EH',
+    '+44 20 7946 0123 | contact@aureonstudio.co.uk',
+    `(c) ${year} Aureon Studio Ltd. All rights reserved.`,
+  ].join('\n')
+}
+
+// ---------------------------------------------------------------------------
 // Premium auto-reply email for the enquiring user
 // ---------------------------------------------------------------------------
 function buildAutoReplyHtml(name: string, fields: Record<string, string>): string {
@@ -225,73 +286,86 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="x-apple-disable-message-reformatting">
-  <title>Thank you for your enquiry — Aureon Studio</title>
+  <title>Thank you for your enquiry &mdash; Aureon Studio</title>
   <!--[if mso]>
   <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
   <![endif]-->
 </head>
-<body style="margin:0;padding:0;background-color:#f4f2ef;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+<body style="margin:0;padding:0;background-color:#f0ede8;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
 
-<!-- PREVIEW TEXT (hidden) -->
-<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-  We have received your enquiry and our team is reviewing your project details.&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;
-</div>
+<!-- PREVIEW TEXT — pads with invisible chars so body copy doesn't bleed into snippet -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">We have received your project enquiry and our design team is now reviewing the details.&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;</div>
 
 <!-- WRAPPER -->
-<table width="100%" cellpadding="0" cellspacing="0" role="presentation"
-       style="background-color:#f4f2ef;margin:0;padding:0;">
+<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f0ede8;">
   <tr>
-    <td align="center" style="padding:48px 16px;">
+    <td align="center" style="padding:44px 16px 52px;">
 
       <!-- CARD -->
-      <table width="560" cellpadding="0" cellspacing="0" role="presentation"
-             style="max-width:560px;width:100%;">
+      <table width="560" cellpadding="0" cellspacing="0" role="presentation" style="max-width:560px;width:100%;">
 
-        <!-- ░░ TOP CHROME BAR ░░ -->
+        <!-- ░░ LOGO HEADER — white bg so the logo renders correctly ░░ -->
         <tr>
-          <td style="background-color:#1c1c1c;height:3px;border-radius:4px 4px 0 0;font-size:0;line-height:0;">&nbsp;</td>
-        </tr>
-
-        <!-- ░░ HEADER ░░ -->
-        <tr>
-          <td style="background-color:#1c1c1c;padding:36px 44px 32px;border-radius:0;">
+          <td style="background-color:#ffffff;padding:28px 44px 24px;
+                     border-top:3px solid #1c1c1c;border-radius:4px 4px 0 0;">
             <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
               <tr>
-                <td>
-                  <!-- Studio wordmark -->
+                <td width="46" style="vertical-align:middle;">
+                  <img src="https://aureonstudio.co.uk/logo.webp"
+                       alt="Aureon Studio"
+                       width="42" height="42"
+                       style="display:block;width:42px;height:auto;border:0;outline:none;
+                              text-decoration:none;-ms-interpolation-mode:bicubic;" />
+                </td>
+                <td style="vertical-align:middle;padding-left:13px;">
                   <p style="margin:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
-                            font-size:9px;letter-spacing:0.28em;text-transform:uppercase;
-                            color:#c9a96e;mso-line-height-rule:exactly;">
-                    AUREON STUDIO
+                            font-size:12px;font-weight:600;letter-spacing:0.14em;
+                            text-transform:uppercase;color:#1c1c1c;
+                            mso-line-height-rule:exactly;line-height:1;">
+                    Aureon Studio
+                  </p>
+                  <p style="margin:4px 0 0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+                            font-size:8px;letter-spacing:0.2em;text-transform:uppercase;
+                            color:#c9a96e;mso-line-height-rule:exactly;line-height:1;">
+                    Architecture &amp; Interior Design
                   </p>
                 </td>
                 <td align="right" style="vertical-align:middle;">
-                  <!-- Geometric accent mark -->
-                  <table cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                      <td style="width:6px;height:6px;background-color:#c9a96e;"></td>
-                      <td style="width:4px;"></td>
-                      <td style="width:6px;height:6px;background-color:#444444;"></td>
-                    </tr>
-                  </table>
+                  <p style="margin:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+                            font-size:9px;letter-spacing:0.1em;color:#c4c0ba;
+                            mso-line-height-rule:exactly;">London, UK</p>
                 </td>
               </tr>
             </table>
           </td>
         </tr>
 
-        <!-- ░░ GOLD ACCENT LINE ░░ -->
+        <!-- ░░ GOLD HAIRLINE ░░ -->
         <tr>
           <td style="background-color:#c9a96e;height:1px;font-size:0;line-height:0;">&nbsp;</td>
         </tr>
 
+        <!-- ░░ DARK HEADLINE BAND ░░ -->
+        <tr>
+          <td style="background-color:#1c1c1c;padding:26px 44px 24px;">
+            <p style="margin:0 0 5px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+                      font-size:8px;letter-spacing:0.24em;text-transform:uppercase;
+                      color:#c9a96e;mso-line-height-rule:exactly;">Enquiry Confirmed</p>
+            <p style="margin:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+                      font-size:19px;font-weight:300;color:#ffffff;letter-spacing:0.01em;
+                      line-height:1.35;mso-line-height-rule:exactly;">
+              We&rsquo;ve received your project brief.
+            </p>
+          </td>
+        </tr>
+
         <!-- ░░ BODY ░░ -->
         <tr>
-          <td style="background-color:#ffffff;padding:48px 44px 44px;">
+          <td style="background-color:#ffffff;padding:44px 44px 40px;">
 
             <!-- Greeting -->
-            <p style="margin:0 0 32px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
-                      font-size:22px;font-weight:300;color:#1c1c1c;letter-spacing:-0.01em;
+            <p style="margin:0 0 28px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+                      font-size:21px;font-weight:300;color:#1c1c1c;letter-spacing:-0.01em;
                       line-height:1.3;mso-line-height-rule:exactly;">
               Dear ${firstName},
             </p>
@@ -472,18 +546,23 @@ export async function POST(req: NextRequest) {
   // Fire both emails simultaneously — admin notification + user auto-reply
   try {
     const [adminResult, replyResult] = await Promise.allSettled([
+      // Admin notification — internal, noreply is fine here
       resend.emails.send({
         from: 'Aureon Studio <noreply@aureonstudio.co.uk>',
         to: ['contact@aureonstudio.co.uk'],
         replyTo: fields.email,
-        subject: `New Enquiry — ${fields.name.trim()}${fields.service ? ` · ${fields.service}` : ''}`,
+        subject: `New Enquiry \u2014 ${fields.name.trim()}${fields.service ? ` \u00b7 ${fields.service}` : ''}`,
         html: buildEmailHtml(source, fields),
+        text: buildAdminText(source, fields),
       }),
+      // User auto-reply — FROM contact@ builds trust & avoids spam filters
       resend.emails.send({
-        from: 'Aureon Studio <noreply@aureonstudio.co.uk>',
+        from: 'Aureon Studio <contact@aureonstudio.co.uk>',
         to: [fields.email],
-        subject: `Thank you for your enquiry — Aureon Studio`,
+        replyTo: 'contact@aureonstudio.co.uk',
+        subject: `Thank you for your enquiry \u2014 Aureon Studio`,
         html: buildAutoReplyHtml(fields.name, fields),
+        text: buildAutoReplyText(fields.name, fields),
       }),
     ])
 

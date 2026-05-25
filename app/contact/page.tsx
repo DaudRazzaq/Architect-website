@@ -154,7 +154,7 @@ export default function ContactPage() {
                                 </span>
                                 <div>
                                     <span className="ct-detail-label">Email</span>
-                                    <span className="ct-detail-value">hello@aureonstudio.com</span>
+                                    <span className="ct-detail-value">contact@aureonstudio.com</span>
                                 </div>
                             </div>
                             <div className="ct-detail">
