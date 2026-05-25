@@ -311,7 +311,7 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
             <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
               <tr>
                 <td width="46" style="vertical-align:middle;">
-                  <img src="https://aureonstudio.co.uk/logo.webp"
+                  <img src="https://aureonstudio.co.uk/logo.png"
                        alt="Aureon Studio"
                        width="42" height="42"
                        style="display:block;width:42px;height:auto;border:0;outline:none;
