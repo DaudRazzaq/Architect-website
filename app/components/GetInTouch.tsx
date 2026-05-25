@@ -57,7 +57,7 @@ export default function GetInTouch() {
 
                         <div className="git-detail-group">
                             <span className="git-detail-label">Email</span>
-                            <p className="git-detail-value">hello@aureonstudio.com</p>
+                            <p className="git-detail-value">contact@aureonstudio.com</p>
                         </div>
 
                         <div className="git-detail-group">

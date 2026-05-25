@@ -100,8 +100,8 @@ export async function submitContact(
     .join('\n')
 
   const { error: resendError } = await resend.emails.send({
-    from: 'Aureon Studio <noreply@aureonstudio.co.uk>',
-    to: ['contact@aureonstudio.co.uk'],
+    from: 'Aureon Studio <noreply@aureonstudio.com>',
+    to: ['contact@aureonstudio.com'],
     replyTo: d.email,
     subject: `New Enquiry — ${d.name} · ${d.service}`,
     text: lines,

@@ -333,7 +333,7 @@ export default function ContactPage() {
                     <div className="ct-office-divider" />
                     <div className="ct-office-item">
                         <span className="ct-office-label">EMAIL</span>
-                        <span className="ct-office-value">hello@aureonstudio.com</span>
+                        <span className="ct-office-value">contact@aureonstudio.com</span>
                     </div>
                     <div className="ct-office-divider" />
                     <div className="ct-office-item">
