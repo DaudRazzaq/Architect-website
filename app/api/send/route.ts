@@ -310,11 +310,11 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
                      border-top:3px solid #1c1c1c;border-radius:4px 4px 0 0;">
             <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
               <tr>
-                <td width="46" style="vertical-align:middle;">
+                <td width="76" style="vertical-align:middle;">
                   <img src="https://aureonstudio.co.uk/logoEmail.png"
                        alt="Aureon Studio"
-                       width="42" height="42"
-                       style="display:block;width:42px;height:auto;border:0;outline:none;
+                       width="68" height="68"
+                       style="display:block;width:68px;height:auto;border:0;outline:none;
                               text-decoration:none;-ms-interpolation-mode:bicubic;" />
                 </td>
                 <td style="vertical-align:middle;padding-left:13px;">
