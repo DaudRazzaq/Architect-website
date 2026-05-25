@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useContactForm } from '../hooks/useContactForm';
 import './GetInTouch.css';
 
 export default function GetInTouch() {
@@ -15,17 +16,17 @@ export default function GetInTouch() {
         howHeard: '',
     });
 
-    const [submitted, setSubmitted] = useState(false);
+    const { loading, success, error: formError, submit: sendEnquiry, reset } = useContactForm();
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        await sendEnquiry(formData as Record<string, string>, 'get-in-touch');
+    };
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setSubmitted(true);
     };
 
     return (
@@ -129,9 +130,16 @@ export default function GetInTouch() {
 
                 {/* ── RIGHT FORM ── */}
                 <div className="git-right">
-                    {submitted ? (
+                    {success ? (
                         <div className="git-success">
                             <p className="git-success-msg">Thank you for your enquiry. We&apos;ll be in touch shortly.</p>
+                            <button
+                                className="git-submit"
+                                style={{ marginTop: '16px', background: 'transparent', border: '1px solid currentColor', cursor: 'pointer' }}
+                                onClick={reset}
+                            >
+                                Send Another Enquiry
+                            </button>
                         </div>
                     ) : (
                         <form className="git-form" onSubmit={handleSubmit} noValidate>
@@ -272,7 +280,14 @@ export default function GetInTouch() {
                             </div>
 
                             <div className="git-form-row git-form-row--full">
-                                <button type="submit" className="git-submit">Enquire Now</button>
+                                {formError && (
+                                    <p style={{ color: '#b04040', fontSize: '13px', letterSpacing: '0.02em', marginBottom: '8px', lineHeight: 1.5 }}>
+                                        {formError}
+                                    </p>
+                                )}
+                                <button type="submit" className="git-submit" disabled={loading} aria-busy={loading}>
+                                    {loading ? 'Sending…' : 'Enquire Now'}
+                                </button>
                             </div>
 
                         </form>

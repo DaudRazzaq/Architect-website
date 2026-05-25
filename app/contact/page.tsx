@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import CTAStrip from '../components/CTAStrip';
+import { useContactForm } from '../hooks/useContactForm';
 import './contact.css';
 
 const SERVICES = [
@@ -50,12 +51,15 @@ const INITIAL: FormData = {
 
 export default function ContactPage() {
     const [form, setForm] = useState<FormData>(INITIAL);
-    const [submitted, setSubmitted] = useState(false);
+    const { loading, success, error: formError, submit: sendEnquiry, reset } = useContactForm();
 
     const update = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-    const submit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
+    const submit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        await sendEnquiry(form as Record<string, string>, 'contact-page');
+    };
 
     return (
         <>
@@ -200,7 +204,7 @@ export default function ContactPage() {
                         viewport={{ once: true, margin: '-80px' }}
                         transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
                     >
-                        {submitted ? (
+                        {success ? (
                             <div className="ct-success">
                                 <div className="ct-success-icon">
                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="20 6 9 17 4 12" /></svg>
@@ -210,7 +214,7 @@ export default function ContactPage() {
                                     Thank you for reaching out. A member of our team will be in touch within
                                     one business day to discuss your project.
                                 </p>
-                                <button className="ct-success-back" onClick={() => setSubmitted(false)}>
+                                <button className="ct-success-back" onClick={() => { reset(); setForm(INITIAL); }}>
                                     Send Another Enquiry
                                 </button>
                             </div>
@@ -295,9 +299,14 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                <button type="submit" className="ct-submit">
-                                    <span>Submit Enquiry</span>
-                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                {formError && (
+                                    <p style={{ color: '#b04040', fontSize: '13px', letterSpacing: '0.02em', marginBottom: '12px', lineHeight: 1.5 }}>
+                                        {formError}
+                                    </p>
+                                )}
+                                <button type="submit" className="ct-submit" disabled={loading} aria-busy={loading}>
+                                    <span>{loading ? 'Sending…' : 'Submit Enquiry'}</span>
+                                    {!loading && <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>}
                                 </button>
                                 <p className="ct-privacy">
                                     Your information is handled in accordance with our privacy policy.

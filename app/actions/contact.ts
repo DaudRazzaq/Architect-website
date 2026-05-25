@@ -1,6 +1,9 @@
 'use server'
 
+import { Resend } from 'resend'
 import { z } from 'zod'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -80,14 +83,34 @@ export async function submitContact(
     }
   }
 
-  // TODO: integrate email provider (Resend, SendGrid, etc.)
-  // Example with Resend:
-  // await resend.emails.send({
-  //   from: 'noreply@aureon.studio',
-  //   to: 'hello@aureon.studio',
-  //   subject: `New enquiry from ${parsed.data.name}`,
-  //   text: JSON.stringify(parsed.data, null, 2),
-  // })
+  const d = parsed.data
+  const lines = [
+    `Name: ${d.name}`,
+    `Email: ${d.email}`,
+    d.phone ? `Phone: ${d.phone}` : null,
+    d.company ? `Company: ${d.company}` : null,
+    `Service: ${d.service}`,
+    d.location ? `Location: ${d.location}` : null,
+    d.budget ? `Budget: ${d.budget}` : null,
+    d.timeline ? `Timeline: ${d.timeline}` : null,
+    `\nMessage:\n${d.message}`,
+    d.referral ? `\nReferral: ${d.referral}` : null,
+  ]
+    .filter(Boolean)
+    .join('\n')
+
+  const { error: resendError } = await resend.emails.send({
+    from: 'Aureon Studio <noreply@aureonstudio.co.uk>',
+    to: ['contact@aureonstudio.co.uk'],
+    replyTo: d.email,
+    subject: `New Enquiry — ${d.name} · ${d.service}`,
+    text: lines,
+  })
+
+  if (resendError) {
+    console.error('[submitContact] Resend error:', resendError)
+    return { success: false, error: 'Failed to send message. Please try again.' }
+  }
 
   return { success: true }
 }
