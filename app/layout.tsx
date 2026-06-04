@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter, Poppins } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 import { buildOrganisationSchema } from '@/lib/schema'
 import WhatsAppButton from '@/app/components/whatsapp-button/WhatsAppButton'
 import './globals.css'
@@ -98,6 +100,8 @@ export default function RootLayout({
         />
         <main id="main-content">{children}</main>
         <WhatsAppButton />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
