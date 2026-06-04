@@ -15,12 +15,28 @@ import Footer from './components/Footer';
 
 export const revalidate = 3600
 
-export const metadata: Metadata = buildMetadata({
-  title: 'Aureon Studio — Interior Architecture & Refurbishment Design',
-  description:
-    'A London-based interior architecture and refurbishment design studio creating calm, considered spaces that transform the way you live and work.',
-  path: '/',
-})
+export const metadata: Metadata = {
+  ...buildMetadata({
+    title: 'Aureon Studio — Interior Architecture & Refurbishment Design London',
+    description:
+      'Aureon Studio: London interior architecture and refurbishment design studio in Fitzrovia. Award-winning residential, commercial & multipurpose spaces. Book a free consultation.',
+    path: '/',
+  }),
+  keywords: [
+    'interior designer London',
+    'interior architecture London',
+    'interior design studio London',
+    'residential interior design London',
+    'commercial interior design London',
+    'home refurbishment London',
+    'office refurbishment London',
+    'loft conversion design London',
+    'kitchen renovation London',
+    'interior design Fitzrovia',
+    'bespoke interior design London',
+    'London architecture studio',
+  ],
+}
 
 export default function Home() {
   return (

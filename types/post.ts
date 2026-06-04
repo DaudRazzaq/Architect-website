@@ -6,4 +6,7 @@ export interface Post {
   image: string
   category: string
   readTime?: string
+  content?: string
+  keywords?: string[]
+  author?: string
 }

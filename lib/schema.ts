@@ -13,31 +13,37 @@ export function buildOrganisationSchema() {
         logo: {
           '@type': 'ImageObject',
           url: 'https://aureon.studio/logo.png',
+          width: 400,
+          height: 120,
+          caption: 'Aureon Studio — Interior Architecture & Design London',
         },
+        image: 'https://aureon.studio/logo.png',
         sameAs: [
+          'https://www.aureonstudio.co.uk',
           'https://www.instagram.com/aureon.studio',
           'https://www.linkedin.com/company/aureon-studio',
         ],
       },
       {
-        '@type': 'LocalBusiness',
+        '@type': ['LocalBusiness', 'InteriorDesigner'],
         '@id': 'https://aureon.studio/#localbusiness',
         name: 'Aureon Studio',
         description:
-          'A London-based interior architecture and refurbishment design studio.',
+          'A London-based interior architecture and refurbishment design studio delivering residential and commercial projects across London.',
         url: 'https://aureon.studio',
-        telephone: '+44 20 0000 0000',
+        telephone: '+44 (0)20 7946 0321',
+        email: 'contact@aureonstudio.com',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: '124 Architecture Boulevard',
-          addressLocality: 'London',
-          postalCode: 'EC1A 1BB',
+          streetAddress: '14 Fitzroy Square',
+          addressLocality: 'Fitzrovia, London',
+          postalCode: 'W1T 6EH',
           addressCountry: 'GB',
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 51.5074,
-          longitude: -0.1278,
+          latitude: 51.5225,
+          longitude: -0.1392,
         },
         openingHoursSpecification: [
           {
@@ -46,8 +52,30 @@ export function buildOrganisationSchema() {
             opens: '09:00',
             closes: '18:00',
           },
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Saturday'],
+            opens: '10:00',
+            closes: '14:00',
+          },
         ],
         priceRange: '££££',
+        areaServed: {
+          '@type': 'City',
+          name: 'London',
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Interior Architecture & Design Services',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Residential Interior Architecture' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Interior Design' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Multipurpose Space Design' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Loft Conversion Design' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Kitchen & Bathroom Design' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office Refurbishment' } },
+          ],
+        },
       },
     ],
   }
@@ -99,25 +127,45 @@ export function buildArticleSchema({
   image,
   date,
   url,
+  keywords,
 }: {
   title: string
   description: string
   image: string
   date: string
   url: string
+  keywords?: string[]
 }) {
+  const imageUrl = image.startsWith('http') ? image : `https://aureon.studio${image}`
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: title,
     description,
-    image: `https://aureon.studio${image}`,
+    image: imageUrl,
     datePublished: date,
+    dateModified: date,
     url,
+    keywords: keywords?.join(', '),
+    author: {
+      '@type': 'Organization',
+      name: 'Aureon Studio',
+      url: 'https://aureon.studio',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Aureon Studio',
       url: 'https://aureon.studio',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://aureon.studio/logo.png',
+        width: 400,
+        height: 120,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
     },
   }
 }
