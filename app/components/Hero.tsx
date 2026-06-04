@@ -122,7 +122,7 @@ export default function Hero() {
         { label: 'CONTACT', href: '/contact' },
     ];
 
-    const mobileNav = [...navLeft, ...navRight];
+    const mobileNav = [{ label: 'HOME', href: '/' }, ...navLeft, ...navRight];
 
     const slidingTrack = [...HERO_SLIDES, HERO_SLIDES[0]];
     const mediaTrackStyle = {

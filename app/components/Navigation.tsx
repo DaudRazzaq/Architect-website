@@ -53,7 +53,7 @@ export default function Navigation() {
         { label: 'CONTACT', href: '/contact' },
     ];
 
-    const mobileNav = [...navLeft, ...navRight];
+    const mobileNav = [{ label: 'HOME', href: '/' }, ...navLeft, ...navRight];
     const closeMenu = () => setMobileMenuOpen(false);
 
     return (

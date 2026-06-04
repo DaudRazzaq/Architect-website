@@ -140,6 +140,11 @@
     cursor: pointer;
 }
 
+.git-required {
+    color: #c9a96e;
+    font-style: normal;
+}
+
 /* text / tel / email inputs */
 .git-input {
     appearance: none;

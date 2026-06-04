@@ -7,6 +7,7 @@
     font-family: var(--font-poppins);
     position: relative;
     overflow: hidden;
+    isolation: isolate;
 }
 
 /* Ribbons */

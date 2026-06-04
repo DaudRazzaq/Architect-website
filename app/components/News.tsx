@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import NewsCard from './NewsCard';
-import { getLatestArchitectureNews } from '../lib/news';
+import { posts } from '@/data/posts';
 import './News.css';
 
-export default async function News() {
-    const articles = await getLatestArchitectureNews();
-
-    if (!articles || articles.length === 0) return null;
+export default function News() {
+    const latestPosts = posts.slice(0, 6);
 
     return (
         <section id="news" className="section news">
@@ -25,18 +23,18 @@ export default async function News() {
                         </Link>
                     </div>
                 </div>
-                
+
                 <div className="news-minimal-grid">
-                    {articles.map((article, i) => (
+                    {latestPosts.map((post, i) => (
                         <NewsCard
-                            key={`${article.url}-${i}`}
+                            key={post.slug}
                             index={i + 1}
-                            title={article.title}
-                            description={article.description}
-                            date={article.publishedAt}
-                            source={article.source}
-                            image={article.image}
-                            url={article.url}
+                            title={post.title}
+                            description={post.description}
+                            date={post.date}
+                            source={post.category}
+                            image={post.image}
+                            url={`/blog/${post.slug}`}
                         />
                     ))}
                 </div>
