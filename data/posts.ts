@@ -9,7 +9,7 @@ export const posts: Post[] = [
     description:
       'Explore eco-friendly materials and innovative practices shaping sustainable architecture in London — reducing environmental impact while crafting beautiful, high-performance spaces.',
     date: 'Dec 15, 2024',
-    image: '/b1.webp',
+    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80',
     category: 'Sustainability',
     readTime: '5 min read',
     author: 'Aureon Studio',
@@ -55,7 +55,7 @@ export const posts: Post[] = [
     description:
       'Learn how to create versatile, adaptable spaces that meet multiple needs — optimising functionality and flexibility in interior architecture across London homes and offices.',
     date: 'Nov 28, 2024',
-    image: '/b2.webp',
+    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80',
     category: 'Design',
     readTime: '4 min read',
     author: 'Aureon Studio',
@@ -100,7 +100,7 @@ export const posts: Post[] = [
     description:
       'How architectural design and commercial interior fit-out can improve customer experience, boost staff productivity, and drive measurable business results in London.',
     date: 'Nov 10, 2024',
-    image: '/b3.webp',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
     category: 'Commercial',
     readTime: '6 min read',
     author: 'Aureon Studio',
@@ -144,7 +144,7 @@ export const posts: Post[] = [
     description:
       'Discover how minimalist design principles create serene, functional London homes that emphasise quality over quantity — and how to achieve the look without sacrificing warmth.',
     date: 'Oct 22, 2024',
-    image: '/image1b.webp',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80',
     category: 'Residential',
     readTime: '5 min read',
     author: 'Aureon Studio',
@@ -186,7 +186,7 @@ export const posts: Post[] = [
     description:
       'Exploring how building automation, integrated technology, and smart home design are revolutionising interior architecture in London — and what it means for your next project.',
     date: 'Oct 5, 2024',
-    image: '/A0.webp',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
     category: 'Technology',
     readTime: '7 min read',
     author: 'Aureon Studio',
@@ -231,7 +231,7 @@ export const posts: Post[] = [
     description:
       'How contemporary interior architecture can honour the historical character of London period properties and listed buildings while meeting modern functional requirements.',
     date: 'Sep 18, 2024',
-    image: '/hero6.png',
+    image: 'https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=1200&q=80',
     category: 'Heritage',
     readTime: '5 min read',
     author: 'Aureon Studio',
@@ -277,7 +277,7 @@ export const posts: Post[] = [
     description:
       'Everything you need to know before hiring an interior designer in London — from portfolio assessment and fees to how to brief your project and what to expect at each stage.',
     date: 'Jan 20, 2025',
-    image: '/hero2.png',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
     category: 'Guide',
     readTime: '7 min read',
     author: 'Aureon Studio',
@@ -342,7 +342,7 @@ export const posts: Post[] = [
     description:
       'Inspiring loft conversion design ideas for London homes — from Velux and dormer conversions to full mansard extensions, with practical advice on planning, cost, and interior design.',
     date: 'Feb 5, 2025',
-    image: '/hero4.png',
+    image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80',
     category: 'Residential',
     readTime: '6 min read',
     author: 'Aureon Studio',
@@ -400,7 +400,7 @@ export const posts: Post[] = [
     description:
       'The complete guide to planning a kitchen renovation in London — including design options, bespoke vs fitted kitchens, typical costs, and how to get the best result from your project.',
     date: 'Feb 20, 2025',
-    image: '/b1.webp',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80',
     category: 'Residential',
     readTime: '7 min read',
     author: 'Aureon Studio',
@@ -463,7 +463,7 @@ export const posts: Post[] = [
     description:
       'How a well-planned office refurbishment in London can transform staff productivity, attract top talent, and create workspaces that your team genuinely wants to be in.',
     date: 'Mar 5, 2025',
-    image: '/b3.webp',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80',
     category: 'Commercial',
     readTime: '6 min read',
     author: 'Aureon Studio',
@@ -511,7 +511,7 @@ export const posts: Post[] = [
     description:
       'A guide to biophilic design principles for London homes and offices — how incorporating natural materials, light, and living elements creates healthier, more beautiful spaces.',
     date: 'Mar 18, 2025',
-    image: '/hero6.png',
+    image: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80',
     category: 'Design',
     readTime: '5 min read',
     author: 'Aureon Studio',
@@ -559,7 +559,7 @@ export const posts: Post[] = [
     description:
       'Everything London homeowners need to know about planning a full house refurbishment — from finding the right design team to managing costs, timelines, and planning permissions.',
     date: 'Apr 2, 2025',
-    image: '/hero2.png',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     category: 'Residential',
     readTime: '8 min read',
     author: 'Aureon Studio',
