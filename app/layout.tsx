@@ -28,6 +28,13 @@ const poppins = Poppins({
   preload: false,
 })
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+}
+
 export const metadata: Metadata = {
   title: {
     default: 'Aureon Studio — Interior Architecture & Refurbishment Design London',
