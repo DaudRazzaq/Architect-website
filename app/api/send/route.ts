@@ -237,7 +237,7 @@ function buildAutoReplyText(name: string, fields: Record<string, string>): strin
     '',
     '--',
     'Aureon Studio | 14 Fitzroy Square, Fitzrovia, London W1T 6EH',
-    '+44 20 7946 0123 | contact@aureonstudio.com',
+    '+44 20 7946 0123 | contact@aureonstudio.co.uk',
     `(c) ${year} Aureon Studio Ltd. All rights reserved.`,
   ].join('\n')
 }
@@ -457,7 +457,7 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
                             font-size:11px;color:#aaa8a3;line-height:1.7;mso-line-height-rule:exactly;
                             text-align:right;">
                     +44 20 7946 0123<br>
-                    contact@aureonstudio.com
+                    contact@aureonstudio.co.uk
                   </p>
                 </td>
               </tr>
@@ -548,8 +548,8 @@ export async function POST(req: NextRequest) {
     const [adminResult, replyResult] = await Promise.allSettled([
       // Admin notification — internal, noreply is fine here
       resend.emails.send({
-        from: 'Aureon Studio <noreply@aureonstudio.com>',
-        to: ['contact@aureonstudio.com'],
+        from: 'Aureon Studio <noreply@aureonstudio.co.uk>',
+        to: ['contact@aureonstudio.co.uk'],
         replyTo: fields.email,
         subject: `New Enquiry \u2014 ${fields.name.trim()}${fields.service ? ` \u00b7 ${fields.service}` : ''}`,
         html: buildEmailHtml(source, fields),
@@ -557,9 +557,9 @@ export async function POST(req: NextRequest) {
       }),
       // User auto-reply — FROM contact@ builds trust & avoids spam filters
       resend.emails.send({
-        from: 'Aureon Studio <contact@aureonstudio.com>',
+        from: 'Aureon Studio <contact@aureonstudio.co.uk>',
         to: [fields.email],
-        replyTo: 'contact@aureonstudio.com',
+        replyTo: 'contact@aureonstudio.co.uk',
         subject: `Thank you for your enquiry \u2014 Aureon Studio`,
         html: buildAutoReplyHtml(fields.name, fields),
         text: buildAutoReplyText(fields.name, fields),
