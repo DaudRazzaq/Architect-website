@@ -133,7 +133,8 @@ export async function getLatestArchitectureNews(): Promise<NewsArticle[]> {
 
         if (!res.ok) {
             const errorBody = await res.text();
-            console.error(`[news] API error ${res.status}: ${errorBody}`);
+            // warn (not error) — fallback articles are shown, so this is non-critical
+            console.warn(`[news] API error ${res.status}: ${errorBody}`);
             return FALLBACK_ARTICLES;
         }
 

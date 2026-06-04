@@ -226,6 +226,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     padding: 0.9rem 2rem;
     border: 1px solid #1a1a1a;
     background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
@@ -237,13 +238,14 @@
     cursor: pointer;
     width: fit-content;
     margin-top: 0.4rem;
+    min-height: 44px;
     transition:
         background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
         color 0.35s ease,
         border-color 0.35s ease;
 }
 
-.git-submit::after {
+.git-submit:not(.git-submit--loading)::after {
     content: '→';
     margin-left: 0.7rem;
     letter-spacing: 0;
@@ -252,14 +254,48 @@
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.git-submit:hover {
+.git-submit:hover:not(:disabled) {
     background-size: 100% 100%;
     color: #fff;
     border-color: #a07850;
 }
 
-.git-submit:hover::after {
+.git-submit:hover:not(:disabled)::after {
     transform: translateX(5px);
+}
+
+.git-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Spinner */
+.git-spinner {
+    width: 1.1em;
+    height: 1.1em;
+    flex-shrink: 0;
+    animation: git-spin 0.75s linear infinite;
+}
+
+@keyframes git-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Inline error banner */
+.git-error-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.875rem 1rem;
+    background: rgba(176, 64, 64, 0.05);
+    border: 1px solid rgba(176, 64, 64, 0.2);
+    border-left: 3px solid #b04040;
+    margin-bottom: 1rem;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.8125rem;
+    color: #8b2c2c;
+    line-height: 1.55;
 }
 
 /* success state */

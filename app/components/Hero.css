@@ -89,7 +89,7 @@
 
 /* Header while hero is visible */
 .hero-header-hero {
-    padding: 1.25rem clamp(1rem, 2.8vw, 3.5rem) 1rem;
+    padding: max(1.25rem, calc(0.75rem + env(safe-area-inset-top))) clamp(1rem, 2.8vw, 3.5rem) 1rem;
     background: linear-gradient(
         to bottom,
         rgba(8, 8, 8, 0.42),
@@ -119,7 +119,7 @@
 
 /* Header after scrolling below hero — same transparent style */
 .hero-header-scrolled {
-    padding: 1.25rem clamp(1rem, 2.8vw, 3.5rem) 1rem;
+    padding: max(1.25rem, calc(0.75rem + env(safe-area-inset-top))) clamp(1rem, 2.8vw, 3.5rem) 1rem;
     background: linear-gradient(
         to bottom,
         rgba(8, 8, 8, 0.42),
@@ -362,11 +362,11 @@
 
     .hero-header-hero,
     .hero-header-scrolled {
-        padding: 0.9rem 1.2rem;
+        padding: max(0.9rem, calc(0.5rem + env(safe-area-inset-top))) 1.2rem 0.9rem;
     }
 
     .hero-header-scrolled {
-        padding-top: 0.12rem;
+        padding-top: max(0.12rem, calc(0.06rem + env(safe-area-inset-top)));
         padding-bottom: 0.12rem;
     }
 
@@ -420,10 +420,11 @@
     .hero-header-scrolled {
         padding-left: 1rem;
         padding-right: 1rem;
+        padding-top: max(0.8rem, calc(0.4rem + env(safe-area-inset-top)));
     }
 
     .hero-header-scrolled {
-        padding-top: 0.08rem;
+        padding-top: max(0.08rem, calc(0.04rem + env(safe-area-inset-top)));
         padding-bottom: 0.08rem;
     }
 

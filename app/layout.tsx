@@ -67,7 +67,7 @@ export default function RootLayout({
             __html: JSON.stringify(buildOrganisationSchema()),
           }}
         />
-        <div id="main-content">{children}</div>
+        <main id="main-content">{children}</main>
         <WhatsAppButton />
       </body>
     </html>

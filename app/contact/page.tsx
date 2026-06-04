@@ -300,13 +300,27 @@ export default function ContactPage() {
                                 </div>
 
                                 {formError && (
-                                    <p style={{ color: '#b04040', fontSize: '13px', letterSpacing: '0.02em', marginBottom: '12px', lineHeight: 1.5 }}>
+                                    <div className="ct-error-banner" role="alert">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" style={{ flexShrink: 0, marginTop: '1px' }}>
+                                            <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+                                        </svg>
                                         {formError}
-                                    </p>
+                                    </div>
                                 )}
                                 <button type="submit" className="ct-submit" disabled={loading} aria-busy={loading}>
-                                    <span>{loading ? 'Sending…' : 'Submit Enquiry'}</span>
-                                    {!loading && <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>}
+                                    {loading ? (
+                                        <>
+                                            <svg className="ct-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="9" strokeDasharray="32" strokeDashoffset="24" />
+                                            </svg>
+                                            <span>Sending…</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span>Submit Enquiry</span>
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                        </>
+                                    )}
                                 </button>
                                 <p className="ct-privacy">
                                     Your information is handled in accordance with our privacy policy.

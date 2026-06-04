@@ -279,14 +279,34 @@ export default function GetInTouch() {
                                 </div>
                             </div>
 
-                            <div className="git-form-row git-form-row--full">
-                                {formError && (
-                                    <p style={{ color: '#b04040', fontSize: '13px', letterSpacing: '0.02em', marginBottom: '8px', lineHeight: 1.5 }}>
+                            {formError && (
+                                <div className="git-form-row git-form-row--full">
+                                    <div className="git-error-banner" role="alert">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" style={{ flexShrink: 0, marginTop: '1px' }}>
+                                            <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+                                        </svg>
                                         {formError}
-                                    </p>
-                                )}
-                                <button type="submit" className="git-submit" disabled={loading} aria-busy={loading}>
-                                    {loading ? 'Sending…' : 'Enquire Now'}
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="git-form-row git-form-row--full">
+                                <button
+                                    type="submit"
+                                    className={`git-submit${loading ? ' git-submit--loading' : ''}`}
+                                    disabled={loading}
+                                    aria-busy={loading}
+                                >
+                                    {loading ? (
+                                        <>
+                                            <svg className="git-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="9" strokeDasharray="32" strokeDashoffset="24" />
+                                            </svg>
+                                            Sending…
+                                        </>
+                                    ) : (
+                                        'Enquire Now'
+                                    )}
                                 </button>
                             </div>
 
