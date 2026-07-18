@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useContactForm } from '../hooks/useContactForm';
+import { useFormStorage } from '../hooks/useFormStorage';
+import { useToast } from './Toast';
 import './GetInTouch.css';
 
 const SERVICES = [
@@ -47,20 +49,26 @@ const INITIAL = {
 };
 
 export default function GetInTouch() {
-    const [formData, setFormData] = useState(INITIAL);
-
+    const { formData, updateField: handleChange, clearDraft } = useFormStorage('get-in-touch', INITIAL);
     const { loading, success, error: formError, submit: sendEnquiry, reset } = useContactForm();
+    const { showToast } = useToast();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         await sendEnquiry(formData as Record<string, string>, 'get-in-touch');
     };
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-    ) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    // Wipe the saved draft the moment Resend confirms delivery.
+    useEffect(() => {
+        if (success) {
+            clearDraft();
+            showToast('Thank you — your enquiry has been sent.', 'success');
+        }
+    }, [success, clearDraft, showToast]);
+
+    useEffect(() => {
+        if (formError) showToast(formError, 'error');
+    }, [formError, showToast]);
 
     return (
         <section className="git-section">
@@ -143,7 +151,7 @@ export default function GetInTouch() {
                             <button
                                 className="git-submit"
                                 style={{ marginTop: '16px', background: 'transparent', border: '1px solid currentColor', cursor: 'pointer' }}
-                                onClick={reset}
+                                onClick={() => { reset(); clearDraft(); }}
                             >
                                 Send Another Enquiry
                             </button>

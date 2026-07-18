@@ -4,6 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/next'
 import { buildOrganisationSchema } from '@/lib/schema'
 import WhatsAppButton from '@/app/components/whatsapp-button/WhatsAppButton'
+import { ToastProvider } from '@/app/components/Toast'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -105,8 +106,10 @@ export default function RootLayout({
             __html: JSON.stringify(buildOrganisationSchema()),
           }}
         />
-        <main id="main-content">{children}</main>
-        <WhatsAppButton />
+        <ToastProvider>
+          <main id="main-content">{children}</main>
+          <WhatsAppButton />
+        </ToastProvider>
         <SpeedInsights />
         <Analytics />
       </body>

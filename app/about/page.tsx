@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import OurApproach from '../components/OurApproach';
@@ -54,7 +55,7 @@ export default function AboutPage() {
                     <p className="ab-story-p">
                         Guided by sustainable principles, we design with both people and the planet in mind. The result is a home that is calm, connected, and uniquely yours.
                     </p>
-                    <a href="/projects" className="ab-story-btn">View Our Projects</a>
+                    <Link href="/projects" className="ab-story-btn">View Our Projects</Link>
                 </div>
             </section>
 

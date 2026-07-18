@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import './CTAStrip.css';
 
 export default function CTAStrip() {
@@ -16,7 +17,7 @@ export default function CTAStrip() {
 
     return (
         <div className={`cta-strip${pastHero ? ' cta-strip--icons' : ''}`}>
-            <a href="/contact" className="cta-strip-item" title="Enquire Now">
+            <Link href="/contact" className="cta-strip-item" title="Enquire Now">
                 <span className="cta-strip-label">Enquire Now</span>
                 <span className="cta-strip-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -24,8 +25,8 @@ export default function CTAStrip() {
                         <circle cx="12" cy="7" r="4" />
                     </svg>
                 </span>
-            </a>
-            <a href="/services" className="cta-strip-item" title="Services">
+            </Link>
+            <Link href="/services" className="cta-strip-item" title="Services">
                 <span className="cta-strip-label">Services</span>
                 <span className="cta-strip-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -33,8 +34,8 @@ export default function CTAStrip() {
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                     </svg>
                 </span>
-            </a>
-            <a href="/projects" className="cta-strip-item" title="View Latest Projects">
+            </Link>
+            <Link href="/projects" className="cta-strip-item" title="View Latest Projects">
                 <span className="cta-strip-label">Latest Projects</span>
                 <span className="cta-strip-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -42,7 +43,7 @@ export default function CTAStrip() {
                         <circle cx="12" cy="12" r="3" />
                     </svg>
                 </span>
-            </a>
+            </Link>
         </div>
     );
 }

@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import CTAStrip from '../components/CTAStrip';
 import { useContactForm } from '../hooks/useContactForm';
+import { useFormStorage } from '../hooks/useFormStorage';
+import { useToast } from '../components/Toast';
 import './contact.css';
 
 const SERVICES = [
@@ -50,16 +52,27 @@ const INITIAL: FormData = {
 };
 
 export default function ContactPage() {
-    const [form, setForm] = useState<FormData>(INITIAL);
+    const { formData: form, updateField: update, clearDraft } = useFormStorage<FormData>('contact-page', INITIAL);
     const { loading, success, error: formError, submit: sendEnquiry, reset } = useContactForm();
-
-    const update = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-        setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    const { showToast } = useToast();
 
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
         await sendEnquiry(form as Record<string, string>, 'contact-page');
     };
+
+    // Wipe the saved draft the moment Resend confirms delivery — a
+    // successfully sent enquiry should never resurface on the next visit.
+    useEffect(() => {
+        if (success) {
+            clearDraft();
+            showToast('Message sent — we’ll be in touch within one business day.', 'success');
+        }
+    }, [success, clearDraft, showToast]);
+
+    useEffect(() => {
+        if (formError) showToast(formError, 'error');
+    }, [formError, showToast]);
 
     return (
         <>
@@ -214,7 +227,7 @@ export default function ContactPage() {
                                     Thank you for reaching out. A member of our team will be in touch within
                                     one business day to discuss your project.
                                 </p>
-                                <button className="ct-success-back" onClick={() => { reset(); setForm(INITIAL); }}>
+                                <button className="ct-success-back" onClick={() => { reset(); clearDraft(); }}>
                                     Send Another Enquiry
                                 </button>
                             </div>

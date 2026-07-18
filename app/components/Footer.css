@@ -248,7 +248,11 @@
     }
 
     .footer-message {
-        margin-top: 0;
+        /* Desktop pulls this block up with a negative margin (-1rem) so its
+           border-top sits close to the columns above. On mobile that leaves
+           zero breathing room, so the last link/line in each footer column
+           (e.g. "Contact") ends up touching the divider — give it space back. */
+        margin-top: 2rem;
         padding: 2.5rem 0;
         gap: 1rem;
     }

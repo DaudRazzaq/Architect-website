@@ -234,16 +234,13 @@
     background: #1a1916;
 }
 
-.pw-card-img-wrap img {
-    width: 100%;
-    height: 100%;
+.pw-card-img-wrap .pw-card-img {
     object-fit: cover;
     object-position: center;
-    display: block;
     transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.pw-card:hover .pw-card-img-wrap img {
+.pw-card:hover .pw-card-img-wrap .pw-card-img {
     transform: scale(1.06);
 }
 
@@ -355,7 +352,7 @@
     cursor: default;
 }
 
-.pw-card--placeholder .pw-card-img-wrap img {
+.pw-card--placeholder .pw-card-img-wrap .pw-card-img {
     filter: grayscale(30%);
 }
 

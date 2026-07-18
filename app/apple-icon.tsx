@@ -28,7 +28,7 @@ export default function AppleIcon() {
       >
         {/* Logo at ~65% scale (117px) — generous breathing room, no edge-to-edge */}
         {/* btoa is available globally in Node 16+ and all edge runtimes */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* next/image can't be used inside ImageResponse's Satori renderer — a plain <img> is required here. */}
         <img
           src={`data:image/svg+xml;base64,${btoa(SVG)}`}
           width={117}

@@ -43,7 +43,17 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/images/(.*)',
+        // Matches every static image actually served from /public
+        // (root-level heroes/logos + /public/projects/**), not just a
+        // nonexistent /images/ subfolder.
+        source: '/:path*.(png|jpg|jpeg|webp|avif|svg|gif|ico)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
+        // Next.js image optimizer output — safe to cache at the edge for a year.
+        source: '/_next/image(.*)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],

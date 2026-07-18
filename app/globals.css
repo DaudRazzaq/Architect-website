@@ -1,21 +1,11 @@
-@font-face {
-  font-family: 'Poppins';
-  src: url('./assets/Font Family/Poppins-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('./assets/Font Family/Poppins-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('./assets/Font Family/Poppins-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
+/*
+ * Poppins is loaded once via next/font/google in app/layout.tsx (weights
+ * 400/500/600, exposed as the --font-accent variable) — that gives us
+ * automatic subsetting, self-hosting and preloading with zero extra
+ * network requests. --font-poppins simply aliases it so existing
+ * component CSS (About, Stats, Footer, NewsCard) doesn't need to change.
+ * No local .ttf files or manual @font-face are needed for this family.
+ */
 
 :root {
   /* Color Palette - Architecture Theme */
@@ -34,7 +24,7 @@
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Playfair Display', Georgia, serif;
-  --font-poppins: 'Poppins', sans-serif;
+  --font-poppins: var(--font-accent), 'Poppins', sans-serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;

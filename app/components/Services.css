@@ -257,7 +257,11 @@
     }
 
     .services-grid {
-        background: transparent;
+        /* Keep the same thin divider line between tiles that desktop gets
+           from the grid gap — the 968px breakpoint above zeroes it out for
+           tablet, so it needs restating here for the stacked mobile layout. */
+        gap: 2px;
+        background: #e8e3dc;
     }
 
     /* Eyebrow → heading rhythm */

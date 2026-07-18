@@ -606,11 +606,6 @@
         grid-template-columns: 1fr;
     }
 
-    .pd-gallery-img {
-        width: 100% !important;
-        height: auto !important;
-    }
-
     .pd-gallery-heading {
         padding: 4rem var(--container-padding) 2.5rem;
     }
