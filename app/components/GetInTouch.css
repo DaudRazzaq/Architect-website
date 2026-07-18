@@ -337,21 +337,131 @@
    ========================= */
 
 @media (max-width: 768px) {
+    .git-section {
+        padding: 4.5rem 0;
+    }
+
     .git-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
+        padding: 0 1.25rem;
     }
 
     .git-left {
         position: static;
     }
 
+    .git-heading {
+        margin-bottom: 12px;
+    }
+
     .git-intro {
         max-width: none;
+        font-size: 0.9375rem;
+        line-height: 1.65;
+        margin-bottom: 2rem;
+    }
+
+    /* Contact info: stacked rows, 16px spacing */
+    .git-details {
+        gap: 16px;
+    }
+
+    .git-detail-label {
+        font-size: 0.6875rem;
+        letter-spacing: 0.12em;
+    }
+
+    .git-detail-value {
+        font-size: 0.9375rem;
+    }
+
+    /* Tappable phone/email + 44px social targets */
+    .git-detail-value a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        color: inherit;
+    }
+
+    .git-socials {
+        gap: 0;
+    }
+
+    .git-social-link {
+        width: 44px;
+        height: 44px;
     }
 
     .git-form-row {
         grid-template-columns: 1fr;
         gap: 0;
+    }
+
+    /* 16px between fields */
+    .git-field {
+        padding-bottom: 16px;
+    }
+
+    /* Labels above fields, 13px */
+    .git-label {
+        font-size: 0.8125rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Boxed 52px inputs, 16px font (prevents iOS zoom), 16px padding */
+    .git-input,
+    .git-select {
+        height: 52px;
+        padding: 0 16px;
+        font-size: 16px;
+        background-color: #ffffff;
+        border: 1px solid #c8c2b6;
+        border-radius: var(--radius-sm, 4px);
+    }
+
+    .git-select {
+        background-position: right 16px center;
+        padding-right: 2.5rem;
+    }
+
+    .git-textarea {
+        min-height: 140px;
+        padding: 16px;
+        font-size: 16px;
+        background-color: #ffffff;
+        border: 1px solid #c8c2b6;
+        border-radius: var(--radius-sm, 4px);
+    }
+
+    /* Focus: 1.5px accent border + subtle shadow */
+    .git-input:focus,
+    .git-select:focus,
+    .git-textarea:focus {
+        border: 1.5px solid var(--color-accent, #d4a574);
+        box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.15);
+    }
+
+    /* Error state after interaction */
+    .git-input:user-invalid,
+    .git-select:user-invalid,
+    .git-textarea:user-invalid {
+        border-color: #b04040;
+    }
+
+    .git-field-hint {
+        font-size: 0.75rem;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+
+    /* Full-width 56px submit */
+    .git-submit {
+        width: 100%;
+        min-height: 56px;
+        margin-top: 12px;
+        font-size: 0.75rem;
+        letter-spacing: 2.5px;
     }
 }

@@ -16,7 +16,17 @@ export default function ProjectCard({ title, category, location, image, href, gr
     const inner = (
         <div className="project-card-image" style={image ? undefined : { background: gradient || '#c8c0b4' }}>
             {image && (
-                <Image src={image} alt={title} fill className="project-card-img" sizes="(max-width: 768px) 100vw, 33vw" />
+                <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="project-card-img"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    quality={75}
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/gif;base64,R0lGODlhAQABAPAAAMjAtAAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                />
             )}
             <div className="project-card-overlay">
                 <div className="project-card-overlay-content">

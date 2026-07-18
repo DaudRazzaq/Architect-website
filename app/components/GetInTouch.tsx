@@ -85,12 +85,16 @@ export default function GetInTouch() {
 
                         <div className="git-detail-group">
                             <span className="git-detail-label">Phone</span>
-                            <p className="git-detail-value">+44 (0)20 7946 0321</p>
+                            <p className="git-detail-value">
+                                <a href="tel:+442079460321">+44 (0)20 7946 0321</a>
+                            </p>
                         </div>
 
                         <div className="git-detail-group">
                             <span className="git-detail-label">Email</span>
-                            <p className="git-detail-value">contact@aureonstudio.co.uk</p>
+                            <p className="git-detail-value">
+                                <a href="mailto:contact@aureonstudio.co.uk">contact@aureonstudio.co.uk</a>
+                            </p>
                         </div>
 
                         <div className="git-detail-group">

@@ -133,18 +133,27 @@
     }
 
     .news-badge {
-        font-size: 0.75rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.71875rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 12px;
     }
-    
+
     .news-section-title {
-        font-size: 2.25rem;
+        font-size: clamp(1.75rem, 6.5vw, 2.25rem);
+        line-height: 1.15;
     }
-    
+
     .news-section-desc {
-        font-size: 0.85rem;
+        font-size: 0.9375rem;
+        line-height: 1.65;
     }
-    
+
+    .news-explore-btn {
+        min-height: 44px;
+        font-size: 0.6875rem;
+        letter-spacing: 2.5px;
+    }
+
     .news-minimal-grid {
         gap: 1.25rem;
         padding-bottom: 2rem;

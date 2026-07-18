@@ -46,7 +46,8 @@ export default function Stats() {
                     animateCounters();
                 }
             },
-            { threshold: 0.5 }
+            // 0.3 so tall mobile layouts still trigger the count-up
+            { threshold: 0.3 }
         );
 
         if (statsRef.current) {

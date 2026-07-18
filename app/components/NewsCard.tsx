@@ -44,6 +44,7 @@ export default function NewsCard({
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                         className="news-mini-image"
                         loading="lazy"
+                        quality={75}
                         unoptimized={isExternalImage}
                     />
                 ) : (

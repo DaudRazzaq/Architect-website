@@ -10,11 +10,11 @@ export default function Footer() {
         <footer className="footer">
             <div className="footer-top">
                 <div className="footer-branding">
-                    <Image 
-                        src={logo} 
-                        alt="Aureon Logo" 
-                        className="footer-minimal-logo" 
-                        priority
+                    <Image
+                        src={logo}
+                        alt="Aureon Logo"
+                        className="footer-minimal-logo"
+                        sizes="(max-width: 768px) 120px, 360px"
                     />
                 </div>
                 
@@ -33,8 +33,8 @@ export default function Footer() {
                     </div>
                     <div className="link-column">
                         <span>Visit</span>
-                        <p>124 Architecture Blvd</p>
-                        <p>New York, NY 10012</p>
+                        <p>Studio One, 14 Fitzroy Square</p>
+                        <p>London, W1T 6EH</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-bottom">
-                <p>© {new Date().getFullYear()} Aureon Architecture.</p>
+                <p>© {new Date().getFullYear()} Aureon Studio.</p>
                 <div className="footer-legal-links">
                     <Link href="/">Privacy Policy</Link>
                     <Link href="/">Terms of Service</Link>

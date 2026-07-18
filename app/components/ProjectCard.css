@@ -84,12 +84,41 @@
 }
 
 @media (max-width: 768px) {
+    /* One locked aspect ratio + radius for every gallery card */
+    .project-card {
+        border-radius: var(--radius-md, 8px);
+        transition: transform 150ms ease;
+    }
+
+    .project-card:active {
+        transform: scale(0.985);
+    }
+
+    .project-card-image {
+        aspect-ratio: 4 / 5;
+        border-radius: var(--radius-md, 8px);
+    }
+
+    /* No hover zoom on touch */
+    .project-card:hover .project-card-img {
+        transform: none;
+    }
+
     .project-card-overlay {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     .project-card-title {
-        font-size: 0.875rem;
-        letter-spacing: 2px;
+        font-size: 1.0625rem;
+        letter-spacing: 0.5px;
+        text-transform: none;
+        font-weight: 500;
+    }
+
+    .project-card-category {
+        font-size: 0.8125rem;
+        letter-spacing: 0.5px;
+        text-transform: none;
+        color: rgba(255, 255, 255, 0.75);
     }
 }
