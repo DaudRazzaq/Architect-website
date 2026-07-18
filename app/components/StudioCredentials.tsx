@@ -10,7 +10,7 @@ import {
     animate,
 } from 'framer-motion';
 import './StudioCredentials.css';
-import studioImage from '../assets/ourApprouch.webp';
+import studioImage from '../assets/about.webp';
 
 const EXPAND_THRESHOLD = 0.75;
 const IMG_SPRING = { type: 'spring', stiffness: 60, damping: 18, mass: 1 } as const;
@@ -91,7 +91,7 @@ export default function StudioCredentials() {
                             <div className="sc-media-layer">
                                 <Image
                                     src={studioImage}
-                                    alt="Aureon Studio — precision craftsmanship and considered design"
+                                    alt="Aureon Studio team reviewing architectural drawings and material samples"
                                     fill
                                     className="sc-img"
                                     sizes="(max-width: 768px) 100vw, 50vw"

@@ -7,14 +7,14 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import CTAStrip from '../../components/CTAStrip';
-import img1 from '../../assets/Project3/1.jpeg';
-import img2 from '../../assets/Project3/2.jpeg';
-import img3 from '../../assets/Project3/3.jpeg';
-import img4 from '../../assets/Project3/4.jpeg';
-import img5 from '../../assets/Project3/5.jpeg';
-import img6 from '../../assets/Project3/6.jpeg';
-import img7 from '../../assets/Project3/7.jpeg';
-import img8 from '../../assets/Project3/8.jpeg';
+import img1 from '../../assets/Project3/1.webp';
+import img2 from '../../assets/Project3/2.webp';
+import img3 from '../../assets/Project3/3.webp';
+import img4 from '../../assets/Project3/4.webp';
+import img5 from '../../assets/Project3/5.webp';
+import img6 from '../../assets/Project3/6.webp';
+import img7 from '../../assets/Project3/7.webp';
+import img8 from '../../assets/Project3/8.webp';
 import '../oakridge-house/project.css';
 
 const MORE_PROJECTS = [
@@ -87,6 +87,7 @@ export default function ArboreSanctuaryCafePage() {
                                 i === prevSlide   ? ' pd-hero-slide--exit'   : ''
                             }`}
                             sizes="100vw"
+                            quality={90}
                         />
                     ))}
                     <div className="pd-hero-overlay" />
@@ -242,6 +243,7 @@ export default function ArboreSanctuaryCafePage() {
                                         fill
                                         className="pd-gallery-img"
                                         sizes={isFull ? '100vw' : '50vw'}
+                                        quality={90}
                                     />
                                 </div>
                             );
@@ -257,6 +259,7 @@ export default function ArboreSanctuaryCafePage() {
                         fill
                         className="pd-quote-bg"
                         sizes="100vw"
+                        quality={90}
                     />
                     <div className="pd-quote-overlay" />
                     <div className="pd-quote-content pd-reveal">

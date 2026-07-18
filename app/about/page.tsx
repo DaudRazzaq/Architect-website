@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 import OurApproach from '../components/OurApproach';
 import WhyWorkWithUs from '../components/WhyWorkWithUs';
 import StudioCredentials from '../components/StudioCredentials';
-import Team from '../components/Team';
 import GetInTouch from '../components/GetInTouch';
 import CTAStrip from '../components/CTAStrip';
 import './about-page.css';
@@ -86,8 +85,6 @@ export default function AboutPage() {
             </section>
 
             <WhyWorkWithUs />
-
-            <Team />
 
             <StudioCredentials />
 
