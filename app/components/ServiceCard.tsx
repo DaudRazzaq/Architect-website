@@ -13,7 +13,6 @@ export default function ServiceCard({ num, title, tagline, image, href }: Servic
     return (
         <Link href={href} className="sc-tile">
             <div className="sc-tile-bg" style={{ backgroundImage: `url(${image})` }} />
-            <div className="sc-tile-overlay" />
             <div className="sc-tile-inner">
                 <span className="sc-tile-num">{num}</span>
                 <div className="sc-tile-foot">

@@ -8,10 +8,11 @@ import Navigation from '../components/Navigation';
 import CTAStrip from '../components/CTAStrip';
 import Footer from '../components/Footer';
 import imgHero       from '../assets/Project1/1.jpeg';
-import imgCommercial from '../assets/Services/Commercial.jpeg';
-import imgMulti      from '../assets/Services/Multipurpuse Image.jpeg';
-import imgResidential from '../assets/Services/Residential.jpeg';
 import './services-overview.css';
+
+const imgCommercial = '/architecture.webp';
+const imgMulti = '/landscape.webp';
+const imgResidential = '/interior.webp';
 
 export default function ServicesPage() {
     const wrapRef = useRef<HTMLDivElement>(null);
@@ -80,7 +81,7 @@ export default function ServicesPage() {
                     <Link href="/services/commercial" className="sov-row-link">Explore Commercial Services</Link>
                 </div>
                 <div className="sov-row-img-wrap">
-                    <Image src={imgCommercial} alt="Commercial — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgCommercial} alt="Commercial — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
             </div>
 
@@ -89,7 +90,7 @@ export default function ServicesPage() {
             {/* ── MULTIPURPOSE  ·  image left / text right ── */}
             <div className="sov-row sov-row--rev sov-reveal">
                 <div className="sov-row-img-wrap">
-                    <Image src={imgMulti} alt="Multipurpose — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgMulti} alt="Multipurpose — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
                 <div className="sov-row-text">
                     <span className="sov-row-label">Multipurpose</span>
@@ -114,7 +115,7 @@ export default function ServicesPage() {
                     <Link href="/services/residential" className="sov-row-link">Explore Residential Services</Link>
                 </div>
                 <div className="sov-row-img-wrap">
-                    <Image src={imgResidential} alt="Residential — Aureon Studio" fill sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgResidential} alt="Residential — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
             </div>
 

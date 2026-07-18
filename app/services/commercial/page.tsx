@@ -6,8 +6,9 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import CTAStrip from '../../components/CTAStrip';
-import heroImg from '../../assets/Services/Commercial.jpeg';
 import '../services.css';
+
+const heroImg = '/architecture.webp';
 
 export default function CommercialPage() {
     return (
@@ -22,6 +23,7 @@ export default function CommercialPage() {
                     alt="Commercial architecture — Aureon Studio"
                     fill
                     priority
+                    quality={90}
                     className="srv-hero-img"
                     sizes="100vw"
                 />

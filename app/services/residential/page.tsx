@@ -6,9 +6,10 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import CTAStrip from '../../components/CTAStrip';
-import heroImg from '../../assets/Services/Residential.jpeg';
 import breakImg from '../../assets/Services/Residential2.jpeg';
 import '../services.css';
+
+const heroImg = '/interior.webp';
 
 export default function ResidentialPage() {
     return (
@@ -23,6 +24,7 @@ export default function ResidentialPage() {
                     alt="Residential architecture — Aureon Studio"
                     fill
                     priority
+                    quality={90}
                     className="srv-hero-img"
                     sizes="100vw"
                 />

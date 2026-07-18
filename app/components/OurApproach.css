@@ -6,13 +6,15 @@
   position: relative;
   background: #ffffff;
   overflow: clip;
-  margin-top: var(--spacing-2xl, 8rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
   z-index: 1;
 }
 
 .oa-stage {
   position: relative;
   width: 100%;
+  max-width: 1760px;
+  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   align-items: flex-start;
@@ -29,9 +31,9 @@
 .oa-content {
   position: relative;
   z-index: 2;
-  flex: 0 0 50%;
-  width: 50%;
-  max-width: 50%;
+  flex: 0 0 44%;
+  width: 44%;
+  max-width: 44%;
   box-sizing: border-box;
   padding-top: clamp(0.4rem, 1vw, 0.8rem);
   padding-right: clamp(2rem, 3.2vw, 3.2rem);
@@ -118,9 +120,9 @@
 .oa-visual-shell {
   position: sticky;
   top: 0;
-  flex: 0 0 50%;
-  width: 50%;
-  max-width: 50%;
+  flex: 0 0 56%;
+  width: 56%;
+  max-width: 56%;
   height: 100vh;
   padding-top: 14vh;
   box-sizing: border-box;
