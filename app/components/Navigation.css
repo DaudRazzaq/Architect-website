@@ -221,7 +221,7 @@
 }
 
 .nav-drawer__logo {
-    height: 30px;
+    height: 40px;
     width: auto;
     object-fit: contain;
     filter: brightness(1.12) contrast(1.06);
@@ -420,7 +420,7 @@
 
     .nav-header__logo--mobile {
         width: auto;
-        height: 30px;
+        height: 40px;
     }
 
     .nav-header__toggle {

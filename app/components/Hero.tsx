@@ -6,6 +6,7 @@ import './Hero.css';
 import './Navigation.css';
 
 import logo from '../assets/logo.png';
+import logoMark from '../assets/logo-mark.png';
 import hero1 from '../assets/hero1.png';
 import hero2 from '../assets/hero2.png';
 import hero3 from '../assets/hero3.png';
@@ -229,11 +230,11 @@ export default function Hero() {
                         <a href="#home" className="hero-brand hero-brand-mobile" aria-label="Home">
                             <div className="hero-brand-inner hero-brand-inner-mobile">
                                 <Image
-                                    src={logo}
-                                    alt="Logo"
+                                    src={logoMark}
+                                    alt="Aureon Studio"
                                     className="hero-logo hero-logo-mobile"
                                     priority
-                                    sizes="120px"
+                                    sizes="64px"
                                 />
                             </div>
                         </a>
@@ -262,7 +263,7 @@ export default function Hero() {
                     <div className="nav-drawer__inner">
                         <div className="nav-drawer__top">
                             <a href="#home" className="nav-drawer__brand" aria-label="Home" onClick={closeMenu}>
-                                <Image src={logo} alt="Aureon Studio" className="nav-drawer__logo" sizes="120px" />
+                                <Image src={logoMark} alt="Aureon Studio" className="nav-drawer__logo" sizes="64px" />
                             </a>
                             <button
                                 type="button"

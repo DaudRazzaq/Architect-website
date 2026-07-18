@@ -35,6 +35,11 @@
     display: block;
 }
 
+/* Cropped mark used on mobile only */
+.footer-minimal-logo--mobile {
+    display: none;
+}
+
 .footer-links {
     display: flex;
     gap: 5rem;
@@ -199,10 +204,15 @@
         gap: 2.5rem;
     }
 
-    /* Logo must not render huge */
-    .footer-minimal-logo {
+    /* Swap to the cropped mark at a proper visible size */
+    .footer-minimal-logo--desktop {
+        display: none;
+    }
+
+    .footer-minimal-logo--mobile {
+        display: block;
         width: auto;
-        height: 28px;
+        height: 52px;
     }
 
     /* Two side-by-side columns (Explore / Connect), Visit below */

@@ -32,24 +32,8 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: clamp(1.75rem, 3vw, 2.75rem);
-}
-
-/* Faint ordinal number */
-.sc-tile-num {
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 7vw, 6rem);
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.1);
-    line-height: 1;
-    transition: color 0.45s ease;
-    user-select: none;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-}
-
-.sc-tile:hover .sc-tile-num {
-    color: rgba(255, 255, 255, 0.06);
 }
 
 /* Bottom content block */
@@ -124,60 +108,48 @@
     transform: translateY(0);
 }
 
-/* ── Responsive: editorial index list on mobile (no image cards) ── */
+/* ── Responsive: stacked image tiles on mobile ── */
 @media (max-width: 768px) {
     .sc-tile {
-        height: auto;
-        padding: 1.25rem;
-        background: var(--color-bg);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+        height: clamp(340px, 58vw, 480px);
+        transition: transform 150ms ease;
     }
 
-    .sc-tile:first-child {
-        border-top: 1px solid rgba(0, 0, 0, 0.09);
+    .sc-tile:active {
+        transform: scale(0.985);
     }
 
-    .sc-tile-bg {
-        display: none;
+    /* No hover zoom on touch */
+    .sc-tile:hover .sc-tile-bg {
+        transform: none;
     }
 
     .sc-tile-inner {
-        position: static;
-        padding: 0;
-        justify-content: flex-start;
-    }
-
-    .sc-tile-num {
-        font-size: 0.8125rem;
-        color: var(--color-text-lighter);
-        text-shadow: none;
-        margin-bottom: 0.5rem;
-    }
-
-    .sc-tile-accent-line {
-        display: none;
+        padding: 1.25rem;
     }
 
     .sc-tile-name {
-        font-size: 1.3125rem;
-        color: var(--color-primary);
-        text-shadow: none;
-        margin-bottom: 0.375rem;
+        font-size: 1.5rem;
     }
 
     .sc-tile-tagline {
         font-size: 0.875rem;
-        color: var(--color-text-light);
-        text-shadow: none;
         max-width: none;
     }
 
+    /* Explore always visible on touch */
     .sc-tile-explore {
         opacity: 1;
-        transform: none;
-        margin-top: 0.75rem;
-        text-shadow: none;
+        transform: translateY(0);
+        margin-top: 1rem;
         font-size: 0.6875rem;
         letter-spacing: 2.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sc-tile {
+        height: 72vw;
+        min-height: 300px;
     }
 }

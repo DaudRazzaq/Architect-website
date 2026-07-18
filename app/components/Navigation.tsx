@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import './Navigation.css';
 import logo from '../assets/logo.png';
+import logoMark from '../assets/logo-mark.png';
 
 export default function Navigation() {
     const [headerHidden, setHeaderHidden] = useState(false);
@@ -142,11 +143,11 @@ export default function Navigation() {
                     <Link href="/" className="nav-header__brand nav-header__brand--mobile" aria-label="Home">
                         <div className="nav-header__brand-inner nav-header__brand-inner--mobile">
                             <Image
-                                src={logo}
+                                src={logoMark}
                                 alt="Aureon Studio"
                                 className="nav-header__logo nav-header__logo--mobile"
                                 priority
-                                sizes="120px"
+                                sizes="64px"
                             />
                         </div>
                     </Link>
@@ -175,7 +176,7 @@ export default function Navigation() {
                 <div className="nav-drawer__inner">
                     <div className="nav-drawer__top">
                         <Link href="/" className="nav-drawer__brand" aria-label="Home" onClick={closeMenu}>
-                            <Image src={logo} alt="Aureon Studio" className="nav-drawer__logo" sizes="120px" />
+                            <Image src={logoMark} alt="Aureon Studio" className="nav-drawer__logo" sizes="64px" />
                         </Link>
                         <button
                             type="button"

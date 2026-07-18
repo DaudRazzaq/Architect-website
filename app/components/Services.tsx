@@ -53,7 +53,6 @@ export default function Services() {
                     {services.map((service) => (
                         <ServiceCard
                             key={service.title}
-                            num={service.num}
                             title={service.title}
                             tagline={service.tagline}
                             image={service.image}
