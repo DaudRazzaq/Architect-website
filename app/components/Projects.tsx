@@ -34,7 +34,7 @@ const projects = [
         image: '/b1.webp',
     },
     {
-        title: 'Nordic Serenity',
+        title: 'Axis Pavillion',
         location: 'Edinburgh, Scotland',
         category: 'Multipurpose',
         image: '/b2.webp',

@@ -70,40 +70,6 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {/* ── COMMERCIAL  ·  text left / image right ── */}
-            <div className="sov-row sov-reveal">
-                <div className="sov-row-text">
-                    <span className="sov-row-label">Commercial</span>
-                    <h2 className="sov-row-tagline">Innovative Spaces for<br />Business Success</h2>
-                    <p className="sov-row-body">Our commercial design approach is centred on creating environments that are both functional and experience-driven. Each space is carefully considered to support the way businesses operate while offering a clear and memorable identity.</p>
-                    <p className="sov-row-body">We respond to the specific needs of commercial settings by shaping layouts that enhance productivity, encourage interaction, and improve overall user experience. From retail and workplace environments to hospitality and mixed-use spaces, our designs balance clarity, efficiency, and atmosphere.</p>
-                    <p className="sov-row-body">By combining thoughtful planning with a refined material and lighting strategy, we deliver spaces that not only perform effectively but also strengthen brand presence and long-term value.</p>
-                    <Link href="/services/commercial" className="sov-row-link">Explore Commercial Services</Link>
-                </div>
-                <div className="sov-row-img-wrap">
-                    <Image src={imgCommercial} alt="Commercial — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
-                </div>
-            </div>
-
-            <div className="sov-sep" />
-
-            {/* ── MULTIPURPOSE  ·  image left / text right ── */}
-            <div className="sov-row sov-row--rev sov-reveal">
-                <div className="sov-row-img-wrap">
-                    <Image src={imgMulti} alt="Multipurpose — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
-                </div>
-                <div className="sov-row-text">
-                    <span className="sov-row-label">Multipurpose</span>
-                    <h2 className="sov-row-tagline">Versatile Spaces for<br />Diverse Needs</h2>
-                    <p className="sov-row-body">Our approach to multipurpose design focuses on creating adaptable environments that respond to changing uses over time. Each space is carefully planned to support flexibility while maintaining clarity and coherence in its overall form.</p>
-                    <p className="sov-row-body">We design community, educational, and shared environments with a strong emphasis on usability and flow. Through considered planning and simple, robust material strategies, these spaces can accommodate a range of activities and user groups without compromise.</p>
-                    <p className="sov-row-body">By balancing flexibility with long-term durability, we deliver spaces that remain efficient, relevant, and responsive to evolving needs.</p>
-                    <Link href="/services/multipurpose" className="sov-row-link">Explore Multipurpose Services</Link>
-                </div>
-            </div>
-
-            <div className="sov-sep" />
-
             {/* ── RESIDENTIAL  ·  text left / image right ── */}
             <div className="sov-row sov-reveal">
                 <div className="sov-row-text">
@@ -116,6 +82,40 @@ export default function ServicesPage() {
                 </div>
                 <div className="sov-row-img-wrap">
                     <Image src={imgResidential} alt="Residential — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                </div>
+            </div>
+
+            <div className="sov-sep" />
+
+            {/* ── COMMERCIAL  ·  image left / text right ── */}
+            <div className="sov-row sov-row--rev sov-reveal">
+                <div className="sov-row-img-wrap">
+                    <Image src={imgCommercial} alt="Commercial — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                </div>
+                <div className="sov-row-text">
+                    <span className="sov-row-label">Commercial</span>
+                    <h2 className="sov-row-tagline">Innovative Spaces for<br />Business Success</h2>
+                    <p className="sov-row-body">Our commercial design approach is centred on creating environments that are both functional and experience-driven. Each space is carefully considered to support the way businesses operate while offering a clear and memorable identity.</p>
+                    <p className="sov-row-body">We respond to the specific needs of commercial settings by shaping layouts that enhance productivity, encourage interaction, and improve overall user experience. From retail and workplace environments to hospitality and mixed-use spaces, our designs balance clarity, efficiency, and atmosphere.</p>
+                    <p className="sov-row-body">By combining thoughtful planning with a refined material and lighting strategy, we deliver spaces that not only perform effectively but also strengthen brand presence and long-term value.</p>
+                    <Link href="/services/commercial" className="sov-row-link">Explore Commercial Services</Link>
+                </div>
+            </div>
+
+            <div className="sov-sep" />
+
+            {/* ── MULTIPURPOSE  ·  text left / image right ── */}
+            <div className="sov-row sov-reveal">
+                <div className="sov-row-text">
+                    <span className="sov-row-label">Multipurpose</span>
+                    <h2 className="sov-row-tagline">Versatile Spaces for<br />Diverse Needs</h2>
+                    <p className="sov-row-body">Our approach to multipurpose design focuses on creating adaptable environments that respond to changing uses over time. Each space is carefully planned to support flexibility while maintaining clarity and coherence in its overall form.</p>
+                    <p className="sov-row-body">We design community, educational, and shared environments with a strong emphasis on usability and flow. Through considered planning and simple, robust material strategies, these spaces can accommodate a range of activities and user groups without compromise.</p>
+                    <p className="sov-row-body">By balancing flexibility with long-term durability, we deliver spaces that remain efficient, relevant, and responsive to evolving needs.</p>
+                    <Link href="/services/multipurpose" className="sov-row-link">Explore Multipurpose Services</Link>
+                </div>
+                <div className="sov-row-img-wrap">
+                    <Image src={imgMulti} alt="Multipurpose — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
             </div>
 

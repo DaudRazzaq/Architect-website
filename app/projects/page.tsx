@@ -37,7 +37,7 @@ const ALL_PROJECTS = [
         href: null,
     },
     {
-        title: 'Nordic Serenity',
+        title: 'Axis Pavillion',
         location: 'Edinburgh, Scotland',
         category: 'Multipurpose',
         image: '/b2.webp',
