@@ -4,47 +4,62 @@
     background-color: var(--color-primary);
     color: var(--color-bg);
     font-family: var(--font-poppins);
-    padding: 0.5rem 4rem 2rem; /* Noticeably reduced top padding to move logo upper */
+    padding: 3.5rem 4rem 2rem;
     display: flex;
     flex-direction: column;
-    min-height: auto; /* Removed excessive min-height */
+    min-height: auto;
 }
 
+/* Masthead + link columns stack vertically; the wordmark spans the full width */
 .footer-top {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 0rem; /* Reduced to pull message section upwards */
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.footer-branding {
-    display: flex;
     flex-direction: column;
-    max-width: 500px; /* Adjusted bounding box for logo */
+    padding-bottom: 0;
+    gap: 3.25rem;
 }
 
+/* ── Masthead ─────────────────────────────────────────────
+   The wordmark's 7.74:1 ratio is used as the design feature: it runs the
+   width of the footer with a hairline beneath it, so there is no orphaned
+   logo sitting in a corner and no empty space beside it. */
+.footer-masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem 2.5rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-masthead__tagline {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.42);
+    white-space: nowrap;
+}
+
+/* Horizontal wordmark (7.74 : 1) — inherits colour, no filter needed */
 .footer-minimal-logo {
-    width: 360px; /* Slightly reduced logo size */
+    width: clamp(260px, 34vw, 460px);
     height: auto;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
+    color: var(--color-bg);
+    opacity: 0.92;
     margin: 0;
     display: block;
+    flex: 0 1 auto;
 }
 
-/* Cropped mark used on mobile only */
-.footer-minimal-logo--mobile {
-    display: none;
-}
-
+/* Link columns spread evenly across the full footer width */
 .footer-links {
-    display: flex;
-    gap: 5rem;
-    flex-wrap: wrap;
-    margin-top: 5rem; /* Moves the links block slightly down independent from the logo */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 3rem;
+    margin-top: 0;
+    max-width: 1000px;
 }
 
 .link-column {
@@ -79,7 +94,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: -1rem; /* Pulls the entire message block and its top border higher */
+    margin-top: 3.5rem; /* Clears the link columns before the dividing rule */
     padding: 3rem 0 3rem; /* Still keeps inner text breathing room */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -171,14 +186,12 @@
     }
 
     .footer-top {
-        flex-direction: column;
-        gap: 3rem;
+        gap: 2.75rem;
     }
 
     .footer-links {
-        gap: 3rem;
+        gap: 2.5rem;
         width: 100%;
-        justify-content: space-between;
     }
 
     .footer-message {
@@ -204,20 +217,27 @@
         gap: 2.5rem;
     }
 
-    /* Swap to the cropped mark at a proper visible size */
-    .footer-minimal-logo--desktop {
-        display: none;
+    /* Masthead stacks: wordmark over tagline, hairline still spans full width */
+    .footer-masthead {
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding-bottom: 1.5rem;
     }
 
-    .footer-minimal-logo--mobile {
-        display: block;
-        width: auto;
-        height: 52px;
+    .footer-masthead__tagline {
+        white-space: normal;
+        font-size: 0.66rem;
+        letter-spacing: 0.16em;
+    }
+
+    /* Wordmark scales down with the viewport, capped for legibility */
+    .footer-minimal-logo {
+        width: min(260px, 76vw);
+        height: auto;
     }
 
     /* Two side-by-side columns (Explore / Connect), Visit below */
     .footer-links {
-        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         margin-top: 0;

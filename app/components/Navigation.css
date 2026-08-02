@@ -10,7 +10,7 @@
     width: 100%;
     z-index: 1000;
     /* safe-area-inset-top handles iOS notch / Dynamic Island */
-    padding: max(1.25rem, calc(0.75rem + env(safe-area-inset-top))) clamp(1rem, 2.8vw, 3.5rem) 1rem;
+    padding: max(1.25rem, calc(0.75rem + env(safe-area-inset-top))) clamp(1rem, 2.8vw, 3.5rem) 1.75rem;
     background: linear-gradient(
         to bottom,
         rgba(8, 8, 8, 0.42),
@@ -56,16 +56,18 @@
     min-height: 92px;
 }
 
+/* Links sit 14px below the wordmark — matches the staggered lockup used by
+   the hero header so the brand doesn't shift when moving between pages. */
 .nav-header__nav--left {
     justify-content: flex-end;
     padding-right: clamp(1.5rem, 2.5vw, 3rem);
-    transform: translateY(14px);
+    transform: translateY(30px);
 }
 
 .nav-header__nav--right {
     justify-content: flex-start;
     padding-left: clamp(1.5rem, 2.5vw, 3rem);
-    transform: translateY(14px);
+    transform: translateY(30px);
 }
 
 
@@ -108,16 +110,18 @@
     padding-inline: clamp(0.2rem, 0.7vw, 0.75rem);
 }
 
+/* Horizontal wordmark (7.74 : 1). Sized by width; height follows the
+   viewBox, so it never distorts and stays vector-sharp at any DPR. */
 .nav-header__logo {
-    width: clamp(11.5rem, 15vw, 17rem);
+    display: block;
+    width: clamp(12rem, 16vw, 18.5rem);
     height: auto;
-    object-fit: contain;
-    filter: brightness(1.12) contrast(1.06);
+    color: #f5efe3;
 }
 
-/* Only float the logo upward inside the desktop 3-column grid */
+/* Wordmark is optically centred in the grid row — no vertical offset needed */
 .nav-header__grid .nav-header__logo {
-    transform: translateY(-40px);
+    transform: none;
 }
 
 /* ---- Mobile Bar ---- */
@@ -136,7 +140,7 @@
 }
 
 .nav-header__logo--mobile {
-    width: 5.9rem;
+    width: 9.25rem;
     /* Explicitly cancel any inherited transform so the mobile logo never clips off-screen */
     transform: none;
 }
@@ -222,10 +226,10 @@
 }
 
 .nav-drawer__logo {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-    filter: brightness(1.12) contrast(1.06);
+    display: block;
+    width: 9.25rem;
+    height: auto;
+    color: #f5efe3;
 }
 
 .nav-drawer__close {
@@ -421,8 +425,8 @@
     }
 
     .nav-header__logo--mobile {
-        width: auto;
-        height: 40px;
+        width: min(9.25rem, 46vw);
+        height: auto;
     }
 
     .nav-header__toggle {

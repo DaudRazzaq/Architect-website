@@ -89,7 +89,9 @@
 
 /* Header while hero is visible */
 .hero-header-hero {
-    padding: max(1.25rem, calc(0.75rem + env(safe-area-inset-top))) clamp(1rem, 2.8vw, 3.5rem) 1rem;
+    /* +1.5rem top padding drops the whole brand + nav row slightly below the
+       viewport edge for a more considered, editorial header. */
+    padding: max(2.75rem, calc(2.25rem + env(safe-area-inset-top))) clamp(1rem, 2.8vw, 3.5rem) 1.75rem;
     background: linear-gradient(
         to bottom,
         rgba(8, 8, 8, 0.42),
@@ -101,20 +103,25 @@
     box-shadow: none;
 }
 
+/* The wordmark keeps its natural centred position; the nav links are dropped
+   14px below it so the header reads as a staggered two-tier lockup rather
+   than one flat line. (The old -40px pull on the brand is gone — that only
+   existed to tame the tall square logo and would now lift the short wordmark
+   off the top edge.) */
 .hero-header-hero .hero-brand-desktop {
-    transform: translateY(-40px);
+    transform: none;
 }
 
 .hero-header-hero .hero-nav-left {
     justify-content: flex-end;
     padding-right: clamp(1.5rem, 2.5vw, 3rem);
-    transform: translateY(14px);
+    transform: translateY(30px);
 }
 
 .hero-header-hero .hero-nav-right {
     justify-content: flex-start;
     padding-left: clamp(1.5rem, 2.5vw, 3rem);
-    transform: translateY(14px);
+    transform: translateY(30px);
 }
 
 /* Header after scrolling below hero — same transparent style */
@@ -141,7 +148,7 @@
 }
 
 .hero-header-scrolled .hero-logo {
-    filter: brightness(1.12) contrast(1.06);
+    color: #f5efe3;
 }
 
 .hero-nav-grid {
@@ -216,16 +223,18 @@
     padding-inline: clamp(0.2rem, 0.7vw, 0.75rem);
 }
 
+/* Horizontal wordmark (7.74 : 1). Sized by width; height follows the
+   viewBox, so it never distorts and stays vector-sharp at any DPR. */
 .hero-logo {
-    width: clamp(11.5rem, 15vw, 17rem);
+    display: block;
+    width: clamp(12rem, 16vw, 18.5rem);
     height: auto;
-    object-fit: contain;
-    filter: brightness(1.12) contrast(1.06);
-    transition: width 0.42s ease, filter 0.42s ease;
+    color: #f5efe3;
+    transition: width 0.42s ease, color 0.42s ease, opacity 0.42s ease;
 }
 
 .hero-header-scrolled .hero-logo {
-    width: clamp(6.2rem, 7.8vw, 8.8rem);
+    width: clamp(9rem, 11.5vw, 13.5rem);
 }
 
 .hero-mobile-bar {
@@ -242,7 +251,7 @@
 }
 
 .hero-logo-mobile {
-    width: 7.4rem;
+    width: 9.25rem;
 }
 
 /* Tablet and below */
@@ -280,34 +289,59 @@
         height: 64px;
     }
 
+    /* No scale() zoom: the hero photos are 3:2 landscape, so a portrait
+       viewport already crops them hard via object-fit: cover. Any extra
+       zoom multiplies that loss for no visual gain. */
     .hero-media-image {
         object-position: center center;
-        transform: scale(1.1);
     }
 
     .hero-logo-mobile,
     .hero-header-scrolled .hero-logo-mobile {
-        width: auto;
-        height: 40px;
+        width: min(9.25rem, 46vw);
+        height: auto;
     }
 }
 
-/* Mobile */
+/* Mobile — full-frame hero
+   ------------------------------------------------------------------
+   The photos are 3:2 (1536x1024). While `.hero-media-track` is pinned with
+   `inset: 0` it must fill the whole hero box, and on a portrait phone that
+   box is ~0.66 aspect — so `object-fit: cover` has no choice but to slice
+   the sides off. Shortening the hero only reduces that loss, never removes it.
+
+   So on phones we unpin the bottom and give the media area the photo's own
+   3:2 shape: 100vw wide x (100vw / 1.5) tall. Container aspect now equals
+   image aspect, so `cover` crops nothing at all — the full frame is visible,
+   exactly as it is on desktop. The copy then sits below the photo on the
+   hero's own dark background instead of overlaying it. */
 @media (max-width: 640px) {
     .hero {
-        min-height: 100svh;
         height: auto;
-        min-height: 560px;
+        min-height: 0;
+        max-height: none;
     }
 
-    .hero-shell {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+    /* Sits just under the fixed 64px mobile bar so the header never covers
+       part of the photo. 66.6667vw === 100vw / 1.5 */
+    .hero-media-track,
+    .hero-overlay-gradient {
+        top: calc(64px + env(safe-area-inset-top));
+        bottom: auto;
+        height: 66.6667vw;
     }
 
     .hero-media-image {
         object-position: center center;
-        transform: scale(1.13);
+    }
+
+    /* Gradient only needs to soften the base of the photo now */
+    .hero-overlay-gradient {
+        background: linear-gradient(
+            to bottom,
+            transparent 55%,
+            rgba(0, 0, 0, 0.35) 100%
+        );
     }
 }
 
@@ -405,6 +439,14 @@
 
 /* Slide indicator dots — mobile only */
 .hero-dots {
+    display: none;
+}
+
+/* Eyebrow, lede and slide counter are part of the mobile full-frame hero only.
+   Hidden by default so the desktop hero is completely untouched. */
+.hero-eyebrow,
+.hero-lede,
+.hero-count {
     display: none;
 }
 
@@ -523,5 +565,169 @@
     .hero-btn {
         flex: 0 0 auto;
         width: 100%;
+    }
+}
+
+/* ===================================================================
+   Mobile full-frame hero — shell placement
+   Kept at the end of the file on purpose: the `max-width: 768px` block
+   above sets `justify-content: flex-end` and a large `padding-bottom` to
+   float the copy over a full-bleed image. In the full-frame layout the
+   copy sits *below* the photo instead, so these rules must win the
+   cascade. Same specificity, later wins.
+   =================================================================== */
+@media (max-width: 640px) {
+    .hero-shell {
+        min-height: 0;
+        height: auto;
+        justify-content: flex-start;
+        /* Clear the photo (64px bar + 66.6667vw image) plus breathing room */
+        padding-top: calc(64px + env(safe-area-inset-top) + 66.6667vw + 2.5rem);
+        padding-bottom: calc(2.75rem + env(safe-area-inset-bottom));
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .hero-centerpiece {
+        gap: 1.15rem;
+        width: 100%;
+    }
+
+    /* ── Eyebrow: gold hairline + letterspaced label ── */
+    .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-primary);
+        font-size: 0.625rem;
+        font-weight: 500;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+    }
+
+    .hero-eyebrow__rule {
+        display: block;
+        width: 28px;
+        height: 1px;
+        background: var(--color-accent);
+        opacity: 0.85;
+    }
+
+    /* ── Display tagline ── */
+    .hero-tagline-text {
+        max-width: 12ch;
+        font-size: clamp(2.5rem, 11.5vw, 3.5rem);
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+        /* No longer sits on the photo, so the shadow is dead weight */
+        text-shadow: none;
+    }
+
+    /* ── Supporting line ── */
+    .hero-lede {
+        margin: 0;
+        max-width: 30ch;
+        font-family: var(--font-primary);
+        font-size: 0.9375rem;
+        font-weight: 300;
+        line-height: 1.6;
+        color: rgba(243, 237, 225, 0.62);
+    }
+
+    /* ── CTAs ── */
+    .hero-btn-row {
+        margin-top: 0.9rem;
+    }
+
+    .hero-btn {
+        height: 56px;
+        font-size: 0.6875rem;
+        letter-spacing: 0.2em;
+    }
+
+    /* ── Slide indicator: segmented rules + counter, not dots ── */
+    .hero-dots {
+        position: static;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-dot {
+        flex: 1 1 0;
+        width: auto;
+        height: 2px;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.22);
+        transition: background 420ms ease;
+    }
+
+    .hero-dot.is-active {
+        background: var(--color-accent);
+        transform: none;
+    }
+
+    .hero-count {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        flex: 0 0 auto;
+        margin-left: 0.85rem;
+        font-family: var(--font-primary);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        font-variant-numeric: tabular-nums;
+        color: rgba(243, 237, 225, 0.85);
+    }
+
+    .hero-count i {
+        font-style: normal;
+        color: rgba(243, 237, 225, 0.3);
+    }
+
+    /* ── Photo edge: soft scrim into the copy area + gold hairline ── */
+    .hero-overlay-gradient {
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+}
+
+/* Short phones (iPhone SE and similar, <=720px tall): the photo height is
+   fixed by its 3:2 ratio, so tighten the type rhythm instead to keep both
+   CTAs above the fold. */
+@media (max-width: 640px) and (max-height: 720px) {
+    .hero-shell {
+        padding-top: calc(64px + env(safe-area-inset-top) + 66.6667vw + 1.5rem);
+    }
+
+    .hero-centerpiece {
+        gap: 0.9rem;
+    }
+
+    .hero-tagline-text {
+        font-size: clamp(2.15rem, 10.5vw, 2.75rem);
+    }
+
+    .hero-lede {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .hero-btn-row {
+        margin-top: 0.6rem;
+    }
+
+    .hero-btn {
+        height: 52px;
+    }
+
+    .hero-dots {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
     }
 }

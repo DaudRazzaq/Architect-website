@@ -2,11 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import './Navigation.css';
-import logo from '../assets/logo.png';
-import logoMark from '../assets/logo-mark.png';
+import { Logo } from './Logo';
 
 export default function Navigation() {
     const [headerHidden, setHeaderHidden] = useState(false);
@@ -126,7 +124,7 @@ export default function Navigation() {
 
                     <Link href="/" className="nav-header__brand" aria-label="Home">
                         <div className="nav-header__brand-inner">
-                            <Image src={logo} alt="Aureon Studio" className="nav-header__logo" priority sizes="272px" />
+                            <Logo className="nav-header__logo" />
                         </div>
                     </Link>
 
@@ -142,13 +140,7 @@ export default function Navigation() {
                 <div className="nav-header__mobile-bar">
                     <Link href="/" className="nav-header__brand nav-header__brand--mobile" aria-label="Home">
                         <div className="nav-header__brand-inner nav-header__brand-inner--mobile">
-                            <Image
-                                src={logoMark}
-                                alt="Aureon Studio"
-                                className="nav-header__logo nav-header__logo--mobile"
-                                priority
-                                sizes="64px"
-                            />
+                            <Logo className="nav-header__logo nav-header__logo--mobile" />
                         </div>
                     </Link>
 
@@ -176,7 +168,7 @@ export default function Navigation() {
                 <div className="nav-drawer__inner">
                     <div className="nav-drawer__top">
                         <Link href="/" className="nav-drawer__brand" aria-label="Home" onClick={closeMenu}>
-                            <Image src={logoMark} alt="Aureon Studio" className="nav-drawer__logo" sizes="64px" />
+                            <Logo className="nav-drawer__logo" />
                         </Link>
                         <button
                             type="button"

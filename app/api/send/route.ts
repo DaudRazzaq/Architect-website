@@ -310,21 +310,14 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
                      border-top:3px solid #1c1c1c;border-radius:4px 4px 0 0;">
             <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
               <tr>
-                <td width="76" style="vertical-align:middle;">
+                <td style="vertical-align:middle;">
+                  <!-- Horizontal wordmark, 7.74:1 — width/height set explicitly for Outlook -->
                   <img src="https://aureonstudio.co.uk/logoEmail.png"
                        alt="Aureon Studio"
-                       width="68" height="68"
-                       style="display:block;width:68px;height:auto;border:0;outline:none;
+                       width="232" height="30"
+                       style="display:block;width:232px;height:30px;border:0;outline:none;
                               text-decoration:none;-ms-interpolation-mode:bicubic;" />
-                </td>
-                <td style="vertical-align:middle;padding-left:13px;">
-                  <p style="margin:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
-                            font-size:12px;font-weight:600;letter-spacing:0.14em;
-                            text-transform:uppercase;color:#1c1c1c;
-                            mso-line-height-rule:exactly;line-height:1;">
-                    Aureon Studio
-                  </p>
-                  <p style="margin:4px 0 0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+                  <p style="margin:9px 0 0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
                             font-size:8px;letter-spacing:0.2em;text-transform:uppercase;
                             color:#c9a96e;mso-line-height-rule:exactly;line-height:1;">
                     Architecture &amp; Interior Design

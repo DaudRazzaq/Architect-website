@@ -1,28 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import './Footer.css';
-import logo from '../assets/logo.png';
-import logoMark from '../assets/logo-mark.png';
+import { Logo } from './Logo';
 
 export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-top">
-                <div className="footer-branding">
-                    <Image
-                        src={logo}
-                        alt="Aureon Studio"
-                        className="footer-minimal-logo footer-minimal-logo--desktop"
-                        sizes="360px"
-                    />
-                    <Image
-                        src={logoMark}
-                        alt="Aureon Studio"
-                        className="footer-minimal-logo footer-minimal-logo--mobile"
-                        sizes="80px"
-                    />
+                <div className="footer-masthead">
+                    <Logo className="footer-minimal-logo" />
+                    <p className="footer-masthead__tagline">
+                        Interior architecture &amp; design — London
+                    </p>
                 </div>
 
                 <div className="footer-links">

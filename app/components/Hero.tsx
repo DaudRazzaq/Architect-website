@@ -5,8 +5,7 @@ import Image from 'next/image';
 import './Hero.css';
 import './Navigation.css';
 
-import logo from '../assets/logo.png';
-import logoMark from '../assets/logo-mark.png';
+import { Logo } from './Logo';
 import hero1 from '../assets/hero1.png';
 import hero2 from '../assets/hero2.png';
 import hero3 from '../assets/hero3.png';
@@ -213,7 +212,7 @@ export default function Hero() {
 
                         <a href="#home" className="hero-brand hero-brand-desktop" aria-label="Home">
                             <div className="hero-brand-inner">
-                                <Image src={logo} alt="Logo" className="hero-logo" priority sizes="272px" />
+                                <Logo className="hero-logo" />
                             </div>
                         </a>
 
@@ -229,13 +228,7 @@ export default function Hero() {
                     <div className="hero-mobile-bar">
                         <a href="#home" className="hero-brand hero-brand-mobile" aria-label="Home">
                             <div className="hero-brand-inner hero-brand-inner-mobile">
-                                <Image
-                                    src={logoMark}
-                                    alt="Aureon Studio"
-                                    className="hero-logo hero-logo-mobile"
-                                    priority
-                                    sizes="64px"
-                                />
+                                <Logo className="hero-logo hero-logo-mobile" />
                             </div>
                         </a>
 
@@ -263,7 +256,7 @@ export default function Hero() {
                     <div className="nav-drawer__inner">
                         <div className="nav-drawer__top">
                             <a href="#home" className="nav-drawer__brand" aria-label="Home" onClick={closeMenu}>
-                                <Image src={logoMark} alt="Aureon Studio" className="nav-drawer__logo" sizes="64px" />
+                                <Logo className="nav-drawer__logo" />
                             </a>
                             <button
                                 type="button"
@@ -335,11 +328,24 @@ export default function Hero() {
                 )}
 
                 <div className="hero-centerpiece">
+                    {/* Eyebrow and lede are mobile-only (hidden at >640px) — they give
+                        the stacked full-frame hero the editorial hierarchy it needs
+                        once the copy sits below the photo rather than over it. */}
+                    <span className="hero-eyebrow">
+                        <span className="hero-eyebrow__rule" aria-hidden="true" />
+                        London · Interior Architecture
+                    </span>
+
                     <div className="hero-tagline-row">
                         <span className="hero-tagline-line" />
                         <span key={taglineIdx} className="hero-tagline-text">{TAGLINES[taglineIdx]}</span>
                         <span className="hero-tagline-line" />
                     </div>
+
+                    <p className="hero-lede">
+                        Calm, considered spaces for modern living.
+                    </p>
+
                     <div className="hero-btn-row">
                         <a href="/contact" className="hero-btn hero-btn--primary">Enquire Now</a>
                         <a href="/services" className="hero-btn hero-btn--ghost">View Services</a>
@@ -356,6 +362,11 @@ export default function Hero() {
                             onClick={() => setActiveSlide(index)}
                         />
                     ))}
+                    <span className="hero-count" aria-hidden="true">
+                        {String((activeSlide % HERO_SLIDES.length) + 1).padStart(2, '0')}
+                        <i>/</i>
+                        {String(HERO_SLIDES.length).padStart(2, '0')}
+                    </span>
                 </div>
             </div>
         </section>

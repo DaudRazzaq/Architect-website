@@ -3,13 +3,12 @@ import { ImageResponse } from 'next/og'
 export const size = { width: 180, height: 180 }
 export const contentType = 'image/png'
 
-// AS monogram — identical paths to icon.svg
-const SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 100 370 370" fill="none">
-  <g stroke="#111111" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M138 360L238 150L322 390"/>
-    <path d="M186 275C225 245 278 240 315 282"/>
-    <path d="M360 170 C315 195 305 255 350 285 C392 312 430 285 430 340 C430 390 392 420 348 410 C310 402 285 370 286 332"/>
-  </g>
+// Aureon lambda mark — identical geometry to icon.svg
+const MARK =
+  'M12.5 107 L0.9 107 L0.9 105.7 L58.4 3.1 L61.7 0.2 L119.9 106.5 L96.6 106 L60.7 41.3 L25.6 105.2 L24.1 106.8 L12.5 107 Z'
+
+const SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121 108">
+  <path fill="#1a1a1a" fill-rule="evenodd" d="${MARK}"/>
 </svg>`
 
 export default function AppleIcon() {
@@ -26,13 +25,13 @@ export default function AppleIcon() {
           justifyContent: 'center',
         }}
       >
-        {/* Logo at ~65% scale (117px) — generous breathing room, no edge-to-edge */}
+        {/* Mark at ~58% width — generous breathing room, no edge-to-edge */}
         {/* btoa is available globally in Node 16+ and all edge runtimes */}
         {/* next/image can't be used inside ImageResponse's Satori renderer — a plain <img> is required here. */}
         <img
           src={`data:image/svg+xml;base64,${btoa(SVG)}`}
-          width={117}
-          height={117}
+          width={104}
+          height={93}
           alt="Aureon Studio"
         />
       </div>

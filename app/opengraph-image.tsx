@@ -1,8 +1,12 @@
 import { ImageResponse } from 'next/og'
+import { WORDMARK_PATH, WORDMARK_VIEWBOX } from '@/lib/brand'
 
 export const alt = 'Aureon Studio — Interior Architecture & Design'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
+
+// Wordmark in warm brand gold, rendered from the same vector geometry as the site logo
+const WORDMARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${WORDMARK_VIEWBOX}"><path fill="#d4a574" fill-rule="evenodd" d="${WORDMARK_PATH}"/></svg>`
 
 export default function OGImage() {
   return new ImageResponse(
@@ -34,17 +38,13 @@ export default function OGImage() {
               background: '#d4a574',
             }}
           />
-          <span
-            style={{
-              color: '#d4a574',
-              fontSize: '14px',
-              fontWeight: 600,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-            }}
-          >
-            Aureon Studio
-          </span>
+          {/* next/image can't be used inside ImageResponse's Satori renderer — a plain <img> is required here. */}
+          <img
+            src={`data:image/svg+xml;base64,${btoa(WORDMARK_SVG)}`}
+            width={340}
+            height={44}
+            alt="Aureon Studio"
+          />
           <div
             style={{
               width: '80px',

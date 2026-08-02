@@ -159,8 +159,8 @@ export function buildArticleSchema({
       logo: {
         '@type': 'ImageObject',
         url: 'https://aureon.studio/logo.png',
-        width: 400,
-        height: 120,
+        width: 2400,
+        height: 310,
       },
     },
     mainEntityOfPage: {
