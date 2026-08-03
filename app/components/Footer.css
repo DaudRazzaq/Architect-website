@@ -103,6 +103,23 @@
     color: var(--color-bg);
 }
 
+/* The phone number reads as one unit — breaking it across two lines makes it
+   look like two separate numbers. Attribute selector rather than a new class
+   so it holds wherever a tel: link is added to a footer column. */
+.link-column a[href^='tel:'] {
+    white-space: nowrap;
+}
+
+/* At 320px the two footer columns are only ~124px wide — narrower than the
+   number itself, so `nowrap` alone would push it out of its column. Step the
+   size down just for that link on the narrowest phones. */
+@media (max-width: 360px) {
+    .link-column a[href^='tel:'] {
+        font-size: 0.8125rem;
+        letter-spacing: -0.01em;
+    }
+}
+
 .footer-message {
     max-width: 900px;
     display: flex;

@@ -632,6 +632,73 @@
     }
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   PROJECT HERO — MOBILE & TABLET (portrait)
+   ------------------------------------------------------------------
+   `.pd-hero` is 100svh with `object-fit: cover`. On a portrait phone that
+   box is far taller than it is wide, so a 3:2 photograph has to lose its
+   left and right edges — the same fault fixed on the home and services
+   heroes. Shortening the hero only reduces the loss, never removes it.
+
+   Unlike those heroes this one is a slideshow, and the slides are not all
+   the same shape (most are 3:2, a few are 16:9 or portrait), so the band
+   cannot simply be given one photo's ratio. Instead:
+
+     · the band is sized from the dominant 3:2 ratio via `--pd-hero-ar`;
+     · `object-fit: contain` guarantees every slide is shown whole —
+       any slide that is not 3:2 letterboxes inside the band rather than
+       being cropped;
+     · `object-position` drops the photo clear of the fixed mobile bar.
+
+   Landscape and desktop (>920px) keep `cover` and are untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+    .pd-hero {
+        height: auto;
+        min-height: calc(
+            64px + env(safe-area-inset-top) + (100vw / var(--pd-hero-ar, 1.5))
+        );
+        background-color: #0d0b09;
+    }
+
+    /* Both classes: `.pd-hero-slide` also carries the transform used by the
+       slide transition, which must keep working. Only the fit changes. */
+    .pd-hero-img,
+    .pd-hero-slide {
+        object-fit: contain;
+        object-position: center calc(64px + env(safe-area-inset-top));
+    }
+
+    /* The copy sits on the photo band, so the scrim has to be deep enough at
+       the foot to carry white type over any of the slides. */
+    .pd-hero-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.18) 0%,
+            rgba(0, 0, 0, 0.42) 45%,
+            rgba(0, 0, 0, 0.72) 100%
+        );
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+
+    /* padding-top equals the bar, so the content box IS the photo band and
+       the flex centring lands the title on the image rather than below it */
+    .pd-hero-center {
+        padding: calc(64px + env(safe-area-inset-top)) clamp(1.25rem, 5vw, 2.5rem) 0;
+    }
+
+    .pd-hero-deco-line {
+        width: 36px;
+    }
+
+    /* Location strip would otherwise sit on the photo's bottom edge */
+    .pd-hero-location {
+        padding: 1.25rem clamp(1.25rem, 5vw, 2.5rem);
+        font-size: 0.8125rem;
+        border-right: 0;
+    }
+}
+
 @media (max-width: 480px) {
     .pd-hero-title {
         letter-spacing: 3px;

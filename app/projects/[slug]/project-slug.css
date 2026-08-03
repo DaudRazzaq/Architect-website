@@ -162,3 +162,38 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO — MOBILE & TABLET (portrait)
+   A 70vh box on a portrait phone is much taller than it is wide, so
+   `object-fit: cover` crops a landscape photograph's left and right edges.
+   Sizing the band from the photo's own ratio and switching to `contain`
+   shows the frame whole. Matches the home, services and project heroes.
+   Desktop and landscape are untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+  .project-detail__hero {
+    height: auto;
+    min-height: calc(
+      64px + env(safe-area-inset-top) + (100vw / var(--pd-hero-ar, 1.5))
+    );
+    background-color: #0d0b09;
+  }
+
+  .project-detail__hero-img {
+    object-fit: contain;
+    object-position: center calc(64px + env(safe-area-inset-top));
+  }
+
+  /* Copy is absolutely positioned at the foot, so the scrim needs to be
+     dark enough there to carry white type over any photograph. */
+  .project-detail__hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.42) 45%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
+    border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+  }
+}
