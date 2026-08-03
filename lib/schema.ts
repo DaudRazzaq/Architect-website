@@ -33,7 +33,7 @@ export function buildOrganisationSchema() {
           'A London-based interior architecture and refurbishment design studio delivering residential and commercial projects across London.',
         url: 'https://aureon.studio',
         telephone: '+44 20 3432 4059',
-        email: 'contact@aureonstudio.com',
+        email: 'hello@aureonstudio.co.uk',
         address: {
           '@type': 'PostalAddress',
           streetAddress: '60 Tottenham Court Road, Office 1720',

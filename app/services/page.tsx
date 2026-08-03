@@ -155,7 +155,7 @@ export default function ServicesPage() {
                         </div>
                         <div className="sov-contact-meta-item">
                             <span className="sov-contact-meta-label">Email</span>
-                            <a href="mailto:contact@aureonstudio.com">contact@aureonstudio.com</a>
+                            <a href="mailto:hello@aureonstudio.co.uk">hello@aureonstudio.co.uk</a>
                         </div>
                     </div>
                 </div>

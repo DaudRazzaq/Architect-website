@@ -237,7 +237,7 @@ function buildAutoReplyText(name: string, fields: Record<string, string>): strin
     '',
     '--',
     'Aureon Studio | 60 Tottenham Court Road, Office 1720, Fitzrovia, London W1T 2EW',
-    '+44 20 3432 4059 | contact@aureonstudio.co.uk',
+    '+44 20 3432 4059 | hello@aureonstudio.co.uk',
     `(c) ${year} Aureon Studio Ltd. All rights reserved.`,
   ].join('\n')
 }
@@ -450,7 +450,7 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
                             font-size:11px;color:#aaa8a3;line-height:1.7;mso-line-height-rule:exactly;
                             text-align:right;">
                     +44 20 3432 4059<br>
-                    contact@aureonstudio.co.uk
+                    hello@aureonstudio.co.uk
                   </p>
                 </td>
               </tr>
@@ -542,17 +542,17 @@ export async function POST(req: NextRequest) {
       // Admin notification — internal, noreply is fine here
       resend.emails.send({
         from: 'Aureon Studio <noreply@aureonstudio.co.uk>',
-        to: ['contact@aureonstudio.co.uk'],
+        to: ['hello@aureonstudio.co.uk'],
         replyTo: fields.email,
         subject: `New Enquiry \u2014 ${fields.name.trim()}${fields.service ? ` \u00b7 ${fields.service}` : ''}`,
         html: buildEmailHtml(source, fields),
         text: buildAdminText(source, fields),
       }),
-      // User auto-reply — FROM contact@ builds trust & avoids spam filters
+      // User auto-reply — FROM hello@ builds trust & avoids spam filters
       resend.emails.send({
-        from: 'Aureon Studio <contact@aureonstudio.co.uk>',
+        from: 'Aureon Studio <hello@aureonstudio.co.uk>',
         to: [fields.email],
-        replyTo: 'contact@aureonstudio.co.uk',
+        replyTo: 'hello@aureonstudio.co.uk',
         subject: `Thank you for your enquiry \u2014 Aureon Studio`,
         html: buildAutoReplyHtml(fields.name, fields),
         text: buildAutoReplyText(fields.name, fields),

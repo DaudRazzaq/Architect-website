@@ -6,12 +6,12 @@ import './Hero.css';
 import './Navigation.css';
 
 import { Logo } from './Logo';
-import hero1 from '../assets/hero1.png';
-import hero2 from '../assets/hero2.png';
-import hero3 from '../assets/hero3.png';
-import hero4 from '../assets/hero4.png';
-import hero5 from '../assets/hero5.png';
-import hero6 from '../assets/hero6.png';
+import hero1 from '../assets/hero1.webp';
+import hero2 from '../assets/hero2.webp';
+import hero3 from '../assets/hero3.webp';
+import hero4 from '../assets/hero4.webp';
+import hero5 from '../assets/hero5.webp';
+import hero6 from '../assets/hero6.webp';
 
 const HERO_SLIDES = [hero1, hero2, hero3, hero4, hero5, hero6];
 
@@ -290,8 +290,8 @@ export default function Hero() {
                             <a href="tel:+442034324059" className="nav-drawer__contact-link">
                                 +44 20 3432 4059
                             </a>
-                            <a href="mailto:contact@aureonstudio.co.uk" className="nav-drawer__contact-link">
-                                contact@aureonstudio.co.uk
+                            <a href="mailto:hello@aureonstudio.co.uk" className="nav-drawer__contact-link">
+                                hello@aureonstudio.co.uk
                             </a>
                             <div className="nav-drawer__socials">
                                 <a href="https://www.instagram.com/aureonstudioltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="nav-drawer__social">

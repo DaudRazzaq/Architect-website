@@ -174,7 +174,7 @@ export default function ContactPage() {
                                 </span>
                                 <div>
                                     <span className="ct-detail-label">Email</span>
-                                    <span className="ct-detail-value">contact@aureonstudio.com</span>
+                                    <span className="ct-detail-value">hello@aureonstudio.co.uk</span>
                                 </div>
                             </div>
                             <div className="ct-detail">
@@ -399,7 +399,7 @@ export default function ContactPage() {
                     <div className="ct-office-divider" />
                     <div className="ct-office-item">
                         <span className="ct-office-label">EMAIL</span>
-                        <span className="ct-office-value">contact@aureonstudio.com</span>
+                        <span className="ct-office-value">hello@aureonstudio.co.uk</span>
                     </div>
                     <div className="ct-office-divider" />
                     <div className="ct-office-item">

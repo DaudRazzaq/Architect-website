@@ -40,7 +40,7 @@ export default function Footer() {
                     <div className="link-column">
                         <span>Connect</span>
                         <a href="tel:+442034324059">+44 20 3432 4059</a>
-                        <a href="mailto:contact@aureonstudio.co.uk">contact@aureonstudio.co.uk</a>
+                        <a href="mailto:hello@aureonstudio.co.uk">hello@aureonstudio.co.uk</a>
                         <a href="https://wa.me/447440115124" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                         <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
                         <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>

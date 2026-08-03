@@ -202,8 +202,8 @@ export default function Navigation() {
                         <a href="tel:+442034324059" className="nav-drawer__contact-link">
                             +44 20 3432 4059
                         </a>
-                        <a href="mailto:contact@aureonstudio.co.uk" className="nav-drawer__contact-link">
-                            contact@aureonstudio.co.uk
+                        <a href="mailto:hello@aureonstudio.co.uk" className="nav-drawer__contact-link">
+                            hello@aureonstudio.co.uk
                         </a>
                         <div className="nav-drawer__socials">
                             <a href="https://www.instagram.com/aureonstudioltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="nav-drawer__social">
