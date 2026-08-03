@@ -314,8 +314,12 @@
    3:2 shape: 100vw wide x (100vw / 1.5) tall. Container aspect now equals
    image aspect, so `cover` crops nothing at all — the full frame is visible,
    exactly as it is on desktop. The copy then sits below the photo on the
-   hero's own dark background instead of overlaying it. */
-@media (max-width: 640px) {
+   hero's own dark background instead of overlaying it.
+
+   Applies to phones AND tablets in portrait. Landscape is deliberately
+   excluded: a landscape viewport is already wider than 3:2, so `cover`
+   fits to width and shows the whole frame with no help from us. */
+@media (max-width: 920px) and (orientation: portrait) {
     .hero {
         height: auto;
         min-height: 0;
@@ -450,8 +454,8 @@
     display: none;
 }
 
-/* Centerpiece — mobile: bottom-left editorial layout */
-@media (max-width: 768px) {
+/* Centerpiece — mobile & tablet: bottom-left editorial layout */
+@media (max-width: 920px) {
     .hero-shell {
         justify-content: flex-end;
         padding-bottom: calc(6rem + env(safe-area-inset-bottom));
@@ -576,7 +580,7 @@
    copy sits *below* the photo instead, so these rules must win the
    cascade. Same specificity, later wins.
    =================================================================== */
-@media (max-width: 640px) {
+@media (max-width: 920px) and (orientation: portrait) {
     .hero-shell {
         min-height: 0;
         height: auto;
@@ -584,13 +588,16 @@
         /* Clear the photo (64px bar + 66.6667vw image) plus breathing room */
         padding-top: calc(64px + env(safe-area-inset-top) + 66.6667vw + 2.5rem);
         padding-bottom: calc(2.75rem + env(safe-area-inset-bottom));
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: clamp(1.5rem, 4vw, 3rem);
+        padding-right: clamp(1.5rem, 4vw, 3rem);
     }
 
     .hero-centerpiece {
         gap: 1.15rem;
         width: 100%;
+        /* Keeps line length readable on a 768px+ tablet instead of
+           letting the copy stretch the full width of the slab */
+        max-width: 34rem;
     }
 
     /* ── Eyebrow: gold hairline + letterspaced label ── */
@@ -638,6 +645,7 @@
     /* ── CTAs ── */
     .hero-btn-row {
         margin-top: 0.9rem;
+        max-width: 26rem;
     }
 
     .hero-btn {
@@ -653,6 +661,7 @@
         align-items: center;
         gap: 8px;
         width: 100%;
+        max-width: 34rem;
         margin-top: 2rem;
         padding-top: 1.25rem;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -697,10 +706,10 @@
     }
 }
 
-/* Short phones (iPhone SE and similar, <=720px tall): the photo height is
-   fixed by its 3:2 ratio, so tighten the type rhythm instead to keep both
-   CTAs above the fold. */
-@media (max-width: 640px) and (max-height: 720px) {
+/* Short portrait screens (iPhone SE and similar, <=720px tall): the photo
+   height is fixed by its 3:2 ratio, so tighten the type rhythm instead to
+   keep both CTAs above the fold. */
+@media (max-width: 920px) and (orientation: portrait) and (max-height: 720px) {
     .hero-shell {
         padding-top: calc(64px + env(safe-area-inset-top) + 66.6667vw + 1.5rem);
     }

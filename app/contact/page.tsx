@@ -9,6 +9,7 @@ import { useContactForm } from '../hooks/useContactForm';
 import { useFormStorage } from '../hooks/useFormStorage';
 import { useToast } from '../components/Toast';
 import './contact.css';
+import { STUDIO_DIRECTIONS_URL, STUDIO_MAP_EMBED, STUDIO_MAP_TITLE } from '@/lib/studio';
 
 const SERVICES = [
     'Residential Architecture',
@@ -105,8 +106,14 @@ export default function ContactPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
                     >
-                        Every great project begins with a conversation. Share your vision with our London studio
-                        and we&apos;ll help bring it to life with precision and care.
+                        Every great project begins with a conversation.{' '}
+                        {/* Second sentence is hidden on mobile/tablet portrait, where the
+                            hero copy has to sit inside the photo band. Split rather than
+                            duplicated so there is only one copy of the wording. */}
+                        <span className="ct-hero-sub__more">
+                            Share your vision with our London studio and we&apos;ll help bring
+                            it to life with precision and care.
+                        </span>
                     </motion.p>
                     <motion.a
                         href="#ct-form"
@@ -149,7 +156,7 @@ export default function ContactPage() {
                                 </span>
                                 <div>
                                     <span className="ct-detail-label">Studio Address</span>
-                                    <span className="ct-detail-value">14 Fitzroy Square, Fitzrovia<br />London W1T 6EH</span>
+                                    <span className="ct-detail-value">60 Tottenham Court Road, Office 1720<br />Fitzrovia, London W1T 2EW</span>
                                 </div>
                             </div>
                             <div className="ct-detail">
@@ -158,7 +165,7 @@ export default function ContactPage() {
                                 </span>
                                 <div>
                                     <span className="ct-detail-label">Phone</span>
-                                    <span className="ct-detail-value">+44 (0)20 7946 0321</span>
+                                    <a className="ct-detail-value ct-detail-value--link" href="tel:+442034324059">+44 20 3432 4059</a>
                                 </div>
                             </div>
                             <div className="ct-detail">
@@ -345,17 +352,49 @@ export default function ContactPage() {
                 </div>
             </section>
 
+            {/* ── STUDIO LOCATION MAP ── */}
+            <section className="ct-map" aria-labelledby="ct-map-heading">
+                <div className="ct-map-frame">
+                    <iframe
+                        title={STUDIO_MAP_TITLE}
+                        src={STUDIO_MAP_EMBED}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        allowFullScreen
+                    />
+                </div>
+
+                <div className="ct-map-card">
+                    <span className="ct-map-eyebrow">Visit The Studio</span>
+                    <h2 id="ct-map-heading" className="ct-map-heading">Find Us in Fitzrovia</h2>
+                    <address className="ct-map-address">
+                        60 Tottenham Court Road<br />
+                        Office 1720<br />
+                        Fitzrovia, London<br />
+                        W1T 2EW
+                    </address>
+                    <a
+                        className="ct-map-link"
+                        href={STUDIO_DIRECTIONS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Get Directions
+                    </a>
+                </div>
+            </section>
+
             {/* ── OFFICE STRIP ── */}
             <section className="ct-office-strip">
                 <div className="ct-office-inner">
                     <div className="ct-office-item">
                         <span className="ct-office-label">LONDON STUDIO</span>
-                        <span className="ct-office-value">14 Fitzroy Square, W1T 6EH</span>
+                        <span className="ct-office-value">60 Tottenham Court Road, W1T 2EW</span>
                     </div>
                     <div className="ct-office-divider" />
                     <div className="ct-office-item">
                         <span className="ct-office-label">TELEPHONE</span>
-                        <span className="ct-office-value">+44 (0)20 7946 0321</span>
+                        <a className="ct-office-value ct-office-value--link" href="tel:+442034324059">+44 20 3432 4059</a>
                     </div>
                     <div className="ct-office-divider" />
                     <div className="ct-office-item">
@@ -366,14 +405,17 @@ export default function ContactPage() {
                     <div className="ct-office-item">
                         <span className="ct-office-label">FOLLOW US</span>
                         <div className="ct-office-socials">
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <a href="https://www.instagram.com/aureonstudioltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/company/aureon-designstudio/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
                             </a>
-                            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8 12h4v8M12 12c0-2.21 1.79-4 4-4" /></svg>
+                            <a href="https://www.houzz.co.uk/hznb/professionals/interior-designers/aureon-studio-pfvwgb-pf~760537425" target="_blank" rel="noopener noreferrer" aria-label="Houzz">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6 21V12.41L12 9l6 3.41V21h-4.5v-4.5h-3V21H6z" />
+                                    <path d="M12 2L2 8v2h20V8L12 2z" />
+                                </svg>
                             </a>
                         </div>
                     </div>

@@ -494,3 +494,83 @@
         padding: 4rem var(--container-padding);
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE & TABLET (portrait) — full-frame hero
+   `.pw-hero-bg` is pinned with `inset: 0`, so on a portrait viewport the
+   photo is forced to fill a ~0.5-aspect box and `cover` slices its sides
+   off. Giving the wrapper the photo's own 3:2 ratio (100vw x 66.6667vw)
+   means `cover` has nothing left to trim — the whole frame shows. The
+   decorative scale(1.04) is also dropped here; it only crops further.
+   Landscape is excluded: it is already wider than 3:2.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+    .pw-hero {
+        height: auto;
+        min-height: 0;
+        display: block;
+        background-color: #0d0b09;
+        padding: calc(64px + env(safe-area-inset-top) + 66.6667vw + 2.75rem)
+                 clamp(1.5rem, 4vw, 3rem) 3.5rem;
+    }
+
+    .pw-hero-bg {
+        top: calc(64px + env(safe-area-inset-top));
+        bottom: auto;
+        height: 66.6667vw;
+    }
+
+    .pw-hero-bg img,
+    .pw-hero:hover .pw-hero-bg img {
+        object-position: center center;
+        transform: none;
+    }
+
+    .pw-hero-overlay {
+        top: calc(64px + env(safe-area-inset-top));
+        bottom: auto;
+        height: 66.6667vw;
+        background: linear-gradient(to bottom, rgba(10, 9, 8, 0.12), rgba(10, 9, 8, 0.45));
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+
+    .pw-hero-center {
+        text-align: left;
+        max-width: 34rem;
+    }
+
+    .pw-hero-rule {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.15rem;
+    }
+
+    .pw-hero-rule-line {
+        width: 40px;
+        flex: 0 0 auto;
+        background: var(--color-accent);
+        opacity: 0.9;
+    }
+
+    .pw-hero-rule-line:last-child {
+        display: none;
+    }
+
+    .pw-hero-title {
+        font-size: clamp(2.05rem, 8.4vw, 3.1rem);
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+    }
+
+    .pw-hero-headline {
+        margin-top: 0.85rem;
+    }
+
+    .pw-hero-sub {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 32ch;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+}

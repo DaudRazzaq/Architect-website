@@ -144,3 +144,76 @@
         grid-template-columns: 1fr;
     }
 }
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE & TABLET (portrait) — full-frame hero, copy centred on the photo
+   The photo is 3:2 (1536x1024). `cover` on a portrait viewport would slice
+   its sides off, so the image is sized to the full viewport width and lets
+   its height fall out of its own ratio — the whole frame stays visible.
+   The section is exactly as tall as the bar + photo, so centring the copy
+   inside the content box lands it in the optical centre of the image.
+   Type is stepped down to sit comfortably inside that 66.6667vw band.
+   Landscape is excluded: it is already wider than 3:2, so cover crops
+   nothing there. Desktop (>920px) is untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+    .blog-hero {
+        height: auto;
+        min-height: calc(64px + env(safe-area-inset-top) + 66.6667vw);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0d0b09;
+        background-size: 100% auto;
+        background-position: center calc(64px + env(safe-area-inset-top));
+        background-repeat: no-repeat;
+        padding: calc(64px + env(safe-area-inset-top)) clamp(1.25rem, 5vw, 2.5rem) 0;
+    }
+
+    /* Scrim covers only the photo and is deep enough to carry white text */
+    .blog-hero-overlay {
+        top: calc(64px + env(safe-area-inset-top));
+        bottom: auto;
+        height: 66.6667vw;
+        background: linear-gradient(to bottom, rgba(10, 9, 8, 0.34), rgba(10, 9, 8, 0.58));
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+
+    .blog-hero-content {
+        text-align: center;
+        padding: 0;
+        max-width: 30rem;
+    }
+
+    .blog-hero-eyebrow {
+        font-size: 0.5625rem;
+        letter-spacing: 0.22em;
+        gap: 0.6rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .blog-hero-eyebrow::before,
+    .blog-hero-eyebrow::after {
+        display: block;
+        width: 1.5rem;
+    }
+
+    .blog-hero-heading {
+        font-size: clamp(1.5rem, 6.2vw, 2.5rem);
+        line-height: 1.12;
+        margin-bottom: 0.85rem;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    .blog-hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 34ch;
+        font-size: 0.8125rem;
+        line-height: 1.55;
+    }
+
+    /* Scroll cue belongs to a full-height hero; this one ends with the photo */
+    .blog-hero-scroll {
+        display: none;
+    }
+}

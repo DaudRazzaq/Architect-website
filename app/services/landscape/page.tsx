@@ -10,6 +10,9 @@ import QuoteSection from '../../components/QuoteSection';
 import '../services.css';
 
 const heroImg = '/landscape.webp';
+// Intrinsic ratio of the hero photo (3200x2391). Drives the mobile/tablet
+// band height so the full frame shows with no dead space beneath it.
+const heroAspect = 1.3384;
 
 export default function LandscapePage() {
     return (
@@ -18,7 +21,10 @@ export default function LandscapePage() {
             <CTAStrip />
 
             {/* ── HERO ── */}
-            <section className="srv-hero">
+            <section
+                className="srv-hero"
+                style={{ '--srv-hero-ar': heroAspect } as React.CSSProperties}
+            >
                 <Image
                     src={heroImg}
                     alt="Landscape Design — Aureon Studio"

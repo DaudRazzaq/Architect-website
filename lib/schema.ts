@@ -20,8 +20,9 @@ export function buildOrganisationSchema() {
         image: 'https://aureon.studio/logo.png',
         sameAs: [
           'https://www.aureonstudio.co.uk',
-          'https://www.instagram.com/aureon.studio',
-          'https://www.linkedin.com/company/aureon-studio',
+          'https://www.instagram.com/aureonstudioltd/',
+          'https://www.linkedin.com/company/aureon-designstudio/',
+          'https://www.houzz.co.uk/hznb/professionals/interior-designers/aureon-studio-pfvwgb-pf~760537425',
         ],
       },
       {
@@ -31,19 +32,19 @@ export function buildOrganisationSchema() {
         description:
           'A London-based interior architecture and refurbishment design studio delivering residential and commercial projects across London.',
         url: 'https://aureon.studio',
-        telephone: '+44 (0)20 7946 0321',
+        telephone: '+44 20 3432 4059',
         email: 'contact@aureonstudio.com',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: '14 Fitzroy Square',
+          streetAddress: '60 Tottenham Court Road, Office 1720',
           addressLocality: 'Fitzrovia, London',
-          postalCode: 'W1T 6EH',
+          postalCode: 'W1T 2EW',
           addressCountry: 'GB',
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 51.5225,
-          longitude: -0.1392,
+          latitude: 51.519789,
+          longitude: -0.133764,
         },
         openingHoursSpecification: [
           {

@@ -9,6 +9,9 @@ import CTAStrip from '../../components/CTAStrip';
 import '../services.css';
 
 const heroImg = '/architecture.webp';
+// Intrinsic ratio of the hero photo (3200x2107). Drives the mobile/tablet
+// band height so the full frame shows with no dead space beneath it.
+const heroAspect = 1.5187;
 
 export default function CommercialPage() {
     return (
@@ -17,7 +20,10 @@ export default function CommercialPage() {
             <CTAStrip />
 
             {/* ── HERO ── */}
-            <section className="srv-hero">
+            <section
+                className="srv-hero"
+                style={{ '--srv-hero-ar': heroAspect } as React.CSSProperties}
+            >
                 <Image
                     src={heroImg}
                     alt="Commercial architecture — Aureon Studio"

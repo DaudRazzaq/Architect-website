@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     template: '%s | Aureon Studio',
   },
   description:
-    'Aureon Studio — London\'s premier interior architecture and refurbishment design studio. Residential, commercial & multipurpose spaces. Based in Fitzrovia. Call +44 (0)20 7946 0321.',
+    'Aureon Studio — London\'s premier interior architecture and refurbishment design studio. Residential, commercial & multipurpose spaces. Based in Fitzrovia. Call +44 20 3432 4059.',
   metadataBase: new URL('https://aureon.studio'),
   alternates: { canonical: 'https://aureon.studio' },
   keywords: [

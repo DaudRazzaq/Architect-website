@@ -10,6 +10,9 @@ import QuoteSection from '../../components/QuoteSection';
 import '../services.css';
 
 const heroImg = '/project-management.webp';
+// Intrinsic ratio of the hero photo (3200x2133). Drives the mobile/tablet
+// band height so the full frame shows with no dead space beneath it.
+const heroAspect = 1.5002;
 
 export default function ProjectManagementPage() {
     return (
@@ -18,7 +21,10 @@ export default function ProjectManagementPage() {
             <CTAStrip />
 
             {/* ── HERO ── */}
-            <section className="srv-hero">
+            <section
+                className="srv-hero"
+                style={{ '--srv-hero-ar': heroAspect } as React.CSSProperties}
+            >
                 <Image
                     src={heroImg}
                     alt="Project Management — Aureon Studio"

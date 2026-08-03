@@ -169,7 +169,7 @@ function buildEmailHtml(source: string, fields: Record<string, string>): string 
             <p style="margin:0;font-size:11px;color:#aaaaaa;text-align:center;letter-spacing:0.04em;
                       line-height:1.8;">
               This message was submitted via the Aureon Studio website.<br>
-              14 Fitzroy Square, Fitzrovia, London W1T 6EH
+              60 Tottenham Court Road, Office 1720, Fitzrovia, London W1T 2EW
             </p>
           </td>
         </tr>
@@ -236,8 +236,8 @@ function buildAutoReplyText(name: string, fields: Record<string, string>): strin
     'The Aureon Studio Team',
     '',
     '--',
-    'Aureon Studio | 14 Fitzroy Square, Fitzrovia, London W1T 6EH',
-    '+44 20 7946 0123 | contact@aureonstudio.co.uk',
+    'Aureon Studio | 60 Tottenham Court Road, Office 1720, Fitzrovia, London W1T 2EW',
+    '+44 20 3432 4059 | contact@aureonstudio.co.uk',
     `(c) ${year} Aureon Studio Ltd. All rights reserved.`,
   ].join('\n')
 }
@@ -441,15 +441,15 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
                   </p>
                   <p style="margin:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
                             font-size:11px;color:#aaa8a3;line-height:1.7;mso-line-height-rule:exactly;">
-                    14 Fitzroy Square, Fitzrovia<br>
-                    London, W1T 6EH
+                    60 Tottenham Court Road, Office 1720<br>
+                    Fitzrovia, London W1T 2EW
                   </p>
                 </td>
                 <td align="right" style="vertical-align:top;">
                   <p style="margin:0;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
                             font-size:11px;color:#aaa8a3;line-height:1.7;mso-line-height-rule:exactly;
                             text-align:right;">
-                    +44 20 7946 0123<br>
+                    +44 20 3432 4059<br>
                     contact@aureonstudio.co.uk
                   </p>
                 </td>

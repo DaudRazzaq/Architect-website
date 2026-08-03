@@ -38,6 +38,10 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: blob: https:",
               "font-src 'self'",
               "connect-src 'self'",
+              // Google Maps embed on /contact. Without this, frame-src falls
+              // back to default-src 'self' and the map is silently blocked —
+              // the iframe renders as an empty box with a console error only.
+              "frame-src 'self' https://www.google.com https://maps.google.com",
             ].join('; '),
           },
         ],

@@ -395,20 +395,88 @@
         flex-direction: column;
         min-height: auto;
     }
+    /* Stacked: copy first, photograph beneath it — for every row, including
+       the reversed ones. The label ("Residential" / "Commercial" /
+       "Multipurpose") therefore introduces its own image rather than
+       trailing it, which is what the alternating desktop layout achieves
+       horizontally. Desktop (>960px) keeps its left/right alternation. */
     .sov-row-text,
     .sov-row--rev .sov-row-text {
         flex: none;
         width: 100%;
         padding: 4rem 2rem;
-        order: 2;
+        order: 1;
     }
     .sov-row-img-wrap,
     .sov-row--rev .sov-row-img-wrap {
         flex: none;
         width: 100%;
         min-height: 380px;
-        order: 1;
+        order: 2;
     }
+
+    /* CTA lifted out of the copy block and set on the photograph as an
+       editorial caption: no button chrome, just letterspaced caps over a
+       gradient with a gold rule beneath. It stays inside .sov-row-text in
+       the markup, so the desktop layout and the reading order (label →
+       copy → link) are untouched; it is only taken out of flow here.
+       The photo sits at the foot of the stacked row, so anchoring to the
+       row's bottom-left anchors it to the photo's bottom-left. */
+    .sov-row,
+    .sov-row--rev {
+        position: relative;
+    }
+
+    .sov-row-text,
+    .sov-row--rev .sov-row-text {
+        padding-bottom: 3rem;
+    }
+
+    /* Gradient so the caption stays legible over any photograph */
+    .sov-row-img-wrap::after {
+        content: '';
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 58%;
+        background: linear-gradient(to bottom, rgba(10, 8, 6, 0) 0%, rgba(10, 8, 6, 0.8) 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .sov-row-link,
+    .sov-row--rev .sov-row-link {
+        position: absolute;
+        left: 2rem;
+        bottom: 1.75rem;
+        transform: none;
+        margin-top: 0;
+        z-index: 3;
+        white-space: nowrap;
+        /* Strip the button treatment: no border, no fill, no wipe */
+        padding: 0 0 0.55rem;
+        border: 0;
+        border-bottom: 1px solid var(--color-accent);
+        background: none;
+        color: #ffffff;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .sov-row-link::after {
+        color: var(--color-accent);
+    }
+
+    /* Restores a 44px tap target without inflating the visual mark */
+    .sov-row-link::before {
+        content: '';
+        position: absolute;
+        inset: -16px -18px -12px -18px;
+    }
+
+    .sov-row-link:hover {
+        color: #ffffff;
+        border-bottom-color: var(--color-accent-light);
+    }
+
     .sov-hero-panel { display: none; }
     .sov-contact {
         grid-template-columns: 1fr;
@@ -421,9 +489,87 @@
 
 @media (max-width: 640px) {
     .sov-hero-title { letter-spacing: 0.02em; }
-    .sov-row-text { padding: 3.5rem 1.5rem; }
+    .sov-row-text { padding: 3.5rem 1.5rem 2.5rem; }
     .sov-row-img-wrap { min-height: 300px; }
+
+    /* Align the caption with the copy block's tighter 1.5rem gutter */
+    .sov-row-link,
+    .sov-row--rev .sov-row-link {
+        left: 1.5rem;
+        bottom: 1.5rem;
+        font-size: 0.55rem;
+        letter-spacing: 2.8px;
+    }
     .sov-process, .sov-band { padding: 5rem 1.5rem; }
     .sov-contact { padding: 4.5rem 1.5rem; }
     .sov-flag-text { letter-spacing: 4px; }
+}
+
+/* Narrow phones: the caption is set with `white-space: nowrap`, and the
+   longest label ("Explore Multipurpose Services") runs to ~264px at the
+   640px scale against ~280px of usable width at 320px. Trimming the
+   tracking keeps a comfortable margin rather than skimming the edge. */
+@media (max-width: 400px) {
+    .sov-row-link,
+    .sov-row--rev .sov-row-link {
+        letter-spacing: 2.1px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE & TABLET (portrait) — full-frame hero, copy centred on the photo
+   Same approach as the other page heroes: the 3:2 photo shows its whole
+   frame instead of being cropped by `cover`, the section is exactly as
+   tall as the bar + photo, and the copy is centred inside that band with
+   stepped-down type. Landscape and desktop (>920px) are untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+    .sov-hero {
+        height: auto;
+        min-height: calc(64px + env(safe-area-inset-top) + 66.6667vw);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0d0b09;
+        padding: calc(64px + env(safe-area-inset-top)) clamp(1.25rem, 5vw, 2.5rem) 0;
+    }
+
+    .sov-hero-img,
+    .sov-hero:hover .sov-hero-img {
+        object-fit: contain;
+        object-position: center calc(64px + env(safe-area-inset-top));
+        transform: none;
+    }
+
+    .sov-hero-overlay {
+        top: calc(64px + env(safe-area-inset-top));
+        bottom: auto;
+        height: 66.6667vw;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.55));
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+
+    .sov-hero-center {
+        text-align: center;
+        max-width: 30rem;
+    }
+
+    .sov-hero-eyebrow {
+        font-size: 0.5rem;
+        letter-spacing: 5px;
+    }
+
+    .sov-hero-title {
+        font-size: clamp(1.6rem, 6.6vw, 2.6rem);
+        line-height: 1.1;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    .sov-hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 34ch;
+        font-size: 0.8125rem;
+        line-height: 1.55;
+    }
 }

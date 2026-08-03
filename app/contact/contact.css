@@ -233,6 +233,23 @@
     line-height: 1.55;
 }
 
+/* The phone number is an <a href="tel:"> so it dials on mobile. It should
+   read as part of the detail list, not as a standard link, so the default
+   colour and underline are cleared and the affordance is the hover rule. */
+.ct-detail-value--link {
+    color: #1a1a1a;
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.ct-detail-value--link:hover,
+.ct-detail-value--link:focus-visible {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
 /* Process */
 .ct-process-title {
     font-family: var(--font-display);
@@ -593,6 +610,20 @@
     line-height: 1.5;
 }
 
+/* Tappable telephone in the dark office strip — same treatment, light palette */
+.ct-office-value--link {
+    color: rgba(245, 242, 236, 0.72);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.ct-office-value--link:hover,
+.ct-office-value--link:focus-visible {
+    color: #ffffff;
+    border-bottom-color: var(--color-accent);
+}
+
 .ct-office-divider {
     width: 1px;
     height: 40px;
@@ -837,5 +868,257 @@
 
     .contact-title {
         font-size: 2.5rem;
+    }
+}
+/* ═══════════════════════════════════════════════════════════════════
+   STUDIO LOCATION MAP
+   Google Maps keyless embed (maps.google.com/...&output=embed).
+   NOTE: this only renders because next.config.ts declares
+   `frame-src https://www.google.com https://maps.google.com` — without it
+   frame-src falls back to default-src 'self' and the iframe is blocked.
+   The site sets X-Frame-Options: DENY, which governs OUR page being framed
+   by others, not us framing Google, so it is unaffected.
+   ═══════════════════════════════════════════════════════════════════ */
+.ct-map {
+    position: relative;
+    background: var(--color-primary, #1a1a1a);
+}
+
+.ct-map-frame {
+    position: relative;
+    width: 100%;
+    height: clamp(360px, 48vh, 520px);
+    overflow: hidden;
+}
+
+.ct-map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    /* Desaturate so Google's default palette sits with the studio's
+       restrained aesthetic; restore it on interaction. */
+    filter: grayscale(1) contrast(1.05);
+    transition: filter 0.6s ease;
+}
+
+.ct-map-frame:hover iframe,
+.ct-map-frame:focus-within iframe {
+    filter: grayscale(0) contrast(1);
+}
+
+/* Floating address card over the map on desktop */
+.ct-map-card {
+    position: absolute;
+    top: 50%;
+    right: clamp(2rem, 6vw, 6rem);
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: min(340px, 38vw);
+    padding: 2.5rem 2.25rem;
+    background: rgba(16, 14, 12, 0.93);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 2px solid var(--color-accent);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.ct-map-eyebrow {
+    font-family: var(--font-primary);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.ct-map-heading {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #f5f2ec;
+    margin: 0 0 1.15rem;
+}
+
+.ct-map-address {
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(245, 242, 236, 0.7);
+    margin: 0 0 1.75rem;
+}
+
+.ct-map-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 1.75rem;
+    font-family: var(--font-primary);
+    font-size: 0.58rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: linear-gradient(var(--color-accent), var(--color-accent)) no-repeat left / 0% 100%;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.35s ease;
+}
+
+.ct-map-link::after {
+    content: '\2192';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ct-map-link:hover {
+    background-size: 100% 100%;
+    border-color: var(--color-accent);
+}
+
+.ct-map-link:hover::after {
+    transform: translateX(5px);
+}
+
+/* Tablet & mobile: card sits beneath the map rather than covering it —
+   overlaying a 340px card on a phone would hide most of the map. */
+@media (max-width: 920px) {
+    .ct-map-frame {
+        height: clamp(300px, 42vh, 420px);
+    }
+
+    .ct-map-card {
+        position: static;
+        transform: none;
+        width: 100%;
+        padding: 2.25rem clamp(1.25rem, 5vw, 2.5rem) 2.75rem;
+        background: var(--color-primary, #1a1a1a);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    /* Touch devices have no hover, so show the map in full colour */
+    .ct-map-frame iframe {
+        filter: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .ct-map-frame {
+        height: 300px;
+    }
+
+    .ct-map-heading {
+        font-size: 1.4rem;
+    }
+
+    .ct-map-address {
+        font-size: 0.875rem;
+    }
+
+    .ct-map-link {
+        width: 100%;
+        justify-content: center;
+        min-height: 52px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE & TABLET (portrait) — full-frame hero, copy centred on the photo
+   The photo is 3:2 (1536x1024). `cover` on a portrait viewport would slice
+   its sides off, so the image is sized to the full viewport width and lets
+   its height fall out of its own ratio — the whole frame stays visible.
+   The section is exactly as tall as the bar + photo, so centring the copy
+   inside the content box lands it in the optical centre of the image.
+   Type is stepped down to sit comfortably inside that 66.6667vw band.
+   Landscape is excluded: it is already wider than 3:2, so cover crops
+   nothing there. Desktop (>920px) is untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+    .ct-hero {
+        height: auto;
+        min-height: calc(64px + env(safe-area-inset-top) + 66.6667vw);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0d0b09;
+        background-size: 100% auto;
+        background-position: center calc(64px + env(safe-area-inset-top));
+        background-repeat: no-repeat;
+        padding: calc(64px + env(safe-area-inset-top)) clamp(1.25rem, 5vw, 2.5rem) 0;
+    }
+
+    /* Scrim covers only the photo and is deep enough to carry white text */
+    .ct-hero-overlay {
+        top: calc(64px + env(safe-area-inset-top));
+        bottom: auto;
+        height: 66.6667vw;
+        background: linear-gradient(to bottom, rgba(10, 9, 8, 0.34), rgba(10, 9, 8, 0.58));
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+
+    .ct-hero-content {
+        text-align: center;
+        padding: 0;
+        max-width: 30rem;
+    }
+
+    .ct-hero-eyebrow {
+        font-size: 0.5625rem;
+        letter-spacing: 0.22em;
+        gap: 0.6rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .ct-hero-eyebrow::before,
+    .ct-hero-eyebrow::after {
+        display: block;
+        width: 1.5rem;
+    }
+
+    .ct-hero-heading {
+        font-size: clamp(1.45rem, 5.9vw, 2.4rem);
+        line-height: 1.12;
+        margin-bottom: 0.75rem;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    /* This hero carries the most copy of the set — eyebrow, two-line
+       heading, sub and CTA — and it all has to fit inside the 66.6667vw
+       photo band. Dropping the second sentence takes it from ~195px to
+       ~150px, which restores proper breathing room above and below.
+       The wording still ships in the markup, so nothing is lost to search
+       engines, and the full sentence returns on desktop. */
+    .ct-hero-sub__more {
+        display: none;
+    }
+
+    .ct-hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30ch;
+        font-size: 0.8125rem;
+        line-height: 1.5;
+    }
+
+    .ct-hero-cta {
+        margin-top: 0.95rem;
+        font-size: 0.625rem;
+    }
+
+    .ct-hero-scroll {
+        display: none;
     }
 }

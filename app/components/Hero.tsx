@@ -287,30 +287,31 @@ export default function Hero() {
                             <a href="/contact" className="nav-drawer__cta" onClick={closeMenu}>
                                 Enquire Now
                             </a>
-                            <a href="tel:+442079460321" className="nav-drawer__contact-link">
-                                +44 (0)20 7946 0321
+                            <a href="tel:+442034324059" className="nav-drawer__contact-link">
+                                +44 20 3432 4059
                             </a>
                             <a href="mailto:contact@aureonstudio.co.uk" className="nav-drawer__contact-link">
                                 contact@aureonstudio.co.uk
                             </a>
                             <div className="nav-drawer__socials">
-                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="nav-drawer__social">
+                                <a href="https://www.instagram.com/aureonstudioltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="nav-drawer__social">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                                     </svg>
                                 </a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="nav-drawer__social">
+                                <a href="https://www.linkedin.com/company/aureon-designstudio/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="nav-drawer__social">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                                         <rect x="2" y="9" width="4" height="12" />
                                         <circle cx="4" cy="4" r="2" />
                                     </svg>
                                 </a>
-                                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="nav-drawer__social">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.247-5.277 1.247-5.277s-.319-.638-.319-1.581c0-1.484.866-2.594 1.937-2.594.913 0 1.356.684 1.356 1.504 0 .917-.583 2.287-.885 3.556-.252 1.062.531 1.928 1.577 1.928 1.893 0 3.351-1.994 3.351-4.871 0-2.545-1.829-4.326-4.442-4.326-3.025 0-4.8 2.269-4.8 4.615 0 .914.351 1.893.79 2.428a.318.318 0 0 1 .073.304c-.081.333-.26 1.06-.295 1.207-.047.196-.157.237-.362.143-1.349-.629-2.193-2.603-2.193-4.192 0-3.408 2.476-6.539 7.141-6.539 3.749 0 6.667 2.673 6.667 6.244 0 3.726-2.349 6.72-5.61 6.72-1.096 0-2.127-.57-2.48-1.24l-.674 2.514c-.244.939-.904 2.113-1.346 2.83.607.188 1.25.289 1.916.289 5.523 0 10-4.477 10-10S17.523 2 12 2z" />
+                                <a href="https://www.houzz.co.uk/hznb/professionals/interior-designers/aureon-studio-pfvwgb-pf~760537425" target="_blank" rel="noopener noreferrer" aria-label="Houzz" className="nav-drawer__social">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M6 21V12.41L12 9l6 3.41V21h-4.5v-4.5h-3V21H6z" />
+                                        <path d="M12 2L2 8v2h20V8L12 2z" />
                                     </svg>
                                 </a>
                             </div>

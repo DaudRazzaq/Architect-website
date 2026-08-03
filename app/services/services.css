@@ -390,3 +390,85 @@
 
     .srv-img-break { height: 38vh; }
 }
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE & TABLET (portrait) — full-frame service-detail hero
+   Shared by all seven /services/* pages.
+
+   Unlike the other heroes on the site these photographs are NOT a single
+   ratio: interior.webp and project-management.webp are 1.500,
+   architecture.webp is 1.519 and landscape.webp is 1.338. A fixed band
+   (which would assume 3:2) therefore either re-crops the widest image or
+   leaves dead space under the tallest, so instead:
+
+     · `object-fit: contain` fits every photo to the full viewport width
+       whatever its ratio — nothing is ever cropped left or right;
+     · each page publishes its photo's intrinsic ratio as `--srv-hero-ar`
+       (set next to the image constant in its page.tsx), so the band is
+       exactly as tall as that page's image — no slack, no letterboxing;
+     · `object-position` drops the photo below the fixed mobile bar.
+
+   The fallback is 1.338, the tallest ratio in use: if the property were
+   ever missing the band is too tall rather than too short, which costs a
+   little dark space instead of cropping the image.
+   Landscape and desktop (>920px) are untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+    .srv-hero {
+        height: auto;
+        min-height: calc(
+            64px + env(safe-area-inset-top) + (100vw / var(--srv-hero-ar, 1.338))
+        );
+        background-color: #0d0b09;
+    }
+
+    .srv-hero-img,
+    .srv-hero:hover .srv-hero-img {
+        object-fit: contain;
+        object-position: center calc(64px + env(safe-area-inset-top));
+        transform: none; /* the 1.04 hover zoom would crop again */
+    }
+
+    /* Deep enough at the foot to carry white copy over any photograph */
+    .srv-hero-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.18) 0%,
+            rgba(0, 0, 0, 0.42) 45%,
+            rgba(0, 0, 0, 0.68) 100%
+        );
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+
+    /* padding-top equals the bar, so the content box IS the photo band and
+       `justify-content: center` lands the copy on the image */
+    .srv-hero-content {
+        justify-content: center;
+        padding: calc(64px + env(safe-area-inset-top)) clamp(1.25rem, 5vw, 2.5rem) 0;
+        max-width: 100%;
+    }
+
+    .srv-hero-eyebrow {
+        font-size: 0.5625rem;
+        letter-spacing: 5px;
+        margin-bottom: 1.15rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .srv-hero-title {
+        font-size: clamp(1.5rem, 6.2vw, 2.5rem);
+        line-height: 1.12;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    .srv-hero-desc {
+        max-width: 34ch;
+        font-size: 0.8125rem;
+        line-height: 1.55;
+    }
+
+    /* Scroll cue belongs to a 100vh hero; this one ends with the photo */
+    .srv-hero-scroll {
+        display: none;
+    }
+}
