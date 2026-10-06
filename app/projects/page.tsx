@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import CTAStrip from '../components/CTAStrip';
+import Footer from '../components/Footer';
 import ProjectsGrid, { type PortfolioItem } from './ProjectsGrid';
 import { getAllProjects } from '@/lib/projects';
 import './projects-page.css';
@@ -120,6 +121,8 @@ export default async function ProjectsPage() {
                     Get in Touch
                 </Link>
             </section>
+
+            <Footer />
         </>
     );
 }

@@ -393,6 +393,58 @@
     }
 }
 
+/* ---- Narrower desktops ----
+   Seven menu items either side of the centred wordmark only fit at full
+   size from ~1360px, so tighten the type in two steps rather than let the
+   outer links run off the screen. Kept in step with the matching block in
+   Hero.css so the header doesn't shift between the home page and the rest. */
+
+@media (max-width: 1360px) {
+    .nav-header__nav {
+        gap: 1.1rem;
+    }
+
+    .nav-header__link {
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+    }
+
+    .nav-header__nav--left {
+        padding-right: 1.25rem;
+    }
+
+    .nav-header__nav--right {
+        padding-left: 1.25rem;
+    }
+}
+
+@media (max-width: 1099px) {
+    .nav-header__nav {
+        gap: 0.875rem;
+    }
+
+    .nav-header__link {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+    }
+
+    .nav-header__nav--left {
+        padding-right: 1rem;
+    }
+
+    .nav-header__nav--right {
+        padding-left: 1rem;
+    }
+
+    .nav-header__brand-inner {
+        min-width: 0;
+    }
+
+    .nav-header__grid .nav-header__logo {
+        width: 10.5rem;
+    }
+}
+
 /* ---- Tablet & Below ---- */
 
 @media (max-width: 920px) {

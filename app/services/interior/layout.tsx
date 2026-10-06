@@ -5,7 +5,7 @@ export const revalidate = false
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'Interior Design Services London | Aureon Studio',
+    title: 'Interior Design Services London',
     description:
       'Interior design that creates atmosphere, not just rooms. Aureon Studio designs calm, comfortable interiors for homes, hospitality, and commercial spaces across London.',
     path: '/services/interior',

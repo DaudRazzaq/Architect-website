@@ -69,6 +69,10 @@ export function buildOrganisationSchema() {
           '@type': 'OfferCatalog',
           name: 'Interior Architecture & Design Services',
           itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Measured Surveys' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'House Extensions & Loft Conversions' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Planning Applications' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Building Regulations Drawings' } },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Residential Interior Architecture' } },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Interior Design' } },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Multipurpose Space Design' } },

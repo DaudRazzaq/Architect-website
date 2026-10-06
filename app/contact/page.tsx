@@ -10,35 +10,7 @@ import { useFormStorage } from '../hooks/useFormStorage';
 import { useToast } from '../components/Toast';
 import './contact.css';
 import { STUDIO_DIRECTIONS_URL, STUDIO_MAP_EMBED, STUDIO_MAP_TITLE } from '@/lib/studio';
-
-const SERVICES = [
-    'Residential Architecture',
-    'Commercial Architecture',
-    'Interior Design',
-    'Landscape Design',
-    'Urban Planning',
-    'Renovation & Extension',
-    'Not Sure Yet',
-];
-
-const BUDGETS = [
-    'Under £100k',
-    '£100k – £250k',
-    '£250k – £500k',
-    '£500k – £1M',
-    '£1M – £5M',
-    'Over £5M',
-    'To Be Discussed',
-];
-
-const TIMELINES = [
-    'As soon as possible',
-    '1 – 3 months',
-    '3 – 6 months',
-    '6 – 12 months',
-    'Over a year',
-    'Not decided yet',
-];
+import { BUDGET_OPTIONS, SERVICE_OPTIONS, TIMELINE_OPTIONS, serviceLabelFromSlug } from '@/lib/enquiry';
 
 type FormData = {
     name: string; email: string; phone: string; company: string;
@@ -53,9 +25,17 @@ const INITIAL: FormData = {
 };
 
 export default function ContactPage() {
-    const { formData: form, updateField: update, clearDraft } = useFormStorage<FormData>('contact-page', INITIAL);
+    const { formData: form, setFormData, updateField: update, clearDraft } = useFormStorage<FormData>('contact-page', INITIAL);
     const { loading, success, error: formError, submit: sendEnquiry, reset } = useContactForm();
     const { showToast } = useToast();
+
+    // Service pages link here as /contact?service=<slug> (e.g. "Book a survey"),
+    // so pre-select that service. Runs after the draft restore in
+    // useFormStorage, so the visitor's explicit choice wins over an old draft.
+    useEffect(() => {
+        const preset = serviceLabelFromSlug(new URLSearchParams(window.location.search).get('service'));
+        if (preset) setFormData((prev) => ({ ...prev, service: preset }));
+    }, [setFormData]);
 
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -270,21 +250,21 @@ export default function ContactPage() {
                                     <div className="ct-field ct-field--full">
                                         <select className="ct-select" name="service" id="ct-service" value={form.service} onChange={update} required>
                                             <option value="" disabled></option>
-                                            {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
+                                            {SERVICE_OPTIONS.map(s => <option key={s.slug} value={s.label}>{s.label}</option>)}
                                         </select>
                                         <label className="ct-label ct-label--select" htmlFor="ct-service">Type of Service <span>*</span></label>
                                         <span className="ct-select-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg></span>
                                     </div>
-                                    {/* Location */}
+                                    {/* Property postcode (field name kept as `location` for the email template) */}
                                     <div className="ct-field">
-                                        <input className="ct-input" type="text" name="location" id="ct-location" placeholder=" " value={form.location} onChange={update} />
-                                        <label className="ct-label" htmlFor="ct-location">Project Location</label>
+                                        <input className="ct-input" type="text" name="location" id="ct-location" placeholder=" " value={form.location} onChange={update} autoComplete="postal-code" />
+                                        <label className="ct-label" htmlFor="ct-location">Property Postcode</label>
                                     </div>
                                     {/* Budget */}
                                     <div className="ct-field">
                                         <select className="ct-select" name="budget" id="ct-budget" value={form.budget} onChange={update}>
                                             <option value="" disabled></option>
-                                            {BUDGETS.map(b => <option key={b} value={b}>{b}</option>)}
+                                            {BUDGET_OPTIONS.map(b => <option key={b} value={b}>{b}</option>)}
                                         </select>
                                         <label className="ct-label ct-label--select" htmlFor="ct-budget">Estimated Budget</label>
                                         <span className="ct-select-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg></span>
@@ -293,15 +273,15 @@ export default function ContactPage() {
                                     <div className="ct-field ct-field--full">
                                         <select className="ct-select" name="timeline" id="ct-timeline" value={form.timeline} onChange={update}>
                                             <option value="" disabled></option>
-                                            {TIMELINES.map(t => <option key={t} value={t}>{t}</option>)}
+                                            {TIMELINE_OPTIONS.map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
                                         <label className="ct-label ct-label--select" htmlFor="ct-timeline">Project Timeline</label>
                                         <span className="ct-select-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg></span>
                                     </div>
                                     {/* Message */}
                                     <div className="ct-field ct-field--full">
-                                        <textarea className="ct-textarea" name="message" id="ct-message" placeholder=" " value={form.message} onChange={update} required rows={5} />
-                                        <label className="ct-label" htmlFor="ct-message">Tell Us About Your Vision <span>*</span></label>
+                                        <textarea className="ct-textarea" name="message" id="ct-message" placeholder=" " value={form.message} onChange={update} rows={5} />
+                                        <label className="ct-label" htmlFor="ct-message">Tell Us About Your Project</label>
                                     </div>
                                     {/* Referral */}
                                     <div className="ct-field ct-field--full">

@@ -1,39 +1,32 @@
 import ServiceCard from './ServiceCard';
+import surveyImage from '../assets/about.webp';
 import './Services.css';
 
 export default function Services() {
     const services = [
         {
-            num: '01',
-            title: 'Architecture',
-            tagline: 'Designing homes that transform the way you live.',
-            description: 'We don\'t just design buildings — we design the way you live within them. Every project begins with understanding your lifestyle, your priorities, and the potential of your property. From reimagining layouts and shaping forms to guiding you through planning, technical detail, and delivery, we make the complex feel simple.',
-            image: '/architecture.webp',
-            href: '/services/architecture'
+            title: 'Measured Surveys',
+            tagline: 'Laser measured surveys across London',
+            image: surveyImage.src,
+            href: '/services/measured-surveys'
         },
         {
-            num: '02',
+            title: 'Extensions & Lofts',
+            tagline: 'Extensions and loft conversions, designed and approved',
+            image: '/project-management.webp',
+            href: '/services/extensions-and-lofts'
+        },
+        {
+            title: 'Planning Applications',
+            tagline: 'Planning applications handled for you',
+            image: '/landscape.webp',
+            href: '/services/planning-applications'
+        },
+        {
             title: 'Interior Design',
             tagline: 'Calm, comfortable spaces that feel as good as they look.',
-            description: 'Interior design is where everyday life happens. We create interiors that support the way you live — balancing function with atmosphere, and refining details that quietly elevate the entire home. From light and flow to materials, colour, and joinery, we design spaces that feel cohesive, practical, and timeless.',
             image: '/interior.webp',
             href: '/services/interior'
-        },
-        {
-            num: '03',
-            title: 'Landscape',
-            tagline: 'Outdoor spaces designed for connection, comfort, and calm.',
-            description: 'Great homes extend beyond the walls. We design outdoor spaces that feel natural, usable, and thoughtfully composed. We consider sunlight, planting, materials, boundaries, and flow between inside and out, creating an outdoor environment that complements the architecture and enhances daily living.',
-            image: '/landscape.webp',
-            href: '/services/landscape'
-        },
-        {
-            num: '04',
-            title: 'Project Management',
-            tagline: 'Clear coordination. Calm delivery. Quality you can trust.',
-            description: 'A successful project needs more than great design — it needs structure, clarity, and consistent oversight. We coordinate timelines, help manage decisions, support contractor communication, and keep the project aligned with the agreed design, scope, and budget expectations.',
-            image: '/project-management.webp',
-            href: '/services/project-management'
         }
     ];
 

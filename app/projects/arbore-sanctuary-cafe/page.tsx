@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import CTAStrip from '../../components/CTAStrip';
+import { PROJECT_ROLE } from '@/data/projects';
 import img1 from '../../assets/Project3/1.webp';
 import img2 from '../../assets/Project3/2.webp';
 import img3 from '../../assets/Project3/3.webp';
@@ -164,6 +165,8 @@ export default function ArboreSanctuaryCafePage() {
                         </div>
                     </div>
                 </section>
+
+                <p className="pd-role">{PROJECT_ROLE}</p>
 
                 {/* ── CONCEPT ── */}
                 <section className="pd-text-section pd-text-section--alt pd-reveal">

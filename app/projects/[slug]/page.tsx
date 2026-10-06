@@ -6,6 +6,7 @@ import Navigation from '@/app/components/Navigation'
 import Footer from '@/app/components/Footer'
 import CTAStrip from '@/app/components/CTAStrip'
 import { getAllProjects, getProjectBySlug } from '@/lib/projects'
+import { PROJECT_ROLE } from '@/data/projects'
 import { buildMetadata } from '@/lib/metadata'
 import { buildProjectSchema } from '@/lib/schema'
 import './project-slug.css'
@@ -70,6 +71,7 @@ export default async function ProjectSlugPage({ params }: Props) {
 
         <section className="project-detail__body">
           <div className="project-detail__inner">
+            <p className="project-detail__role">{PROJECT_ROLE}</p>
             <p className="project-detail__description">{project.description}</p>
 
             <ul className="project-detail__services" aria-label="Services provided">

@@ -66,6 +66,13 @@
   margin: 0 auto;
 }
 
+.project-detail__role {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
 .project-detail__description {
   font-size: 1.125rem;
   line-height: 1.75;

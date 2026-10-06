@@ -297,6 +297,18 @@
     line-height: 1.4;
 }
 
+/* "Our role: …" status line — always visible, unlike the hover-only location */
+.pw-card-role {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 44ch;
+    margin: 0;
+}
+
 .pw-card-location {
     font-family: var(--font-primary);
     font-size: 0.7rem;

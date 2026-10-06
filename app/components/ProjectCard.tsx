@@ -10,9 +10,10 @@ interface ProjectCardProps {
     href?: string;
     gradient?: string;
     year?: string;
+    role?: string;
 }
 
-export default function ProjectCard({ title, category, location, image, href, gradient }: ProjectCardProps) {
+export default function ProjectCard({ title, category, location, image, href, gradient, role }: ProjectCardProps) {
     const inner = (
         <div className="project-card-image" style={image ? undefined : { background: gradient || '#c8c0b4' }}>
             {image && (
@@ -32,6 +33,7 @@ export default function ProjectCard({ title, category, location, image, href, gr
                 <div className="project-card-overlay-content">
                     <h3 className="project-card-title">{title}</h3>
                     <span className="project-card-category">{location || category}</span>
+                    {role && <span className="project-card-role">{role}</span>}
                 </div>
             </div>
         </div>

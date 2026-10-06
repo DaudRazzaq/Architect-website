@@ -14,6 +14,18 @@ const imgCommercial = '/architecture.webp';
 const imgMulti = '/landscape.webp';
 const imgResidential = '/interior.webp';
 
+/** Every service page, so each one is reachable from the Services menu item. */
+const SERVICE_INDEX = [
+    { title: 'Measured Surveys', line: 'Laser measured surveys across London', price: 'From £600', href: '/services/measured-surveys' },
+    { title: 'House Extensions & Loft Conversions', line: 'Extensions and loft conversions, designed and approved', price: 'From £1,500', href: '/services/extensions-and-lofts' },
+    { title: 'Planning Applications', line: 'Planning applications handled for you', price: 'From £1,500', href: '/services/planning-applications' },
+    { title: 'Building Regulations Drawings', line: 'Building Regulations drawings your builder can price and build from', price: 'From £1,200', href: '/services/building-regulations' },
+    { title: 'Architectural Design', line: 'Designing homes that transform the way you live.', href: '/services/architecture' },
+    { title: 'Interior Design', line: 'Calm, comfortable spaces that feel as good as they look.', href: '/services/interior' },
+    { title: 'Landscape', line: 'Outdoor spaces designed for connection, comfort, and calm.', href: '/services/landscape' },
+    { title: 'Project Management', line: 'Clear coordination. Calm delivery. Quality you can trust.', href: '/services/project-management' },
+];
+
 export default function ServicesPage() {
     const wrapRef = useRef<HTMLDivElement>(null);
 
@@ -67,6 +79,26 @@ export default function ServicesPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
                     >All your project needs, housed together</motion.p>
+                </div>
+            </section>
+
+            {/* ── SERVICE INDEX ── */}
+            <section className="sov-index" aria-labelledby="sov-index-heading">
+                <div className="sov-flag">
+                    <span className="sov-flag-line" />
+                    <h2 id="sov-index-heading" className="sov-flag-text sov-index-heading">Our Services</h2>
+                    <span className="sov-flag-line" />
+                </div>
+                <div className="sov-index-grid">
+                    {SERVICE_INDEX.map((service, i) => (
+                        <Link key={service.href} href={service.href} className="sov-index-card">
+                            <span className="sov-index-num">{String(i + 1).padStart(2, '0')}</span>
+                            <h3 className="sov-index-name">{service.title}</h3>
+                            <p className="sov-index-line">{service.line}</p>
+                            {service.price && <span className="sov-index-price">{service.price}</span>}
+                            <span className="sov-index-explore">Explore →</span>
+                        </Link>
+                    ))}
                 </div>
             </section>
 

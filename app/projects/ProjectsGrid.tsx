@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PROJECT_ROLE } from '@/data/projects';
 
 export interface PortfolioItem {
     title: string;
@@ -83,6 +84,7 @@ export default function ProjectsGrid({ projects }: { projects: PortfolioItem[] }
                                 <div className="pw-card-content">
                                     <span className="pw-card-category">{project.category}</span>
                                     <h2 className="pw-card-title">{project.title}</h2>
+                                    <span className="pw-card-role">{PROJECT_ROLE}</span>
                                     <span className="pw-card-location">
                                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline', verticalAlign: 'middle', marginRight: '3px' }}>
                                             <path d="M5 0.5C3.34 0.5 2 1.84 2 3.5C2 5.5 5 9.5 5 9.5C5 9.5 8 5.5 8 3.5C8 1.84 6.66 0.5 5 0.5ZM5 4.75C4.31 4.75 3.75 4.19 3.75 3.5C3.75 2.81 4.31 2.25 5 2.25C5.69 2.25 6.25 2.81 6.25 3.5C6.25 4.19 5.69 4.75 5 4.75Z" fill="currentColor" />

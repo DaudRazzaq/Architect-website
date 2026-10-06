@@ -32,6 +32,7 @@ export default function Footer() {
                         <Link href="/">Home</Link>
                         <Link href="/about">About Us</Link>
                         <Link href="/services">Services</Link>
+                        <Link href="/for-studios">For Studios</Link>
                         <Link href="/projects">Projects</Link>
                         <Link href="/blog">Journal</Link>
                         <Link href="/faqs">FAQs</Link>
@@ -96,6 +97,10 @@ export default function Footer() {
                     <Link href="/">Terms of Service</Link>
                 </div>
             </div>
+
+            <p className="footer-company">
+                Aureon Studio Ltd, registered in England and Wales, company no. 17365238
+            </p>
         </footer>
     );
 }

@@ -5,7 +5,7 @@ export const revalidate = false
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'Architecture Services London | Aureon Studio',
+    title: 'Architectural Design Services London',
     description:
       'Timeless architecture for modern living. Aureon Studio designs bespoke homes, residential developments, and commercial spaces from concept through to completion.',
     path: '/services/architecture',

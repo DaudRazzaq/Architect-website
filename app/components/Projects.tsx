@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ProjectCard from './ProjectCard';
+import { PROJECT_ROLE } from '@/data/projects';
 import './Projects.css';
 
 const projects = [
@@ -89,6 +90,7 @@ export default function Projects() {
                         location={project.location}
                         image={project.image}
                         href={project.href}
+                        role={PROJECT_ROLE}
                     />
                 ))}
             </div>

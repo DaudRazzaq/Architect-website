@@ -4,36 +4,8 @@ import { useEffect } from 'react';
 import { useContactForm } from '../hooks/useContactForm';
 import { useFormStorage } from '../hooks/useFormStorage';
 import { useToast } from './Toast';
+import { BUDGET_OPTIONS, SERVICE_OPTIONS, TIMELINE_OPTIONS } from '@/lib/enquiry';
 import './GetInTouch.css';
-
-const SERVICES = [
-    'Residential Architecture',
-    'Commercial Architecture',
-    'Interior Design',
-    'Landscape Design',
-    'Urban Planning',
-    'Renovation & Extension',
-    'Not Sure Yet',
-];
-
-const BUDGETS = [
-    'Under £100k',
-    '£100k – £250k',
-    '£250k – £500k',
-    '£500k – £1M',
-    '£1M – £5M',
-    'Over £5M',
-    'To Be Discussed',
-];
-
-const TIMELINES = [
-    'As soon as possible',
-    '1 – 3 months',
-    '3 – 6 months',
-    '6 – 12 months',
-    'Over a year',
-    'Not decided yet',
-];
 
 const INITIAL = {
     name: '',
@@ -176,21 +148,21 @@ export default function GetInTouch() {
                                     <label className="git-label" htmlFor="git-service">Type of Service <span className="git-required">*</span></label>
                                     <select className="git-select" id="git-service" name="service" value={formData.service} onChange={handleChange} required>
                                         <option value="" />
-                                        {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
+                                        {SERVICE_OPTIONS.map(s => <option key={s.slug} value={s.label}>{s.label}</option>)}
                                     </select>
                                 </div>
                             </div>
 
                             <div className="git-form-row">
                                 <div className="git-field">
-                                    <label className="git-label" htmlFor="git-location">Project Location</label>
-                                    <input className="git-input" id="git-location" type="text" name="location" value={formData.location} onChange={handleChange} />
+                                    <label className="git-label" htmlFor="git-location">Property Postcode</label>
+                                    <input className="git-input" id="git-location" type="text" name="location" value={formData.location} onChange={handleChange} autoComplete="postal-code" />
                                 </div>
                                 <div className="git-field">
                                     <label className="git-label" htmlFor="git-budget">Estimated Budget</label>
                                     <select className="git-select" id="git-budget" name="budget" value={formData.budget} onChange={handleChange}>
                                         <option value="" />
-                                        {BUDGETS.map(b => <option key={b} value={b}>{b}</option>)}
+                                        {BUDGET_OPTIONS.map(b => <option key={b} value={b}>{b}</option>)}
                                     </select>
                                 </div>
                             </div>
@@ -200,18 +172,18 @@ export default function GetInTouch() {
                                     <label className="git-label" htmlFor="git-timeline">Project Timeline</label>
                                     <select className="git-select" id="git-timeline" name="timeline" value={formData.timeline} onChange={handleChange}>
                                         <option value="" />
-                                        {TIMELINES.map(t => <option key={t} value={t}>{t}</option>)}
+                                        {TIMELINE_OPTIONS.map(t => <option key={t} value={t}>{t}</option>)}
                                     </select>
                                 </div>
                             </div>
 
                             <div className="git-form-row git-form-row--full">
                                 <div className="git-field">
-                                    <label className="git-label" htmlFor="git-message">Tell Us About Your Vision <span className="git-required">*</span></label>
+                                    <label className="git-label" htmlFor="git-message">Tell Us About Your Project</label>
                                     <p className="git-field-hint">
                                         A little information really helps us to assess your project and provide great advice. Please include the type and age of the property, an outline of your ambitions, and an approximation of budget and timescales if known.
                                     </p>
-                                    <textarea className="git-textarea" id="git-message" name="message" value={formData.message} onChange={handleChange} rows={5} required />
+                                    <textarea className="git-textarea" id="git-message" name="message" value={formData.message} onChange={handleChange} rows={5} />
                                 </div>
                             </div>
 

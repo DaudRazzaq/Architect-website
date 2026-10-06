@@ -5,7 +5,7 @@ export const revalidate = false
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'Landscape Design Services London | Aureon Studio',
+    title: 'Landscape Design Services London',
     description:
       'Landscape design that extends architecture into the garden. Aureon Studio designs private gardens, courtyards, and commercial landscapes across London.',
     path: '/services/landscape',

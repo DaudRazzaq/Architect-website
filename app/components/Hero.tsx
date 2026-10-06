@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './Hero.css';
 import './Navigation.css';
 
 import { Logo } from './Logo';
+import { enquiryHref } from '@/lib/enquiry';
 import hero1 from '../assets/hero1.webp';
 import hero2 from '../assets/hero2.webp';
 import hero3 from '../assets/hero3.webp';
@@ -15,30 +17,14 @@ import hero6 from '../assets/hero6.webp';
 
 const HERO_SLIDES = [hero1, hero2, hero3, hero4, hero5, hero6];
 
-const TAGLINES = [
-    'Spaces Crafted for Life',
-    'Architecture with Purpose',
-    'Design Beyond Boundaries',
-    'Where Form Meets Function',
-    'Building Timeless Spaces',
-];
-
 export default function Hero() {
     const [headerHidden, setHeaderHidden] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isPastHero, setIsPastHero] = useState(false);
     const [activeSlide, setActiveSlide] = useState(0);
     const [isSlideTransitioning, setIsSlideTransitioning] = useState(true);
-    const [taglineIdx, setTaglineIdx] = useState(0);
     const lastScrollY = useRef(0);
     const drawerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTaglineIdx(prev => (prev + 1) % TAGLINES.length);
-        }, 10000);
-        return () => clearInterval(interval);
-    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -151,6 +137,7 @@ export default function Hero() {
     ];
 
     const navRight = [
+        { label: 'FOR STUDIOS', href: '/for-studios' },
         { label: 'FAQS', href: '/faqs' },
         { label: 'JOURNAL', href: '/blog' },
         { label: 'CONTACT', href: '/contact' },
@@ -339,17 +326,17 @@ export default function Hero() {
 
                     <div className="hero-tagline-row">
                         <span className="hero-tagline-line" />
-                        <span key={taglineIdx} className="hero-tagline-text">{TAGLINES[taglineIdx]}</span>
+                        <span className="hero-tagline-text">Spaces Crafted for Life</span>
                         <span className="hero-tagline-line" />
                     </div>
 
                     <p className="hero-lede">
-                        Calm, considered spaces for modern living.
+                        Extensions, planning and interiors for London homes, designed by an architectural and interior design studio in London.
                     </p>
 
                     <div className="hero-btn-row">
-                        <a href="/contact" className="hero-btn hero-btn--primary">Enquire Now</a>
-                        <a href="/services" className="hero-btn hero-btn--ghost">View Services</a>
+                        <Link href={enquiryHref('measured-survey')} className="hero-btn hero-btn--primary">Book a survey</Link>
+                        <Link href="/projects" className="hero-btn hero-btn--ghost">View our work</Link>
                     </div>
                 </div>
 

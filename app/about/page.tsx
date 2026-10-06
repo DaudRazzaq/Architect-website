@@ -18,12 +18,12 @@ import './about-page.css';
 const TEAM = [
     {
         name: 'Aiza Maryam',
-        role: 'Co-Founder · Architect & Interior Designer',
+        role: 'Co-Founder · Architectural and Interior Designer',
         image: '/team/aiza-maryam.webp',
     },
     {
         name: 'Saad Sulaiman',
-        role: 'Co-Founder · Architect & Interior Designer',
+        role: 'Co-Founder · Architectural and Interior Designer',
         image: '/team/saad-sulaiman.webp',
     },
 ] as const;

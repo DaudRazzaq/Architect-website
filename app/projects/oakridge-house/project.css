@@ -236,6 +236,23 @@
 }
 
 /* =============================================================
+   ROLE BAND — "Our role: …" status line directly under the hero
+   ============================================================= */
+.pd-role {
+    margin: 0;
+    padding: 1.5rem var(--container-padding);
+    background: var(--color-bg);
+    border-bottom: 1px solid #e8e3dc;
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: var(--color-primary);
+}
+
+/* =============================================================
    TEXT SECTIONS (Challenge / Solution / Outcome)
    ============================================================= */
 .pd-text-section {

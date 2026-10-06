@@ -83,6 +83,18 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* "Our role: …" status line */
+.project-card-role {
+    margin-top: 0.35rem;
+    max-width: 38ch;
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.82);
+}
+
 @media (max-width: 768px) {
     /* One locked aspect ratio + radius for every gallery card */
     .project-card {

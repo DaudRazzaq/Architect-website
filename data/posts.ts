@@ -8,7 +8,7 @@ export const posts: Post[] = [
     title: 'Sustainable Design: Building a Greener Future in Architecture',
     description:
       'Explore eco-friendly materials and innovative practices shaping sustainable architecture in London — reducing environmental impact while crafting beautiful, high-performance spaces.',
-    date: 'Dec 15, 2024',
+    date: 'Sep 15, 2026',
     image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80',
     category: 'Sustainability',
     readTime: '5 min read',
@@ -54,7 +54,7 @@ export const posts: Post[] = [
     title: 'Maximizing Space: Tips for Multipurpose Architecture in London',
     description:
       'Learn how to create versatile, adaptable spaces that meet multiple needs — optimising functionality and flexibility in interior architecture across London homes and offices.',
-    date: 'Nov 28, 2024',
+    date: 'Aug 28, 2026',
     image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80',
     category: 'Design',
     readTime: '4 min read',
@@ -99,7 +99,7 @@ export const posts: Post[] = [
     title: 'Enhancing Business Through Thoughtful Commercial Interior Design',
     description:
       'How architectural design and commercial interior fit-out can improve customer experience, boost staff productivity, and drive measurable business results in London.',
-    date: 'Nov 10, 2024',
+    date: 'Aug 10, 2026',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
     category: 'Commercial',
     readTime: '6 min read',
@@ -143,7 +143,7 @@ export const posts: Post[] = [
     title: 'Modern Minimalism in Residential Interior Architecture',
     description:
       'Discover how minimalist design principles create serene, functional London homes that emphasise quality over quantity — and how to achieve the look without sacrificing warmth.',
-    date: 'Oct 22, 2024',
+    date: 'Jul 22, 2026',
     image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80',
     category: 'Residential',
     readTime: '5 min read',
@@ -185,7 +185,7 @@ export const posts: Post[] = [
     title: 'The Future of Smart Buildings: Technology in Interior Architecture',
     description:
       'Exploring how building automation, integrated technology, and smart home design are revolutionising interior architecture in London — and what it means for your next project.',
-    date: 'Oct 5, 2024',
+    date: 'Jul 5, 2026',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
     category: 'Technology',
     readTime: '7 min read',
@@ -230,7 +230,7 @@ export const posts: Post[] = [
     title: 'Preserving Heritage Through Modern Interior Design in London',
     description:
       'How contemporary interior architecture can honour the historical character of London period properties and listed buildings while meeting modern functional requirements.',
-    date: 'Sep 18, 2024',
+    date: 'Jun 18, 2026',
     image: 'https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=1200&q=80',
     category: 'Heritage',
     readTime: '5 min read',

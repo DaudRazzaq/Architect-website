@@ -90,6 +90,7 @@ export default function Navigation() {
     ];
 
     const navRight = [
+        { label: 'FOR STUDIOS', href: '/for-studios' },
         { label: 'FAQS', href: '/faqs' },
         { label: 'JOURNAL', href: '/blog' },
         { label: 'CONTACT', href: '/contact' },

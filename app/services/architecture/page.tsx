@@ -27,7 +27,7 @@ export default function ArchitecturePage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Architecture — Aureon Studio"
+                    alt="Architectural Design — Aureon Studio"
                     fill
                     priority
                     quality={90}
@@ -41,7 +41,7 @@ export default function ArchitecturePage() {
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
-                    >Architecture</motion.span>
+                    >Architectural Design</motion.span>
                     <motion.h1
                         className="srv-hero-title"
                         initial={{ opacity: 0, y: 28 }}
@@ -65,7 +65,7 @@ export default function ArchitecturePage() {
             <section className="srv-list">
                 <div className="srv-list-inner">
                     <div className="srv-list-header">
-                        <span className="srv-list-tag">Architecture</span>
+                        <span className="srv-list-tag">Architectural Design</span>
                     </div>
                     <div className="srv-items">
                         <div className="srv-item">

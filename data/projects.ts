@@ -1,5 +1,9 @@
 import type { Project } from '@/types/project'
 
+/** Status line shown on every project card and project page, so visitors know
+ *  exactly which stages the studio delivered. */
+export const PROJECT_ROLE = 'Our role: concept design, planning drawings and 3D visualization.'
+
 export const projects: Project[] = [
   {
     slug: 'oakridge-house',

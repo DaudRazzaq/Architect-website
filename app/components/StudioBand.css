@@ -1,0 +1,94 @@
+/* ====================================
+   STUDIO BAND — homepage, above the footer
+   ==================================== */
+
+.studio-band {
+    background: var(--color-bg);
+    border-top: 1px solid #e5e0d8;
+    padding: clamp(3rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 5rem);
+}
+
+.studio-band__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem 4rem;
+}
+
+.studio-band__text {
+    margin: 0;
+    max-width: 44ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-primary);
+}
+
+.studio-band__lead {
+    font-style: italic;
+    color: #a07850;
+}
+
+.studio-band__btn {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 2rem;
+    font-family: var(--font-primary);
+    font-size: 0.6875rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--color-primary);
+    text-decoration: none;
+    border: 1px solid var(--color-primary);
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.studio-band__btn::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.studio-band__btn:hover {
+    background-size: 100% 100%;
+    color: #fff;
+    border-color: #a07850;
+}
+
+.studio-band__btn:hover::after {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .studio-band {
+        padding: 3rem 1.25rem;
+    }
+
+    .studio-band__inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.75rem;
+    }
+
+    .studio-band__text {
+        max-width: none;
+    }
+
+    .studio-band__btn {
+        width: 100%;
+        min-height: 52px;
+    }
+}

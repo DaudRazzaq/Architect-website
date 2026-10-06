@@ -11,15 +11,16 @@ import Projects from './components/Projects';
 import Stats from './components/Stats';
 import News from './components/News';
 import GetInTouch from './components/GetInTouch';
+import StudioBand from './components/StudioBand';
 import Footer from './components/Footer';
 
 export const revalidate = 3600
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'Aureon Studio — Interior Architecture & Refurbishment Design London',
+    title: 'Aureon Studio | Extensions, Planning & Interior Design London',
     description:
-      'Aureon Studio: London interior architecture and refurbishment design studio in Fitzrovia. Award-winning residential, commercial & multipurpose spaces. Book a free consultation.',
+      'London architectural and interior design studio in London. Measured surveys, house extensions, loft conversions and planning applications. Fixed fees.',
     path: '/',
   }),
   keywords: [
@@ -62,6 +63,7 @@ export default function Home() {
       <Stats />
       <News />
       <GetInTouch />
+      <StudioBand />
       <Footer />
     </main>
   );

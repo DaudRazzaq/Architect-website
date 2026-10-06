@@ -5,7 +5,7 @@ export const revalidate = false
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'Project Management Services London | Aureon Studio',
+    title: 'Project Management Services London',
     description:
       'From vision to completion. Aureon Studio manages programme delivery, budgets, consultants, and construction oversight for residential and commercial projects in London.',
     path: '/services/project-management',

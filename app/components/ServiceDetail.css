@@ -1,0 +1,471 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SERVICE DETAIL — fixed-fee service pages + /for-studios
+   Dark hero · warm list section · dark action band
+   Same palette and grid texture as the FAQs hero so the pages sit
+   naturally alongside the rest of the site.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.sd-hero {
+    position: relative;
+    min-height: 64vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #0d0b09 0%, #1c1610 55%, #0d0b09 100%);
+    overflow: hidden;
+    padding: calc(96px + 4rem) clamp(1.5rem, 6vw, 4rem) 5rem;
+}
+
+/* Subtle architectural grid */
+.sd-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(160, 120, 80, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160, 120, 80, 0.045) 1px, transparent 1px);
+    background-size: 90px 90px;
+    pointer-events: none;
+}
+
+/* Warm radial glow */
+.sd-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    max-width: 100%;
+    height: 420px;
+    background: radial-gradient(ellipse at center top, rgba(160, 120, 80, 0.13) 0%, transparent 68%);
+    pointer-events: none;
+}
+
+.sd-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 860px;
+}
+
+.sd-hero__rule-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.sd-hero__rule {
+    display: block;
+    flex: 0 0 auto;
+    width: 2.5rem;
+    height: 1px;
+    background: #a07850;
+    opacity: 0.55;
+}
+
+.sd-hero__eyebrow {
+    font-family: var(--font-primary);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #a07850;
+}
+
+.sd-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.2vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #f5f2ec;
+    margin: 0 auto 1.75rem;
+    max-width: 22ch;
+    letter-spacing: -0.01em;
+}
+
+.sd-hero__intro {
+    font-family: var(--font-primary);
+    font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245, 242, 236, 0.68);
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+@keyframes sdFadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.sd-hero__rule-row { animation: sdFadeUp 0.7s  cubic-bezier(0.22, 1, 0.36, 1) both; }
+.sd-hero__title    { animation: sdFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+.sd-hero__intro    { animation: sdFadeUp 0.7s  cubic-bezier(0.22, 1, 0.36, 1) 0.3s  both; }
+
+/* ── Content sections ── */
+.sd-section {
+    background: #f9f7f4;
+    padding: clamp(4.5rem, 7vw, 7rem) clamp(1.5rem, 6vw, 4rem);
+}
+
+.sd-section--white {
+    background: var(--color-bg);
+}
+
+.sd-inner {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.sd-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.625rem, 2.6vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--color-primary);
+    margin: 0 0 2.5rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid #e5dfd7;
+}
+
+/* ── Lists ── */
+.sd-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sd-list__item {
+    display: grid;
+    align-items: baseline;
+    padding: 1.375rem 0;
+    border-bottom: 1px solid #e5dfd7;
+}
+
+.sd-list__item:first-child {
+    padding-top: 0;
+}
+
+.sd-list--bullets .sd-list__item {
+    grid-template-columns: 1.75rem 1fr;
+}
+
+.sd-list--steps .sd-list__item {
+    grid-template-columns: 3.25rem 1fr;
+    padding: 1.75rem 0;
+}
+
+.sd-list--steps .sd-list__item:first-child {
+    padding-top: 0;
+}
+
+/* Short bronze dash, centred on the first line of text */
+.sd-list__mark {
+    display: block;
+    width: 0.875rem;
+    height: 1px;
+    background: #a07850;
+    transform: translateY(-0.3em);
+}
+
+.sd-list__num {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #a07850;
+}
+
+.sd-list__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1875rem, 1.8vw, 1.375rem);
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+}
+
+.sd-list__text {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(26, 26, 26, 0.78);
+    margin: 0;
+}
+
+.sd-list__text strong {
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+/* ── Rates table (/for-studios) ── */
+.sd-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-primary);
+}
+
+.sd-table th {
+    padding: 0 0 1rem;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #a07850;
+    text-align: left;
+    border-bottom: 1px solid #e5dfd7;
+}
+
+.sd-table td {
+    padding: 1.25rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.55;
+    color: rgba(26, 26, 26, 0.78);
+    border-bottom: 1px solid #e5dfd7;
+    vertical-align: baseline;
+}
+
+.sd-table th:last-child,
+.sd-table td:last-child {
+    padding-left: 1.5rem;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.sd-table td:last-child {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-primary);
+}
+
+.sd-table-note {
+    margin: 1.5rem 0 0;
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(26, 26, 26, 0.6);
+}
+
+/* ── Action band (timeline, price, single button) ── */
+.sd-action {
+    position: relative;
+    background: #0d0b09;
+    padding: clamp(5rem, 8vw, 7.5rem) clamp(1.5rem, 6vw, 4rem);
+    text-align: center;
+    overflow: hidden;
+}
+
+.sd-action::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(160, 120, 80, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160, 120, 80, 0.04) 1px, transparent 1px);
+    background-size: 90px 90px;
+    pointer-events: none;
+}
+
+.sd-action__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sd-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem clamp(2.5rem, 6vw, 5rem);
+    width: 100%;
+    margin: 0 0 3.25rem;
+    text-align: left;
+}
+
+.sd-facts--single {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 620px;
+    text-align: center;
+}
+
+.sd-fact {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(160, 120, 80, 0.35);
+}
+
+.sd-fact__label {
+    margin: 0 0 0.9rem;
+    font-family: var(--font-primary);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #a07850;
+}
+
+.sd-fact__value {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.1875rem, 1.9vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #f5f2ec;
+}
+
+.sd-fact__value a,
+.sd-action__note a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(160, 120, 80, 0.8);
+    text-underline-offset: 0.2em;
+}
+
+.sd-fact__value a:hover,
+.sd-action__note a:hover {
+    color: #ffffff;
+    text-decoration-color: #ffffff;
+}
+
+/* Credentials line (/for-studios) */
+.sd-credentials {
+    max-width: 640px;
+    margin: 0 0 3rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.1875rem, 1.9vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.55;
+    color: #f5f2ec;
+}
+
+.sd-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(#a07850, #a07850) no-repeat left / 0% 100%;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    color: #fff;
+    font-family: var(--font-primary);
+    font-size: 0.6875rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+        background-size 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.sd-btn::after {
+    content: '→';
+    margin-left: 0.7rem;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sd-btn:hover {
+    background-size: 100% 100%;
+    color: #fff;
+    border-color: #a07850;
+}
+
+.sd-btn:hover::after {
+    transform: translateX(5px);
+}
+
+.sd-action__note {
+    margin: 1.5rem 0 0;
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(245, 242, 236, 0.62);
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+    .sd-facts {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+        margin-bottom: 2.75rem;
+    }
+
+    .sd-list--steps .sd-list__item {
+        grid-template-columns: 2.5rem 1fr;
+    }
+
+    .sd-list__text,
+    .sd-table td {
+        font-size: 0.9375rem;
+    }
+
+    .sd-table td:last-child {
+        font-size: 1.0625rem;
+    }
+
+    .sd-btn {
+        width: 100%;
+        max-width: 26rem;
+        min-height: 52px;
+        padding: 0.9rem 1.25rem;
+        letter-spacing: 2.5px;
+    }
+}
+
+/* Keeps the longest label ("Discuss your extension") on one line at 320px */
+@media (max-width: 360px) {
+    .sd-btn {
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sd-hero__rule-row,
+    .sd-hero__title,
+    .sd-hero__intro { animation: none; opacity: 1; transform: none; }
+}
+
+/* Mobile & tablet (portrait) — same reduced hero scale as the FAQs page */
+@media (max-width: 920px) and (orientation: portrait) {
+    .sd-hero {
+        min-height: 56vh;
+        padding: calc(64px + env(safe-area-inset-top) + 2.5rem)
+                 clamp(1.25rem, 5vw, 2.5rem) 3.5rem;
+    }
+
+    .sd-hero__rule-row {
+        gap: 0.6rem;
+    }
+
+    .sd-hero__rule {
+        width: 1.5rem;
+    }
+
+    .sd-hero__eyebrow {
+        font-size: 0.5625rem;
+        letter-spacing: 0.22em;
+    }
+
+    .sd-hero__title {
+        font-size: clamp(1.75rem, 7vw, 2.75rem);
+        line-height: 1.12;
+        letter-spacing: 0;
+        margin-bottom: 1.25rem;
+    }
+
+    .sd-hero__intro {
+        max-width: 38ch;
+        font-size: 0.875rem;
+        line-height: 1.65;
+    }
+}

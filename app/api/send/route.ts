@@ -58,10 +58,10 @@ const FIELD_LABELS: Record<string, string> = {
   phone: 'Phone Number',
   company: 'Company / Organisation',
   service: 'Service Requested',
-  location: 'Project Location',
+  location: 'Property Postcode',
   budget: 'Estimated Budget',
   timeline: 'Project Timeline',
-  message: 'Message / Vision',
+  message: 'About the Project',
   referral: 'How They Found Us',
   howHeard: 'How They Found Us',
   bestTime: 'Best Time to Contact',
@@ -212,7 +212,7 @@ function buildAutoReplyText(name: string, fields: Record<string, string>): strin
   const year = new Date().getFullYear()
   const receiptKeys = ['service', 'location', 'budget', 'timeline']
   const receiptLabels: Record<string, string> = {
-    service: 'Service', location: 'Location', budget: 'Budget', timeline: 'Timeline',
+    service: 'Service', location: 'Postcode', budget: 'Budget', timeline: 'Timeline',
   }
   const receipt = receiptKeys
     .filter((k) => fields[k]?.trim())
@@ -252,7 +252,7 @@ function buildAutoReplyHtml(name: string, fields: Record<string, string>): strin
   const receiptKeys = ['service', 'location', 'budget', 'timeline']
   const receiptLabels: Record<string, string> = {
     service: 'Service',
-    location: 'Location',
+    location: 'Postcode',
     budget: 'Budget',
     timeline: 'Timeline',
   }
