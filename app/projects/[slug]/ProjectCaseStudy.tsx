@@ -13,7 +13,7 @@ import '../oakridge-house/project.css';
 import './case-study.css';
 
 /* ═══════════════════════════════════════════════════════════════════
-   PROJECT CASE STUDY — shared template for data-driven projects
+   PROJECT CASE STUDY - shared template for data-driven projects
    Same structure and styling as the hand-built project pages (hero with
    three highlights, "Our role" band, three text sections, gallery, more
    projects), adapted to the shape of each project's renders:
@@ -72,7 +72,7 @@ function HighlightIcon({ index, className }: { index: number; className: string 
 }
 
 /** Landscape renders of mixed proportions, in rows of two (three in the last
- *  row when the count is odd) — the row CSS gives every render in a row the
+ *  row when the count is odd) - the row CSS gives every render in a row the
  *  same height, so nothing is cropped and no column runs short. */
 function justifiedRows(images: ProjectImage[]): ProjectImage[][] {
     const rows: ProjectImage[][] = [];
@@ -108,7 +108,7 @@ export default function ProjectCaseStudy({ project, moreProjects }: ProjectCaseS
     const lead = gallery[0];
     const isPortrait = ratio(lead) < 1;
 
-    // The hero cycles through renders of the lead's shape only — a near-square
+    // The hero cycles through renders of the lead's shape only - a near-square
     // render in a 16:9 slideshow (or vice versa) would crop badly.
     const heroSlides = gallery.filter((image) => Math.abs(ratio(image) - ratio(lead)) / ratio(lead) <= 0.3);
     const heroRatios = heroSlides.map(ratio).sort((a, b) => a - b);
@@ -118,7 +118,7 @@ export default function ProjectCaseStudy({ project, moreProjects }: ProjectCaseS
     const [prevSlide, setPrevSlide] = useState<number | null>(null);
     const [moreActive, setMoreActive] = useState(0);
 
-    /* Hero slideshow — advance every 5 s */
+    /* Hero slideshow - advance every 5 s */
     useEffect(() => {
         if (heroSlides.length < 2) return;
         const timer = setInterval(() => {
@@ -130,7 +130,7 @@ export default function ProjectCaseStudy({ project, moreProjects }: ProjectCaseS
         return () => clearInterval(timer);
     }, [heroSlides.length]);
 
-    /* More Projects slideshow — advance every 5 s, loops */
+    /* More Projects slideshow - advance every 5 s, loops */
     useEffect(() => {
         if (moreProjects.length < 2) return;
         const timer = setInterval(() => {
@@ -269,14 +269,14 @@ export default function ProjectCaseStudy({ project, moreProjects }: ProjectCaseS
                             >{caseStudy.subtitle}</motion.p>
                         </div>
 
-                        {/* Bottom bar — location + 3 highlights */}
+                        {/* Bottom bar - location + 3 highlights */}
                         <div className="pd-hero-bottom">
                             <div className="pd-hero-location">
                                 {PIN_ICON}
                                 <span>{project.location}</span>
                             </div>
                             {/* Flat stat / divider / stat … siblings, exactly as on the
-                                hand-built pages — their CSS hides `.pd-hero-stat:last-child`
+                                hand-built pages - their CSS hides `.pd-hero-stat:last-child`
                                 on tablets, which relies on this structure. */}
                             <div className="pd-hero-stats">
                                 {caseStudy.highlights.map((highlight, i) => (

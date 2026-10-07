@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Multipurpose & Mixed-Use Interior Design London',
     description:
-      'Hybrid space design by Aureon Studio London — wellness centres, boutique hotels, co-working spaces, and mixed-use developments that flex between residential and commercial needs.',
+      'Hybrid space design by Aureon Studio London: wellness centres, boutique hotels, co-working spaces, and mixed-use developments that flex between residential and commercial needs.',
     path: '/services/multipurpose',
   }),
   keywords: [

@@ -1,10 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════
-   PROJECT CASE STUDY — additions to ../oakridge-house/project.css
+   PROJECT CASE STUDY - additions to ../oakridge-house/project.css
    Used by the data-driven project pages (/projects/[slug]): a split hero
    for portrait renders and a gallery that keeps each render's own shape.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* ── Portrait hero: text left, render right — both clear of the fixed
+/* ── Portrait hero: text left, render right - both clear of the fixed
       header, so the light menu never sits on a pale render ── */
 .cs-hero {
     position: relative;
@@ -129,7 +129,7 @@
     color: #a07850;
 }
 
-/* The render keeps its own proportions — as tall as the hero allows,
+/* The render keeps its own proportions - as tall as the hero allows,
    capped at 46vw so the text column always has room */
 .cs-hero-media {
     position: relative;
@@ -140,7 +140,7 @@
     background: #1a1714;
 }
 
-/* Slideshow — same movement as `.pd-hero-slide`, scoped to this frame */
+/* Slideshow - same movement as `.pd-hero-slide`, scoped to this frame */
 .cs-slide {
     z-index: 0;
     object-fit: cover;
@@ -170,7 +170,7 @@
     overflow: hidden;
 }
 
-/* ── Gallery — every render shown whole, at its own aspect ratio ── */
+/* ── Gallery - every render shown whole, at its own aspect ratio ── */
 .cs-gallery {
     --cs-gap: 1.5px;
     background: #ffffff;
@@ -191,7 +191,7 @@
 
 /* Landscape renders vary in proportion: justified rows. Each render grows in
    proportion to its aspect ratio, so every render in a row ends up the same
-   height and the row exactly fills the width — whole images, no gaps. */
+   height and the row exactly fills the width - whole images, no gaps. */
 .cs-gallery--landscape {
     display: flex;
     flex-direction: column;
@@ -315,11 +315,11 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   LANDSCAPE HERO — phones & tablets (portrait)
+   LANDSCAPE HERO - phones & tablets (portrait)
    The hand-built pages overlay their copy on a photo band only
    100vw / 1.5 tall. These deck projects carry a longer label, title and
    subtitle than fits on that band, so here the render sits on top and the
-   copy follows on the dark background — matching the portrait heroes —
+   copy follows on the dark background - matching the portrait heroes -
    with the three highlights listed instead of hidden.
    Scoped with `.cs-hero--landscape` so the hand-built pages are untouched.
    ═══════════════════════════════════════════════════════════════════ */
@@ -401,7 +401,7 @@
         color: rgba(245, 242, 236, 0.72);
     }
 
-    /* Highlights, then location — the same order as the portrait heroes */
+    /* Highlights, then location - the same order as the portrait heroes */
     .cs-hero--landscape .pd-hero-bottom {
         position: static;
         display: flex;

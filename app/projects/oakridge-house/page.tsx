@@ -31,7 +31,7 @@ export default function OakridgeHousePage() {
     const [prevSlide, setPrevSlide] = useState<number | null>(null);
     const [moreActive, setMoreActive] = useState(0);
 
-    /* Hero slideshow — advance every 5 s */
+    /* Hero slideshow - advance every 5 s */
     useEffect(() => {
         const timer = setInterval(() => {
             setActiveSlide((cur) => {
@@ -42,7 +42,7 @@ export default function OakridgeHousePage() {
         return () => clearInterval(timer);
     }, []);
 
-    /* More Projects slideshow — advance every 5 s, loops */
+    /* More Projects slideshow - advance every 5 s, loops */
     useEffect(() => {
         const timer = setInterval(() => {
             setMoreActive((cur) => (cur + 1) % MORE_PROJECTS.length);
@@ -81,7 +81,7 @@ export default function OakridgeHousePage() {
                         <Image
                             key={i}
                             src={src}
-                            alt={`Oakridge House — view ${i + 1}`}
+                            alt={`Oakridge House, view ${i + 1}`}
                             fill
                             priority={i === 0}
                             className={`pd-hero-img pd-hero-slide${
@@ -120,7 +120,7 @@ export default function OakridgeHousePage() {
                         >A contemporary reinterpretation of the traditional Surrey family home, defined by material clarity and refined proportion.</motion.p>
                     </div>
 
-                    {/* Bottom bar — location + 3 feature stats */}
+                    {/* Bottom bar - location + 3 feature stats */}
                     <div className="pd-hero-bottom">
                         <div className="pd-hero-location">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -207,7 +207,7 @@ export default function OakridgeHousePage() {
                             The project is conceived as a buildable and contextually grounded residential
                             scheme, reflecting construction approaches typical of the UK. Emphasis is placed
                             on durability, material authenticity, and proportion. The result is a contemporary
-                            home that feels both modern and familiar — delivering a refined yet understated
+                            home that feels both modern and familiar, delivering a refined yet understated
                             architectural presence within its suburban setting.
                         </p>
                     </div>
@@ -227,7 +227,7 @@ export default function OakridgeHousePage() {
                                 <div key={i} className={`pd-gallery-item${isFull ? ' pd-gallery-item--full' : ''}`}>
                                     <Image
                                         src={src}
-                                        alt={`Oakridge House — view ${i + 1}`}
+                                        alt={`Oakridge House, view ${i + 1}`}
                                         fill
                                         className="pd-gallery-img"
                                         sizes={isFull ? '100vw' : '50vw'}
@@ -243,7 +243,7 @@ export default function OakridgeHousePage() {
                 <section className="pd-quote-section">
                     <Image
                         src={img5}
-                        alt="Oakridge House — interior"
+                        alt="Oakridge House interior"
                         fill
                         className="pd-quote-bg"
                         sizes="100vw"
@@ -253,11 +253,11 @@ export default function OakridgeHousePage() {
                     <div className="pd-quote-content pd-reveal">
                         <span className="pd-quote-marks">&ldquo;&ldquo;</span>
                         <blockquote className="pd-quote-text">
-                            The stone, the slate, the light through those full-height doors — it feels
+                            The stone, the slate, the light through those full-height doors: it feels
                             like it has always been here. It is exactly the home we imagined,
                             and more than we hoped for.
                         </blockquote>
-                        <cite className="pd-quote-cite">Client, Oakridge House — Cobham, Surrey</cite>
+                        <cite className="pd-quote-cite">Client, Oakridge House, Cobham, Surrey</cite>
                     </div>
                 </section>
 

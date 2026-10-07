@@ -1,5 +1,5 @@
 /* ====================================
-   SITE NAVIGATION — Sub-page Header
+   SITE NAVIGATION - Sub-page Header
    Matches Hero header (always-scrolled)
    ==================================== */
 
@@ -56,7 +56,7 @@
     min-height: 92px;
 }
 
-/* Links sit 14px below the wordmark — matches the staggered lockup used by
+/* Links sit 14px below the wordmark - matches the staggered lockup used by
    the hero header so the brand doesn't shift when moving between pages. */
 .nav-header__nav--left {
     justify-content: flex-end;
@@ -119,7 +119,7 @@
     color: #f5efe3;
 }
 
-/* Wordmark is optically centred in the grid row — no vertical offset needed */
+/* Wordmark is optically centred in the grid row - no vertical offset needed */
 .nav-header__grid .nav-header__logo {
     transform: none;
 }

@@ -47,7 +47,7 @@ export default function ContactPage() {
     }, [setFormData]);
 
     // Client-side check before sending: every dropdown has to be answered.
-    // The form keeps `noValidate`, so this — not the browser — reports what's missing.
+    // The form keeps `noValidate`, so this - not the browser - reports what's missing.
     const [issue, setIssue] = useState<EnquiryIssue | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -71,12 +71,12 @@ export default function ContactPage() {
 
     const errorMessage = issue?.message ?? formError;
 
-    // Wipe the saved draft the moment Resend confirms delivery — a
+    // Wipe the saved draft the moment Resend confirms delivery - a
     // successfully sent enquiry should never resurface on the next visit.
     useEffect(() => {
         if (success) {
             clearDraft();
-            showToast('Message sent — we’ll be in touch within one business day.', 'success');
+            showToast('Message sent. We’ll be in touch within one business day.', 'success');
         }
     }, [success, clearDraft, showToast]);
 
@@ -192,7 +192,7 @@ export default function ContactPage() {
                                 </span>
                                 <div>
                                     <span className="ct-detail-label">Studio Hours</span>
-                                    <span className="ct-detail-value">Mon – Fri: 9:00 – 18:00<br />Sat: By appointment only</span>
+                                    <span className="ct-detail-value">Mon-Fri: 9:00-18:00<br />Sat: By appointment only</span>
                                 </div>
                             </div>
                         </div>
@@ -275,7 +275,7 @@ export default function ContactPage() {
                                         <input className="ct-input" type="text" name="company" id="ct-company" placeholder=" " value={form.company} onChange={handleChange} />
                                         <label className="ct-label" htmlFor="ct-company">Company / Organisation</label>
                                     </div>
-                                    {/* Service — the prompt option is hidden from the list, so a real choice is needed */}
+                                    {/* Service - the prompt option is hidden from the list, so a real choice is needed */}
                                     <div className="ct-field ct-field--full">
                                         <select className={`ct-select${form.service ? '' : ' ct-select--prompt'}`} name="service" id="ct-service" value={form.service} onChange={handleChange} required aria-invalid={issue?.field === 'service'}>
                                             <option value="" disabled hidden>Select a service</option>
@@ -289,7 +289,7 @@ export default function ContactPage() {
                                         <input className="ct-input" type="text" name="location" id="ct-location" placeholder=" " value={form.location} onChange={handleChange} autoComplete="postal-code" />
                                         <label className="ct-label" htmlFor="ct-location">Property Postcode</label>
                                     </div>
-                                    {/* Budget — the visitor types an amount in pounds */}
+                                    {/* Budget - the visitor types an amount in pounds */}
                                     <div className="ct-field">
                                         <input
                                             className="ct-input ct-input--pounds"

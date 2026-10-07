@@ -31,7 +31,7 @@ export default function ArboreSanctuaryCafePage() {
     const [prevSlide, setPrevSlide] = useState<number | null>(null);
     const [moreActive, setMoreActive] = useState(0);
 
-    /* Hero slideshow — advance every 5 s */
+    /* Hero slideshow - advance every 5 s */
     useEffect(() => {
         const timer = setInterval(() => {
             setActiveSlide((cur) => {
@@ -42,7 +42,7 @@ export default function ArboreSanctuaryCafePage() {
         return () => clearInterval(timer);
     }, []);
 
-    /* More Projects slideshow — advance every 5 s, loops */
+    /* More Projects slideshow - advance every 5 s, loops */
     useEffect(() => {
         const timer = setInterval(() => {
             setMoreActive((cur) => (cur + 1) % MORE_PROJECTS.length);
@@ -80,7 +80,7 @@ export default function ArboreSanctuaryCafePage() {
                         <Image
                             key={i}
                             src={src}
-                            alt={`Arboré Sanctuary Café — view ${i + 1}`}
+                            alt={`Arboré Sanctuary Café, view ${i + 1}`}
                             fill
                             priority={i === 0}
                             className={`pd-hero-img pd-hero-slide${
@@ -119,7 +119,7 @@ export default function ArboreSanctuaryCafePage() {
                         >A contemporary hospitality space designed to blend relaxation, social interaction, and nature within a refined interior setting.</motion.p>
                     </div>
 
-                    {/* Bottom bar — location + 3 feature stats */}
+                    {/* Bottom bar - location + 3 feature stats */}
                     <div className="pd-hero-bottom">
                         <div className="pd-hero-location">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -175,8 +175,8 @@ export default function ArboreSanctuaryCafePage() {
                         <p>
                             Arboré Sanctuary Café is conceived as a calm, immersive environment where
                             hospitality meets biophilic design. The space is designed to offer a layered
-                            experience — transitioning from intimate seating areas to more social dining
-                            zones — while maintaining a consistent sense of warmth and enclosure. The
+                            experience, transitioning from intimate seating areas to more social dining
+                            zones, while maintaining a consistent sense of warmth and enclosure. The
                             client&#39;s preference for a natural yet contemporary atmosphere is reflected
                             through the integration of greenery, soft lighting, and a restrained material
                             palette.
@@ -207,7 +207,7 @@ export default function ArboreSanctuaryCafePage() {
                             A combination of textured concrete finishes, warm timber, and dark metal accents
                             establishes a balanced and grounded material palette. Integrated planting
                             introduces a strong biophilic layer, softening the architectural edges and
-                            enhancing the overall atmosphere. Lighting is layered and intentional — warm
+                            enhancing the overall atmosphere. Lighting is layered and intentional: warm
                             pendant lights, concealed linear strips, and focused task lighting work together
                             to create depth, highlight textures, and maintain a comfortable ambience.
                         </p>
@@ -242,7 +242,7 @@ export default function ArboreSanctuaryCafePage() {
                                 <div key={i} className={`pd-gallery-item${isFull ? ' pd-gallery-item--full' : ''}`}>
                                     <Image
                                         src={src}
-                                        alt={`Arboré Sanctuary Café — view ${i + 1}`}
+                                        alt={`Arboré Sanctuary Café, view ${i + 1}`}
                                         fill
                                         className="pd-gallery-img"
                                         sizes={isFull ? '100vw' : '50vw'}
@@ -258,7 +258,7 @@ export default function ArboreSanctuaryCafePage() {
                 <section className="pd-quote-section">
                     <Image
                         src={img4}
-                        alt="Arboré Sanctuary Café — dining room"
+                        alt="Arboré Sanctuary Café dining room"
                         fill
                         className="pd-quote-bg"
                         sizes="100vw"
@@ -268,11 +268,11 @@ export default function ArboreSanctuaryCafePage() {
                     <div className="pd-quote-content pd-reveal">
                         <span className="pd-quote-marks">&ldquo;&ldquo;</span>
                         <blockquote className="pd-quote-text">
-                            The planting, the light, the textures — it all works together in a way
+                            The planting, the light, the textures: it all works together in a way
                             that makes people slow down. Guests come in for a coffee and stay for hours.
                             That is exactly what we wanted.
                         </blockquote>
-                        <cite className="pd-quote-cite">Client, Arboré Sanctuary Café — Bali, Indonesia</cite>
+                        <cite className="pd-quote-cite">Client, Arboré Sanctuary Café, Bali, Indonesia</cite>
                     </div>
                 </section>
 

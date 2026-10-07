@@ -8,8 +8,8 @@ import { MARK_PATH, MARK_VIEWBOX, WORDMARK_PATH, WORDMARK_VIEWBOX } from '@/lib/
  * pixel ratio, inherit their colour from CSS via `currentColor` (no
  * brightness/invert filter hacks), and cost zero network requests.
  *
- *   <Logo />      full horizontal wordmark   — 960 x 124 (7.74 : 1)
- *   <LogoMark />  standalone lambda mark     — 121 x 108 (1.12 : 1)
+ *   <Logo />      full horizontal wordmark - 960 x 124 (7.74 : 1)
+ *   <LogoMark />  standalone lambda mark - 121 x 108 (1.12 : 1)
  *
  * Size them with `width` in CSS and leave `height: auto`.
  */

@@ -12,15 +12,15 @@ export default function About() {
                 </div>
 
                 <p className="about-body">
-                    Your home should be more than a backdrop to daily life — it should reflect who you are, support how you live, and grow in value over time. Yet for many London homeowners, the gap between a property&apos;s potential and its reality remains frustratingly out of reach.
+                    Your home should be more than a backdrop to daily life. It should reflect who you are, support how you live, and grow in value over time. Yet for many London homeowners, the gap between a property&apos;s potential and its reality remains frustratingly out of reach.
                 </p>
 
                 <p className="about-body">
-                    Aureon Studio is a London-based interior architecture and refurbishment design practice. We partner with homeowners across London and the South East to plan, design, and deliver beautiful, functional spaces — managing every stage from initial concept and planning through to final handover with clarity, care, and complete creative oversight.
+                    Aureon Studio is a London-based interior architecture and refurbishment design practice. We partner with homeowners across London and the South East to plan, design, and deliver beautiful, functional spaces, managing every stage from initial concept and planning through to final handover with clarity, care, and complete creative oversight.
                 </p>
 
                 <p className="about-coda">
-                    Because well-designed spaces don&apos;t just look better — they live better.
+                    Because well-designed spaces don&apos;t just look better, they live better.
                 </p>
 
                 <Link href="/projects" className="about-link">

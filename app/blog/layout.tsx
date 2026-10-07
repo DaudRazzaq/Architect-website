@@ -5,9 +5,9 @@ export const revalidate = 3600
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'Journal — Interior Design Insights & Architecture Ideas',
+    title: 'Journal - Interior Design Insights & Architecture Ideas',
     description:
-      'The Aureon Studio journal — expert insights on interior design, residential architecture, commercial fit-out, sustainability, and London property refurbishment.',
+      'The Aureon Studio journal: expert insights on interior design, residential architecture, commercial fit-out, sustainability, and London property refurbishment.',
     path: '/blog',
   }),
   keywords: [

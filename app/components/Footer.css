@@ -42,7 +42,7 @@
     white-space: nowrap;
 }
 
-/* Horizontal wordmark (7.74 : 1) — inherits colour, no filter needed */
+/* Horizontal wordmark (7.74 : 1) - inherits colour, no filter needed */
 .footer-minimal-logo {
     width: clamp(260px, 34vw, 460px);
     height: auto;
@@ -53,7 +53,7 @@
     flex: 0 1 auto;
 }
 
-/* Four columns — Explore, Connect, Visit, Find Us — spanning the whole
+/* Four columns - Explore, Connect, Visit, Find Us - spanning the whole
    footer. The previous `max-width: 1000px` on a full-bleed footer left the
    right third empty on any wide desktop; `auto` text columns plus a wider
    final column for the map fills it without stretching short link lists. */
@@ -66,8 +66,8 @@
     width: 100%;
 }
 
-/* On /contact neither the Visit column nor the map is rendered — that page
-   already lists the address and shows a map — so only Explore and Connect
+/* On /contact neither the Visit column nor the map is rendered - that page
+   already lists the address and shows a map - so only Explore and Connect
    remain. A modifier class rather than :has(): the component already knows
    which case it is in, so this avoids depending on selector support. */
 .footer-links--compact {
@@ -103,14 +103,14 @@
     color: var(--color-bg);
 }
 
-/* The phone number reads as one unit — breaking it across two lines makes it
+/* The phone number reads as one unit - breaking it across two lines makes it
    look like two separate numbers. Attribute selector rather than a new class
    so it holds wherever a tel: link is added to a footer column. */
 .link-column a[href^='tel:'] {
     white-space: nowrap;
 }
 
-/* At 320px the two footer columns are only ~124px wide — narrower than the
+/* At 320px the two footer columns are only ~124px wide - narrower than the
    number itself, so `nowrap` alone would push it out of its column. Step the
    size down just for that link on the narrowest phones. */
 @media (max-width: 360px) {
@@ -211,7 +211,7 @@
     color: var(--color-bg);
 }
 
-/* Company registration line — sentence case, unlike the uppercase row above */
+/* Company registration line - sentence case, unlike the uppercase row above */
 .footer-company {
     margin: 1.25rem 0 0;
     font-size: 0.75rem;
@@ -256,7 +256,7 @@
 @media (max-width: 768px) {
     .footer {
         /* Extra bottom padding so the floating WhatsApp button (52px, 16px
-           from the bottom) never covers the last line — the company line */
+           from the bottom) never covers the last line - the company line */
         padding: 4rem 1.25rem calc(84px + env(safe-area-inset-bottom));
     }
 
@@ -320,7 +320,7 @@
         /* Desktop pulls this block up with a negative margin (-1rem) so its
            border-top sits close to the columns above. On mobile that leaves
            zero breathing room, so the last link/line in each footer column
-           (e.g. "Contact") ends up touching the divider — give it space back. */
+           (e.g. "Contact") ends up touching the divider - give it space back. */
         margin-top: 2rem;
         padding: 2.5rem 0;
         gap: 1rem;
@@ -370,7 +370,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   FOOTER STUDIO MAP — its own column, alongside the Visit address
+   FOOTER STUDIO MAP - its own column, alongside the Visit address
    Keyless Google Maps embed. Renders only because next.config.ts declares
    `frame-src https://maps.google.com`; without it frame-src falls back to
    default-src 'self' and the iframe is silently blocked.

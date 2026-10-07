@@ -27,7 +27,7 @@ export default function ArchitecturePage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Architectural Design — Aureon Studio"
+                    alt="Architectural Design by Aureon Studio"
                     fill
                     priority
                     quality={90}
@@ -71,7 +71,7 @@ export default function ArchitecturePage() {
                         <div className="srv-item">
                             <span className="srv-item-num">01</span>
                             <h3 className="srv-item-title">Our Approach</h3>
-                            <p className="srv-item-desc">Architecture is about more than creating buildings—it is about designing environments that enrich daily life. We approach every project with a balance of creativity, practicality, and contextual understanding to deliver spaces that feel both functional and enduring.</p>
+                            <p className="srv-item-desc">Architecture is about more than creating buildings. It is about designing environments that enrich daily life. We approach every project with a balance of creativity, practicality, and contextual understanding to deliver spaces that feel both functional and enduring.</p>
                         </div>
                         <div className="srv-item">
                             <span className="srv-item-num">02</span>

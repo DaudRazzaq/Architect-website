@@ -145,10 +145,10 @@
     }
 }
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE & TABLET (portrait) — full-frame hero, copy centred on the photo
+   MOBILE & TABLET (portrait) - full-frame hero, copy centred on the photo
    The photo is 3:2 (1536x1024). `cover` on a portrait viewport would slice
    its sides off, so the image is sized to the full viewport width and lets
-   its height fall out of its own ratio — the whole frame stays visible.
+   its height fall out of its own ratio - the whole frame stays visible.
    The section is exactly as tall as the bar + photo, so centring the copy
    inside the content box lands it in the optical centre of the image.
    Type is stepped down to sit comfortably inside that 66.6667vw band.

@@ -44,7 +44,7 @@ export default function Navigation() {
         return () => { document.body.style.overflow = ''; };
     }, [mobileMenuOpen]);
 
-    // Close on route change (state adjustment during render — no effect needed)
+    // Close on route change (state adjustment during render - no effect needed)
     const [prevPathname, setPrevPathname] = useState(pathname);
     if (prevPathname !== pathname) {
         setPrevPathname(pathname);

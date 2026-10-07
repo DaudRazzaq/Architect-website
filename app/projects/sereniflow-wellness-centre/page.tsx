@@ -34,7 +34,7 @@ export default function SereniflowWellnessPage() {
     const [prevSlide, setPrevSlide] = useState<number | null>(null);
     const [moreActive, setMoreActive] = useState(0);
 
-    /* Hero slideshow — advance every 5 s */
+    /* Hero slideshow - advance every 5 s */
     useEffect(() => {
         const timer = setInterval(() => {
             setActiveSlide((cur) => {
@@ -45,7 +45,7 @@ export default function SereniflowWellnessPage() {
         return () => clearInterval(timer);
     }, []);
 
-    /* More Projects slideshow — advance every 5 s, loops */
+    /* More Projects slideshow - advance every 5 s, loops */
     useEffect(() => {
         const timer = setInterval(() => {
             setMoreActive((cur) => (cur + 1) % MORE_PROJECTS.length);
@@ -83,7 +83,7 @@ export default function SereniflowWellnessPage() {
                         <Image
                             key={i}
                             src={src}
-                            alt={`SereniFlow Wellness Centre — view ${i + 1}`}
+                            alt={`SereniFlow Wellness Centre, view ${i + 1}`}
                             fill
                             priority={i === 0}
                             className={`pd-hero-img pd-hero-slide${
@@ -122,7 +122,7 @@ export default function SereniflowWellnessPage() {
                         >A contemporary wellness environment designed to support movement, relaxation, and a seamless spatial experience.</motion.p>
                     </div>
 
-                    {/* Bottom bar — location + 3 feature stats */}
+                    {/* Bottom bar - location + 3 feature stats */}
                     <div className="pd-hero-bottom">
                         <div className="pd-hero-location">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -244,7 +244,7 @@ export default function SereniflowWellnessPage() {
                                 <div key={i} className={`pd-gallery-item${isFull ? ' pd-gallery-item--full' : ''}`}>
                                     <Image
                                         src={src}
-                                        alt={`SereniFlow Wellness Centre — view ${i + 1}`}
+                                        alt={`SereniFlow Wellness Centre, view ${i + 1}`}
                                         fill
                                         className="pd-gallery-img"
                                         sizes={isFull ? '100vw' : '50vw'}
@@ -260,7 +260,7 @@ export default function SereniflowWellnessPage() {
                 <section className="pd-quote-section">
                     <Image
                         src={img7}
-                        alt="SereniFlow Wellness Centre — lobby"
+                        alt="SereniFlow Wellness Centre lobby"
                         fill
                         className="pd-quote-bg"
                         sizes="100vw"
@@ -271,10 +271,10 @@ export default function SereniflowWellnessPage() {
                         <span className="pd-quote-marks">&ldquo;&ldquo;</span>
                         <blockquote className="pd-quote-text">
                             Walking in for the first time, the space just settles you. The light,
-                            the stone, the warmth of the timber — it is exactly what a wellness
+                            the stone, the warmth of the timber: it is exactly what a wellness
                             centre should feel like. Our clients never want to leave.
                         </blockquote>
-                        <cite className="pd-quote-cite">Client, SereniFlow Wellness Centre — Richmond, London</cite>
+                        <cite className="pd-quote-cite">Client, SereniFlow Wellness Centre, Richmond, London</cite>
                     </div>
                 </section>
 

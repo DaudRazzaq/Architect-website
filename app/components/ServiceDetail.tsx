@@ -6,7 +6,7 @@ import Footer from './Footer';
 import './ServiceDetail.css';
 
 /* ═══════════════════════════════════════════════════════════════════
-   SERVICE DETAIL — fixed-fee service pages
+   SERVICE DETAIL - fixed-fee service pages
    One layout shared by /services/measured-surveys, /extensions-and-lofts,
    /planning-applications and /building-regulations: headline, intro,
    what's included, timeline, price and a single button. The building

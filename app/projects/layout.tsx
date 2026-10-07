@@ -5,9 +5,9 @@ export const revalidate = 3600
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'Projects — Interior Architecture Portfolio London',
+    title: 'Projects - Interior Architecture Portfolio London',
     description:
-      'Explore completed interior architecture and design projects by Aureon Studio London — residential homes, commercial workplaces, and multipurpose spaces across the capital.',
+      'Explore completed interior architecture and design projects by Aureon Studio London: residential homes, commercial workplaces, and multipurpose spaces across the capital.',
     path: '/projects',
   }),
   keywords: [

@@ -26,7 +26,7 @@ export default function MultipurposePage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Multipurpose architecture — Aureon Studio"
+                    alt="Multipurpose architecture by Aureon Studio"
                     fill
                     priority
                     quality={90}
@@ -84,7 +84,7 @@ export default function MultipurposePage() {
                         <div className="srv-item">
                             <span className="srv-item-num">01</span>
                             <h3 className="srv-item-title">Community Centers</h3>
-                            <p className="srv-item-desc">Our community centers are designed as welcoming and inclusive environments that bring people together. Flexible layouts support a range of activities — from social gatherings to workshops — creating spaces that encourage connection, interaction, and a strong sense of belonging.</p>
+                            <p className="srv-item-desc">Our community centers are designed as welcoming and inclusive environments that bring people together. Flexible layouts support a range of activities, from social gatherings to workshops, creating spaces that encourage connection, interaction, and a strong sense of belonging.</p>
                         </div>
                         <div className="srv-item">
                             <span className="srv-item-num">02</span>

@@ -27,7 +27,7 @@ export default function LandscapePage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Landscape Design — Aureon Studio"
+                    alt="Landscape Design by Aureon Studio"
                     fill
                     priority
                     quality={90}

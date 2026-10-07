@@ -370,7 +370,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   OUR TEAM — the two founders
+   OUR TEAM - the two founders
    Portraits are cropped to a shared 4:5 at build time so the cards align
    exactly. The source files are modest (471px and 614px wide), so the
    cards are capped at 320px: beyond that they would visibly soften on a
@@ -485,7 +485,7 @@
     color: var(--color-accent);
 }
 
-/* Side by side on phones too, matching tablet/desktop — just narrower columns */
+/* Side by side on phones too, matching tablet/desktop - just narrower columns */
 @media (max-width: 720px) {
     .ab-team-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -515,10 +515,10 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE & TABLET (portrait) — full-frame hero, copy centred on the photo
+   MOBILE & TABLET (portrait) - full-frame hero, copy centred on the photo
    The photo is 3:2 (1536x1024). `cover` on a portrait viewport would slice
    its sides off, so the image is sized to the full viewport width and lets
-   its height fall out of its own ratio — the whole frame stays visible.
+   its height fall out of its own ratio - the whole frame stays visible.
    The section is exactly as tall as the bar + photo, so centring the copy
    inside the content box lands it in the optical centre of the image.
    Type is stepped down to sit comfortably inside that 66.6667vw band.

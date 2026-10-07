@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   SERVICE DETAIL PAGES — Complete Redesign
+   SERVICE DETAIL PAGES - Complete Redesign
    Shared by /commercial, /multipurpose, /residential
 ═══════════════════════════════════════════════════════════ */
 
@@ -391,7 +391,7 @@
     .srv-img-break { height: 38vh; }
 }
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE & TABLET (portrait) — full-frame service-detail hero
+   MOBILE & TABLET (portrait) - full-frame service-detail hero
    Shared by all seven /services/* pages.
 
    Unlike the other heroes on the site these photographs are NOT a single
@@ -401,10 +401,10 @@
    leaves dead space under the tallest, so instead:
 
      · `object-fit: contain` fits every photo to the full viewport width
-       whatever its ratio — nothing is ever cropped left or right;
+       whatever its ratio - nothing is ever cropped left or right;
      · each page publishes its photo's intrinsic ratio as `--srv-hero-ar`
        (set next to the image constant in its page.tsx), so the band is
-       exactly as tall as that page's image — no slack, no letterboxing;
+       exactly as tall as that page's image - no slack, no letterboxing;
      · `object-position` drops the photo below the fixed mobile bar.
 
    The fallback is 1.338, the tallest ratio in use: if the property were

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   SERVICE DETAIL — fixed-fee service pages + /for-studios
+   SERVICE DETAIL - fixed-fee service pages + /for-studios
    Dark hero · warm list section · dark action band
    Same palette and grid texture as the FAQs hero so the pages sit
    naturally alongside the rest of the site.
@@ -379,7 +379,7 @@
     .sd-hero__intro { animation: none; opacity: 1; transform: none; }
 }
 
-/* Mobile & tablet (portrait) — same reduced hero scale as the FAQs page */
+/* Mobile & tablet (portrait) - same reduced hero scale as the FAQs page */
 @media (max-width: 920px) and (orientation: portrait) {
     .sd-hero {
         min-height: 56vh;

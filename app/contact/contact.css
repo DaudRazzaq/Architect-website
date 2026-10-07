@@ -1,5 +1,5 @@
 /* ====================================
-   CONTACT PAGE — Premium Redesign
+   CONTACT PAGE - Premium Redesign
    ==================================== */
 
 /* ── HERO ── */
@@ -446,7 +446,7 @@
     color: #1a1a1a;
 }
 
-/* Budget — typed amount with a pound sign that appears once the label has
+/* Budget - typed amount with a pound sign that appears once the label has
    floated out of the way (on focus, or when the field has a value) */
 .ct-input--pounds {
     padding-left: 2rem;
@@ -651,7 +651,7 @@
     line-height: 1.5;
 }
 
-/* Tappable telephone in the dark office strip — same treatment, light palette */
+/* Tappable telephone in the dark office strip - same treatment, light palette */
 .ct-office-value--link {
     color: rgba(245, 242, 236, 0.72);
     text-decoration: none;
@@ -915,7 +915,7 @@
    STUDIO LOCATION MAP
    Google Maps keyless embed (maps.google.com/...&output=embed).
    NOTE: this only renders because next.config.ts declares
-   `frame-src https://www.google.com https://maps.google.com` — without it
+   `frame-src https://www.google.com https://maps.google.com` - without it
    frame-src falls back to default-src 'self' and the iframe is blocked.
    The site sets X-Frame-Options: DENY, which governs OUR page being framed
    by others, not us framing Google, so it is unaffected.
@@ -1032,7 +1032,7 @@
     transform: translateX(5px);
 }
 
-/* Tablet & mobile: card sits beneath the map rather than covering it —
+/* Tablet & mobile: card sits beneath the map rather than covering it -
    overlaying a 340px card on a phone would hide most of the map. */
 @media (max-width: 920px) {
     .ct-map-frame {
@@ -1077,10 +1077,10 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE & TABLET (portrait) — full-frame hero, copy centred on the photo
+   MOBILE & TABLET (portrait) - full-frame hero, copy centred on the photo
    The photo is 3:2 (1536x1024). `cover` on a portrait viewport would slice
    its sides off, so the image is sized to the full viewport width and lets
-   its height fall out of its own ratio — the whole frame stays visible.
+   its height fall out of its own ratio - the whole frame stays visible.
    The section is exactly as tall as the bar + photo, so centring the copy
    inside the content box lands it in the optical centre of the image.
    Type is stepped down to sit comfortably inside that 66.6667vw band.
@@ -1136,8 +1136,8 @@
         text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
     }
 
-    /* This hero carries the most copy of the set — eyebrow, two-line
-       heading, sub and CTA — and it all has to fit inside the 66.6667vw
+    /* This hero carries the most copy of the set - eyebrow, two-line
+       heading, sub and CTA - and it all has to fit inside the 66.6667vw
        photo band. Dropping the second sentence takes it from ~195px to
        ~150px, which restores proper breathing room above and below.
        The wording still ships in the markup, so nothing is lost to search

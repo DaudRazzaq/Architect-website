@@ -1,6 +1,6 @@
 /*
  * Poppins is loaded once via next/font/google in app/layout.tsx (weights
- * 400/500/600, exposed as the --font-accent variable) — that gives us
+ * 400/500/600, exposed as the --font-accent variable) - that gives us
  * automatic subsetting, self-hosting and preloading with zero extra
  * network requests. --font-poppins simply aliases it so existing
  * component CSS (About, Stats, Footer, NewsCard) doesn't need to change.
@@ -338,10 +338,10 @@ a {
 /* Responsive */
 @media (max-width: 768px) {
   :root {
-    /* Single consistent mobile gutter — 20px everywhere */
+    /* Single consistent mobile gutter - 20px everywhere */
     --container-padding: 1.25rem;
     --spacing-lg: 2.5rem;
-    /* Section vertical rhythm: 64–80px on mobile */
+    /* Section vertical rhythm: 64-80px on mobile */
     --spacing-xl: 4rem;
     --spacing-2xl: 5rem;
   }

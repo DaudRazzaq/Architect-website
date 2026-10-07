@@ -48,7 +48,7 @@ export default function Home() {
       <QuoteSection
         image="/hero6.webp"
         label="A Quiet Belief"
-        quote="Great architecture is not born from ambition alone — it is drawn from patience, from listening, from the quiet understanding of how people truly want to live."
+        quote="Great architecture is not born from ambition alone. It is drawn from patience, from listening, from the quiet understanding of how people truly want to live."
         attribution="Aureon Studio"
       />
       <Services />
@@ -56,7 +56,7 @@ export default function Home() {
       <QuoteSection
         image="/hero4.webp"
         quote="It was a transition from listening to what our needs and problems were, and what kind of aspirations we had, and then converting those into solutions."
-        attribution="— Client"
+        attribution="Client"
       />
       <WhyWorkWithUs />
       <Projects />

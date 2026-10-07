@@ -34,7 +34,7 @@ export default function GetInTouch() {
     const { showToast } = useToast();
 
     // Client-side check before sending: every dropdown has to be answered.
-    // The form keeps `noValidate`, so this — not the browser — reports what's missing.
+    // The form keeps `noValidate`, so this - not the browser - reports what's missing.
     const [issue, setIssue] = useState<EnquiryIssue | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -62,7 +62,7 @@ export default function GetInTouch() {
     useEffect(() => {
         if (success) {
             clearDraft();
-            showToast('Thank you — your enquiry has been sent.', 'success');
+            showToast('Thank you. Your enquiry has been sent.', 'success');
         }
     }, [success, clearDraft, showToast]);
 
@@ -186,7 +186,7 @@ export default function GetInTouch() {
                                     <label className="git-label" htmlFor="git-location">Property Postcode</label>
                                     <input className="git-input" id="git-location" type="text" name="location" value={formData.location} onChange={handleChange} autoComplete="postal-code" />
                                 </div>
-                                {/* Budget — the visitor types an amount in pounds */}
+                                {/* Budget - the visitor types an amount in pounds */}
                                 <div className="git-field">
                                     <label className="git-label" htmlFor="git-budget">Estimated Budget (£)</label>
                                     <div className="git-pounds">

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   SERVICE TILE  —  2×2 editorial grid card
+   SERVICE TILE - 2×2 editorial grid card
    ═══════════════════════════════════════════ */
 
 .sc-tile {
@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 
-/* Background image — a responsive next/image filling the tile */
+/* Background image - a responsive next/image filling the tile */
 .sc-tile-bg {
     position: absolute;
     inset: 0;
@@ -42,7 +42,7 @@
     flex-direction: column;
 }
 
-/* Gold accent overline — expands on hover */
+/* Gold accent overline - expands on hover */
 .sc-tile-accent-line {
     display: block;
     width: 32px;
@@ -85,7 +85,7 @@
     color: rgba(255, 255, 255, 0.88);
 }
 
-/* CTA label — slides up on hover */
+/* CTA label - slides up on hover */
 .sc-tile-explore {
     display: inline-block;
     margin-top: 1.5rem;

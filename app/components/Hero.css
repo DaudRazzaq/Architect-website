@@ -105,7 +105,7 @@
 
 /* The wordmark keeps its natural centred position; the nav links are dropped
    14px below it so the header reads as a staggered two-tier lockup rather
-   than one flat line. (The old -40px pull on the brand is gone — that only
+   than one flat line. (The old -40px pull on the brand is gone - that only
    existed to tame the tall square logo and would now lift the short wordmark
    off the top edge.) */
 .hero-header-hero .hero-brand-desktop {
@@ -124,7 +124,7 @@
     transform: translateY(30px);
 }
 
-/* Header after scrolling below hero — same transparent style */
+/* Header after scrolling below hero - same transparent style */
 .hero-header-scrolled {
     padding: max(1.25rem, calc(0.75rem + env(safe-area-inset-top))) clamp(1rem, 2.8vw, 3.5rem) 1rem;
     background: linear-gradient(
@@ -254,7 +254,7 @@
     width: 9.25rem;
 }
 
-/* Narrower desktops — three links either side of the centred wordmark only
+/* Narrower desktops - three links either side of the centred wordmark only
    fit at full size from ~1200px, so tighten the type in two steps rather
    than let the outer links run off the screen. Kept in step with the
    matching block in Navigation.css. */
@@ -353,16 +353,16 @@
     }
 }
 
-/* Mobile — full-frame hero
+/* Mobile - full-frame hero
    ------------------------------------------------------------------
    The photos are 3:2 (1536x1024). While `.hero-media-track` is pinned with
    `inset: 0` it must fill the whole hero box, and on a portrait phone that
-   box is ~0.66 aspect — so `object-fit: cover` has no choice but to slice
+   box is ~0.66 aspect - so `object-fit: cover` has no choice but to slice
    the sides off. Shortening the hero only reduces that loss, never removes it.
 
    So on phones we unpin the bottom and give the media area the photo's own
    3:2 shape: 100vw wide x (100vw / 1.5) tall. Container aspect now equals
-   image aspect, so `cover` crops nothing at all — the full frame is visible,
+   image aspect, so `cover` crops nothing at all - the full frame is visible,
    exactly as it is on desktop. The copy then sits below the photo on the
    hero's own dark background instead of overlaying it.
 
@@ -491,7 +491,7 @@
     border-color: #ffffff;
 }
 
-/* Slide indicator dots — mobile only */
+/* Slide indicator dots - mobile only */
 .hero-dots {
     display: none;
 }
@@ -503,7 +503,7 @@
     display: none;
 }
 
-/* Subheading — shown at every size; the mobile portrait block below
+/* Subheading - shown at every size; the mobile portrait block below
    restyles it for the copy-below-photo layout. Pulled up slightly so it
    reads as part of the headline rather than a separate row. */
 .hero-lede {
@@ -518,7 +518,7 @@
     text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
-/* Centerpiece — mobile & tablet: bottom-left editorial layout */
+/* Centerpiece - mobile & tablet: bottom-left editorial layout */
 @media (max-width: 920px) {
     .hero-shell {
         justify-content: flex-end;
@@ -637,7 +637,7 @@
 }
 
 /* ===================================================================
-   Mobile full-frame hero — shell placement
+   Mobile full-frame hero - shell placement
    Kept at the end of the file on purpose: the `max-width: 768px` block
    above sets `justify-content: flex-end` and a large `padding-bottom` to
    float the copy over a full-bleed image. In the full-frame layout the

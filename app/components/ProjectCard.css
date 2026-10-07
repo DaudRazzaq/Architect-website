@@ -10,7 +10,7 @@
     color: inherit;
 }
 
-/* Image container — fills card, aspect ratio drives height */
+/* Image container - fills card, aspect ratio drives height */
 .project-card-image {
     position: relative;
     width: 100%;

@@ -203,7 +203,7 @@
         justify-content: flex-start;
     }
 
-    /* Label 11px above, number in flow at 40–48px */
+    /* Label 11px above, number in flow at 40 - 48px */
     .stat-label {
         font-size: 0.6875rem;
         letter-spacing: 0.12em;

@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
               "font-src 'self'",
               "connect-src 'self'",
               // Google Maps embed on /contact. Without this, frame-src falls
-              // back to default-src 'self' and the map is silently blocked —
+              // back to default-src 'self' and the map is silently blocked -
               // the iframe renders as an empty box with a console error only.
               "frame-src 'self' https://www.google.com https://maps.google.com",
             ].join('; '),
@@ -56,7 +56,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Next.js image optimizer output — safe to cache at the edge for a year.
+        // Next.js image optimizer output - safe to cache at the edge for a year.
         source: '/_next/image(.*)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },

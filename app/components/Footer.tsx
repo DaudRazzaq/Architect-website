@@ -22,7 +22,7 @@ export default function Footer() {
                 <div className="footer-masthead">
                     <Logo className="footer-minimal-logo" />
                     <p className="footer-masthead__tagline">
-                        Interior architecture &amp; design — London
+                        Interior architecture &amp; design in London
                     </p>
                 </div>
 

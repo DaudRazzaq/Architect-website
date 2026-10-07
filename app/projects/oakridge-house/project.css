@@ -1,5 +1,5 @@
 /* =============================================================
-   PROJECT DETAIL — Oakridge House
+   PROJECT DETAIL - Oakridge House
    ============================================================= */
 
 /* ── Scroll-reveal animation ── */
@@ -236,7 +236,7 @@
 }
 
 /* =============================================================
-   ROLE BAND — "Our role: …" status line directly under the hero
+   ROLE BAND - "Our role: …" status line directly under the hero
    ============================================================= */
 .pd-role {
     margin: 0;
@@ -483,8 +483,8 @@
     white-space: nowrap;
 }
 
-/* Horizontal slide track — auto-advancing, 2 cards per slide */
-/* Continuous strip slider — shows 2 full cards + peek of 3rd */
+/* Horizontal slide track - auto-advancing, 2 cards per slide */
+/* Continuous strip slider - shows 2 full cards + peek of 3rd */
 .pd-more-track {
     overflow: hidden;
     width: 100%;
@@ -500,7 +500,7 @@
     will-change: transform;
 }
 
-/* Each card ≈ 46vw wide — 2 fill ~92% of viewport, 3rd peeks ~8% */
+/* Each card ≈ 46vw wide - 2 fill ~92% of viewport, 3rd peeks ~8% */
 .pd-more-card {
     flex: 0 0 calc(46vw - 2px);
     position: relative;
@@ -650,11 +650,11 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   PROJECT HERO — MOBILE & TABLET (portrait)
+   PROJECT HERO - MOBILE & TABLET (portrait)
    ------------------------------------------------------------------
    `.pd-hero` is 100svh with `object-fit: cover`. On a portrait phone that
    box is far taller than it is wide, so a 3:2 photograph has to lose its
-   left and right edges — the same fault fixed on the home and services
+   left and right edges - the same fault fixed on the home and services
    heroes. Shortening the hero only reduces the loss, never removes it.
 
    Unlike those heroes this one is a slideshow, and the slides are not all
@@ -662,7 +662,7 @@
    cannot simply be given one photo's ratio. Instead:
 
      · the band is sized from the dominant 3:2 ratio via `--pd-hero-ar`;
-     · `object-fit: contain` guarantees every slide is shown whole —
+     · `object-fit: contain` guarantees every slide is shown whole -
        any slide that is not 3:2 letterboxes inside the band rather than
        being cropped;
      · `object-position` drops the photo clear of the fixed mobile bar.

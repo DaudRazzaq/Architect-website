@@ -1,5 +1,5 @@
 /**
- * Social profiles — single source of truth.
+ * Social profiles - single source of truth.
  *
  * These were previously hard-coded per component, and most were bare
  * placeholder domains (`https://instagram.com`) that dropped visitors on the

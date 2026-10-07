@@ -1,5 +1,5 @@
 /* ============================================
-   OUR WORK — PROJECTS PAGE
+   OUR WORK - PROJECTS PAGE
    ============================================ */
 
 /* ── Hero ── */
@@ -103,7 +103,7 @@
     margin: 0;
 }
 
-/* Filter tabs anchored to bottom of hero */
+/* Filter tabs anchored to bottom of hero (rendered inside .pw-hero) */
 .pw-hero-filters {
     position: absolute;
     bottom: 0;
@@ -297,7 +297,7 @@
     line-height: 1.4;
 }
 
-/* "Our role: …" status line — always visible, unlike the hover-only location */
+/* "Our role: …" status line - always visible, unlike the hover-only location */
 .pw-card-role {
     font-family: var(--font-primary);
     font-size: 0.75rem;
@@ -493,9 +493,10 @@
 }
 
 @media (max-width: 600px) {
+    /* Stay a 2 × 2 grid; tighter tracking so "Multipurpose" fits a 320px phone */
     .pw-hero-filter-btn {
-        flex: 0 0 100%;
-        border-right: none;
+        padding: 1.2rem 0.5rem;
+        letter-spacing: 2.5px;
     }
 
     .pw-card-content {
@@ -508,22 +509,23 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE & TABLET (portrait) — full-frame hero
+   MOBILE & TABLET (portrait) - full-frame hero
    `.pw-hero-bg` is pinned with `inset: 0`, so on a portrait viewport the
    photo is forced to fill a ~0.5-aspect box and `cover` slices its sides
    off. Giving the wrapper the photo's own 3:2 ratio (100vw x 66.6667vw)
-   means `cover` has nothing left to trim — the whole frame shows. The
+   means `cover` has nothing left to trim - the whole frame shows. The
    decorative scale(1.04) is also dropped here; it only crops further.
    Landscape is excluded: it is already wider than 3:2.
    ═══════════════════════════════════════════════════════════════════ */
 @media (max-width: 920px) and (orientation: portrait) {
     .pw-hero {
+        --pw-hero-pad-x: clamp(1.5rem, 4vw, 3rem);
         height: auto;
         min-height: 0;
         display: block;
         background-color: #0d0b09;
         padding: calc(64px + env(safe-area-inset-top) + 66.6667vw + 2.75rem)
-                 clamp(1.5rem, 4vw, 3rem) 3.5rem;
+                 var(--pw-hero-pad-x) 0;
     }
 
     .pw-hero-bg {
@@ -547,6 +549,7 @@
     }
 
     .pw-hero-center {
+        align-items: flex-start;
         text-align: left;
         max-width: 34rem;
     }
@@ -584,5 +587,12 @@
         max-width: 32ch;
         font-size: 0.9375rem;
         line-height: 1.6;
+    }
+
+    /* The hero has no fixed height here, so the tabs join the flow under
+       the text, edge to edge, and form the hero's bottom edge. */
+    .pw-hero-filters {
+        position: relative;
+        margin: 2.75rem calc(-1 * var(--pw-hero-pad-x)) 0;
     }
 }

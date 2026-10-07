@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { WORDMARK_PATH, WORDMARK_VIEWBOX } from '@/lib/brand'
 
-export const alt = 'Aureon Studio — Interior Architecture & Design'
+export const alt = 'Aureon Studio, Interior Architecture & Design'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -38,7 +38,7 @@ export default function OGImage() {
               background: '#d4a574',
             }}
           />
-          {/* next/image can't be used inside ImageResponse's Satori renderer — a plain <img> is required here. */}
+          {/* next/image can't be used inside ImageResponse's Satori renderer - a plain <img> is required here. */}
           <img
             src={`data:image/svg+xml;base64,${btoa(WORDMARK_SVG)}`}
             width={340}

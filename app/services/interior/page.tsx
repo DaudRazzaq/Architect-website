@@ -27,7 +27,7 @@ export default function InteriorPage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Interior Design — Aureon Studio"
+                    alt="Interior Design by Aureon Studio"
                     fill
                     priority
                     quality={90}
@@ -91,7 +91,7 @@ export default function InteriorPage() {
             <QuoteSection
                 image={heroImg}
                 label="Client Feedback"
-                quote="The interior feels exactly how we imagined—warm, sophisticated, and perfectly suited to our lifestyle. The entire process was seamless."
+                quote="The interior feels exactly how we imagined: warm, sophisticated, and perfectly suited to our lifestyle. The entire process was seamless."
                 attribution="Private Residential Client"
             />
 

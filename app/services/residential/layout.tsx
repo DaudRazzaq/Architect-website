@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Residential Interior Architecture & Design London',
     description:
-      'Aureon Studio delivers residential interior architecture in London — from loft conversions and kitchen renovations to full home refurbishments. Bespoke design, complete delivery.',
+      'Aureon Studio delivers residential interior architecture in London, from loft conversions and kitchen renovations to full home refurbishments. Bespoke design, complete delivery.',
     path: '/services/residential',
   }),
   keywords: [

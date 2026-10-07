@@ -26,7 +26,7 @@ export default function CommercialPage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Commercial architecture — Aureon Studio"
+                    alt="Commercial architecture by Aureon Studio"
                     fill
                     priority
                     quality={90}

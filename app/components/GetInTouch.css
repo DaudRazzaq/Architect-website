@@ -1,5 +1,5 @@
 /* ====================================
-   GET IN TOUCH — About Page Section
+   GET IN TOUCH - About Page Section
    Two-column: info left, form right
    ==================================== */
 
@@ -19,7 +19,7 @@
 }
 
 /* =========================
-   LEFT — INFO
+   LEFT - INFO
    ========================= */
 
 .git-left {
@@ -98,7 +98,7 @@
 }
 
 /* =========================
-   RIGHT — FORM
+   RIGHT - FORM
    ========================= */
 
 .git-right {
@@ -200,7 +200,7 @@
     color: #1a1a1a;
 }
 
-/* Budget — typed amount with a fixed pound sign */
+/* Budget - typed amount with a fixed pound sign */
 .git-pounds {
     position: relative;
 }
@@ -225,7 +225,7 @@
     opacity: 1;
 }
 
-/* Field flagged by the pre-submit check — outranks the focus styles,
+/* Field flagged by the pre-submit check - outranks the focus styles,
    because the check moves focus onto the field it flags */
 .git-field .git-input[aria-invalid='true'],
 .git-field .git-select[aria-invalid='true'] {
@@ -508,7 +508,7 @@
     }
 }
 
-/* Budget on mobile — fields become 52px boxes with 16px padding, so the
+/* Budget on mobile - fields become 52px boxes with 16px padding, so the
    pound sign moves inside the box and the amount starts after it */
 @media (max-width: 768px) {
     .git-pounds__sign {

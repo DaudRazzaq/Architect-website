@@ -12,7 +12,7 @@ export const revalidate = false
 export const metadata: Metadata = buildMetadata({
   title: 'Frequently Asked Questions',
   description:
-    'Everything you need to know about working with Aureon Studio — from our design process and planning applications to fees, timelines, and how to start your project.',
+    'Everything you need to know about working with Aureon Studio, from our design process and planning applications to fees, timelines, and how to start your project.',
   path: '/faqs',
 })
 
@@ -41,7 +41,7 @@ export default function FAQsPage() {
               Frequently Asked <em>Questions</em>
             </h1>
             <p className="faqs-hero__subtitle">
-              Honest answers about our process, services, timelines, and fees —
+              Honest answers about our process, services, timelines, and fees:
               everything you need before your first conversation with us.
             </p>
           </div>

@@ -15,7 +15,7 @@ export function buildOrganisationSchema() {
           url: 'https://aureon.studio/logo.png',
           width: 400,
           height: 120,
-          caption: 'Aureon Studio — Interior Architecture & Design London',
+          caption: 'Aureon Studio, Interior Architecture & Design London',
         },
         image: 'https://aureon.studio/logo.png',
         sameAs: [

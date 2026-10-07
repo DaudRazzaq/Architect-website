@@ -1,5 +1,5 @@
 /**
- * Aureon Studio brand geometry — single source of truth.
+ * Aureon Studio brand geometry - single source of truth.
  *
  * Vector-traced from the master logo artwork, so every surface (React
  * components, favicons, OG images, e-mail rasters) renders from the exact

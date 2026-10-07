@@ -62,7 +62,7 @@ export default function Services() {
                         <span className="process-label">OUR PROCESS</span>
                         <h2 className="process-title">From First Ideas to Completion</h2>
                         <p>
-                            Our services follow a clear, stage-by-stage process that takes you from first ideas through to completion. With fixed fees agreed in advance and a structured approach, you can move forward with confidence — knowing what happens next, what you&apos;ll receive, and what each stage will cost.
+                            Our services follow a clear, stage-by-stage process that takes you from first ideas through to completion. With fixed fees agreed in advance and a structured approach, you can move forward with confidence, knowing what happens next, what you&apos;ll receive, and what each stage will cost.
                         </p>
                         <p>
                             Each stage is confirmed in writing, keeping the journey flexible but well-defined. This ensures decisions are made at the right time, the scope stays clear, and the project remains guided by your needs, priorities, and budget.

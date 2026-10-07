@@ -10,7 +10,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 // is restored on mount and explicitly wiped once the form has been submitted
 // successfully (call `clearDraft`) so a stale draft never resurfaces.
 //
-// Scoped to sessionStorage (not localStorage) on purpose — drafts are only
+// Scoped to sessionStorage (not localStorage) on purpose - drafts are only
 // relevant for the current visit and should not persist indefinitely across
 // browser sessions.
 // ---------------------------------------------------------------------------
@@ -52,7 +52,7 @@ export function useFormStorage<T extends FormFields>(
         setFormData((prev) => ({ ...prev, ...parsed }))
       }
     } catch {
-      // Corrupt JSON or storage unavailable (e.g. private browsing) — ignore.
+      // Corrupt JSON or storage unavailable (e.g. private browsing) - ignore.
     } finally {
       hydrated.current = true
       setIsRestored(true)
@@ -66,7 +66,7 @@ export function useFormStorage<T extends FormFields>(
     try {
       window.sessionStorage.setItem(storageKey, JSON.stringify(formData))
     } catch {
-      // Quota exceeded or storage disabled — draft persistence is best-effort.
+      // Quota exceeded or storage disabled - draft persistence is best-effort.
     }
   }, [storageKey, formData])
 

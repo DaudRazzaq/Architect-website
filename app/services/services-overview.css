@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   SERVICES OVERVIEW  —  Alternating image/text layout
+   SERVICES OVERVIEW - Alternating image/text layout
 ═══════════════════════════════════════════════════════════ */
 
 /* ── SCROLL-REVEAL BASE ── */
@@ -81,7 +81,7 @@
     margin: 0;
 }
 
-/* Right side panel — like absolute-architecture */
+/* Right side panel - like absolute-architecture */
 .sov-hero-panel {
     position: absolute;
     right: 0;
@@ -117,7 +117,7 @@
     background: #fff;
 }
 
-/* Text column — left by default */
+/* Text column - left by default */
 .sov-row-text {
     flex: 0 0 45%;
     display: flex;
@@ -129,7 +129,7 @@
     order: 1;
 }
 
-/* Image column — right by default */
+/* Image column - right by default */
 .sov-row-img-wrap {
     flex: 0 0 55%;
     position: relative;
@@ -254,7 +254,7 @@
 }
 
 
-/* ── SERVICE INDEX — every service page, linked ── */
+/* ── SERVICE INDEX - every service page, linked ── */
 .sov-index {
     background: #fff;
     padding: 7rem clamp(1.5rem, 5vw, 4rem) 7.5rem;
@@ -519,7 +519,7 @@
         flex-direction: column;
         min-height: auto;
     }
-    /* Stacked: copy first, photograph beneath it — for every row, including
+    /* Stacked: copy first, photograph beneath it - for every row, including
        the reversed ones. The label ("Residential" / "Commercial" /
        "Multipurpose") therefore introduces its own image rather than
        trailing it, which is what the alternating desktop layout achieves
@@ -641,7 +641,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   MOBILE & TABLET (portrait) — full-frame hero, copy centred on the photo
+   MOBILE & TABLET (portrait) - full-frame hero, copy centred on the photo
    Same approach as the other page heroes: the 3:2 photo shows its whole
    frame instead of being cropped by `cover`, the section is exactly as
    tall as the bar + photo, and the copy is centred inside that band with

@@ -1,5 +1,5 @@
 /**
- * Enquiry form options and rules — single source of truth.
+ * Enquiry form options and rules - single source of truth.
  *
  * Shared by the /contact form and the <GetInTouch /> section so the two
  * enquiry forms can never offer different choices or validate differently.
@@ -23,9 +23,9 @@ export type ServiceSlug = (typeof SERVICE_OPTIONS)[number]['slug']
 
 export const TIMELINE_OPTIONS = [
   'As soon as possible',
-  '1 – 3 months',
-  '3 – 6 months',
-  '6 – 12 months',
+  '1 to 3 months',
+  '3 to 6 months',
+  '6 to 12 months',
   'Over a year',
   'Not decided yet',
 ] as const
@@ -50,7 +50,7 @@ export function serviceLabelFromSlug(slug: string | null): string | null {
 }
 
 // ---------------------------------------------------------------------------
-// Budget — a free amount in pounds, typed by the visitor
+// Budget - a free amount in pounds, typed by the visitor
 // ---------------------------------------------------------------------------
 
 /** Whole pounds, digits only, grouped in thousands: "25000" → "25,000". */
@@ -59,7 +59,7 @@ export function formatPounds(raw: string): string {
   return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
 
-/** Index just after the `count`-th digit of a formatted amount — where the
+/** Index just after the `count`-th digit of a formatted amount - where the
  *  caret belongs once the commas have been re-inserted. */
 export function caretAfterDigits(formatted: string, count: number): number {
   let position = 0
@@ -70,7 +70,7 @@ export function caretAfterDigits(formatted: string, count: number): number {
 }
 
 // ---------------------------------------------------------------------------
-// Validation — every dropdown must be answered before the form is sent
+// Validation - every dropdown must be answered before the form is sent
 // ---------------------------------------------------------------------------
 
 /** Same rule as /api/send, so the browser never lets through an address

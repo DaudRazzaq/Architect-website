@@ -67,7 +67,7 @@ export default function AboutPage() {
                         We&apos;re a London-based interior architecture studio built on clarity, care and complete delivery. Our team of architects, interior designers, and craftspeople work together to imagine, design and deliver quietly exceptional spaces that feel as good as they look.
                     </p>
                     <p className="ab-story-p">
-                        We listen deeply to understand not just the potential of your property, but how you want to live within it. Every detail — from light and flow to materials and form — is thoughtfully considered to create spaces that are beautiful, functional, and built to last.
+                        We listen deeply to understand not just the potential of your property, but how you want to live within it. Every detail, from light and flow to materials and form, is thoughtfully considered to create spaces that are beautiful, functional, and built to last.
                     </p>
                     <p className="ab-story-p">
                         Guided by sustainable principles, we design with both people and the planet in mind. The result is a home that is calm, connected, and uniquely yours.
@@ -95,8 +95,8 @@ export default function AboutPage() {
                     <p className="ab-team-p">
                         With backgrounds in architecture, interior design, and engineering, we bring
                         together technical precision and creative thinking to deliver spaces that are
-                        both beautiful and practical. Every project is approached collaboratively —
-                        from the first conversation to the final detail — ensuring each design
+                        both beautiful and practical. Every project is approached collaboratively,
+                        from the first conversation to the final detail, ensuring each design
                         reflects our shared commitment to quality, innovation, and purpose.
                     </p>
                     <p className="ab-team-p">
@@ -110,7 +110,7 @@ export default function AboutPage() {
                                 <div className="ab-team-photo">
                                     <Image
                                         src={member.image}
-                                        alt={`${member.name} — ${member.role}, Aureon Studio`}
+                                        alt={`${member.name}, ${member.role}, Aureon Studio`}
                                         fill
                                         sizes="(max-width: 720px) 86vw, 320px"
                                         quality={90}
@@ -135,7 +135,7 @@ export default function AboutPage() {
                     <blockquote className="ab-quote-text">
                         Working with Aureon was a collaborative partnership from day one. We felt heard, valued, and the result exceeded every expectation.
                     </blockquote>
-                    <cite className="ab-quote-cite">— Client, Oakridge House, Surrey</cite>
+                    <cite className="ab-quote-cite">Client, Oakridge House, Surrey</cite>
                 </div>
             </section>
 
@@ -147,9 +147,9 @@ export default function AboutPage() {
                 <div className="ab-quote-content">
                     <span className="ab-quote-marks">&ldquo;</span>
                     <blockquote className="ab-quote-text">
-                        The space feels completely alive — every corner was considered with such precision and warmth. It&apos;s exactly what we dreamed of.
+                        The space feels completely alive. Every corner was considered with such precision and warmth. It&apos;s exactly what we dreamed of.
                     </blockquote>
-                    <cite className="ab-quote-cite">— Client, Arbore Sanctuary Café, London</cite>
+                    <cite className="ab-quote-cite">Client, Arbore Sanctuary Café, London</cite>
                 </div>
             </section>
 

@@ -27,7 +27,7 @@ export default function ResidentialPage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Residential architecture — Aureon Studio"
+                    alt="Residential architecture by Aureon Studio"
                     fill
                     priority
                     quality={90}
@@ -66,7 +66,7 @@ export default function ResidentialPage() {
                 <div className="srv-intro-inner">
                     <div className="srv-intro-left">
                         <span className="srv-intro-label">Our Approach</span>
-                        <h2 className="srv-intro-statement">We approach each home as a personal sanctuary — carefully designed to reflect individual lifestyles while maintaining clarity, comfort, and balance.</h2>
+                        <h2 className="srv-intro-statement">We approach each home as a personal sanctuary, carefully designed to reflect individual lifestyles while maintaining clarity, comfort, and balance.</h2>
                     </div>
                     <div className="srv-intro-right">
                         <p>Through a considered use of space, light, and material, we create interiors that feel calm, functional, and enduring. Whether designing new homes or reworking existing spaces, our process is guided by close collaboration, ensuring each project responds naturally to its context and the people who inhabit it.</p>
@@ -78,7 +78,7 @@ export default function ResidentialPage() {
             <div className="srv-img-break">
                 <Image
                     src={breakImg}
-                    alt="Residential interior — Aureon Studio"
+                    alt="Residential interior by Aureon Studio"
                     fill
                     className="srv-img-break-photo"
                     sizes="100vw"

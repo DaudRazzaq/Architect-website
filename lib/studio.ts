@@ -1,5 +1,5 @@
 /**
- * Studio location — single source of truth for anything that points at the
+ * Studio location - single source of truth for anything that points at the
  * office on a map. Imported by the contact page and the site footer so the
  * embed and the directions link can never drift apart.
  *
@@ -11,7 +11,7 @@
 export const STUDIO_MAP_QUERY = '60 Tottenham Court Road, Fitzrovia, London W1T 2EW'
 
 /** Keyless Google Maps embed. Requires `frame-src https://maps.google.com`
- *  in the CSP (see next.config.ts) — without it the iframe is silently
+ *  in the CSP (see next.config.ts) - without it the iframe is silently
  *  blocked and renders as an empty box. */
 export const STUDIO_MAP_EMBED = `https://maps.google.com/maps?q=${encodeURIComponent(
   STUDIO_MAP_QUERY,

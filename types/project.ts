@@ -1,6 +1,6 @@
 export interface ProjectImage {
   src: string
-  /** Intrinsic pixel size — the case-study layout keeps each render's own
+  /** Intrinsic pixel size - the case-study layout keeps each render's own
    *  shape (portrait or landscape) instead of cropping it to a fixed ratio. */
   width: number
   height: number

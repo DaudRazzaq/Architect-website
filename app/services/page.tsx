@@ -53,7 +53,7 @@ export default function ServicesPage() {
             <section className="sov-hero">
                 <Image
                     src={imgHero}
-                    alt="Aureon Studio — Services"
+                    alt="Aureon Studio services"
                     fill
                     priority
                     sizes="100vw"
@@ -108,12 +108,12 @@ export default function ServicesPage() {
                     <span className="sov-row-label">Residential</span>
                     <h2 className="sov-row-tagline">Designing Homes That Reflect<br />the Way You Live</h2>
                     <p className="sov-row-body">Our residential architecture focuses on creating thoughtful living environments shaped around everyday life.</p>
-                    <p className="sov-row-body">We approach each home as a personal sanctuary — carefully designed to reflect individual lifestyles while maintaining clarity, comfort, and balance. Through a considered use of space, light, and material, we create interiors that feel calm, functional, and enduring.</p>
+                    <p className="sov-row-body">We approach each home as a personal sanctuary, carefully designed to reflect individual lifestyles while maintaining clarity, comfort, and balance. Through a considered use of space, light, and material, we create interiors that feel calm, functional, and enduring.</p>
                     <p className="sov-row-body">Whether designing new homes or reworking existing spaces, our process is guided by close collaboration, ensuring each project responds naturally to its context and the people who inhabit it.</p>
                     <Link href="/services/residential" className="sov-row-link">Explore Residential Services</Link>
                 </div>
                 <div className="sov-row-img-wrap">
-                    <Image src={imgResidential} alt="Residential — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgResidential} alt="Residential design by Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
             </div>
 
@@ -122,7 +122,7 @@ export default function ServicesPage() {
             {/* ── COMMERCIAL  ·  image left / text right ── */}
             <div className="sov-row sov-row--rev sov-reveal">
                 <div className="sov-row-img-wrap">
-                    <Image src={imgCommercial} alt="Commercial — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgCommercial} alt="Commercial design by Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
                 <div className="sov-row-text">
                     <span className="sov-row-label">Commercial</span>
@@ -147,7 +147,7 @@ export default function ServicesPage() {
                     <Link href="/services/multipurpose" className="sov-row-link">Explore Multipurpose Services</Link>
                 </div>
                 <div className="sov-row-img-wrap">
-                    <Image src={imgMulti} alt="Multipurpose — Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
+                    <Image src={imgMulti} alt="Multipurpose design by Aureon Studio" fill quality={90} sizes="(max-width:960px) 100vw, 55vw" className="sov-row-img" />
                 </div>
             </div>
 
@@ -172,7 +172,7 @@ export default function ServicesPage() {
                     <span className="sov-flag-text">Your Home, The Way You Live</span>
                     <span className="sov-flag-line" />
                 </div>
-                <p className="sov-band-text">You can see your home&apos;s potential — a space that truly reflects you and the way you live. For those with vision but no time to chase it, we guide every step, turning your ideas into a home that is effortless and entirely yours.</p>
+                <p className="sov-band-text">You can see your home&apos;s potential: a space that truly reflects you and the way you live. For those with vision but no time to chase it, we guide every step, turning your ideas into a home that is effortless and entirely yours.</p>
             </section>
 
             {/* ── GET IN TOUCH ── */}

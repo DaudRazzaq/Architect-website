@@ -16,11 +16,11 @@ import whyImage from '../assets/hero2.webp';
 const blocks = [
   {
     title: 'Clear guidance from start to finish',
-    body: 'Every home — and every client — is different. We begin by understanding your goals, your property, and what "better living" looks like for you. From there, we give clear recommendations, define a sensible scope, and guide you through each decision so the process feels calm, structured, and manageable.',
+    body: 'Every home, and every client, is different. We begin by understanding your goals, your property, and what "better living" looks like for you. From there, we give clear recommendations, define a sensible scope, and guide you through each decision so the process feels calm, structured, and manageable.',
   },
   {
     title: 'Practical, buildable design',
-    body: 'We design with delivery in mind. That means layouts that work, details that make sense, and information that helps contractors price accurately and build with confidence. Our focus is on creating interiors that look beautiful on paper — and perform beautifully in real life.',
+    body: 'We design with delivery in mind. That means layouts that work, details that make sense, and information that helps contractors price accurately and build with confidence. Our focus is on creating interiors that look beautiful on paper and perform beautifully in real life.',
   },
   {
     title: 'A calmer, more considered home',
@@ -28,7 +28,7 @@ const blocks = [
   },
   {
     title: 'Sustainable thinking, naturally',
-    body: "Sustainability is woven into every conversation. We prioritise improving what already exists, choosing durable materials, and making responsible design decisions that reduce waste and help your home last longer. It's a quieter approach to sustainability — focused on comfort, longevity, and thoughtful choices.",
+    body: "Sustainability is woven into every conversation. We prioritise improving what already exists, choosing durable materials, and making responsible design decisions that reduce waste and help your home last longer. It's a quieter approach to sustainability, focused on comfort, longevity, and thoughtful choices.",
   },
 ];
 
@@ -138,7 +138,7 @@ export default function WhyWorkWithUs() {
               <div className="oa-media-layer">
                 <Image
                   src={whyImage}
-                  alt="Our studio at work — collaborative, structured, and delivery-focused"
+                  alt="Our studio at work: collaborative, structured, and delivery-focused"
                   fill
                   className="oa-img"
                   sizes="(max-width: 768px) 100vw, 44vw"

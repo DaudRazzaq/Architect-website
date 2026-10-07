@@ -10,7 +10,7 @@ import { caretAfterDigits, formatPounds } from '@/lib/enquiry'
 // they're grouped as you type ("25000" → "25,000").
 //
 // Re-inserting the commas makes React rewrite the input's value, which throws
-// the caret to the end — so editing mid-number would jump. The caret is put
+// the caret to the end - so editing mid-number would jump. The caret is put
 // back in a layout effect, i.e. after React has written the value to the DOM.
 // That ordering also covers a rejected keystroke (a letter typed mid-number),
 // where the value is unchanged and React restores it only after the event.

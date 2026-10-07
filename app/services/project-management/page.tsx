@@ -27,7 +27,7 @@ export default function ProjectManagementPage() {
             >
                 <Image
                     src={heroImg}
-                    alt="Project Management — Aureon Studio"
+                    alt="Project Management by Aureon Studio"
                     fill
                     priority
                     quality={90}

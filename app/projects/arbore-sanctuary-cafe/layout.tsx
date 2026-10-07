@@ -4,7 +4,7 @@ import { buildMetadata } from '@/lib/metadata'
 export const revalidate = 86400
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Arboré Sanctuary Café — Multipurpose Design',
+  title: 'Arboré Sanctuary Café - Multipurpose Design',
   description:
     'A sanctuary café and co-working retreat in Bali blending traditional Balinese craftsmanship with contemporary hospitality design.',
   path: '/projects/arbore-sanctuary-cafe',

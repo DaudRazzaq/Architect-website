@@ -318,7 +318,7 @@ export default function Hero() {
                 )}
 
                 <div className="hero-centerpiece">
-                    {/* Eyebrow and lede are mobile-only (hidden at >640px) — they give
+                    {/* Eyebrow and lede are mobile-only (hidden at >640px) - they give
                         the stacked full-frame hero the editorial hierarchy it needs
                         once the copy sits below the photo rather than over it. */}
                     <span className="hero-eyebrow">

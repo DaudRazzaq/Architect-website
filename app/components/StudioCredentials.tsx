@@ -119,10 +119,10 @@ export default function StudioCredentials() {
 
                         <div className="sc-blocks">
                             <p className="sc-body">
-                                Homes with extraordinary potential deserve expert care. At Aureon, every project is held to the most rigorous professional standards — from initial concept through to completion — with meticulous attention to detail, thoughtful client support, and transparent pricing from the very first conversation.
+                                Homes with extraordinary potential deserve expert care. At Aureon, every project is held to the most rigorous professional standards, from initial concept through to completion, with meticulous attention to detail, thoughtful client support, and transparent pricing from the very first conversation.
                             </p>
                             <p className="sc-body">
-                                Our design approach prioritises efficiency, comfort, and long-term sustainability, ensuring each space is tailored precisely to how our clients live. We believe beautiful architecture and responsible building are not in conflict — they are inseparable.
+                                Our design approach prioritises efficiency, comfort, and long-term sustainability, ensuring each space is tailored precisely to how our clients live. We believe beautiful architecture and responsible building are not in conflict. They are inseparable.
                             </p>
                             <p className="sc-body sc-body--closing">
                                 These principles reflect our commitment to quality, accountability, and delivering exceptional homes built to stand the test of time.

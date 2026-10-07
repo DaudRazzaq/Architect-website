@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PROJECT_ROLE } from '@/data/project-role';
+import { useProjectsFilter } from './ProjectsFilter';
 
 export interface PortfolioItem {
     title: string;
@@ -13,10 +14,9 @@ export interface PortfolioItem {
     href: string | null;
 }
 
-const FILTERS = ['All', 'Residential', 'Commercial', 'Multipurpose'];
-
 export default function ProjectsGrid({ projects }: { projects: PortfolioItem[] }) {
-    const [activeFilter, setActiveFilter] = useState<string>('All');
+    // Chosen with the tabs at the foot of the hero (ProjectsFilterTabs)
+    const { active: activeFilter } = useProjectsFilter();
     const gridRef = useRef<HTMLDivElement>(null);
 
     const filtered =
@@ -47,19 +47,6 @@ export default function ProjectsGrid({ projects }: { projects: PortfolioItem[] }
 
     return (
         <>
-            {/* Filter tabs */}
-            <div className="pw-hero-filters">
-                {FILTERS.map((f) => (
-                    <button
-                        key={f}
-                        className={`pw-hero-filter-btn${activeFilter === f ? ' active' : ''}`}
-                        onClick={() => setActiveFilter(f)}
-                    >
-                        {f}
-                    </button>
-                ))}
-            </div>
-
             {/* Grid */}
             <section className="pw-grid-section">
                 <div ref={gridRef} className="pw-grid">

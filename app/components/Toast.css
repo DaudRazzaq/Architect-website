@@ -1,5 +1,5 @@
 /* ============================================
-   TOAST — glassmorphism notifications
+   TOAST - glassmorphism notifications
    ============================================
    Layout rule: every box in this file sizes itself with vertical PADDING,
    never a fixed/min height. iOS Safari's dynamic viewport + Dynamic Type
@@ -31,7 +31,7 @@
     max-width: 420px;
     box-sizing: border-box;
 
-    /* Height comes entirely from content + padding — no height/min-height. */
+    /* Height comes entirely from content + padding - no height/min-height. */
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
     padding-left: 1rem;
@@ -53,7 +53,7 @@
 .toast__icon {
     flex-shrink: 0;
     display: flex;
-    /* Nudge the icon down to sit on the first text line, via padding — not
+    /* Nudge the icon down to sit on the first text line, via padding - not
        a fixed height on the parent. */
     padding-top: 0.1875rem;
     color: var(--color-text);

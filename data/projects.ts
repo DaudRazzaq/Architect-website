@@ -29,7 +29,7 @@ function caseStudyProject(slug: string, text: DeckText, gallery: ProjectImage[])
   }
 }
 
-// The Reconnected Home — deck slide 1
+// The Reconnected Home - deck slide 1
 const RECONNECTED_TEXT: DeckText = {
   title: 'The Reconnected Home',
   label: 'Residential Interiors · Refurbishment',
@@ -56,7 +56,7 @@ const RECONNECTED_TEXT: DeckText = {
   ],
 }
 
-// The Sage Retreat — deck slide 8
+// The Sage Retreat - deck slide 8
 const SAGE_TEXT: DeckText = {
   title: 'The Sage Retreat',
   label: 'Residential Interiors · Refurbishment',
@@ -83,7 +83,7 @@ const SAGE_TEXT: DeckText = {
   ],
 }
 
-// The Dividing Line — deck slide 11
+// The Dividing Line - deck slide 11
 const DIVIDING_TEXT: DeckText = {
   title: 'The Dividing Line',
   label: 'Residential Interiors · Refurbishment',
@@ -110,7 +110,7 @@ const DIVIDING_TEXT: DeckText = {
   ],
 }
 
-// The Warm Ascent — deck slide 15
+// The Warm Ascent - deck slide 15
 const WARM_TEXT: DeckText = {
   title: 'The Warm Ascent',
   label: 'Residential Interiors · Refurbishment',
@@ -185,7 +185,7 @@ export const projects: Project[] = [
     title: 'Oakridge House',
     category: 'Residential',
     description:
-      'A considered transformation of a Victorian semi in Surrey — restoring its original bones while introducing calm, contemporary interiors that work for modern family life.',
+      'A considered transformation of a Victorian semi in Surrey, restoring its original bones while introducing calm, contemporary interiors that work for modern family life.',
     heroImage: '/projects/oakridge-house/1.jpeg',
     images: [
       '/projects/oakridge-house/1.jpeg',
@@ -211,11 +211,11 @@ export const projects: Project[] = [
     title: 'SereniFlow Wellness Centre',
     category: 'Commercial',
     description:
-      'A purpose-built wellness centre in Richmond designed around the principles of biophilic design — connecting occupants to nature through light, material, and form.',
+      'A purpose-built wellness centre in Richmond designed around the principles of biophilic design, connecting occupants to nature through light, material, and form.',
     heroImage: '/projects/sereniflow-wellness-centre/1.jpeg',
     // NOTE: only one production photo exists in /public for this project.
     // Add /projects/sereniflow-wellness-centre/2.jpeg & 3.jpeg (or update this
-    // list) once more photography is available — referencing missing files
+    // list) once more photography is available - referencing missing files
     // here would 404 wherever the gallery renders.
     images: ['/projects/sereniflow-wellness-centre/1.jpeg'],
     year: 2023,
@@ -227,9 +227,9 @@ export const projects: Project[] = [
     title: 'Arboré Sanctuary Café',
     category: 'Multipurpose',
     description:
-      'A sanctuary café and co-working retreat in Bali that blends traditional Balinese craftsmanship with contemporary hospitality design — a space to slow down and reconnect.',
+      'A sanctuary café and co-working retreat in Bali that blends traditional Balinese craftsmanship with contemporary hospitality design, a space to slow down and reconnect.',
     heroImage: '/projects/arbore-sanctuary-cafe/1.jpeg',
-    // NOTE: only photos 1 & 4 exist in /public for this project — 2 & 3 were
+    // NOTE: only photos 1 & 4 exist in /public for this project - 2 & 3 were
     // referenced here but missing (would 404 wherever the gallery renders).
     images: [
       '/projects/arbore-sanctuary-cafe/1.jpeg',
