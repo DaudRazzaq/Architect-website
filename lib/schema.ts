@@ -99,7 +99,7 @@ export function buildProjectSchema(project: Project) {
       name: 'Aureon Studio',
       url: 'https://aureon.studio',
     },
-    dateCreated: String(project.year),
+    ...(project.year && { dateCreated: String(project.year) }),
     locationCreated: {
       '@type': 'Place',
       name: project.location,

@@ -7,7 +7,7 @@
     position: relative;
     height: 100vh;
     min-height: 600px;
-    background: url('/hero6.png') center / cover no-repeat;
+    background: url('/hero6.webp') center / cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -436,6 +436,47 @@
     color: #b0aba6;
 }
 
+/* Nothing chosen yet: the "Select a …" prompt reads as placeholder text.
+   Options are reset to the normal colour, as some browsers inherit it. */
+.ct-select--prompt {
+    color: #a09b96;
+}
+
+.ct-select option {
+    color: #1a1a1a;
+}
+
+/* Budget — typed amount with a pound sign that appears once the label has
+   floated out of the way (on focus, or when the field has a value) */
+.ct-input--pounds {
+    padding-left: 2rem;
+}
+
+.ct-pounds-sign {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    color: #1a1a1a;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.ct-input--pounds:focus ~ .ct-pounds-sign,
+.ct-input--pounds:not(:placeholder-shown) ~ .ct-pounds-sign {
+    opacity: 1;
+}
+
+/* Field flagged by the pre-submit check */
+.ct-input[aria-invalid='true'],
+.ct-select[aria-invalid='true'],
+.ct-textarea[aria-invalid='true'] {
+    border-color: #b04040;
+}
+
 /* Submit */
 .ct-submit {
     display: flex;
@@ -699,7 +740,7 @@
 /* Left Side - Image and Social */
 .contact-left {
     position: relative;
-    background: url('/hero6.png') center/cover no-repeat;
+    background: url('/hero6.webp') center/cover no-repeat;
 }
 
 .contact-image {

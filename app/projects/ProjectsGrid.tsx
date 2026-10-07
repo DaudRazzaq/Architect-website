@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PROJECT_ROLE } from '@/data/projects';
+import { PROJECT_ROLE } from '@/data/project-role';
 
 export interface PortfolioItem {
     title: string;

@@ -3,7 +3,7 @@
     position: relative;
     height: 72vh;
     min-height: 520px;
-    background: url('/hero4.png') center / cover no-repeat;
+    background: url('/hero4.webp') center / cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -89,14 +89,16 @@ export default function Navigation() {
         { label: 'SERVICES', href: '/services' },
     ];
 
-    const navRight = [
-        { label: 'FOR STUDIOS', href: '/for-studios' },
-        { label: 'FAQS', href: '/faqs' },
-        { label: 'JOURNAL', href: '/blog' },
-        { label: 'CONTACT', href: '/contact' },
-    ];
+    const forStudios = { label: 'FOR STUDIOS', href: '/for-studios' };
+    const faqs = { label: 'FAQS', href: '/faqs' };
+    const journal = { label: 'JOURNAL', href: '/blog' };
+    const contact = { label: 'CONTACT', href: '/contact' };
 
-    const mobileNav = [{ label: 'HOME', href: '/' }, ...navLeft, ...navRight];
+    // Three links either side of the wordmark. FAQs stays in the mobile menu
+    // (and the footer) but not in the desktop header.
+    const navRight = [forStudios, journal, contact];
+
+    const mobileNav = [{ label: 'HOME', href: '/' }, ...navLeft, forStudios, faqs, journal, contact];
     const closeMenu = () => setMobileMenuOpen(false);
 
     const isActive = (href: string) => {

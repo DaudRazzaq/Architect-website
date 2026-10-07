@@ -1,0 +1,455 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PROJECT CASE STUDY — additions to ../oakridge-house/project.css
+   Used by the data-driven project pages (/projects/[slug]): a split hero
+   for portrait renders and a gallery that keeps each render's own shape.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Portrait hero: text left, render right — both clear of the fixed
+      header, so the light menu never sits on a pale render ── */
+.cs-hero {
+    position: relative;
+    padding: 9rem clamp(1.5rem, 5vw, 5rem) 4rem;
+    background: linear-gradient(160deg, #0d0b09 0%, #1c1610 55%, #0d0b09 100%);
+    overflow: hidden;
+}
+
+/* Subtle architectural grid, as on the FAQs and service heroes */
+.cs-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(160, 120, 80, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160, 120, 80, 0.045) 1px, transparent 1px);
+    background-size: 90px 90px;
+    pointer-events: none;
+}
+
+.cs-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    min-height: calc(100svh - 13rem); /* 9rem top + 4rem bottom padding */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(2.5rem, 5vw, 6rem);
+}
+
+.cs-hero-text {
+    max-width: 36rem;
+}
+
+.cs-hero-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 1.5rem;
+    font-family: var(--font-primary);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #a07850;
+}
+
+.cs-hero-label::before {
+    content: '';
+    flex: 0 0 auto;
+    width: 2.5rem;
+    height: 1px;
+    background: #a07850;
+    opacity: 0.55;
+}
+
+.cs-hero-title {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.4vw, 4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: #f5f2ec;
+}
+
+.cs-hero-subtitle {
+    margin: 0 0 2.5rem;
+    font-family: var(--font-primary);
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(245, 242, 236, 0.72);
+}
+
+.cs-hero-highlights {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    border-top: 1px solid rgba(245, 242, 236, 0.12);
+}
+
+.cs-hero-highlight {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(245, 242, 236, 0.12);
+}
+
+.cs-hero-highlight-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #a07850;
+}
+
+.cs-hero-highlight p {
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba(245, 242, 236, 0.82);
+}
+
+.cs-hero-location {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245, 242, 236, 0.75);
+}
+
+.cs-hero-location svg {
+    flex: 0 0 auto;
+    color: #a07850;
+}
+
+/* The render keeps its own proportions — as tall as the hero allows,
+   capped at 46vw so the text column always has room */
+.cs-hero-media {
+    position: relative;
+    height: calc(100svh - 13rem);
+    min-height: 30rem;
+    width: min(46vw, calc((100svh - 13rem) * var(--cs-hero-ar, 0.75)));
+    overflow: hidden;
+    background: #1a1714;
+}
+
+/* Slideshow — same movement as `.pd-hero-slide`, scoped to this frame */
+.cs-slide {
+    z-index: 0;
+    object-fit: cover;
+    object-position: center;
+    transform: translateX(100%);
+    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: transform;
+}
+
+.cs-slide--active {
+    z-index: 2;
+    transform: translateX(0%);
+}
+
+.cs-slide--exit {
+    z-index: 1;
+    transform: translateX(-100%);
+}
+
+/* ── Landscape hero: the slides sit in their own frame. On desktop it fills
+      the hero exactly like the hand-built pages; on phones it becomes the
+      photo band above the copy (see the portrait media query below). ── */
+.cs-landscape-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* ── Gallery — every render shown whole, at its own aspect ratio ── */
+.cs-gallery {
+    --cs-gap: 1.5px;
+    background: #ffffff;
+}
+
+/* Portrait renders share one shape per project: even rows, last row centred */
+.cs-gallery--portrait {
+    --cs-cols: var(--cs-gallery-desktop-cols, 3);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--cs-gap);
+}
+
+.cs-gallery--portrait .cs-gallery-item {
+    flex: 0 0 calc((100% - (var(--cs-cols) - 1) * var(--cs-gap)) / var(--cs-cols));
+}
+
+/* Landscape renders vary in proportion: justified rows. Each render grows in
+   proportion to its aspect ratio, so every render in a row ends up the same
+   height and the row exactly fills the width — whole images, no gaps. */
+.cs-gallery--landscape {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cs-gap);
+}
+
+.cs-gallery-row {
+    display: flex;
+    gap: var(--cs-gap);
+}
+
+.cs-gallery-row .cs-gallery-item {
+    flex: var(--cs-ratio, 1) 1 0;
+    min-width: 0;
+}
+
+.cs-gallery-item {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    background: #f0ede8;
+}
+
+.cs-gallery-img {
+    object-fit: cover;
+}
+
+@media (max-width: 1100px) {
+    .cs-gallery--portrait {
+        --cs-cols: 3;
+    }
+}
+
+/* Phones: one render per row, full width */
+@media (max-width: 768px) {
+    .cs-gallery-row {
+        flex-direction: column;
+    }
+
+    .cs-gallery-row .cs-gallery-item {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .cs-gallery--portrait {
+        --cs-cols: 2;
+    }
+}
+
+/* ── Mobile & tablet: render first (below the 64px bar), copy beneath ── */
+@media (max-width: 920px) {
+    .cs-hero {
+        padding: calc(64px + env(safe-area-inset-top)) 0 0;
+    }
+
+    .cs-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        min-height: 0;
+    }
+
+    .cs-hero-media {
+        order: -1;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: var(--cs-hero-ar, 0.75);
+        max-height: 70svh;
+    }
+
+    .cs-hero-text {
+        max-width: none;
+        padding: 2.5rem clamp(1.25rem, 5vw, 2.5rem) 3rem;
+    }
+
+    .cs-hero-label {
+        gap: 0.75rem;
+        margin-bottom: 1.15rem;
+        font-size: 0.625rem;
+        letter-spacing: 0.24em;
+    }
+
+    .cs-hero-label::before {
+        width: 1.75rem;
+    }
+
+    .cs-hero-title {
+        margin-bottom: 1.15rem;
+        font-size: clamp(2.1rem, 9vw, 3rem);
+        line-height: 1.08;
+    }
+
+    .cs-hero-subtitle {
+        margin-bottom: 2rem;
+        font-size: 0.9375rem;
+        line-height: 1.65;
+    }
+
+    .cs-hero-highlight {
+        grid-template-columns: 1.875rem 1fr;
+        gap: 0.875rem;
+        padding: 1rem 0;
+    }
+
+    .cs-hero-highlight-icon {
+        width: 1.875rem;
+        height: 1.875rem;
+    }
+
+    .cs-hero-highlight p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cs-slide {
+        transition: none;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LANDSCAPE HERO — phones & tablets (portrait)
+   The hand-built pages overlay their copy on a photo band only
+   100vw / 1.5 tall. These deck projects carry a longer label, title and
+   subtitle than fits on that band, so here the render sits on top and the
+   copy follows on the dark background — matching the portrait heroes —
+   with the three highlights listed instead of hidden.
+   Scoped with `.cs-hero--landscape` so the hand-built pages are untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 920px) and (orientation: portrait) {
+    .cs-hero--landscape.pd-hero {
+        display: block;
+        height: auto;
+        min-height: 0;
+        padding-top: calc(64px + env(safe-area-inset-top));
+        background: linear-gradient(160deg, #0d0b09 0%, #1c1610 55%, #0d0b09 100%);
+    }
+
+    .cs-hero--landscape .cs-landscape-media {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        aspect-ratio: var(--pd-hero-ar, 1.5);
+    }
+
+    .cs-hero--landscape .pd-hero-img,
+    .cs-hero--landscape .pd-hero-slide {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .cs-hero--landscape .pd-hero-overlay {
+        background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.3) 100%);
+        border-bottom: 1px solid rgba(212, 165, 116, 0.5);
+    }
+
+    .cs-hero--landscape .pd-hero-center {
+        padding: 2.5rem clamp(1.25rem, 5vw, 2.5rem) 0;
+        text-align: left;
+    }
+
+    .cs-hero--landscape .pd-hero-category {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0 0 1.15rem;
+        font-size: 0.625rem;
+        font-weight: 500;
+        letter-spacing: 0.24em;
+        color: #a07850;
+    }
+
+    .cs-hero--landscape .pd-hero-category::before {
+        content: '';
+        flex: 0 0 auto;
+        width: 1.75rem;
+        height: 1px;
+        background: #a07850;
+        opacity: 0.55;
+    }
+
+    .cs-hero--landscape .pd-hero-title-row {
+        justify-content: flex-start;
+        gap: 0;
+        margin-bottom: 1.15rem;
+    }
+
+    .cs-hero--landscape .pd-hero-deco-line {
+        display: none;
+    }
+
+    .cs-hero--landscape .pd-hero-title {
+        font-size: clamp(2.1rem, 9vw, 3rem);
+        line-height: 1.08;
+        letter-spacing: -0.01em;
+        text-align: left;
+    }
+
+    .cs-hero--landscape .pd-hero-subtitle {
+        max-width: none;
+        margin: 0;
+        text-align: left;
+        font-size: 0.9375rem;
+        line-height: 1.65;
+        color: rgba(245, 242, 236, 0.72);
+    }
+
+    /* Highlights, then location — the same order as the portrait heroes */
+    .cs-hero--landscape .pd-hero-bottom {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem clamp(1.25rem, 5vw, 2.5rem) 3rem;
+    }
+
+    .cs-hero--landscape .pd-hero-stats {
+        display: block;
+        border-top: 1px solid rgba(245, 242, 236, 0.12);
+    }
+
+    .cs-hero--landscape .pd-hero-stat,
+    .cs-hero--landscape .pd-hero-stat:last-child {
+        display: flex;
+        gap: 0.875rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(245, 242, 236, 0.12);
+    }
+
+    .cs-hero--landscape .pd-hero-stat-divider {
+        display: none;
+    }
+
+    .cs-hero--landscape .pd-hero-stat-icon {
+        width: 1.875rem;
+        height: 1.875rem;
+        margin-top: 0;
+        color: #a07850;
+        opacity: 1;
+    }
+
+    .cs-hero--landscape .pd-hero-stat p {
+        font-size: 0.875rem;
+        line-height: 1.65;
+        color: rgba(245, 242, 236, 0.82);
+    }
+
+    .cs-hero--landscape .pd-hero-location {
+        order: 2;
+        padding: 1.5rem 0 0;
+        border-right: 0;
+        font-size: 0.8125rem;
+        letter-spacing: 0.14em;
+        color: rgba(245, 242, 236, 0.75);
+    }
+
+    .cs-hero--landscape .pd-hero-location svg {
+        color: #a07850;
+    }
+}

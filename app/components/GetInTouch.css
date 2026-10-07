@@ -190,6 +190,48 @@
     border-bottom-color: var(--color-accent, #d4a574);
 }
 
+/* Nothing chosen yet: the "Select a …" prompt reads as placeholder text.
+   Options are reset to the normal colour, as some browsers inherit it. */
+.git-select--prompt {
+    color: #a09b96;
+}
+
+.git-select option {
+    color: #1a1a1a;
+}
+
+/* Budget — typed amount with a fixed pound sign */
+.git-pounds {
+    position: relative;
+}
+
+.git-pounds__sign {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: clamp(0.88rem, 0.95vw, 0.95rem);
+    color: #1a1a1a;
+    pointer-events: none;
+}
+
+.git-pounds .git-pounds__input {
+    padding-left: 1rem;
+}
+
+.git-pounds__input::placeholder {
+    color: #a09b96;
+    opacity: 1;
+}
+
+/* Field flagged by the pre-submit check — outranks the focus styles,
+   because the check moves focus onto the field it flags */
+.git-field .git-input[aria-invalid='true'],
+.git-field .git-select[aria-invalid='true'] {
+    border-color: #b04040;
+}
+
 /* helper hint text above textarea */
 .git-field-hint {
     margin: 0 0 0.8rem 0;
@@ -463,5 +505,18 @@
         margin-top: 12px;
         font-size: 0.75rem;
         letter-spacing: 2.5px;
+    }
+}
+
+/* Budget on mobile — fields become 52px boxes with 16px padding, so the
+   pound sign moves inside the box and the amount starts after it */
+@media (max-width: 768px) {
+    .git-pounds__sign {
+        left: 16px;
+        font-size: 16px;
+    }
+
+    .git-pounds .git-pounds__input {
+        padding-left: 32px;
     }
 }

@@ -202,57 +202,6 @@
     color: var(--color-primary);
 }
 
-/* ── Rates table (/for-studios) ── */
-.sd-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: var(--font-primary);
-}
-
-.sd-table th {
-    padding: 0 0 1rem;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #a07850;
-    text-align: left;
-    border-bottom: 1px solid #e5dfd7;
-}
-
-.sd-table td {
-    padding: 1.25rem 0;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.55;
-    color: rgba(26, 26, 26, 0.78);
-    border-bottom: 1px solid #e5dfd7;
-    vertical-align: baseline;
-}
-
-.sd-table th:last-child,
-.sd-table td:last-child {
-    padding-left: 1.5rem;
-    text-align: right;
-    white-space: nowrap;
-}
-
-.sd-table td:last-child {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--color-primary);
-}
-
-.sd-table-note {
-    margin: 1.5rem 0 0;
-    font-family: var(--font-primary);
-    font-size: 0.875rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: rgba(26, 26, 26, 0.6);
-}
-
 /* ── Action band (timeline, price, single button) ── */
 .sd-action {
     position: relative;
@@ -404,13 +353,8 @@
         grid-template-columns: 2.5rem 1fr;
     }
 
-    .sd-list__text,
-    .sd-table td {
+    .sd-list__text {
         font-size: 0.9375rem;
-    }
-
-    .sd-table td:last-child {
-        font-size: 1.0625rem;
     }
 
     .sd-btn {

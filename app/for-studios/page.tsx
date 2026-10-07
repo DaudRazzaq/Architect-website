@@ -25,14 +25,6 @@ export const metadata: Metadata = {
   ],
 }
 
-const RATES = [
-  { service: 'Measured survey, flat or terrace up to 100 m²', from: '£350' },
-  { service: 'Measured survey, house 100–200 m²', from: '£500' },
-  { service: 'Planning drawing set, rear or side extension', from: '£750' },
-  { service: 'Building Regulations drawings, extension', from: '£800' },
-  { service: 'Drafting or visualisation support', from: '£30 per hour' },
-]
-
 export default function ForStudiosPage() {
   return (
     <>
@@ -95,31 +87,6 @@ export default function ForStudiosPage() {
           },
         ]}
       />
-
-      <section className="sd-section">
-        <div className="sd-inner">
-          <h2 className="sd-heading">Rates</h2>
-          <table className="sd-table">
-            <thead>
-              <tr>
-                <th scope="col">Service</th>
-                <th scope="col">From</th>
-              </tr>
-            </thead>
-            <tbody>
-              {RATES.map((rate) => (
-                <tr key={rate.service}>
-                  <td>{rate.service}</td>
-                  <td>{rate.from}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="sd-table-note">
-            Rates exclude VAT where applicable. Repeat studios get priority booking.
-          </p>
-        </div>
-      </section>
 
       <ServiceAction
         button={{ label: 'Send us a brief', href: enquiryHref('studio-support') }}

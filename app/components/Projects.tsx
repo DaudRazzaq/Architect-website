@@ -3,10 +3,38 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ProjectCard from './ProjectCard';
-import { PROJECT_ROLE } from '@/data/projects';
+import { PROJECT_ROLE } from '@/data/project-role';
 import './Projects.css';
 
 const projects = [
+    {
+        title: 'The Reconnected Home',
+        location: 'United Kingdom',
+        category: 'Residential',
+        image: '/projects/the-reconnected-home/image1.jpeg',
+        href: '/projects/the-reconnected-home',
+    },
+    {
+        title: 'The Sage Retreat',
+        location: 'United Kingdom',
+        category: 'Residential',
+        image: '/projects/the-sage-retreat/image4.jpeg',
+        href: '/projects/the-sage-retreat',
+    },
+    {
+        title: 'The Dividing Line',
+        location: 'United Kingdom',
+        category: 'Residential',
+        image: '/projects/the-dividing-line/image6.jpeg',
+        href: '/projects/the-dividing-line',
+    },
+    {
+        title: 'The Warm Ascent',
+        location: 'United Kingdom',
+        category: 'Residential',
+        image: '/projects/the-warm-ascent/image1.jpeg',
+        href: '/projects/the-warm-ascent',
+    },
     {
         title: 'Oakridge House',
         location: 'Cobham, Surrey',

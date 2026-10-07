@@ -11,7 +11,7 @@ import {
   animate,
 } from 'framer-motion';
 import './OurApproach.css';
-import whyImage from '../assets/hero2.png';
+import whyImage from '../assets/hero2.webp';
 
 const blocks = [
   {

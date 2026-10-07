@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import CTAStrip from '../../components/CTAStrip';
-import { PROJECT_ROLE } from '@/data/projects';
+import { PROJECT_ROLE } from '@/data/project-role';
 import img1 from '../../assets/Project2/1.webp';
 import img2 from '../../assets/Project2/2.webp';
 import img3 from '../../assets/Project2/3.webp';

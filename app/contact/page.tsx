@@ -1,16 +1,25 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import CTAStrip from '../components/CTAStrip';
 import { useContactForm } from '../hooks/useContactForm';
 import { useFormStorage } from '../hooks/useFormStorage';
+import { usePoundsInput } from '../hooks/usePoundsInput';
 import { useToast } from '../components/Toast';
 import './contact.css';
 import { STUDIO_DIRECTIONS_URL, STUDIO_MAP_EMBED, STUDIO_MAP_TITLE } from '@/lib/studio';
-import { BUDGET_OPTIONS, SERVICE_OPTIONS, TIMELINE_OPTIONS, serviceLabelFromSlug } from '@/lib/enquiry';
+import {
+    REFERRAL_OPTIONS,
+    SERVICE_OPTIONS,
+    TIMELINE_OPTIONS,
+    findEnquiryIssue,
+    serviceLabelFromSlug,
+    toEnquiryPayload,
+    type EnquiryIssue,
+} from '@/lib/enquiry';
 
 type FormData = {
     name: string; email: string; phone: string; company: string;
@@ -37,10 +46,30 @@ export default function ContactPage() {
         if (preset) setFormData((prev) => ({ ...prev, service: preset }));
     }, [setFormData]);
 
+    // Client-side check before sending: every dropdown has to be answered.
+    // The form keeps `noValidate`, so this — not the browser — reports what's missing.
+    const [issue, setIssue] = useState<EnquiryIssue | null>(null);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        update(e);
+        if (issue?.field === e.target.name) setIssue(null);
+    };
+
+    const { ref: budgetRef, onChange: onBudgetChange } = usePoundsInput((budget) => setFormData((prev) => ({ ...prev, budget })));
+
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
-        await sendEnquiry(form as Record<string, string>, 'contact-page');
+        const problem = findEnquiryIssue(form);
+        setIssue(problem);
+        if (problem) {
+            showToast(problem.message, 'error');
+            document.getElementById(`ct-${problem.field}`)?.focus();
+            return;
+        }
+        await sendEnquiry(toEnquiryPayload(form), 'contact-page');
     };
+
+    const errorMessage = issue?.message ?? formError;
 
     // Wipe the saved draft the moment Resend confirms delivery — a
     // successfully sent enquiry should never resurface on the next visit.
@@ -228,28 +257,28 @@ export default function ContactPage() {
                                 <div className="ct-form-grid">
                                     {/* Name */}
                                     <div className="ct-field">
-                                        <input className="ct-input" type="text" name="name" id="ct-name" placeholder=" " value={form.name} onChange={update} required />
+                                        <input className="ct-input" type="text" name="name" id="ct-name" placeholder=" " value={form.name} onChange={handleChange} required aria-invalid={issue?.field === 'name'} />
                                         <label className="ct-label" htmlFor="ct-name">Full Name <span>*</span></label>
                                     </div>
                                     {/* Email */}
                                     <div className="ct-field">
-                                        <input className="ct-input" type="email" name="email" id="ct-email" placeholder=" " value={form.email} onChange={update} required />
+                                        <input className="ct-input" type="email" name="email" id="ct-email" placeholder=" " value={form.email} onChange={handleChange} required aria-invalid={issue?.field === 'email'} />
                                         <label className="ct-label" htmlFor="ct-email">Email Address <span>*</span></label>
                                     </div>
                                     {/* Phone */}
                                     <div className="ct-field">
-                                        <input className="ct-input" type="tel" name="phone" id="ct-phone" placeholder=" " value={form.phone} onChange={update} />
+                                        <input className="ct-input" type="tel" name="phone" id="ct-phone" placeholder=" " value={form.phone} onChange={handleChange} />
                                         <label className="ct-label" htmlFor="ct-phone">Phone Number</label>
                                     </div>
                                     {/* Company */}
                                     <div className="ct-field">
-                                        <input className="ct-input" type="text" name="company" id="ct-company" placeholder=" " value={form.company} onChange={update} />
+                                        <input className="ct-input" type="text" name="company" id="ct-company" placeholder=" " value={form.company} onChange={handleChange} />
                                         <label className="ct-label" htmlFor="ct-company">Company / Organisation</label>
                                     </div>
-                                    {/* Service */}
+                                    {/* Service — the prompt option is hidden from the list, so a real choice is needed */}
                                     <div className="ct-field ct-field--full">
-                                        <select className="ct-select" name="service" id="ct-service" value={form.service} onChange={update} required>
-                                            <option value="" disabled></option>
+                                        <select className={`ct-select${form.service ? '' : ' ct-select--prompt'}`} name="service" id="ct-service" value={form.service} onChange={handleChange} required aria-invalid={issue?.field === 'service'}>
+                                            <option value="" disabled hidden>Select a service</option>
                                             {SERVICE_OPTIONS.map(s => <option key={s.slug} value={s.label}>{s.label}</option>)}
                                         </select>
                                         <label className="ct-label ct-label--select" htmlFor="ct-service">Type of Service <span>*</span></label>
@@ -257,54 +286,57 @@ export default function ContactPage() {
                                     </div>
                                     {/* Property postcode (field name kept as `location` for the email template) */}
                                     <div className="ct-field">
-                                        <input className="ct-input" type="text" name="location" id="ct-location" placeholder=" " value={form.location} onChange={update} autoComplete="postal-code" />
+                                        <input className="ct-input" type="text" name="location" id="ct-location" placeholder=" " value={form.location} onChange={handleChange} autoComplete="postal-code" />
                                         <label className="ct-label" htmlFor="ct-location">Property Postcode</label>
                                     </div>
-                                    {/* Budget */}
+                                    {/* Budget — the visitor types an amount in pounds */}
                                     <div className="ct-field">
-                                        <select className="ct-select" name="budget" id="ct-budget" value={form.budget} onChange={update}>
-                                            <option value="" disabled></option>
-                                            {BUDGET_OPTIONS.map(b => <option key={b} value={b}>{b}</option>)}
-                                        </select>
-                                        <label className="ct-label ct-label--select" htmlFor="ct-budget">Estimated Budget</label>
-                                        <span className="ct-select-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg></span>
+                                        <input
+                                            className="ct-input ct-input--pounds"
+                                            type="text"
+                                            inputMode="numeric"
+                                            name="budget"
+                                            id="ct-budget"
+                                            placeholder=" "
+                                            autoComplete="off"
+                                            ref={budgetRef}
+                                            value={form.budget}
+                                            onChange={onBudgetChange}
+                                        />
+                                        <label className="ct-label" htmlFor="ct-budget">Estimated Budget (£)</label>
+                                        <span className="ct-pounds-sign" aria-hidden="true">£</span>
                                     </div>
                                     {/* Timeline */}
                                     <div className="ct-field ct-field--full">
-                                        <select className="ct-select" name="timeline" id="ct-timeline" value={form.timeline} onChange={update}>
-                                            <option value="" disabled></option>
+                                        <select className={`ct-select${form.timeline ? '' : ' ct-select--prompt'}`} name="timeline" id="ct-timeline" value={form.timeline} onChange={handleChange} required aria-invalid={issue?.field === 'timeline'}>
+                                            <option value="" disabled hidden>Select a timeline</option>
                                             {TIMELINE_OPTIONS.map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
-                                        <label className="ct-label ct-label--select" htmlFor="ct-timeline">Project Timeline</label>
+                                        <label className="ct-label ct-label--select" htmlFor="ct-timeline">Project Timeline <span>*</span></label>
                                         <span className="ct-select-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg></span>
                                     </div>
                                     {/* Message */}
                                     <div className="ct-field ct-field--full">
-                                        <textarea className="ct-textarea" name="message" id="ct-message" placeholder=" " value={form.message} onChange={update} rows={5} />
+                                        <textarea className="ct-textarea" name="message" id="ct-message" placeholder=" " value={form.message} onChange={handleChange} rows={5} />
                                         <label className="ct-label" htmlFor="ct-message">Tell Us About Your Project</label>
                                     </div>
                                     {/* Referral */}
                                     <div className="ct-field ct-field--full">
-                                        <select className="ct-select" name="referral" id="ct-referral" value={form.referral} onChange={update}>
-                                            <option value="" disabled></option>
-                                            <option value="google">Google Search</option>
-                                            <option value="instagram">Instagram</option>
-                                            <option value="linkedin">LinkedIn</option>
-                                            <option value="referral">Personal Referral</option>
-                                            <option value="press">Press / Editorial</option>
-                                            <option value="other">Other</option>
+                                        <select className={`ct-select${form.referral ? '' : ' ct-select--prompt'}`} name="referral" id="ct-referral" value={form.referral} onChange={handleChange} required aria-invalid={issue?.field === 'referral'}>
+                                            <option value="" disabled hidden>Select an option</option>
+                                            {REFERRAL_OPTIONS.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
                                         </select>
-                                        <label className="ct-label ct-label--select" htmlFor="ct-referral">How Did You Find Us?</label>
+                                        <label className="ct-label ct-label--select" htmlFor="ct-referral">How Did You Find Us? <span>*</span></label>
                                         <span className="ct-select-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg></span>
                                     </div>
                                 </div>
 
-                                {formError && (
+                                {errorMessage && (
                                     <div className="ct-error-banner" role="alert">
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" style={{ flexShrink: 0, marginTop: '1px' }}>
                                             <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
                                         </svg>
-                                        {formError}
+                                        {errorMessage}
                                     </div>
                                 )}
                                 <button type="submit" className="ct-submit" disabled={loading} aria-busy={loading}>

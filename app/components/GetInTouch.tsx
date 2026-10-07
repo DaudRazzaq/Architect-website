@@ -1,10 +1,18 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useContactForm } from '../hooks/useContactForm';
 import { useFormStorage } from '../hooks/useFormStorage';
+import { usePoundsInput } from '../hooks/usePoundsInput';
 import { useToast } from './Toast';
-import { BUDGET_OPTIONS, SERVICE_OPTIONS, TIMELINE_OPTIONS } from '@/lib/enquiry';
+import {
+    REFERRAL_OPTIONS,
+    SERVICE_OPTIONS,
+    TIMELINE_OPTIONS,
+    findEnquiryIssue,
+    toEnquiryPayload,
+    type EnquiryIssue,
+} from '@/lib/enquiry';
 import './GetInTouch.css';
 
 const INITIAL = {
@@ -21,14 +29,34 @@ const INITIAL = {
 };
 
 export default function GetInTouch() {
-    const { formData, updateField: handleChange, clearDraft } = useFormStorage('get-in-touch', INITIAL);
+    const { formData, setFormData, updateField, clearDraft } = useFormStorage('get-in-touch', INITIAL);
     const { loading, success, error: formError, submit: sendEnquiry, reset } = useContactForm();
     const { showToast } = useToast();
 
+    // Client-side check before sending: every dropdown has to be answered.
+    // The form keeps `noValidate`, so this — not the browser — reports what's missing.
+    const [issue, setIssue] = useState<EnquiryIssue | null>(null);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        updateField(e);
+        if (issue?.field === e.target.name) setIssue(null);
+    };
+
+    const { ref: budgetRef, onChange: onBudgetChange } = usePoundsInput((budget) => setFormData((prev) => ({ ...prev, budget })));
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        await sendEnquiry(formData as Record<string, string>, 'get-in-touch');
+        const problem = findEnquiryIssue(formData);
+        setIssue(problem);
+        if (problem) {
+            showToast(problem.message, 'error');
+            document.getElementById(`git-${problem.field}`)?.focus();
+            return;
+        }
+        await sendEnquiry(toEnquiryPayload(formData), 'get-in-touch');
     };
+
+    const errorMessage = issue?.message ?? formError;
 
     // Wipe the saved draft the moment Resend confirms delivery.
     useEffect(() => {
@@ -124,11 +152,11 @@ export default function GetInTouch() {
                             <div className="git-form-row">
                                 <div className="git-field">
                                     <label className="git-label" htmlFor="git-name">Full Name <span className="git-required">*</span></label>
-                                    <input className="git-input" id="git-name" type="text" name="name" value={formData.name} onChange={handleChange} required autoComplete="name" />
+                                    <input className="git-input" id="git-name" type="text" name="name" value={formData.name} onChange={handleChange} required autoComplete="name" aria-invalid={issue?.field === 'name'} />
                                 </div>
                                 <div className="git-field">
                                     <label className="git-label" htmlFor="git-email">Email Address <span className="git-required">*</span></label>
-                                    <input className="git-input" id="git-email" type="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" />
+                                    <input className="git-input" id="git-email" type="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" aria-invalid={issue?.field === 'email'} />
                                 </div>
                             </div>
 
@@ -146,8 +174,8 @@ export default function GetInTouch() {
                             <div className="git-form-row git-form-row--full">
                                 <div className="git-field">
                                     <label className="git-label" htmlFor="git-service">Type of Service <span className="git-required">*</span></label>
-                                    <select className="git-select" id="git-service" name="service" value={formData.service} onChange={handleChange} required>
-                                        <option value="" />
+                                    <select className={`git-select${formData.service ? '' : ' git-select--prompt'}`} id="git-service" name="service" value={formData.service} onChange={handleChange} required aria-invalid={issue?.field === 'service'}>
+                                        <option value="" disabled hidden>Select a service</option>
                                         {SERVICE_OPTIONS.map(s => <option key={s.slug} value={s.label}>{s.label}</option>)}
                                     </select>
                                 </div>
@@ -158,20 +186,32 @@ export default function GetInTouch() {
                                     <label className="git-label" htmlFor="git-location">Property Postcode</label>
                                     <input className="git-input" id="git-location" type="text" name="location" value={formData.location} onChange={handleChange} autoComplete="postal-code" />
                                 </div>
+                                {/* Budget — the visitor types an amount in pounds */}
                                 <div className="git-field">
-                                    <label className="git-label" htmlFor="git-budget">Estimated Budget</label>
-                                    <select className="git-select" id="git-budget" name="budget" value={formData.budget} onChange={handleChange}>
-                                        <option value="" />
-                                        {BUDGET_OPTIONS.map(b => <option key={b} value={b}>{b}</option>)}
-                                    </select>
+                                    <label className="git-label" htmlFor="git-budget">Estimated Budget (£)</label>
+                                    <div className="git-pounds">
+                                        <span className="git-pounds__sign" aria-hidden="true">£</span>
+                                        <input
+                                            className="git-input git-pounds__input"
+                                            id="git-budget"
+                                            type="text"
+                                            inputMode="numeric"
+                                            name="budget"
+                                            placeholder="e.g. 25,000"
+                                            autoComplete="off"
+                                            ref={budgetRef}
+                                            value={formData.budget}
+                                            onChange={onBudgetChange}
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
                             <div className="git-form-row git-form-row--full">
                                 <div className="git-field">
-                                    <label className="git-label" htmlFor="git-timeline">Project Timeline</label>
-                                    <select className="git-select" id="git-timeline" name="timeline" value={formData.timeline} onChange={handleChange}>
-                                        <option value="" />
+                                    <label className="git-label" htmlFor="git-timeline">Project Timeline <span className="git-required">*</span></label>
+                                    <select className={`git-select${formData.timeline ? '' : ' git-select--prompt'}`} id="git-timeline" name="timeline" value={formData.timeline} onChange={handleChange} required aria-invalid={issue?.field === 'timeline'}>
+                                        <option value="" disabled hidden>Select a timeline</option>
                                         {TIMELINE_OPTIONS.map(t => <option key={t} value={t}>{t}</option>)}
                                     </select>
                                 </div>
@@ -189,26 +229,21 @@ export default function GetInTouch() {
 
                             <div className="git-form-row git-form-row--full">
                                 <div className="git-field">
-                                    <label className="git-label" htmlFor="git-referral">How Did You Find Us?</label>
-                                    <select className="git-select" id="git-referral" name="referral" value={formData.referral} onChange={handleChange}>
-                                        <option value="" />
-                                        <option value="google">Google Search</option>
-                                        <option value="instagram">Instagram</option>
-                                        <option value="linkedin">LinkedIn</option>
-                                        <option value="referral">Personal Referral</option>
-                                        <option value="press">Press / Editorial</option>
-                                        <option value="other">Other</option>
+                                    <label className="git-label" htmlFor="git-referral">How Did You Find Us? <span className="git-required">*</span></label>
+                                    <select className={`git-select${formData.referral ? '' : ' git-select--prompt'}`} id="git-referral" name="referral" value={formData.referral} onChange={handleChange} required aria-invalid={issue?.field === 'referral'}>
+                                        <option value="" disabled hidden>Select an option</option>
+                                        {REFERRAL_OPTIONS.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
                                     </select>
                                 </div>
                             </div>
 
-                            {formError && (
+                            {errorMessage && (
                                 <div className="git-form-row git-form-row--full">
                                     <div className="git-error-banner" role="alert">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" style={{ flexShrink: 0, marginTop: '1px' }}>
                                             <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
                                         </svg>
-                                        {formError}
+                                        {errorMessage}
                                     </div>
                                 </div>
                             )}

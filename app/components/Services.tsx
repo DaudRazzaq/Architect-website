@@ -7,7 +7,7 @@ export default function Services() {
         {
             title: 'Measured Surveys',
             tagline: 'Laser measured surveys across London',
-            image: surveyImage.src,
+            image: surveyImage,
             href: '/services/measured-surveys'
         },
         {

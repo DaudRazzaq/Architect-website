@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import CTAStrip from '../../components/CTAStrip';
-import { PROJECT_ROLE } from '@/data/projects';
+import { PROJECT_ROLE } from '@/data/project-role';
 import img1 from '../../assets/Project1/1.webp';
 import img2 from '../../assets/Project1/2.webp';
 import img3 from '../../assets/Project1/3.webp';
@@ -21,7 +21,7 @@ import './project.css';
 const MORE_PROJECTS = [
     { title: 'Arboré Sanctuary Café', category: 'Hospitality', image: '/projects/arbore-sanctuary-cafe/1.jpeg', href: '/projects/arbore-sanctuary-cafe' },
     { title: 'SereniFlow Wellness Centre', category: 'Commercial', image: '/projects/sereniflow-wellness-centre/1.jpeg', href: '/projects/sereniflow-wellness-centre' },
-    { title: 'Arboré Sanctuary Café', category: 'Hospitality', image: '/projects/arbore-sanctuary-cafe/2.jpeg', href: '/projects/arbore-sanctuary-cafe' },
+    { title: 'Arboré Sanctuary Café', category: 'Hospitality', image: '/projects/arbore-sanctuary-cafe/4.jpeg', href: '/projects/arbore-sanctuary-cafe' },
 ];
 
 const HERO_SLIDES = [img1, img2, img3, img4, img5, img6, img7, img8];

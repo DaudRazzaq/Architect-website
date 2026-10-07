@@ -394,12 +394,12 @@
 }
 
 /* ---- Narrower desktops ----
-   Seven menu items either side of the centred wordmark only fit at full
-   size from ~1360px, so tighten the type in two steps rather than let the
-   outer links run off the screen. Kept in step with the matching block in
+   Three links either side of the centred wordmark only fit at full size
+   from ~1200px, so tighten the type in two steps rather than let the outer
+   links run off the screen. Kept in step with the matching block in
    Hero.css so the header doesn't shift between the home page and the rest. */
 
-@media (max-width: 1360px) {
+@media (max-width: 1199px) {
     .nav-header__nav {
         gap: 1.1rem;
     }

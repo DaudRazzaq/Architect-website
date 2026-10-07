@@ -35,3 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# client source documents — kept locally for reference, not part of the site
+/Changes to be made.pdf
+/NEW PROJECTS.pptx
